@@ -10,8 +10,8 @@ from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 import markdown
 
 SITE_HOST = "donginensis.com"
-PHOTO_RE = re.compile(r"^\[사진:\s*(.+?)\]\s*$", re.MULTILINE)
-IMAGE_RE = re.compile(r"^\[이미지:\s*(.+?)\]\s*$", re.MULTILINE)
+PHOTO_RE = re.compile(r"^\[사진:\s*(.+?)\][ \t]*$", re.MULTILINE)
+IMAGE_RE = re.compile(r"^\[이미지:\s*(.+?)\][ \t]*$", re.MULTILINE)
 SITE_URL_RE = re.compile(r"https?://(?:www\.)?donginensis\.com[^\s)\"'<>\]]*")
 
 STYLES = {
