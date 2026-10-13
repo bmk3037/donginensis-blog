@@ -89,7 +89,7 @@ def _screenshot(page_html, out, w, h, chrome):
         page.write_text(page_html, encoding="utf-8")
         subprocess.run(
             [chrome, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
-             "--force-device-scale-factor=1", f"--window-size={w},{h}",
+             "--force-device-scale-factor=1", "--default-background-color=00000000", f"--window-size={w},{h}",
              "--virtual-time-budget=3000", f"--screenshot={out}", page.as_uri()],
             check=True, capture_output=True, timeout=120,
         )
