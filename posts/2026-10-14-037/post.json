@@ -32,5 +32,10 @@
       "caption": "모터 설비와 제어반이 있는 생산 현장 (연출 이미지)",
       "prompt": "Photorealistic wide photo of a clean modern Korean factory floor: rows of industrial blowers and electric motors on steel frames, overhead pipes, and a line of light-grey electrical control cabinets with small HMI screens along the wall. Bright even lighting, no people, realistic industrial photography, no brand logos, no readable text. 3:2 landscape."
     }
+  ],
+  "personal_prompts": [
+    "데이터 수집 장비를 따로 붙였다가 유지보수로 고생한 현장을 본 적이 있다면?",
+    "IT기업과 협업할 때 데이터 연결 단계에서 가장 자주 막히는 부분은?",
+    "고객이 '어떤 데이터부터 모아야 하나요?'라고 물으면 보통 뭐라고 답하나요?"
   ]
 }

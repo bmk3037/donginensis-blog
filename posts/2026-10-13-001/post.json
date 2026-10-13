@@ -37,5 +37,10 @@
       "caption": "펌프실에 설치된 제어반 (연출 이미지)",
       "prompt": "Photorealistic photo of an industrial pump room in a Korean factory: several blue centrifugal pumps with electric motors on concrete bases, steel pipes and valves, and a closed light-grey electrical control cabinet with a small touchscreen HMI on its door mounted on the wall nearby. Clean, well-lit, wide angle, realistic industrial photography, no people, no brand logos, no readable text. 3:2 landscape."
     }
+  ],
+  "personal_prompts": [
+    "현장에서 제어반 데이터를 볼 수 없어 곤란했던 경험이 있다면? (예: 고장 원인을 나중에 알 수 없었던 일)",
+    "고객사에서 지능형 제어반에 대해 가장 많이 묻는 질문은?",
+    "35년 동안 제어반을 만들며 가장 크게 바뀌었다고 느끼는 점은?"
   ]
 }

@@ -48,6 +48,8 @@ POST_SCHEMA = {
 BASE_CHECKLIST = [
     "수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)",
     "파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)",
+    "담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)",
+    "붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인",
     "실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)",
     "고객사 이름·현장 사진 공개가 계약상 문제없는지 확인",
     "본문 끝 홈페이지 링크가 눌리는지 확인",
@@ -121,7 +123,8 @@ def write_post(topic, post, today=None):
     (out_dir / "post.json").write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (out_dir / "post.md").write_text(f"# {post['title']}\n\n{body_md}\n", encoding="utf-8")
     (out_dir / "preview.html").write_text(
-        render.preview_page(post["title"], tags, render.to_html(body_md, photos, have), checklist), encoding="utf-8"
+        render.preview_page(post["title"], tags, render.to_html(body_md, photos, have), checklist,
+                            post.get("personal_prompts", [])), encoding="utf-8"
     )
     meta = {
         "topic_id": topic["id"],

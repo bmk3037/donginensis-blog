@@ -132,7 +132,7 @@ ol.check{{margin:0;padding-left:20px;line-height:1.8;font-size:14px}}
 <div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
 <button data-copy="post">본문 복사</button></div>
 <div id="post">{body_html}</div>
-<div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">{tags_esc}</div>
+{personal}<div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">{tags_esc}</div>
 <button data-copy="tags">태그 복사</button></div></div>
 <div class="panel"><h2>발행 전 확인</h2><ol class="check">{checklist}</ol></div>
 </div>
@@ -186,8 +186,19 @@ document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async 
 """
 
 
-def preview_page(title, tags, body_html, checklist):
+def personal_panel(prompts):
+    if not prompts:
+        return ""
+    items = "".join(f"<li>{html.escape(q)}</li>" for q in prompts)
+    return ('<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2>'
+            '<p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. '
+            '사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p>'
+            f'<ol class="check">{items}</ol></div>')
+
+
+def preview_page(title, tags, body_html, checklist, personal_prompts=()):
     return PREVIEW_TEMPLATE.format(
+        personal=personal_panel(personal_prompts),
         title_esc=html.escape(title),
         tags_esc=html.escape(" ".join("#" + t for t in tags)),
         tags_json=json.dumps(tags, ensure_ascii=False),
