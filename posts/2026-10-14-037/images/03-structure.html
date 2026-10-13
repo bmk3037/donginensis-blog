@@ -1,0 +1,18 @@
+<!-- 1200x820 -->
+<div class="frame"><div class="content">
+<div class="kicker">표준 데이터 구조</div>
+<h1>설비가 늘어도 <em>같은 형식</em>으로 받습니다</h1>
+<p class="lead">설비 → 센서 → 실시간값 → 상태, 모든 설비가 같은 구조</p>
+<div class="flow">
+  <div class="node hl"><div class="t">설비</div><div class="d">site_id<br>equipment_id</div></div>
+  <div class="arrow">→</div>
+  <div class="node"><div class="t">센서</div><div class="d">권선온도·베어링 온도<br>진동·전류·전력량 …</div></div>
+  <div class="arrow">→</div>
+  <div class="node"><div class="t">실시간값</div><div class="d">값 + 단위<br>측정 시각·순번</div></div>
+  <div class="arrow">→</div>
+  <div class="node ok"><div class="t">상태</div><div class="d">normal<br>warning · alarm</div></div>
+</div>
+<div class="chips" style="margin-top:34px">
+  <span class="chip">REST API</span><span class="chip">WebSocket 실시간</span><span class="chip">CSV 내보내기</span><span class="chip">센서 하나라도 경고면 설비도 경고</span>
+</div>
+</div></div>

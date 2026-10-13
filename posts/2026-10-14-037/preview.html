@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>설비 데이터 수집, 왜 제어반에서 시작해야 할까</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">설비 데이터 수집, 왜 제어반에서 시작해야 할까</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">스마트팩토리, AI 예지보전, 디지털트윈. 요즘 제조 현장에서 자주 듣는 말들입니다. 그런데 이 모든 것에는 공통된 출발점이 있습니다. 바로 <strong style="font-weight:700;color:#111">설비 데이터 수집</strong>입니다. 이 글에서는 설비 데이터를 어디서부터 모아야 하는지, 그리고 왜 제어반이 가장 확실한 출발점인지 정리해 보겠습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">데이터는 이미 있습니다, 다만 밖으로 나오지 않을 뿐</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">공장의 펌프, 송풍기, 압축기는 대부분 PLC와 인버터로 제어됩니다. 모터에 전류가 얼마나 흐르는지, 회전속도가 얼마인지 같은 정보는 이 제어 장치 안에서 매 순간 오가고 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">문제는 이 정보가 제어반 밖으로 잘 나오지 않는다는 점입니다. 제어반은 원래 설비를 움직이기 위해 만들어졌지, 데이터를 내보내기 위해 만들어진 장치가 아니기 때문입니다. 그래서 설비 상태를 알고 싶으면 사람이 현장을 돌며 확인하거나, 데이터를 모으는 장비를 따로 붙여야 했습니다.</p>
+<div data-img="05-photo-plc-network.png" style="margin:0 0 18px;text-align:center"><img src="images/05-photo-plc-network.png" alt="05-photo-plc-network.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/05-photo-plc-network.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">수집 장비를 덧붙이는 방식에서 생기는 일</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">데이터 수집용 장비(게이트웨이)를 따로 붙이는 방식도 분명 방법입니다. 하지만 현장에서는 몇 가지 어려움이 반복됩니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">현장마다 다른 PLC 기종과 통신 방식:</strong> 공장마다, 설비마다 PLC 제조사와 통신 방식이 달라 연결 작업을 매번 새로 해야 합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">장비 유지보수 부담:</strong> 제어반과 별도로 수집 장비를 관리해야 하고, 문제가 생기면 어디서 끊겼는지 찾기가 어렵습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">프로젝트 지연:</strong> 이런 이유로 MES나 AI를 도입하려던 스마트팩토리 프로젝트가 데이터 연결 단계에서 멈추는 경우가 많습니다.</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스 백민기 대표는 이렇게 말합니다. "AI와 스마트팩토리가 제 역할을 하려면 현장 설비 데이터가 우선 확보되어야 한다."</p>
+<div data-img="02-compare.png" style="margin:0 0 18px;text-align:center"><img src="images/02-compare.png" alt="02-compare.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-compare.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">제어반에서 바로 모으면 달라지는 것</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">지능형 제어반은 설비를 제어하는 바로 그 자리에서 데이터를 함께 수집합니다. 모터 권선온도, 베어링 온도, 회전속도, 전압·전류·전력량, 진동 같은 값을 24시간 기록하고, MQTT 통신으로 클라우드나 고객사 서버에 직접 보냅니다. 현장에는 제어반 1면만 설치하면 되고, 별도 수집 장비가 필요 없습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">데이터 형식도 처음부터 맞춰서 보냅니다. 설비마다 고유 번호를 붙이고, 센서마다 값·단위·상태(정상·경고·알람)를 같은 형식으로 정리합니다. 그래서 설비가 늘어나도 데이터를 받는 쪽에서 연동 작업을 새로 할 필요가 없습니다.</p>
+<div data-img="03-structure.png" style="margin:0 0 18px;text-align:center"><img src="images/03-structure.png" alt="03-structure.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-structure.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이미 다른 회사 PLC가 설치된 현장이라면 어떻게 할까요? 이 경우에는 기존 PLC의 데이터를 <strong style="font-weight:700;color:#111">읽기만</strong> 합니다. OPC UA, Modbus TCP 같은 표준 통신을 우선 검토하고, 현장에 맞는 방식을 정합니다. 설비의 인터록과 최종 제어는 언제나 현장 PLC가 맡고, 서버는 설비를 직접 제어하지 않습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">데이터 수집 다음 단계까지 한 번에</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스는 설비 데이터 수집을 다섯 단계로 연결합니다.</p>
+<ol style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">현장 설비:</strong> 제어반이 설비를 제어하며 데이터 수집</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">산업통신 연결:</strong> Modbus TCP/RTU, MQTT, OPC UA로 안전하게 전송</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">데이터 통합관리:</strong> 데이터허브에 설비별로 정리해 시간 순서대로 저장</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">웹 모니터링:</strong> 대시보드에서 설비 상태와 알람 확인</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">AI·디지털트윈:</strong> 쌓인 데이터를 분석과 예지보전에 활용</li>
+</ol>
+<div data-img="04-steps.png" style="margin:0 0 18px;text-align:center"><img src="images/04-steps.png" alt="04-steps.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/04-steps.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">처음부터 다섯 단계를 모두 갖출 필요는 없습니다. 중요한 설비 1~2대에서 데이터를 모으기 시작하고, 효과를 확인하며 넓혀 가는 방식을 권합니다.</p>
+<div data-img="06-photo-factory-floor.png" style="margin:0 0 18px;text-align:center"><img src="images/06-photo-factory-floor.png" alt="06-photo-factory-floor.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/06-photo-factory-floor.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">정리하면</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 데이터 수집은 스마트팩토리의 첫 단추입니다. 데이터는 이미 제어반 안에 있습니다. 그렇다면 그 데이터를 가장 정확하게, 가장 적은 장비로 꺼낼 수 있는 곳도 제어반입니다. 동인엔시스는 1991년부터 산업·선박 현장의 제어반을 직접 설계·제작해 온 경험으로, 제어반을 설비 데이터의 출발점으로 만들고 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">우리 공장 설비에서 어떤 데이터를 모을 수 있을지 궁금하시다면, 홈페이지에서 <strong style="font-weight:700;color:#111">적용 가능성 진단</strong>을 신청해 보세요. 영업일 기준 1~2일 안에 담당 엔지니어가 연락드립니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/manufacturing.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post037#inquiry">지능형 제어반 적용 가능성 진단 신청하기</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">문의: 051-862-3668 / dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #지능형제어반 #설비데이터수집 #설비데이터 #스마트팩토리 #제조데이터 #PLC데이터수집 #MQTT #OPCUA #예지보전 #산업IoT</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 대표 발언 인용: &quot;AI와 스마트팩토리가 제 역할을 하려면 현장 설비 데이터가 우선 확보되어야 한다&quot; (2026.10 보도자료)</li><li>사실 확인: IT기업 프로젝트가 멈추는 원인: PLC 기종·통신 방식 차이, 게이트웨이 유지보수 부담 (2026.10 보도자료)</li><li>사실 확인: 기존 타사 PLC는 읽기 전용, OPC UA·Modbus TCP 우선 검토</li><li>사실 확인: 솔루션 5단계 구조와 지원 통신(Modbus TCP/RTU, MQTT, OPC UA)</li><li>사실 확인: 설비 1~2대부터 시작, 1991년 설립</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "지능형제어반", "설비데이터수집", "설비데이터", "스마트팩토리", "제조데이터", "PLC데이터수집", "MQTT", "OPCUA", "예지보전", "산업IoT"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>

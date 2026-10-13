@@ -1,6 +1,6 @@
 id,status,category,title,keyword,landing_url,brief
 1,drafted,제품,지능형 제어반이란? 일반 제어반과 무엇이 다른가,지능형 제어반,https://donginensis.com/#product,제어만 하던 제어반이 데이터까지 수집·전송하는 구조. 수집 항목과 별도 수집장비가 필요 없는 이유를 설명
-37,todo,데이터인프라,"설비 데이터 수집, 왜 제어반에서 시작해야 할까",설비 데이터 수집,https://donginensis.com/manufacturing.html#inquiry,PLC·인버터 안에 있지만 밖으로 안 나오는 데이터. 별도 게이트웨이 방식의 유지보수 부담과 제어반 일체형의 차이(경쟁사 언급 없이). 대표 발언 '현장 설비 데이터가 우선'
+37,drafted,데이터인프라,"설비 데이터 수집, 왜 제어반에서 시작해야 할까",설비 데이터 수집,https://donginensis.com/manufacturing.html#inquiry,PLC·인버터 안에 있지만 밖으로 안 나오는 데이터. 별도 게이트웨이 방식의 유지보수 부담과 제어반 일체형의 차이(경쟁사 언급 없이). 대표 발언 '현장 설비 데이터가 우선'
 13,todo,IT협업,MES·AI 기업이 현장 설비 데이터를 받는 가장 쉬운 방법,설비 데이터 API,https://donginensis.com/partner.html#inquiry,REST API·WebSocket·CSV. site_id·equipment_id 표준 구조. 설비가 늘어도 연동 코드 그대로
 3,todo,제조,모터 권선온도와 베어링 온도를 감시해야 하는 이유,모터 온도 감시,https://donginensis.com/manufacturing.html#inquiry,권선온도(U·V·W)·베어링 온도 이상이 의미하는 것. 24시간 기록과 기준값 알람
 5,todo,제조,스마트공장 지원사업으로 지능형 제어반 도입하기,스마트공장 지원사업,https://donginensis.com/manufacturing.html#inquiry,스마트공장 공급기업 등록. 사업 확인부터 사후관리까지 절차. 지원 비율은 공고 기준이라고 안내
