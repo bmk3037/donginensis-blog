@@ -1,0 +1,24 @@
+<!-- 1200x860 -->
+<div class="frame"><div class="content">
+<div class="kicker">데이터 제공 방식</div>
+<h1>모든 설비가 <em>같은 구조</em>로 들어옵니다</h1>
+<div style="display:flex;gap:22px;margin-top:10px">
+  <div class="grid" style="grid-template-columns:1fr;flex:1">
+    <div class="card"><div class="n">REST API</div><div class="d">설비·센서 목록 · 최신값 · 기간별 이력 조회</div></div>
+    <div class="card"><div class="n">WebSocket</div><div class="d">측정값과 상태 변화를 실시간 수신</div></div>
+    <div class="card"><div class="n">CSV</div><div class="d">테스트·분석용 내보내기</div></div>
+  </div>
+  <div style="flex:1.05;background:#0A2A55;color:#E6EDF7;border-radius:8px;padding:24px 26px;font-family:'Courier New',monospace;font-size:19px;line-height:1.6">
+    <div style="font-family:Pretendard;font-size:16px;color:#9FB0C8;margin-bottom:10px">데이터 구조 예시</div>
+    {<br>
+    &nbsp;&nbsp;<span style="color:#8EC5FF">site_id</span>: 현장 번호,<br>
+    &nbsp;&nbsp;<span style="color:#8EC5FF">equipment_id</span>: 설비 번호,<br>
+    &nbsp;&nbsp;센서: [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;{ 이름, 값, 단위, <span style="color:#FFB4AC">상태</span> },<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;…<br>
+    &nbsp;&nbsp;]<br>
+    }<br>
+    <div style="font-family:Pretendard;font-size:16px;color:#9FB0C8;margin-top:12px">상태: normal · warning · alarm<br>세부 규격은 NDA 후 기술 미팅에서 제공</div>
+  </div>
+</div>
+</div></div>
