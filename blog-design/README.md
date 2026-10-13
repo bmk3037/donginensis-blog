@@ -7,8 +7,8 @@
 
 | 파일 | 용도 | 크기 |
 |---|---|---|
-| `images/hero.png` | 큰 배너 (스킨 배경 또는 타이틀). 상담문의 051-862-3668, 홈페이지 QR 포함. 글자와 QR은 가운데 966px 안에 있어 화면 폭이 달라도 잘리지 않음 | 1920×600 |
-| `images/qr-homepage.png` / `.svg` | 홈페이지 QR 단독 (명함·전단·글 끝 등에 재사용). 스캔 시 https://donginensis.com/?utm_source=naver_blog&utm_medium=qr | 정사각형 |
+| `images/hero.png` | 큰 배너 (스킨 배경 또는 타이틀). 상담문의 051-862-3668. 글자는 가운데 966px 안에 있어 화면 폭이 달라도 잘리지 않음 | 1920×600 |
+| `images/qr-homepage.png` / `.svg` | 홈페이지 QR (배너에는 넣지 않음. 명함·전단·전시회 자료용). 스캔 시 https://donginensis.com/?utm_source=naver_blog&utm_medium=qr | 정사각형 |
 | `images/btn-1-home.png` | 버튼 1: 공식 홈페이지 (지금과 같음) | 150×166 |
 | `images/btn-2-panel.png` | 버튼 2: 지능형 제어반 | 150×166 |
 | `images/btn-3-check.png` | 버튼 3: 적용 진단 신청 | 150×166 |
