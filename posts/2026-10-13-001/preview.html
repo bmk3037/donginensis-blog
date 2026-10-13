@@ -16,7 +16,7 @@ ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
 </style></head><body><div class="wrap">
 <div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">지능형 제어반이란? 일반 제어반과 무엇이 다를까</div>
 <button data-copy="title">제목 복사</button></div></div>
-<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자는 실제 사진 자리(없으면 지우기)</h2>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
 <button data-copy="post">본문 복사</button></div>
 <div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
 
@@ -40,7 +40,7 @@ ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
 <div data-img="03-data.png" style="margin:0 0 18px;text-align:center"><img src="images/03-data.png" alt="03-data.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-data.png 넣기</div></div>
 
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 값들을 24시간 기록하고, 미리 정한 기준을 벗어나면 알람으로 알려 줍니다. 예를 들어 베어링 온도가 평소보다 꾸준히 오르고 있다면, 설비가 멈추기 전에 점검 일정을 잡을 수 있습니다.</p>
-<div style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:20px;margin:0 0 18px;text-align:center;font-size:15px">📷 사진 넣을 자리: 제어반 내부 PLC와 인버터 배치</div>
+<div data-img="06-photo-cabinet.png" style="margin:0 0 18px;text-align:center"><img src="images/06-photo-cabinet.png" alt="06-photo-cabinet.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/06-photo-cabinet.png 넣기</div></div>
 
 <h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">별도 수집장비 없이 서버까지 연결됩니다</h2>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">지능형 제어반의 또 다른 차이는 연결 방식입니다. 수집한 데이터를 MQTT라는 통신 방식으로 클라우드나 고객사 서버에 바로 보냅니다. 현장에는 제어반 1면만 설치하면 되고, 데이터 수집용 장비를 따로 둘 필요가 없습니다.</p>
@@ -50,7 +50,7 @@ ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
 <li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">통신 끊김:</strong> 연결이 끊기면 제어반이 측정값을 보관했다가, 복구되면 오래된 순서대로 다시 보냅니다.</li>
 <li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">외부 클라우드를 쓸 수 없는 공장:</strong> 고객사 서버나 사내망에 설치하는 온프레미스 방식으로도 운영할 수 있습니다.</li>
 </ul>
-<div style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:20px;margin:0 0 18px;text-align:center;font-size:15px">📷 사진 넣을 자리: 대시보드 실제 화면 캡처</div>
+<div data-img="07-photo-pumproom.png" style="margin:0 0 18px;text-align:center"><img src="images/07-photo-pumproom.png" alt="07-photo-pumproom.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/07-photo-pumproom.png 넣기</div></div>
 
 <h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">기존 설비는 그대로 두고 시작할 수 있습니다</h2>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">지능형 제어반은 펌프, 송풍기, 팬, 압축기, 컨베이어, 크레인처럼 모터로 움직이는 설비 대부분에 적용할 수 있습니다. 설비 자체를 바꾸는 것이 아니라 제어반만 교체하거나 새로 설치하는 방식입니다.</p>
@@ -58,7 +58,7 @@ ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">한 가지 솔직하게 말씀드리면, 기준값을 넘을 때 알려 주는 알람은 바로 쓸 수 있지만, AI가 이상 징후를 찾아내는 기능은 아직 고도화하는 단계입니다. 우선 데이터를 제대로 쌓는 것이 예지보전의 첫걸음입니다.</p>
 <div data-img="04-start.png" style="margin:0 0 18px;text-align:center"><img src="images/04-start.png" alt="04-start.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/04-start.png 넣기</div></div>
 
-<div style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:20px;margin:0 0 18px;text-align:center;font-size:15px">📷 사진 넣을 자리: 양산 공장에서 제어반을 배선·검사하는 모습</div>
+<div data-img="05-photo-workshop.png" style="margin:0 0 18px;text-align:center"><img src="images/05-photo-workshop.png" alt="05-photo-workshop.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/05-photo-workshop.png 넣기</div></div>
 
 <h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">정리하면</h2>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">일반 제어반이 설비를 '움직이는' 장치라면, 지능형 제어반은 설비를 움직이면서 그 상태를 '기록하고 알려 주는' 장치입니다. 동인엔시스는 1991년부터 산업·선박 현장의 제어반을 직접 설계·제작해 왔고, 750건이 넘는 프로젝트 경험을 지능형 제어반에 담았습니다.</p>
@@ -68,7 +68,7 @@ ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">문의: 051-862-3668 / dongin@donginmne.com</p></div>
 <div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #지능형제어반 #제어반 #설비데이터 #스마트팩토리 #예지보전 #설비모니터링 #PLC #MQTT #제어반제작</div>
 <button data-copy="tags">태그 복사</button></div></div>
-<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>노란 상자: 실제 현장·제작·제어반 사진이 있으면 교체, 없으면 상자 삭제</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 수집 항목: 모터 권선온도(U·V·W), 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 대기 온습도, 운전 상태신호</li><li>사실 확인: MQTT/TLS 암호화, 인터록과 최종 제어는 현장 PLC 담당</li><li>사실 확인: 통신 끊김 시 제어반 보관 후 재전송</li><li>사실 확인: 설비 1~2대부터 시작, 표준 구축 기간 9~15주</li><li>사실 확인: 1991년 설립, 750건 이상 프로젝트</li><li>사실 확인: AI 이상탐지는 PoC 단계에서 고도화 중</li></ol></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 수집 항목: 모터 권선온도(U·V·W), 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 대기 온습도, 운전 상태신호</li><li>사실 확인: MQTT/TLS 암호화, 인터록과 최종 제어는 현장 PLC 담당</li><li>사실 확인: 통신 끊김 시 제어반 보관 후 재전송</li><li>사실 확인: 설비 1~2대부터 시작, 표준 구축 기간 9~15주</li><li>사실 확인: 1991년 설립, 750건 이상 프로젝트</li><li>사실 확인: AI 이상탐지는 PoC 단계에서 고도화 중</li></ol></div>
 </div>
 <script>
 const TAGS = ["동인엔시스", "지능형제어반", "제어반", "설비데이터", "스마트팩토리", "예지보전", "설비모니터링", "PLC", "MQTT", "제어반제작"];
@@ -76,6 +76,12 @@ async function copy(id, btn) {
   let el = document.getElementById(id);
   if (id === "post") {
     el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
     el.querySelectorAll("[data-img]").forEach(box => {
       const p = document.createElement("p");
       p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
@@ -102,4 +108,12 @@ async function copy(id, btn) {
   btn.textContent = "복사됨 ✓"; btn.classList.add("done");
 }
 document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
 </script></body></html>

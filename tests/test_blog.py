@@ -169,3 +169,23 @@ class FromJsonTest(unittest.TestCase):
             self.assertEqual(topics.load(csv_path)[0]["status"], "drafted")
         finally:
             shutil.rmtree(tmp)
+
+
+class PhotoTest(unittest.TestCase):
+    PHOTOS = [{"file": "05-photo-a.png", "caption": "배선 작업", "prompt": "Photorealistic control cabinet"}]
+
+    def test_missing_photo_shows_chatgpt_prompt(self):
+        out = render.to_html("[사진: 05-photo-a.png]", self.PHOTOS, have=set())
+        self.assertIn('data-photo="05-photo-a.png"', out)
+        self.assertIn("Photorealistic control cabinet", out)
+        self.assertIn("프롬프트 복사", out)
+        issue = render.to_issue_markdown("[사진: 05-photo-a.png]", self.PHOTOS, have=set())
+        self.assertIn("ChatGPT 프롬프트", issue)
+
+    def test_existing_photo_shows_image(self):
+        out = render.to_html("[사진: 05-photo-a.png]", self.PHOTOS, have={"05-photo-a.png"})
+        self.assertIn('data-img="05-photo-a.png"', out)
+        self.assertNotIn("data-photo", out)
+
+    def test_legacy_photo_slot(self):
+        self.assertIn("사진 넣을 자리: 현장 사진", render.to_html("[사진: 현장 사진]"))

@@ -5,6 +5,7 @@
 
 사용법:
     python -m blog.images posts/2026-10-13-001
+    (생성 사진 원본은 posts/<글>/photos-src/*.png 에 두면 '연출 이미지' 표기를 붙여 images/로 저장)
     python -m blog.images posts/2026-10-13-001 --cover "지능형 제어반이란?" --sub "설명" --kicker "제품 이야기" --tags 설비데이터 예지보전
 """
 import argparse
@@ -13,6 +14,7 @@ import html
 import os
 import re
 import shutil
+import struct
 import subprocess
 import sys
 import tempfile
@@ -62,6 +64,37 @@ def wrap(fragment):
     return PAGE.format(fonts=(ASSETS / "fonts").as_uri(), css=(ASSETS / "image.css").as_uri(), body=fragment)
 
 
+def png_size(path):
+    with open(path, "rb") as f:
+        head = f.read(24)
+    if head[:8] != b"\x89PNG\r\n\x1a\n":
+        raise ValueError(f"{path.name}: PNG 파일만 지원합니다")
+    return struct.unpack(">II", head[16:24])
+
+
+def label_photo(src, out, chrome):
+    """생성 사진에 '연출 이미지' 표기와 회사 로고를 붙여 images/로 저장합니다."""
+    w, h = png_size(src)
+    body = (f'<div class="photo"><img class="src" src="{src.resolve().as_uri()}">'
+            '<span class="badge">연출 이미지</span>'
+            f'<img class="wm" src="{(ASSETS / "logo" / "logo_white.png").as_uri()}"></div>')
+    page_html = PAGE.format(fonts=(ASSETS / "fonts").as_uri(), css=(ASSETS / "image.css").as_uri(), body=body)
+    _screenshot(page_html, out, w, h, chrome)
+    return out
+
+
+def _screenshot(page_html, out, w, h, chrome):
+    with tempfile.TemporaryDirectory() as tmp:
+        page = Path(tmp) / "page.html"
+        page.write_text(page_html, encoding="utf-8")
+        subprocess.run(
+            [chrome, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
+             "--force-device-scale-factor=1", f"--window-size={w},{h}",
+             "--virtual-time-budget=3000", f"--screenshot={out}", page.as_uri()],
+            check=True, capture_output=True, timeout=120,
+        )
+
+
 def render_file(src, chrome):
     text = src.read_text(encoding="utf-8")
     m = SIZE_RE.search(text)
@@ -69,15 +102,7 @@ def render_file(src, chrome):
         raise ValueError(f"{src.name}: 첫 줄에 <!-- 1200x800 --> 같은 크기 표시가 없습니다")
     w, h = m.groups()
     out = src.with_suffix(".png")
-    with tempfile.TemporaryDirectory() as tmp:
-        page = Path(tmp) / "page.html"
-        page.write_text(wrap(text), encoding="utf-8")
-        subprocess.run(
-            [chrome, "--headless", "--no-sandbox", "--disable-gpu", "--hide-scrollbars",
-             "--force-device-scale-factor=1", f"--window-size={w},{h}",
-             "--virtual-time-budget=3000", f"--screenshot={out}", page.as_uri()],
-            check=True, capture_output=True, timeout=120,
-        )
+    _screenshot(wrap(text), out, w, h, chrome)
     return out
 
 
@@ -97,11 +122,16 @@ def cover_fragment(title, sub="", kicker="", tags=()):
 
 
 def render_dir(post_dir):
+    """images/*.html → PNG, photos-src/*.png(생성 사진 원본) → images/ 에 '연출 이미지' 표기 후 저장"""
     chrome = find_chrome()
+    post_dir = Path(post_dir)
     outs = []
-    for src in sorted((Path(post_dir) / "images").glob("*.html")):
+    for src in sorted((post_dir / "images").glob("*.html")):
         outs.append(render_file(src, chrome))
-        print(f"  ✓ {outs[-1].relative_to(ROOT) if outs[-1].is_relative_to(ROOT) else outs[-1]}")
+    for src in sorted((post_dir / "photos-src").glob("*.png")):
+        outs.append(label_photo(src, post_dir / "images" / src.name, chrome))
+    for out in outs:
+        print(f"  ✓ {out}")
     return outs
 
 

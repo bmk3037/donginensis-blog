@@ -55,9 +55,38 @@ def tag_site_links(text, campaign):
     return SITE_URL_RE.sub(lambda m: add_utm(m.group(0), campaign), text)
 
 
-def to_html(body_md):
-    """마크다운 본문 → 인라인 스타일 HTML"""
-    body_md = PHOTO_RE.sub(lambda m: "\n" + PHOTO_BOX.format(html.escape(m.group(1))) + "\n", body_md)
+# 사진 파일이 아직 없을 때: ChatGPT 등에서 만들 수 있게 프롬프트와 복사 버튼을 보여 줍니다
+PROMPT_BOX = (
+    '<div data-photo="{name}" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;'
+    'padding:18px;margin:0 0 18px;font-size:15px">'
+    '<div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: {caption} <span style="font-weight:400">(파일 이름: {name})</span></div>'
+    '<div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. '
+    '생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div>'
+    '<pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;'
+    'font-size:13px;color:#333">{prompt}</pre>'
+    '<button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>'
+)
+
+
+def photo_map(photos):
+    return {p["file"]: p for p in (photos or [])}
+
+
+def _photo_html(value, photos, have):
+    photo = photos.get(value)
+    if photo is None:  # 예전 형식: [사진: 설명]
+        return PHOTO_BOX.format(html.escape(value))
+    if value in have:
+        return IMAGE_BOX.format(name=html.escape(value))
+    return PROMPT_BOX.format(name=html.escape(value), caption=html.escape(photo.get("caption", "")),
+                             prompt=html.escape(photo.get("prompt", "")))
+
+
+def to_html(body_md, photos=None, have=()):
+    """마크다운 본문 → 인라인 스타일 HTML.
+    photos: [{"file", "caption", "prompt"}], have: images/ 폴더에 실제로 있는 파일 이름들"""
+    photos, have = photo_map(photos), set(have)
+    body_md = PHOTO_RE.sub(lambda m: "\n" + _photo_html(m.group(1), photos, have) + "\n", body_md)
     body_md = IMAGE_RE.sub(lambda m: "\n" + IMAGE_BOX.format(name=html.escape(m.group(1))) + "\n", body_md)
     out = markdown.markdown(body_md, extensions=["tables", "sane_lists"])
     for tag, style in STYLES.items():
@@ -65,10 +94,21 @@ def to_html(body_md):
     return out
 
 
-def to_issue_markdown(body_md):
+def to_issue_markdown(body_md, photos=None, have=()):
     """GitHub 이슈에서 읽기 좋게: 사진 자리를 눈에 띄는 인용문으로"""
+    photos, have = photo_map(photos), set(have)
+
+    def photo(m):
+        value = m.group(1)
+        if value not in photos:
+            return f"> 📷 **사진 넣을 자리:** {value} (실제 사진이 없으면 생략)"
+        if value in have:
+            return f"> 🖼 **사진 넣기 (연출 이미지):** `images/{value}`"
+        return (f"> 📷 **사진 넣을 자리:** {photos[value].get('caption', '')} — `{value}`\n"
+                f">\n> ChatGPT 프롬프트:\n> ```\n> {photos[value].get('prompt', '')}\n> ```")
+
     body_md = IMAGE_RE.sub(lambda m: f"> 🖼 **이미지 넣기:** `images/{m.group(1)}`", body_md)
-    return PHOTO_RE.sub(lambda m: f"> 📷 **사진 넣을 자리:** {m.group(1)} (실제 사진이 없으면 생략)", body_md)
+    return PHOTO_RE.sub(photo, body_md)
 
 
 PREVIEW_TEMPLATE = """<!doctype html>
@@ -89,7 +129,7 @@ ol.check{{margin:0;padding-left:20px;line-height:1.8;font-size:14px}}
 </style></head><body><div class="wrap">
 <div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">{title_esc}</div>
 <button data-copy="title">제목 복사</button></div></div>
-<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자는 실제 사진 자리(없으면 지우기)</h2>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
 <button data-copy="post">본문 복사</button></div>
 <div id="post">{body_html}</div>
 <div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">{tags_esc}</div>
@@ -102,6 +142,12 @@ async function copy(id, btn) {{
   let el = document.getElementById(id);
   if (id === "post") {{
     el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {{
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    }});
     el.querySelectorAll("[data-img]").forEach(box => {{
       const p = document.createElement("p");
       p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
@@ -128,6 +174,14 @@ async function copy(id, btn) {{
   btn.textContent = "복사됨 ✓"; btn.classList.add("done");
 }}
 document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {{
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try {{ await navigator.clipboard.writeText(text); }} catch (e) {{
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }}
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+}});
 </script></body></html>
 """
 

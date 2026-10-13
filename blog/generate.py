@@ -48,7 +48,7 @@ POST_SCHEMA = {
 BASE_CHECKLIST = [
     "수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)",
     "파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)",
-    "노란 상자: 실제 현장·제작·제어반 사진이 있으면 교체, 없으면 상자 삭제",
+    "실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)",
     "고객사 이름·현장 사진 공개가 계약상 문제없는지 확인",
     "본문 끝 홈페이지 링크가 눌리는지 확인",
     "태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)",
@@ -113,11 +113,15 @@ def write_post(topic, post, today=None):
     body_md = render.tag_site_links(post["body_markdown"], campaign)
     tags = [t.lstrip("#").replace(" ", "") for t in post["tags"]]
     checklist = BASE_CHECKLIST + [f"사실 확인: {c}" for c in post["fact_check"]]
+    photos = post.get("photos", [])
+    have = {p.name for p in (out_dir / "images").glob("*.png")}
+    if any(p["file"] not in have for p in photos):
+        checklist.insert(2, "사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 '연출 이미지' 표기)")
 
     (out_dir / "post.json").write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (out_dir / "post.md").write_text(f"# {post['title']}\n\n{body_md}\n", encoding="utf-8")
     (out_dir / "preview.html").write_text(
-        render.preview_page(post["title"], tags, render.to_html(body_md), checklist), encoding="utf-8"
+        render.preview_page(post["title"], tags, render.to_html(body_md, photos, have), checklist), encoding="utf-8"
     )
     meta = {
         "topic_id": topic["id"],
@@ -129,7 +133,9 @@ def write_post(topic, post, today=None):
         "created": today.isoformat(),
     }
     (out_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (out_dir / "issue.md").write_text(issue_body(topic, post["title"], tags, body_md, checklist, out_dir), encoding="utf-8")
+    (out_dir / "issue.md").write_text(
+        issue_body(topic, post["title"], tags, render.to_issue_markdown(body_md, photos, have), checklist, out_dir),
+        encoding="utf-8")
     return out_dir
 
 
@@ -156,7 +162,7 @@ def issue_body(topic, title, tags, body_md, checklist, out_dir):
         f"### 발행 전 확인\n{checks}\n\n"
         "발행한 뒤 이 이슈에 네이버 글 주소를 댓글로 남기고 이슈를 닫으면 주제 목록에 '발행됨'으로 기록됩니다.\n\n"
         "---\n\n"
-        f"{render.to_issue_markdown(body_md)}\n"
+        f"{body_md}\n"
     )
 
 

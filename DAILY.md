@@ -9,7 +9,8 @@ API 키 없이, 대화창의 Claude가 직접 글과 이미지를 만듭니다. 
 ## 2. 글 쓰기 → `posts/<오늘>-<id>/post.json`
 - 반드시 `knowledge/company.md`(사실)와 `knowledge/style.md`(규칙)를 다시 읽고 씁니다
 - JSON 형식: `title`, `body_markdown`, `tags`(8~12개), `fact_check`(사람이 확인할 사실 목록)
-- 본문 맨 위 `[이미지: 01-cover.png]`, 중간에 설명 이미지 2~3장 `[이미지: 0N-name.png]`, 실제 사진 자리 1~2곳 `[사진: 설명]`
+- 본문 맨 위 `[이미지: 01-cover.png]`, 중간에 설명 이미지 2~3장 `[이미지: 0N-name.png]`, 사진 2~3장 `[사진: 0N-photo-name.png]`
+- post.json `photos`: `[{"file": "05-photo-workshop.png", "caption": "… (연출 이미지)", "prompt": "영어 프롬프트"}]`
 - 공백 포함 2,000~3,500자, 핵심 키워드 4~6회, 소제목 3~5개
 - 마무리: 지능형 제어반 데이터 인프라로 연결 → 진단 신청(제조) 또는 협업 문의(IT) 링크 1개
 
@@ -21,6 +22,10 @@ API 키 없이, 대화창의 Claude가 직접 글과 이미지를 만듭니다. 
   ```bash
   python -m blog.images posts/<dir> --cover "제목 첫줄\n*강조 단어*\n셋째 줄" --sub "부제" --kicker "INTELLIGENT CONTROL PANEL · 번호" --tags 태그1 태그2 태그3
   ```
+- **사진 생성**: 각 `photos[].prompt`로 Figma `generate_image` (planKey `team::1685988044694788508`, model `gemini-3.1-flash-image`, 1536×1024) 호출
+  → 결과 URL을 `posts/<dir>/photos-src/<file>`로 내려받기 → 다시 `python -m blog.images posts/<dir>` 실행하면 '연출 이미지' 표기 후 images/에 저장
+  - 생성 실패(크레딧 소진 등)면 그대로 둡니다. 미리보기에 ChatGPT 프롬프트가 자동으로 나옵니다. 사용자에게 알려 주기
+  - 생성된 사진을 열어 이상한 글자·로고·어색한 손 등이 없는지 확인, 문제 있으면 1번만 다시 생성
 - PNG를 열어 글자 잘림·넘침이 없는지 눈으로 확인
 
 ## 4. 미리보기·묶음 만들기
