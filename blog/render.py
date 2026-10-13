@@ -41,6 +41,14 @@ IMAGE_BOX = (
 )
 
 
+def char_count(body_md):
+    """네이버 에디터 기준에 가깝게 본문 글자 수를 셉니다: (공백 포함, 공백 제외)"""
+    text = PHOTO_RE.sub("", IMAGE_RE.sub("", body_md))
+    text = re.sub(r"\]\(https?://[^)]*\)", "", text)  # 링크 주소
+    text = re.sub(r"[#*\[\]>]", "", text).strip()
+    return len(text), len(re.sub(r"\s", "", text))
+
+
 def add_utm(url, campaign):
     """홈페이지 링크에 유입 추적용 UTM을 붙입니다. #앵커는 뒤에 그대로 둡니다."""
     parts = urlsplit(url)

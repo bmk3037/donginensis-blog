@@ -189,3 +189,9 @@ class PhotoTest(unittest.TestCase):
 
     def test_legacy_photo_slot(self):
         self.assertIn("사진 넣을 자리: 현장 사진", render.to_html("[사진: 현장 사진]"))
+
+
+class CharCountTest(unittest.TestCase):
+    def test_ignores_markers_links_and_markup(self):
+        md = "[이미지: 01-cover.png]\n\n## 제목\n\n**굵게** 글 [링크](https://donginensis.com/)"
+        self.assertEqual(render.char_count(md), (len("제목\n\n굵게 글 링크"), len("제목굵게글링크")))

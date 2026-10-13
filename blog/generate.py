@@ -187,6 +187,9 @@ def main(argv=None):
         topic = topics.find(rows, args.id[0])
         post = json.loads(Path(args.from_json).read_text(encoding="utf-8"))
         out_dir = write_post(topic, post, today=day)
+        with_space, no_space = render.char_count(post["body_markdown"])
+        warn = "  ⚠ 2,500자 미만 — 내용 보강 필요" if no_space < 2500 else ""
+        print(f"  글자 수: 공백 제외 {no_space:,}자 / 공백 포함 {with_space:,}자{warn}")
         if topic["status"] == "todo":
             topics.set_status(topic["id"], "drafted")
         print(f"  → {out_dir.relative_to(ROOT).as_posix()}/preview.html")
