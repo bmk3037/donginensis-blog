@@ -1,31 +1,39 @@
 # 동인엔시스 네이버 블로그 초안 자동화
 
-[blog.naver.com/donginensis](https://blog.naver.com/donginensis)에 올릴 글의 초안을 매주 자동으로 만들어
+[blog.naver.com/donginensis](https://blog.naver.com/donginensis)에 올릴 글을 매일 1편(이미지 포함) 만들어
 **donginensis.com으로 방문자를 보내기 위한** 도구입니다.
 
 네이버 블로그는 공식 글쓰기 API가 없어서 완전 자동 발행은 할 수 없습니다. 무리하게 자동으로 올리면(매크로)
 블로그가 저품질 판정을 받을 수 있습니다. 그래서 이 도구는 **초안 작성까지 자동**으로 하고,
 **검수·사진·발행은 사람이** 합니다. 글 1편에 10~15분 정도 걸립니다.
 
-## 매주 흐름
+## 매일 흐름
 
 ```
-월요일 오전 9시  초안 2편 자동 작성 → GitHub 이슈로 검수 요청 (메일 알림)
-      ↓
-담당자          이슈에서 사실 확인 체크 → preview.html 열기 → [본문 복사]
-      ↓
-네이버 블로그    붙여넣기 → 노란 상자를 현장 사진으로 교체 → 태그 입력 → 예약 발행
-      ↓
-GitHub 이슈     네이버 글 주소를 댓글로 남기고 이슈 닫기 → 주제 목록에 '발행됨' 자동 기록
+매일 아침   Claude가 글 1편 + 이미지 4장(표지·설명도) 작성 → 저장소에 저장, 검수 이슈 생성, zip 전달
+   ↓
+담당자      zip 풀기 → preview.html 열기 → 사실 확인 → [제목 복사] [본문 복사]
+   ↓
+네이버      붙여넣기 → 파란 상자 자리에 images 폴더 그림 끌어다 놓기
+            → (있으면) 노란 상자에 실제 현장 사진 → 태그 → 발행/예약 발행
+   ↓
+GitHub      이슈에 네이버 글 주소 댓글 → 이슈 닫기 → 주제 목록에 '발행됨' 기록
 ```
 
-## 처음 한 번 설정
+- 별도 결제 없이 대화창의 Claude가 씁니다. 작업 절차는 [`DAILY.md`](DAILY.md)
+- 이미지는 회사소개서·홈페이지 서식(로고, 파랑 #1857A5, 빨강 #E83E30, Pretendard)을 따릅니다 → `assets/image.css`
+- 나중에 Anthropic API 키를 등록하면 `.github/workflows/weekly-draft.yml`로 자동 실행도 가능합니다
 
-1. **Anthropic API 키 발급**: https://console.anthropic.com → API Keys → Create Key
-   (글 1편에 수백 원 수준. 콘솔에서 월 사용 한도를 정해 두세요)
-2. 이 저장소 **Settings → Secrets and variables → Actions → New repository secret**
-   - 이름: `ANTHROPIC_API_KEY` / 값: 위에서 받은 키
-3. **Actions** 탭 → "주간 블로그 초안" → **Run workflow** 로 한 번 시험해 보세요.
+## 상위 노출 전략
+
+| 항목 | 방법 |
+|---|---|
+| 한 분야 집중 (C-Rank) | 모든 글을 "산업설비 데이터·제어"로. 매일 같은 분야 글이 쌓이면 전문 블로그로 평가 |
+| 독창적 이미지 | 글마다 직접 만든 표지·구조도 3~4장 + 가능하면 실제 현장 사진 |
+| 검색어 | 제목 앞쪽에 핵심 키워드, 본문 4~6회, 첫 문단에 요약 |
+| 꾸준함 | 매일 비슷한 시간에 발행 (예약 발행 활용) |
+| 체류 시간 | 2,000~3,500자, 소제목·목록·그림으로 끝까지 읽히게 |
+| 사업 연결 | 글 끝마다 진단 신청(제조기업) 또는 협업 문의(IT기업)로 연결 |
 
 ## 폴더 구성
 
@@ -33,11 +41,12 @@ GitHub 이슈     네이버 글 주소를 댓글로 남기고 이슈 닫기 → 
 |---|---|---|
 | `knowledge/company.md` | 회사 자료(제품, 실적, 인증). **AI는 여기 적힌 사실만 씁니다** | 새 실적·인증이 생기면 추가 |
 | `knowledge/style.md` | 말투, 네이버 검색 노출 규칙, 금지 사항 | 원하는 글 스타일이 바뀌면 |
-| `topics.csv` | 주제 목록 (36개 준비됨). `status`: todo → drafted → published | 엑셀로 열어 주제 추가 |
-| `posts/날짜-번호/` | 만들어진 초안. `preview.html`(붙여넣기용), `post.md`, `meta.json` | 자동 생성 |
+| `topics.csv` | 주제 목록 (43개, 사업 기여도 순). `status`: todo → drafted → published | 엑셀로 열어 주제 추가 |
+| `posts/날짜-번호/` | 만들어진 글. `preview.html`(붙여넣기용), `images/`(표지·설명 이미지), `post.json` | Claude |
+| `assets/` | 회사 로고, Pretendard 글꼴(OFL), 이미지 서식 `image.css` | 서식이 바뀌면 |
 | `blog/` | 프로그램 코드 | — |
 
-`posts/2026-10-13-001/`에 샘플 글 1편이 들어 있습니다. `preview.html`을 내려받아 브라우저로 열어 보세요.
+`posts/2026-10-13-001/`이 첫 글입니다.
 
 ## 주제 추가하는 법
 
@@ -61,16 +70,15 @@ GitHub 이슈     네이버 글 주소를 댓글로 남기고 이슈 닫기 → 
 홈페이지에 Google Analytics나 네이버 애널리틱스가 설치되어 있으면 **어느 글에서 몇 명이 들어왔는지** 볼 수 있습니다.
 (아직 없다면 홈페이지에 분석 도구를 먼저 설치하는 것을 권합니다.)
 
-## 내 컴퓨터에서 직접 실행
+## 명령어
 
 ```bash
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=...        # Windows: set ANTHROPIC_API_KEY=...
-python -m blog.generate             # 다음 주제 1편
-python -m blog.generate --id 17     # 17번 주제
-python -m blog.generate --dry-run   # API 호출 없이 프롬프트만 확인
-python -m blog.mark --id 17 --status published
+python -m blog.images posts/<폴더> --cover "제목" --sub "부제"      # 이미지 만들기 (Chromium 필요)
+python -m blog.generate --id 17 --from-json post.json --pack out   # 미리보기 + zip
+python -m blog.mark --id 17 --status published                     # 발행됨 표시
 python -m unittest discover -s tests
+# API 키가 있을 때: ANTHROPIC_API_KEY=... python -m blog.generate --id 17
 ```
 
 ## 네이버 블로그 운영 팁

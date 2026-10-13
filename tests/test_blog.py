@@ -130,3 +130,42 @@ class GenerateTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ImageTest(unittest.TestCase):
+    def test_image_marker_in_preview_and_issue(self):
+        md = "글\n\n[이미지: 02-structure.png]\n\n끝"
+        self.assertIn('data-img="02-structure.png"', render.to_html(md))
+        self.assertIn('src="images/02-structure.png"', render.to_html(md))
+        self.assertIn("이미지 넣기:** `images/02-structure.png`", render.to_issue_markdown(md))
+
+    def test_wrap_adds_logo_and_footer(self):
+        from blog import images
+        page = images.wrap('<!-- 1200x800 -->\n<div class="frame"><div class="content"><h1>t</h1></div></div>')
+        self.assertIn("logo_color.png", page)
+        self.assertIn("donginensis.com", page)
+        cover = images.wrap(images.cover_fragment("제목 *강조*", "부제", "KICKER", ["태그"]))
+        self.assertIn("logo_white.png", cover)
+        self.assertIn("<em>강조</em>", cover)
+
+
+class FromJsonTest(unittest.TestCase):
+    def test_from_json_builds_post_and_zip(self):
+        tmp = Path(tempfile.mkdtemp())
+        try:
+            csv_path = tmp / "topics.csv"
+            topics.save([{"id": "9", "status": "todo", "category": "A", "title": "t", "keyword": "k",
+                          "landing_url": "https://donginensis.com/", "brief": "b"}], csv_path)
+            src = tmp / "post.json"
+            src.write_text(json.dumps(SAMPLE_POST, ensure_ascii=False), encoding="utf-8")
+            with mock.patch.object(generate, "POSTS_DIR", tmp / "posts"), mock.patch.object(generate, "ROOT", tmp), \
+                    mock.patch.object(topics, "TOPICS_CSV", csv_path), \
+                    mock.patch.object(topics.load, "__defaults__", (csv_path,)), \
+                    mock.patch.object(topics.set_status, "__defaults__", (csv_path,)):
+                generate.main(["--id", "9", "--from-json", str(src), "--date", "2026-10-14", "--pack", str(tmp / "out")])
+            out = tmp / "posts" / "2026-10-14-009"
+            self.assertTrue((out / "post.json").exists())
+            self.assertTrue((tmp / "out" / "2026-10-14-009.zip").exists())
+            self.assertEqual(topics.load(csv_path)[0]["status"], "drafted")
+        finally:
+            shutil.rmtree(tmp)

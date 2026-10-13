@@ -1,8 +1,10 @@
-name: 주간 블로그 초안
+name: 블로그 초안 (API 키 사용 시)
 
+# 지금은 대화창의 Claude가 매일 직접 씁니다(DAILY.md). Anthropic API 키를 등록하면
+# Actions 탭에서 수동 실행할 수 있고, 아래 schedule 주석을 풀면 자동 실행됩니다.
 on:
-  schedule:
-    - cron: "0 0 * * 1"   # 매주 월요일 오전 9시 (한국 시간)
+  # schedule:
+  #   - cron: "0 0 * * 1"   # 매주 월요일 오전 9시 (한국 시간)
   workflow_dispatch:
     inputs:
       count:

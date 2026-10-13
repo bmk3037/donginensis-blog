@@ -5,6 +5,8 @@
     python -m blog.generate --count 2       # 다음 주제 2편
     python -m blog.generate --id 17         # 특정 주제
     python -m blog.generate --id 17 --dry-run   # API 호출 없이 보낼 프롬프트만 출력
+    python -m blog.generate --id 17 --from-json post.json --date 2026-10-14
+        # API 없이: 대화창에서 Claude가 쓴 글(JSON)로 미리보기·이미지 묶음 만들기
 
 결과물: posts/<날짜>-<id>/ 아래 preview.html(붙여넣기용), post.md, meta.json, issue.md
 """
@@ -12,6 +14,7 @@ import argparse
 import datetime as dt
 import json
 import sys
+import zipfile
 from pathlib import Path
 
 import anthropic
@@ -110,6 +113,7 @@ def write_post(topic, post, today=None):
     tags = [t.lstrip("#").replace(" ", "") for t in post["tags"]]
     checklist = BASE_CHECKLIST + [f"사실 확인: {c}" for c in post["fact_check"]]
 
+    (out_dir / "post.json").write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (out_dir / "post.md").write_text(f"# {post['title']}\n\n{body_md}\n", encoding="utf-8")
     (out_dir / "preview.html").write_text(
         render.preview_page(post["title"], tags, render.to_html(body_md), checklist), encoding="utf-8"
@@ -126,6 +130,18 @@ def write_post(topic, post, today=None):
     (out_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (out_dir / "issue.md").write_text(issue_body(topic, post["title"], tags, body_md, checklist, out_dir), encoding="utf-8")
     return out_dir
+
+
+def pack(out_dir, dest_dir):
+    """네이버에 올릴 때 필요한 파일(미리보기 + 이미지)을 zip 하나로 묶습니다."""
+    dest_dir = Path(dest_dir)
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    zip_path = dest_dir / f"{out_dir.name}.zip"
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        zf.write(out_dir / "preview.html", f"{out_dir.name}/preview.html")
+        for png in sorted((out_dir / "images").glob("*.png")):
+            zf.write(png, f"{out_dir.name}/images/{png.name}")
+    return zip_path
 
 
 def issue_body(topic, title, tags, body_md, checklist, out_dir):
@@ -148,9 +164,26 @@ def main(argv=None):
     parser.add_argument("--id", action="append", help="특정 주제 id (여러 번 지정 가능)")
     parser.add_argument("--count", type=int, default=1, help="다음 주제 몇 편 (--id가 없을 때)")
     parser.add_argument("--dry-run", action="store_true", help="API를 부르지 않고 프롬프트만 출력")
+    parser.add_argument("--from-json", help="API 대신 이미 쓴 글(JSON: title, body_markdown, tags, fact_check)을 사용")
+    parser.add_argument("--date", help="글 폴더 날짜 (YYYY-MM-DD, 기본: 오늘)")
+    parser.add_argument("--pack", help="미리보기+이미지 zip을 만들 폴더")
     args = parser.parse_args(argv)
+    day = dt.date.fromisoformat(args.date) if args.date else None
 
     rows = topics.load()
+    if args.from_json:
+        if not args.id or len(args.id) != 1:
+            parser.error("--from-json은 --id 하나와 함께 써야 합니다")
+        topic = topics.find(rows, args.id[0])
+        post = json.loads(Path(args.from_json).read_text(encoding="utf-8"))
+        out_dir = write_post(topic, post, today=day)
+        if topic["status"] == "todo":
+            topics.set_status(topic["id"], "drafted")
+        print(f"  → {out_dir.relative_to(ROOT).as_posix()}/preview.html")
+        if args.pack:
+            print(f"  → {pack(out_dir, args.pack)}")
+        return 0
+
     chosen = [topics.find(rows, i) for i in args.id] if args.id else topics.next_todo(rows, args.count)
     if not chosen:
         print("쓸 주제가 남아 있지 않습니다. topics.csv에 새 주제를 추가해 주세요.")

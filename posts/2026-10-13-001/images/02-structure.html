@@ -1,0 +1,21 @@
+<!-- 1200x900 -->
+<div class="frame"><div class="content">
+<div class="kicker">일반 제어반 vs 지능형 제어반</div>
+<h1>제어만 하던 제어반이<br><em>데이터까지 연결</em>합니다</h1>
+<p class="lead" style="margin-bottom:24px">일반 제어반 — 데이터가 제어반 안에 머뭅니다</p>
+<div class="flow" style="margin-bottom:34px">
+  <div class="node"><div class="t">설비</div><div class="d">모터·펌프·송풍기</div></div>
+  <div class="arrow">→</div>
+  <div class="node"><div class="t">제어반</div><div class="d">PLC·인버터로 제어</div></div>
+  <div class="arrow x">✕</div>
+  <div class="node dim"><div class="t">데이터</div><div class="d">밖으로 안 나옴<br>사람이 순회 점검</div></div>
+</div>
+<p class="lead" style="margin-bottom:24px;color:#1857A5;font-weight:700">지능형 제어반 — 제어하면서 데이터를 서버로</p>
+<div class="flow">
+  <div class="node"><div class="t">설비</div><div class="d">모터·펌프·송풍기</div></div>
+  <div class="arrow">→</div>
+  <div class="node hl"><div class="t">지능형 제어반</div><div class="d">제어 + 데이터 수집<br>(별도 수집장비 없음)</div></div>
+  <div class="arrow">→<small>MQTT<br>TLS</small></div>
+  <div class="node ok"><div class="t">클라우드·사내 서버</div><div class="d">기록·알람·대시보드</div></div>
+</div>
+</div></div>
