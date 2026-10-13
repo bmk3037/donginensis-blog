@@ -1,0 +1,67 @@
+name: 주간 블로그 초안
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"   # 매주 월요일 오전 9시 (한국 시간)
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "몇 편 만들까요?"
+        default: "2"
+      topic_id:
+        description: "특정 주제 id (비우면 다음 주제)"
+        required: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: blog-drafts
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: 초안 작성
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          COUNT: ${{ github.event.inputs.count || '2' }}
+          TOPIC_ID: ${{ github.event.inputs.topic_id }}
+        run: |
+          if [ -n "$TOPIC_ID" ]; then
+            python -m blog.generate --id "$TOPIC_ID"
+          else
+            python -m blog.generate --count "$COUNT"
+          fi
+
+      - name: 저장소에 저장
+        run: |
+          [ -f .last_drafts ] || exit 0
+          git config user.name "blog-bot"
+          git config user.email "blog-bot@users.noreply.github.com"
+          git add posts topics.csv
+          git commit -m "블로그 초안 추가: $(paste -sd ' ' .last_drafts)"
+          git push
+
+      - name: 검수 요청 이슈 만들기
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -f .last_drafts ] || exit 0
+          gh label create blog-draft --color 03C75A --description "네이버 블로그 초안" --force
+          while read -r dir; do
+            [ -n "$dir" ] || continue
+            title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$dir/meta.json")
+            body="$dir/issue.md"
+            sed -i "s#\`$dir/preview.html\`#[$dir/preview.html]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/main/$dir/preview.html)#" "$body"
+            gh issue create --title "[블로그 초안] $title" --body-file "$body" --label blog-draft
+          done < .last_drafts

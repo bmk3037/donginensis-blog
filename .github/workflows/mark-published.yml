@@ -1,0 +1,32 @@
+name: 발행 완료 기록
+
+on:
+  issues:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  mark:
+    if: contains(github.event.issue.labels.*.name, 'blog-draft') && github.event.issue.state_reason == 'completed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: topics.csv에 발행됨 표시
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          id=$(printf '%s' "$ISSUE_BODY" | sed -n 's/.*<!-- topic-id: \([0-9]\+\) -->.*/\1/p' | head -1)
+          [ -n "$id" ] || { echo "이슈 본문에서 주제 id를 찾지 못했습니다"; exit 0; }
+          python -m blog.mark --id "$id" --status published
+          git config user.name "blog-bot"
+          git config user.email "blog-bot@users.noreply.github.com"
+          git commit -am "주제 $id 발행 완료" || exit 0
+          git pull --rebase
+          git push
