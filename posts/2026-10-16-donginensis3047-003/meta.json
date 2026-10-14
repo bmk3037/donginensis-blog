@@ -1,0 +1,31 @@
+{
+  "topic_id": "3",
+  "blog": "donginensis3047",
+  "format": "체크리스트형",
+  "title": "모터 온도 감시, 권선온도·베어링 온도에서 먼저 봐야 할 신호 7가지",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "모터온도감시",
+    "권선온도",
+    "베어링온도",
+    "모터고장",
+    "설비점검",
+    "예지보전",
+    "설비모니터링",
+    "펌프관리"
+  ],
+  "keyword": "모터 온도 감시",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post003&utm_content=donginensis3047#inquiry",
+  "fact_check": [
+    "수집 항목: 모터 권선온도(U·V·W), 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 대기 온습도, 운전 상태신호",
+    "24시간 기록, 기준 벗어나면 알람 / normal·warning·alarm, 센서 하나라도 경고면 설비 경고",
+    "알람 기준은 시운전·안정화 때 설정, 유지관리에서 조정",
+    "설비는 그대로 두고 제어반만 교체·신규 설치, 1~2대부터, 표준 9~15주",
+    "기존 타사 PLC는 읽기 전용",
+    "AI 이상탐지는 고도화 중 (기준값 알람은 바로 사용)",
+    "양산·기장 공장에서 제어반 직접 제작, Schneider Electric 공식 SI 파트너",
+    "7가지 신호와 원인 설명은 일반적인 설비 점검 상식이며 회사 고유 수치 아님 (온도 기준 숫자는 쓰지 않음)"
+  ],
+  "created": "2026-10-16"
+}
