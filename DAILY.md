@@ -1,43 +1,57 @@
-# 매일 글 1편 작업 절차 (Claude가 따르는 순서)
+# 매일 글 3편 작업 절차 (블로그마다 1편, Claude가 따르는 순서)
 
-API 키 없이, 대화창의 Claude가 직접 글과 이미지를 만듭니다. 매일 아침 예약 실행(루틴)이 이 절차를 시작합니다. **항상 하루 앞서** 준비합니다: posts/에서 가장 늦은 날짜의 다음 날이 발행일입니다 (네이버 예약 발행용).
+API 키 없이, 대화창의 Claude가 직접 글과 이미지를 만듭니다. 매일 아침 예약 실행(루틴)이 이 절차를 시작합니다.
+**항상 하루 앞서** 준비합니다 (네이버 예약 발행용). 발행일 = 내일 날짜.
 
-## 1. 주제 고르기
-- `topics.csv`에서 `status=todo`인 첫 줄 (사업 기여도 순으로 정렬되어 있음)
-- 사용자가 따로 주제를 주면 그것을 우선
+| 순서 | 블로그 | 주제 고르는 곳 |
+|---|---|---|
+| 1 | donginensis3047 · 동인엔시스 지능형 제어반 | `topics.csv`에서 `blog=donginensis3047` |
+| 2 | donginensis · 동인엔시스 데이터 인프라 | `blog=donginensis` |
+| 3 | bmk3037 · 동인엔시스 현장 이야기 | `blog=bmk3037` |
 
-## 2. 글 쓰기 → `posts/<오늘>-<id>/post.json`
-- 반드시 `knowledge/company.md`(사실)와 `knowledge/style.md`(규칙)를 다시 읽고 씁니다
-- JSON 형식: `title`, `body_markdown`, `tags`(8~12개), `fact_check`(사람이 확인할 사실 목록)
-- 본문 맨 위 `[이미지: 01-cover.png]`, 중간에 설명 이미지 2~3장 `[이미지: 0N-name.png]`, 사진 2~3장 `[사진: 0N-photo-name.png]`
-- post.json `photos`: `[{"file": "05-photo-workshop.png", "caption": "… (연출 이미지)", "prompt": "영어 프롬프트"}]`
-- **공백 제외 2,500~3,500자 (기준 3,000자)**, 핵심 키워드 5~8회, 소제목 5~8개, 끝부분에 FAQ 3~5개
-  - `blog.generate` 실행 시 글자 수가 출력됩니다. 2,500자 미만이면 내용을 보강합니다
-- **저품질 방지**: 바로 전 글과 다른 형식(해설·Q&A·체크리스트·사례·비교·단계)으로, 전 글과 같은 문단 반복 금지, 링크 1개 이하, 마무리 문구 바꾸기
-- post.json `personal_prompts`: 담당자가 실제 경험으로 답할 질문 2~3개 (예: "이 설비에서 현장에서 가장 자주 본 고장은?")
-- 마무리: 지능형 제어반 데이터 인프라로 연결 → 진단 신청(제조) 또는 협업 문의(IT) 링크 1개
+## 0. 준비
+- `python -m blog.existing sync` — 세 블로그에 지금까지 발행된 글을 새로 받습니다 (담당자가 직접 올린 글도 겹침 검사에 포함)
+- 블로그마다 `posts/<발행일>-<블로그>-*` 폴더가 이미 있으면 그 블로그는 건너뜁니다 (미리 써 둔 글)
+- `knowledge/company.md`(사실)와 `knowledge/style.md`(규칙, 특히 '블로그 3개'·'동인엔시스가 검색되게')를 다시 읽습니다
 
-## 3. 이미지 만들기 → `posts/<오늘>-<id>/images/`
-- 설명 이미지 조각(`02-*.html` …)을 직접 작성. 첫 줄 `<!-- 1200x높이 -->`, `assets/image.css` 클래스 사용
-  (`.kicker` `.flow/.node/.arrow` `.grid.c3/.card` `.steps/.step` `table.cmp` `.chips/.chip`)
-- 회사 서식: 메인 파랑 #1857A5, 강조 빨강 #E83E30, Pretendard. 로고와 하단 표기는 자동으로 붙음
-- 렌더:
+## 1. 주제 고르기 (블로그마다)
+- 그 블로그의 `status=todo` 첫 줄. 사용자가 주제를 주면 그것을 우선
+- `existing/<블로그>.json` 제목을 보고, 이미 발행된 글과 같은 내용이면 다음 주제로 넘기고 사용자에게 알립니다
+- todo가 5개 미만으로 남으면 사용자에게 새 주제 추가를 제안합니다 (company.md 사실 범위 안에서 후보를 같이 제시)
+
+## 2. 글 쓰기 → `posts/<발행일>-<블로그>-<id>/post.json`
+- 필드: `title`, `format`, `body_markdown`, `tags`(8~12), `fact_check`, `photos`, `personal_prompts`(2~3)
+- `format`: 같은 블로그 바로 전 글과 다른 형식 (해설·Q&A·체크리스트·사례·비교·단계·용어·현장일지)
+- 공백 제외 2,500~3,500자 (기준 3,000자), 소제목 5~8개, FAQ 3~5개(Q&A형 제외)
+- **회사명:** 첫 문단에 '동인엔시스', 본문 3~6회, 회사가 하는 일을 알려 주는 문장 1개 (글마다 표현 바꾸기)
+- **세 글끼리 겹치지 않게:** 같은 날 다른 블로그 글과 회사 소개·수집 항목·보안 설명·마무리 문구를 다르게
+- 본문 맨 위 `[이미지: 01-cover.png]`, 설명 이미지 2~3장 `[이미지: 0N-name.png]`, 사진 2~3장 `[사진: 0N-photo-name.png]`
+- 마무리: 그 주제의 `landing_url` 링크 1개 + 연락처 (문구는 매번 바꾸기)
+
+## 3. 이미지 만들기 → `posts/<dir>/images/`
+- 설명 이미지 조각(`02-*.html` …) 직접 작성. 첫 줄 `<!-- 1200x높이 -->`, `assets/image.css` 클래스 사용
+- 렌더 (표지 색과 하단 블로그 이름은 폴더 이름에서 자동):
   ```bash
-  python -m blog.images posts/<dir> --cover "제목 첫줄\n*강조 단어*\n셋째 줄" --sub "부제" --kicker "INTELLIGENT CONTROL PANEL · 번호" --tags 태그1 태그2 태그3
+  python -m blog.images posts/<dir> --cover "제목 첫줄\n*강조 단어*\n셋째 줄" --sub "부제" --kicker "<블로그 kicker> · 번호" --tags 태그1 태그2 태그3
   ```
-- **사진 생성**: 각 `photos[].prompt`로 Figma `generate_image` (planKey `team::1685988044694788508`, model `gemini-3.1-flash-image`, 1536×1024) 호출
-  → 결과 URL을 `posts/<dir>/photos-src/<file>`로 내려받기 → 다시 `python -m blog.images posts/<dir>` 실행하면 '연출 이미지' 표기 후 images/에 저장
-  - 생성 실패(크레딧 소진 등)면 그대로 둡니다. 미리보기에 ChatGPT 프롬프트가 자동으로 나옵니다. 사용자에게 알려 주기
-  - 생성된 사진을 열어 이상한 글자·로고·어색한 손 등이 없는지 확인, 문제 있으면 1번만 다시 생성
-- PNG를 열어 글자 잘림·넘침이 없는지 눈으로 확인
+  kicker: donginensis3047 `INTELLIGENT CONTROL PANEL` / donginensis `INDUSTRIAL DATA INFRA` / bmk3037 `FIELD STORY`
+- **사진 생성**: 각 `photos[].prompt`로 Figma `generate_image` (planKey `team::1685988044694788508`, model `gemini-3.1-flash-image`, 1536×1024)
+  → `posts/<dir>/photos-src/<file>`로 내려받기 → 다시 `python -m blog.images posts/<dir>` 하면 '연출 이미지' 표기 후 images/에 저장
+  - 실패(크레딧 소진 등)면 그대로 둡니다. 미리보기에 ChatGPT 프롬프트가 자동으로 나옵니다. 사용자에게 알려 주기
+  - 사진을 열어 이상한 글자·다른 회사 로고·어색한 손이 없는지 확인, 문제 있으면 1번만 다시 생성
+  - 세 블로그 사진이 비슷한 장면(같은 제어반 클로즈업 등)이 되지 않게 장면을 다르게
+- PNG를 열어 글자 잘림·넘침 확인
 
-## 4. 미리보기·묶음 만들기
+## 4. 자동 검수 + 미리보기 (블로그마다)
 ```bash
-python -m blog.generate --id <id> --from-json posts/<dir>/post.json --date <오늘> --pack <scratchpad>/out
-python -m unittest discover -s tests
+python -m blog.generate --id <id> --from-json posts/<dir>/post.json --date <발행일> --pack <scratchpad>/out
 ```
+- 글자 수, 저품질 검사, 겹침 검사 결과가 출력됩니다. **✗(FAIL)이 하나라도 있으면 post.json을 고치고 다시 실행**
+- ⚠(WARN)는 확인하고, 둘 이유가 없으면 고칩니다
+- 세 편을 모두 만든 뒤 마지막으로 한 번 더 세 편 모두 실행해, 서로 겹치지 않는지 확인
+- `python -m unittest discover -s tests`
 
 ## 5. 저장·전달
-- `git add posts topics.csv && git commit && git push` (main)
-- GitHub 이슈 생성: 제목 `[블로그 초안] <제목>`, 본문 `posts/<dir>/issue.md`, 라벨 `blog-draft`
-- 사용자에게 zip(미리보기 + 이미지) 전송, 오늘의 제목과 확인할 사실 3줄 요약
+- `git add posts topics.csv existing && git commit && git push` (main)
+- GitHub 이슈 3개: 제목 `[<블로그 이름>] <제목>`, 본문 `posts/<dir>/issue.md`, 라벨 `blog-draft`
+- 사용자에게 zip 3개 전송 + 표로 요약: 블로그 / 제목 / 형식 / 글자 수 / 확인할 사실 1줄

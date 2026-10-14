@@ -49,18 +49,20 @@ def char_count(body_md):
     return len(text), len(re.sub(r"\s", "", text))
 
 
-def add_utm(url, campaign):
-    """홈페이지 링크에 유입 추적용 UTM을 붙입니다. #앵커는 뒤에 그대로 둡니다."""
+def add_utm(url, campaign, content=None):
+    """홈페이지 링크에 유입 추적용 UTM을 붙입니다 (content = 어느 블로그인지). #앵커는 뒤에 그대로 둡니다."""
     parts = urlsplit(url)
     query = dict(parse_qsl(parts.query))
     query.setdefault("utm_source", "naver_blog")
     query.setdefault("utm_medium", "blog")
     query.setdefault("utm_campaign", campaign)
+    if content:
+        query.setdefault("utm_content", content)
     return urlunsplit(parts._replace(query=urlencode(query)))
 
 
-def tag_site_links(text, campaign):
-    return SITE_URL_RE.sub(lambda m: add_utm(m.group(0), campaign), text)
+def tag_site_links(text, campaign, content=None):
+    return SITE_URL_RE.sub(lambda m: add_utm(m.group(0), campaign, content), text)
 
 
 # 사진 파일이 아직 없을 때: ChatGPT 등에서 만들 수 있게 프롬프트와 복사 버튼을 보여 줍니다
@@ -135,7 +137,7 @@ button.done{{background:#555}}
 ol.check{{margin:0;padding-left:20px;line-height:1.8;font-size:14px}}
 #post{{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}}
 </style></head><body><div class="wrap">
-<div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">{title_esc}</div>
+{target}{review}<div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">{title_esc}</div>
 <button data-copy="title">제목 복사</button></div></div>
 <div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
 <button data-copy="post">본문 복사</button></div>
@@ -204,8 +206,34 @@ def personal_panel(prompts):
             f'<ol class="check">{items}</ol></div>')
 
 
-def preview_page(title, tags, body_html, checklist, personal_prompts=()):
+def target_panel(blog_id, blog_name):
+    if not blog_id:
+        return ""
+    url = f"https://blog.naver.com/{blog_id}"
+    return ('<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5">'
+            f'<div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div>'
+            f'<div style="font-size:20px;font-weight:700;margin-top:2px">{html.escape(blog_name)} · '
+            f'<a href="{url}" target="_blank" style="color:#fff">blog.naver.com/{html.escape(blog_id)}</a></div>'
+            '<div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div>')
+
+
+def review_panel(results):
+    """자동 검수 결과. results: [(FAIL|WARN, 메시지)]"""
+    if results is None:
+        return ""
+    if not results:
+        return ('<div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2>'
+                '<div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div>')
+    items = "".join(
+        f'<li style="color:{"#c62828" if lv == "FAIL" else "#8a6100"}">{"✗" if lv == "FAIL" else "⚠"} {html.escape(m)}</li>'
+        for lv, m in results)
+    return f'<div class="panel" style="border-color:#e0a100"><h2>자동 검수</h2><ol class="check">{items}</ol></div>'
+
+
+def preview_page(title, tags, body_html, checklist, personal_prompts=(), blog_id=None, blog_name="", review=None):
     return PREVIEW_TEMPLATE.format(
+        target=target_panel(blog_id, blog_name),
+        review=review_panel(review),
         personal=personal_panel(personal_prompts),
         title_esc=html.escape(title),
         tags_esc=html.escape(" ".join("#" + t for t in tags)),

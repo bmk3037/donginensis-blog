@@ -1,6 +1,6 @@
 # 동인엔시스 네이버 블로그 초안 자동화
 
-**지능형 제어반·산업설비 데이터** 글을 매일 1편(이미지 포함) 만들어
+회사 블로그 3개에 **매일 블로그마다 1편씩(하루 3편, 이미지 포함)** 글을 만들어
 **donginensis.com으로 방문자를 보내기 위한** 도구입니다.
 
 회사 블로그는 3개이고, 주제·독자·검색어가 겹치지 않게 나눕니다.
@@ -11,6 +11,11 @@
 | [donginensis](https://blog.naver.com/donginensis) | 제어반에서 시작하는 산업설비 데이터 인프라 | 데이터 수집·표준화, MQTT·OPC UA, MES·AI·디지털트윈 연동 | IT기업, 스마트공장 담당 | `blog-design-2/` (홈페이지 톤) |
 | [bmk3037](https://blog.naver.com/bmk3037) | 설비를 제어하고, 데이터를 연결하다 | 적용 현장(조선·해양, 수소·에너지, 데이터센터), 납품 사례, 회사 이야기 | 조선소·발주처·일반 | `blog-design/` |
 
+주제는 `topics.csv`의 `blog` 칸으로 나뉘어 있습니다 (지능형 제어반 24개, 데이터 인프라 30개, 현장 이야기 31개).
+글을 만들 때마다 **자동 검수**가 돌아갑니다.
+- **겹침 검사** (`blog/existing.py`): 세 블로그에 이미 발행된 글 전부와 다른 초안을 비교해, 같은 문장·비슷한 본문·비슷한 제목을 잡아냅니다
+- **저품질·회사명 검사** (`blog/quality.py`): 분량, 형식 돌려쓰기, 키워드 반복, '동인엔시스' 노출과 회사 소개 문장, 홈페이지 링크 1개, 과장 표현 등
+
 세 블로그에 같은 글·같은 이미지를 올리지 않습니다 (유사 문서로 노출이 떨어짐).
 
 네이버 블로그는 공식 글쓰기 API가 없어서 완전 자동 발행은 할 수 없습니다. 무리하게 자동으로 올리면(매크로)
@@ -20,9 +25,9 @@
 ## 매일 흐름
 
 ```
-매일 아침   Claude가 글 1편 + 이미지 4장(표지·설명도) 작성 → 저장소에 저장, 검수 이슈 생성, zip 전달
+매일 아침   Claude가 블로그마다 글 1편씩(3편) + 이미지 작성 → 자동 검수(겹침·저품질) 통과 → 저장, 이슈 3개, zip 3개 전달
    ↓
-담당자      zip 풀기 → preview.html 열기 → 사실 확인 → [제목 복사] [본문 복사]
+담당자      zip 풀기 → preview.html 열기 → 맨 위 '올릴 블로그' 확인 → 사실 확인 → [제목 복사] [본문 복사]
    ↓
 네이버      붙여넣기 → 파란 상자 자리에 images 폴더 그림 끌어다 놓기
             → (있으면) 노란 상자에 실제 현장 사진 → 태그 → 발행/예약 발행
@@ -52,11 +57,12 @@ GitHub      이슈에 네이버 글 주소 댓글 → 이슈 닫기 → 주제 �
 | `knowledge/company.md` | 회사 자료(제품, 실적, 인증). **AI는 여기 적힌 사실만 씁니다** | 새 실적·인증이 생기면 추가 |
 | `knowledge/style.md` | 말투, 네이버 검색 노출 규칙, 금지 사항 | 원하는 글 스타일이 바뀌면 |
 | `topics.csv` | 주제 목록 (43개, 사업 기여도 순). `status`: todo → drafted → published | 엑셀로 열어 주제 추가 |
-| `posts/날짜-번호/` | 만들어진 글. `preview.html`(붙여넣기용), `images/`(표지·설명 이미지), `post.json` | Claude |
+| `existing/` | 세 블로그에 이미 발행된 글 (겹침 검사용, `python -m blog.existing sync`로 갱신) | Claude |
+| `posts/날짜-블로그-번호/` | 만들어진 글. `preview.html`(붙여넣기용), `images/`(표지·설명 이미지), `post.json` | Claude |
 | `assets/` | 회사 로고, Pretendard 글꼴(OFL), 이미지 서식 `image.css` | 서식이 바뀌면 |
 | `blog/` | 프로그램 코드 | — |
 
-`posts/2026-10-13-001/`이 첫 글입니다.
+`blog/blogs.py`에 블로그별 이름·역할·표지 색·필수 태그가 있습니다.
 
 ## 주제 추가하는 법
 
@@ -64,11 +70,12 @@ GitHub      이슈에 네이버 글 주소 댓글 → 이슈 닫기 → 주제 �
 
 | 칸 | 예시 |
 |---|---|
-| id | 37 (겹치지 않는 번호) |
+| id | 94 (겹치지 않는 번호) |
+| blog | donginensis3047 / donginensis / bmk3037 |
 | status | todo |
 | category | 제조 / 조선해양 / 수소 / IT협업 / 사례 / 회사 등 |
 | title | 가제목 |
-| keyword | 사람들이 네이버에 검색할 말 (예: 송풍기 베어링 온도) |
+| keyword | 사람들이 네이버에 검색할 말 (예: 송풍기 베어링 온도). 다른 주제와 겹치면 안 됨 |
 | landing_url | 글 끝에서 보낼 홈페이지 주소 |
 | brief | 다룰 내용 한두 줄 |
 
@@ -85,7 +92,10 @@ GitHub      이슈에 네이버 글 주소 댓글 → 이슈 닫기 → 주제 �
 ```bash
 pip install -r requirements.txt
 python -m blog.images posts/<폴더> --cover "제목" --sub "부제"      # 이미지 만들기 (Chromium 필요)
-python -m blog.generate --id 17 --from-json post.json --pack out   # 미리보기 + zip
+python -m blog.existing sync                                       # 세 블로그 발행 글 받기 (겹침 검사용)
+python -m blog.generate --id 17 --from-json post.json --pack out   # 자동 검수 + 미리보기 + zip
+python -m blog.quality posts/<폴더>/post.json --blog bmk3037 --keyword "키워드"   # 검수만
+python -m blog.existing check posts/<폴더>/post.json                # 겹침 검사만
 python -m blog.mark --id 17 --status published                     # 발행됨 표시
 python -m unittest discover -s tests
 # API 키가 있을 때: ANTHROPIC_API_KEY=... python -m blog.generate --id 17
@@ -93,7 +103,8 @@ python -m unittest discover -s tests
 
 ## 네이버 블로그 운영 팁
 
-- **꾸준함이 가장 중요합니다.** 주 2편을 같은 요일·시간에 예약 발행하세요.
+- **꾸준함이 가장 중요합니다.** 블로그마다 매일 비슷한 시간에 예약 발행하세요. 세 블로그를 같은 시각에 올리기보다 1~2시간씩 간격을 두는 것이 자연스럽습니다.
+- **블로그 이름에 역할을 붙이세요.** 지금 세 블로그 이름이 모두 '동인엔시스'라 검색 결과에서 구분이 안 됩니다. 예: "동인엔시스 지능형 제어반", "동인엔시스 데이터 인프라", "동인엔시스 현장 이야기"
 - **직접 찍은 사진**을 4장 이상 넣으세요. 제작 공정, 현장 설치, 시운전 사진이 가장 좋습니다.
 - 블로그 프로필과 상단 메뉴에 홈페이지 링크를 걸어 두세요.
 - 글에 달린 댓글·문의에는 하루 안에 답하세요.

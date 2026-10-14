@@ -20,11 +20,14 @@ import sys
 import tempfile
 from pathlib import Path
 
+from blog import blogs
+
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
 SIZE_RE = re.compile(r"<!--\s*(\d+)x(\d+)\s*-->")
-FOOTER = '<div class="footer"><span>DONG-IN ENSIS · 지능형 제어반 블로그</span><span>donginensis.com</span></div>'
-COVER_FOOTER = '<div class="footer"><span>donginensis.com</span><span>지능형 제어반 · 산업설비 데이터</span></div>'
+FOOTER = '<div class="footer"><span>DONG-IN ENSIS · {label}</span><span>donginensis.com</span></div>'
+COVER_FOOTER = '<div class="footer"><span>donginensis.com</span><span>{label}</span></div>'
+DEFAULT_LABEL = "지능형 제어반 · 산업설비 데이터"
 FRAME_OPEN_RE = re.compile(r'(<div class="frame([^"]*)">)')
 
 PAGE = """<!doctype html><html lang="ko"><head><meta charset="utf-8">
@@ -51,15 +54,26 @@ def find_chrome():
     sys.exit("크롬(Chromium)을 찾지 못했습니다. CHROME 환경변수로 경로를 알려 주세요.")
 
 
-def wrap(fragment):
+def blog_of(post_dir):
+    """폴더 이름(날짜-블로그-번호)에서 블로그 id를 찾습니다"""
+    return next((b for b in blogs.ORDER if f"-{b}-" in Path(post_dir).name), None)
+
+
+def label_of(post_dir):
+    b = blog_of(post_dir)
+    return blogs.get(b)["name"] if b else DEFAULT_LABEL
+
+
+def wrap(fragment, label=DEFAULT_LABEL):
     """회사 로고(표지는 흰색, 나머지는 컬러)와 하단 표기를 자동으로 붙입니다."""
     m = FRAME_OPEN_RE.search(fragment)
     is_cover = bool(m and "cover" in m.group(2))
+    dark = is_cover and "t-field" not in m.group(2)
     if m and 'class="logo"' not in fragment:
-        logo = (ASSETS / "logo" / ("logo_white.png" if is_cover else "logo_color.png")).as_uri()
+        logo = (ASSETS / "logo" / ("logo_white.png" if dark else "logo_color.png")).as_uri()
         fragment = fragment.replace(m.group(1), f'{m.group(1)}<img class="logo" src="{logo}" alt="(주)동인엔시스">', 1)
     if 'class="footer"' not in fragment:
-        footer = COVER_FOOTER if is_cover else FOOTER
+        footer = (COVER_FOOTER if is_cover else FOOTER).format(label=html.escape(label))
         fragment = re.sub(r"</div>\s*$", footer + "</div>", fragment.strip(), count=1)
     return PAGE.format(fonts=(ASSETS / "fonts").as_uri(), css=(ASSETS / "image.css").as_uri(), body=fragment)
 
@@ -95,24 +109,24 @@ def _screenshot(page_html, out, w, h, chrome):
         )
 
 
-def render_file(src, chrome):
+def render_file(src, chrome, label=DEFAULT_LABEL):
     text = src.read_text(encoding="utf-8")
     m = SIZE_RE.search(text)
     if not m:
         raise ValueError(f"{src.name}: 첫 줄에 <!-- 1200x800 --> 같은 크기 표시가 없습니다")
     w, h = m.groups()
     out = src.with_suffix(".png")
-    _screenshot(wrap(text), out, w, h, chrome)
+    _screenshot(wrap(text, label), out, w, h, chrome)
     return out
 
 
-def cover_fragment(title, sub="", kicker="", tags=()):
-    """정사각형 표지 (회사소개서 1쪽 서식). title 안의 *강조*에는 빨간 밑줄."""
+def cover_fragment(title, sub="", kicker="", tags=(), theme="panel"):
+    """정사각형 표지 (회사소개서 1쪽 서식). title 안의 *강조*에는 빨간 밑줄. theme: 블로그별 표지 색 (blogs.py)"""
     title_html = re.sub(r"\*(.+?)\*", r"<em>\1</em>", html.escape(title)).replace("\n", "<br>")
     tags_html = "".join(f"<span>#{html.escape(t)}</span>" for t in tags)
     return (
         "<!-- 1080x1080 -->\n"
-        '<div class="frame cover"><div class="content">'
+        f'<div class="frame cover t-{theme}"><div class="content">'
         f'{f"<div class=eyebrow>{html.escape(kicker)}</div>" if kicker else ""}'
         f"<h1>{title_html}</h1>"
         f'{f"<p class=lead>{html.escape(sub)}</p>" if sub else ""}'
@@ -127,7 +141,7 @@ def render_dir(post_dir):
     post_dir = Path(post_dir)
     outs = []
     for src in sorted((post_dir / "images").glob("*.html")):
-        outs.append(render_file(src, chrome))
+        outs.append(render_file(src, chrome, label_of(post_dir)))
     for src in sorted((post_dir / "photos-src").glob("*.png")):
         outs.append(label_photo(src, post_dir / "images" / src.name, chrome))
     for out in outs:
@@ -142,12 +156,15 @@ def main(argv=None):
     p.add_argument("--sub", default="")
     p.add_argument("--kicker", default="")
     p.add_argument("--tags", nargs="*", default=[])
+    p.add_argument("--blog", choices=blogs.ORDER, help="표지 색을 이 블로그 서식으로 (폴더 이름에서 자동으로 찾음)")
     args = p.parse_args(argv)
     img_dir = Path(args.post_dir) / "images"
     img_dir.mkdir(parents=True, exist_ok=True)
+    blog_id = args.blog or blog_of(args.post_dir)
+    theme = blogs.get(blog_id)["theme"] if blog_id else "panel"
     if args.cover:
         (img_dir / "01-cover.html").write_text(
-            cover_fragment(args.cover.replace("\\n", "\n"), args.sub, args.kicker, args.tags), encoding="utf-8")
+            cover_fragment(args.cover.replace("\\n", "\n"), args.sub, args.kicker, args.tags, theme), encoding="utf-8")
     render_dir(args.post_dir)
 
 

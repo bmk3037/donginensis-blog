@@ -55,6 +55,22 @@ h1 em { font-style: normal; color: var(--blue); }
 .cover .tags span { font-size: 24px; font-weight: 600; padding: 9px 18px; border-radius: 4px; border: 1px solid rgba(255,255,255,.35); color: #E6EDF7; }
 .cover .footer { color: #9FB0C8; font-size: 22px; }
 
+/* 블로그별 표지 (같은 회사 서식, 블로그마다 다른 인상)
+   t-panel(지능형 제어반) = 기본 파랑 / t-data(데이터 인프라) = 남색 + 격자 / t-field(현장 이야기) = 밝은 바탕 + 파란 띠 */
+.frame.cover.t-data {
+  background:
+    linear-gradient(rgba(120,170,230,.10) 1px, transparent 1px) 0 0 / 54px 54px,
+    linear-gradient(90deg, rgba(120,170,230,.10) 1px, transparent 1px) 0 0 / 54px 54px,
+    linear-gradient(160deg, #0B2550 0%, var(--night) 70%);
+}
+.frame.cover.t-data h1 em { background: linear-gradient(transparent 86%, #5BA4F5 86%); }
+.frame.cover.t-field { background: #F3F6FA; color: var(--ink); border-left: 36px solid var(--blue); }
+.frame.cover.t-field .eyebrow { color: var(--blue); }
+.frame.cover.t-field h1 em { color: var(--blue); background: linear-gradient(transparent 86%, var(--red) 86%); }
+.frame.cover.t-field .lead { color: var(--sub); }
+.frame.cover.t-field .tags span { border-color: #C5D2E3; color: var(--blue-d); background: #fff; }
+.frame.cover.t-field .footer { color: #8A94A6; }
+
 /* 흐름도: .flow > .node + .arrow + .node ... */
 .flow { display: flex; align-items: stretch; }
 .node {

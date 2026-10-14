@@ -8,7 +8,7 @@
     python -m blog.generate --id 17 --from-json post.json --date 2026-10-14
         # API 없이: 대화창에서 Claude가 쓴 글(JSON)로 미리보기·이미지 묶음 만들기
 
-결과물: posts/<날짜>-<id>/ 아래 preview.html(붙여넣기용), post.md, meta.json, issue.md
+결과물: posts/<날짜>-<블로그>-<id>/ 아래 preview.html(붙여넣기용), post.md, meta.json, issue.md
 """
 import argparse
 import datetime as dt
@@ -19,7 +19,7 @@ from pathlib import Path
 
 import anthropic
 
-from blog import render, topics
+from blog import blogs, existing, quality, render, topics
 
 ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = ROOT / "posts"
@@ -69,8 +69,10 @@ def build_system():
 
 
 def build_request(topic):
+    blog = blogs.get(topic["blog"])
     return (
         "다음 주제로 네이버 블로그 글 1편을 써 주세요.\n\n"
+        f"- 올릴 블로그: {blog['name']} (역할: {blog['role']} / 독자: {blog['reader']})\n"
         f"- 분류: {topic['category']}\n"
         f"- 가제목: {topic['title']}\n"
         f"- 핵심 키워드: {topic['keyword']}\n"
@@ -106,13 +108,28 @@ def call_claude(client, topic):
     return json.loads(text)
 
 
+def prev_format(blog_id, before_dir):
+    """같은 블로그의 바로 전 글 형식 (형식 돌려쓰기 검사용)"""
+    earlier = sorted(d for d in POSTS_DIR.glob(f"*-{blog_id}-*") if d.name < before_dir.name)
+    if not earlier or not (earlier[-1] / "post.json").exists():
+        return None
+    return json.loads((earlier[-1] / "post.json").read_text(encoding="utf-8")).get("format")
+
+
+def review(topic, post, out_dir):
+    """자동 검수: 저품질·회사명 노출(quality) + 다른 글과 겹침(existing)"""
+    return (quality.check(post, topic["blog"], topic["keyword"], prev_format(topic["blog"], out_dir))
+            + existing.check(post, out_dir))
+
+
 def write_post(topic, post, today=None):
     today = today or dt.datetime.now(KST).date()
-    out_dir = POSTS_DIR / f"{today.isoformat()}-{int(topic['id']):03d}"
+    blog_id = topic["blog"]
+    out_dir = POSTS_DIR / f"{today.isoformat()}-{blog_id}-{int(topic['id']):03d}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     campaign = f"post{int(topic['id']):03d}"
-    body_md = render.tag_site_links(post["body_markdown"], campaign)
+    body_md = render.tag_site_links(post["body_markdown"], campaign, blog_id)
     tags = [t.lstrip("#").replace(" ", "") for t in post["tags"]]
     checklist = BASE_CHECKLIST + [f"사실 확인: {c}" for c in post["fact_check"]]
     photos = post.get("photos", [])
@@ -121,25 +138,30 @@ def write_post(topic, post, today=None):
         checklist.insert(2, "사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 '연출 이미지' 표기)")
 
     (out_dir / "post.json").write_text(json.dumps(post, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    results = review(topic, post, out_dir)
     (out_dir / "post.md").write_text(f"# {post['title']}\n\n{body_md}\n", encoding="utf-8")
     (out_dir / "preview.html").write_text(
         render.preview_page(post["title"], tags, render.to_html(body_md, photos, have), checklist,
-                            post.get("personal_prompts", [])), encoding="utf-8"
+                            post.get("personal_prompts", []), blog_id, blogs.get(blog_id)["name"], results),
+        encoding="utf-8"
     )
     meta = {
         "topic_id": topic["id"],
+        "blog": blog_id,
+        "format": post.get("format", ""),
         "title": post["title"],
         "tags": tags,
         "keyword": topic["keyword"],
-        "landing_url": render.add_utm(topic["landing_url"], campaign),
+        "landing_url": render.add_utm(topic["landing_url"], campaign, blog_id),
         "fact_check": post["fact_check"],
         "created": today.isoformat(),
     }
     (out_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (out_dir / "issue.md").write_text(
-        issue_body(topic, post["title"], tags, render.to_issue_markdown(body_md, photos, have), checklist, out_dir),
+        issue_body(topic, post["title"], tags, render.to_issue_markdown(body_md, photos, have), checklist, out_dir,
+                   results),
         encoding="utf-8")
-    return out_dir
+    return out_dir, results
 
 
 def pack(out_dir, dest_dir):
@@ -154,14 +176,18 @@ def pack(out_dir, dest_dir):
     return zip_path
 
 
-def issue_body(topic, title, tags, body_md, checklist, out_dir):
+def issue_body(topic, title, tags, body_md, checklist, out_dir, results=()):
     rel = out_dir.relative_to(ROOT).as_posix()
     checks = "\n".join(f"- [ ] {c}" for c in checklist)
+    blog = blogs.get(topic["blog"])
+    found = "\n".join(f"- {'✗' if lv == 'FAIL' else '⚠'} {m}" for lv, m in results) or "- ✓ 겹치는 글 없음 · 저품질 점검 통과"
     return (
         f"<!-- topic-id: {topic['id']} -->\n"
+        f"**올릴 블로그:** {blog['name']} · https://blog.naver.com/{topic['blog']}\n\n"
         f"**제목:** {title}\n\n"
         f"**태그:** {' '.join('#' + t for t in tags)}\n\n"
         f"**붙여넣기용 미리보기:** `{rel}/preview.html` (내려받아 브라우저로 열고 '본문 복사')\n\n"
+        f"### 자동 검수\n{found}\n\n"
         f"### 발행 전 확인\n{checks}\n\n"
         "발행한 뒤 이 이슈에 네이버 글 주소를 댓글로 남기고 이슈를 닫으면 주제 목록에 '발행됨'으로 기록됩니다.\n\n"
         "---\n\n"
@@ -173,6 +199,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="동인엔시스 네이버 블로그 초안 생성")
     parser.add_argument("--id", action="append", help="특정 주제 id (여러 번 지정 가능)")
     parser.add_argument("--count", type=int, default=1, help="다음 주제 몇 편 (--id가 없을 때)")
+    parser.add_argument("--blog", choices=blogs.ORDER, help="이 블로그 주제에서만 고르기 (--id가 없을 때)")
     parser.add_argument("--dry-run", action="store_true", help="API를 부르지 않고 프롬프트만 출력")
     parser.add_argument("--from-json", help="API 대신 이미 쓴 글(JSON: title, body_markdown, tags, fact_check)을 사용")
     parser.add_argument("--date", help="글 폴더 날짜 (YYYY-MM-DD, 기본: 오늘)")
@@ -186,18 +213,21 @@ def main(argv=None):
             parser.error("--from-json은 --id 하나와 함께 써야 합니다")
         topic = topics.find(rows, args.id[0])
         post = json.loads(Path(args.from_json).read_text(encoding="utf-8"))
-        out_dir = write_post(topic, post, today=day)
+        out_dir, results = write_post(topic, post, today=day)
         with_space, no_space = render.char_count(post["body_markdown"])
-        warn = "  ⚠ 2,500자 미만 — 내용 보강 필요" if no_space < 2500 else ""
-        print(f"  글자 수: 공백 제외 {no_space:,}자 / 공백 포함 {with_space:,}자{warn}")
+        print(f"  [{topic['blog']}] 글자 수: 공백 제외 {no_space:,}자 / 공백 포함 {with_space:,}자")
+        for level, msg in results:
+            print(f"  {'✗' if level == 'FAIL' else '⚠'} {msg}")
+        if not results:
+            print("  ✓ 자동 검수 통과")
         if topic["status"] == "todo":
             topics.set_status(topic["id"], "drafted")
         print(f"  → {out_dir.relative_to(ROOT).as_posix()}/preview.html")
         if args.pack:
             print(f"  → {pack(out_dir, args.pack)}")
-        return 0
+        return 1 if any(lv == "FAIL" for lv, _ in results) else 0
 
-    chosen = [topics.find(rows, i) for i in args.id] if args.id else topics.next_todo(rows, args.count)
+    chosen = [topics.find(rows, i) for i in args.id] if args.id else topics.next_todo(rows, args.count, args.blog)
     if not chosen:
         print("쓸 주제가 남아 있지 않습니다. topics.csv에 새 주제를 추가해 주세요.")
         return 0
@@ -213,7 +243,7 @@ def main(argv=None):
     for topic in chosen:
         print(f"[{topic['id']}] {topic['title']} 작성 중...", flush=True)
         post = call_claude(client, topic)
-        out_dir = write_post(topic, post)
+        out_dir, _ = write_post(topic, post)
         topics.set_status(topic["id"], "drafted")
         made.append(out_dir.relative_to(ROOT).as_posix())
         print(f"  → {made[-1]}/preview.html")
