@@ -262,6 +262,13 @@ class QualityTest(unittest.TestCase):
         self.assertTrue(any("5%" in m for lv, m in quality.check(p, "donginensis3047") if lv == "FAIL"))
 
 
+class KeywordTest(unittest.TestCase):
+    def test_particles_between_keyword_words(self):
+        self.assertEqual(quality._count("OPC UA와 Modbus TCP를 비교합니다", "OPC UA Modbus TCP"), 1)
+        self.assertEqual(quality._count("설비 데이터를 수집하고 설비 데이터 수집", "설비 데이터 수집"), 2)
+        self.assertEqual(quality._count("설비에서 나온 많은 데이터를 모아서 수집", "설비 데이터 수집"), 0)
+
+
 class ExistingTest(unittest.TestCase):
     def test_copied_sentence_fails_and_unrelated_passes(self):
         sent = "통신이 끊긴 동안의 측정값은 제어반에 보관했다가 연결이 돌아오면 오래된 순서대로 다시 보냅니다."

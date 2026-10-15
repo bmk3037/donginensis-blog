@@ -1,0 +1,29 @@
+{
+  "topic_id": "11",
+  "blog": "donginensis",
+  "format": "비교형",
+  "title": "OPC UA와 Modbus TCP, 기존 PLC 데이터 읽을 때 무엇을 고를까",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "OPCUA",
+    "ModbusTCP",
+    "PLC데이터수집",
+    "산업통신",
+    "스마트팩토리",
+    "OT데이터",
+    "MES연동",
+    "지능형제어반"
+  ],
+  "keyword": "OPC UA Modbus TCP",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post011&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "기존 타사 PLC(미쓰비시·LS·지멘스 등)는 읽기만 함: OPC UA → Modbus TCP → 제조사 전용 프로토콜(게이트웨이) 순으로 현장에 맞게 선택",
+    "지원 통신: Modbus TCP/RTU, MQTT, OPC UA",
+    "인터록·최종 제어는 현장 PLC, 서버는 설비를 직접 제어하지 않음, 제어망·데이터망 분리",
+    "설비-센서-실시간값-상태 구조, site_id·equipment_id, REST API·WebSocket",
+    "Schneider Electric 공식 SI 파트너, 1991년 설립·750건 이상 프로젝트",
+    "OPC UA·Modbus TCP의 특징 설명은 일반적인 기술 상식 (특정 제품 성능 수치 없음)"
+  ],
+  "created": "2026-10-17"
+}

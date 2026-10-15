@@ -27,8 +27,13 @@ def _plain(body_md):
     return re.sub(r"\]\([^)]*\)", "]", text)
 
 
+def _kw_re(word):
+    """키워드 낱말 사이에 조사 1~2글자가 끼어도 같은 키워드로 봅니다 (예: 'OPC UA와 Modbus TCP', '설비 데이터를 수집')"""
+    return re.compile(".{0,2}".join(re.escape(t) for t in word.split()))
+
+
 def _count(text, word):
-    return len(re.findall(re.escape(word.replace(" ", "")), re.sub(r"\s", "", text)))
+    return len(_kw_re(word).findall(re.sub(r"\s", "", text)))
 
 
 def check(post, blog_id, keyword="", prev_format=None):
@@ -59,7 +64,7 @@ def check(post, blog_id, keyword="", prev_format=None):
     # 제목
     if not 18 <= len(title) <= 45:
         warn(f"제목 {len(title)}자 (25~40자 권장)")
-    if keyword and keyword.replace(" ", "") not in title.replace(" ", "")[:20]:
+    if keyword and not _kw_re(keyword).search(title.replace(" ", "")[:24]):
         warn(f"핵심 키워드 '{keyword}'가 제목 앞쪽에 없음")
     if keyword:
         n = _count(plain, keyword)
