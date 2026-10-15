@@ -13,7 +13,6 @@
 ### 발행 전 확인
 - [ ] 수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)
 - [ ] 파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)
-- [ ] 사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 '연출 이미지' 표기)
 - [ ] 담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)
 - [ ] 붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인
 - [ ] 실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)
@@ -65,12 +64,7 @@
 
 선급은 제출된 도면을 검토하고 필요하면 의견을 줍니다. 의견을 반영해 도면을 고치고 다시 확인받는 과정을 거쳐 승인 도면이 확정됩니다. 이 단계를 서두르다 제작을 먼저 시작하면, 나중에 배선을 다시 하는 일이 생길 수 있습니다. 선박 제어반 선급 승인에서 일정이 가장 많이 늘어나는 구간도 대개 여기입니다. 처음 제출하는 도면의 완성도가 높을수록 의견을 주고받는 횟수가 줄어듭니다.
 
-> 📷 **사진 넣을 자리:** 선박 기관실의 제어반 (연출 이미지) — `05-photo-marine-panel.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo inside a clean modern ship engine room: a row of light-grey marine electrical control cabinets with small indicator lamps and an HMI touchscreen on the door, mounted on a steel deck with anti-vibration mounts, yellow-painted handrails, pipes and valves in the background, bright even lighting, no people, no brand logos, no readable text. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/05-photo-marine-panel.png`
 
 ### 5단계. 제작과 자체 검사
 
@@ -99,12 +93,7 @@
 
 이 경험은 2022년 해양수산부 국가대표 혁신기업 선정으로도 이어졌습니다. 흔들리는 바다 위에서 멈추지 않아야 하는 제어반을 만들어 온 기준은, 지금 육상 공장에 들어가는 지능형 제어반에도 그대로 적용됩니다. 설비 데이터가 믿을 만하려면 먼저 그 데이터를 만드는 제어반이 믿을 만해야 하기 때문입니다.
 
-> 📷 **사진 넣을 자리:** 공장에서 진행하는 입회 시험 장면 (연출 이미지) — `06-photo-witness-test.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo in a bright Korean control panel factory test area: two engineers in navy work uniforms and one inspector in a white shirt with a clipboard watch an open light-grey control cabinet under power test, indicator lamps lit, a laptop on a test bench, neat wiring, documentary style, natural colors, faces not in sharp focus, no brand logos, no readable text. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/06-photo-witness-test.png`
 
 ## 자주 묻는 질문
 
