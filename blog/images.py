@@ -54,6 +54,35 @@ def find_chrome():
     sys.exit("크롬(Chromium)을 찾지 못했습니다. CHROME 환경변수로 경로를 알려 주세요.")
 
 
+THUMB = {
+    # 블로그별 썸네일 서식: 아래 띠 오른쪽 글자, 사진 위 추가 요소
+    "bmk3037": {"right": "donginensis.com", "extra": ""},
+    "donginensis": {"right": "산업설비 데이터 블로그",
+                    "extra": '<div class="spec">1991~ 제어반 설계·제작 &nbsp;·&nbsp; 750+ 프로젝트 &nbsp;·&nbsp; MQTT / TLS</div>'},
+    "donginensis3047": {"right": "지능형 제어반 전문 블로그",
+                        "extra": '<div class="since"><i></i>1991~ 제어반 설계·제작</div>'},
+}
+
+
+def thumb_fragment(blog_id, title, label, en=""):
+    """블로그 대표 이미지(1080×1080). 세 블로그에 이미 올라간 썸네일과 같은 서식.
+    title: 줄바꿈 \\n, 빨간 밑줄 *강조*  /  label: 왼쪽 위 라벨(한글)  /  en: 그 아래 영문 한 줄"""
+    t = THUMB[blog_id]
+    title_html = re.sub(r"\*(.+?)\*", r"<em>\1</em>", html.escape(title)).replace("\n", "<br>")
+    dot = "" if blog_id == "bmk3037" else "<i></i>"
+    return (
+        "<!-- 1080x1080 -->\n"
+        f'<div class="thumb t-{blog_id}">'
+        f'<div class="ph" style="background-image:url(__ASSETS__/thumb-bg/{blog_id}.jpg)"></div><div class="ov"></div>'
+        f'<div class="body"><span class="pill">{dot}{html.escape(label)}</span>'
+        f'{f"<div class=en>{html.escape(en.upper())}</div>" if en else ""}'
+        f"<h1>{title_html}</h1></div>"
+        f'{t["extra"]}<div class="bar"></div>'
+        f'<div class="strip"><img class="logo" src="__ASSETS__/logo/logo_color.png" alt="(주)동인엔시스">'
+        f'<span>{t["right"]}</span></div><div class="footer" style="display:none"></div></div>\n'
+    )
+
+
 def blog_of(post_dir):
     """폴더 이름(날짜-블로그-번호)에서 블로그 id를 찾습니다"""
     return next((b for b in blogs.ORDER if f"-{b}-" in Path(post_dir).name), None)
@@ -75,6 +104,7 @@ def wrap(fragment, label=DEFAULT_LABEL):
     if 'class="footer"' not in fragment:
         footer = (COVER_FOOTER if is_cover else FOOTER).format(label=html.escape(label))
         fragment = re.sub(r"</div>\s*$", footer + "</div>", fragment.strip(), count=1)
+    fragment = fragment.replace("__ASSETS__", ASSETS.as_uri())
     return PAGE.format(fonts=(ASSETS / "fonts").as_uri(), css=(ASSETS / "image.css").as_uri(), body=fragment)
 
 
@@ -157,12 +187,17 @@ def main(argv=None):
     p.add_argument("--kicker", default="")
     p.add_argument("--tags", nargs="*", default=[])
     p.add_argument("--blog", choices=blogs.ORDER, help="표지 색을 이 블로그 서식으로 (폴더 이름에서 자동으로 찾음)")
+    p.add_argument("--label", help="대표 이미지 왼쪽 위 라벨 (예: 지능형 제어반, 적용 사례). 주면 블로그 썸네일 서식으로 만듦")
+    p.add_argument("--en", default="", help="라벨 아래 영문 한 줄 (예: PREDICTIVE MAINTENANCE)")
     args = p.parse_args(argv)
     img_dir = Path(args.post_dir) / "images"
     img_dir.mkdir(parents=True, exist_ok=True)
     blog_id = args.blog or blog_of(args.post_dir)
     theme = blogs.get(blog_id)["theme"] if blog_id else "panel"
-    if args.cover:
+    if args.cover and args.label and blog_id:
+        (img_dir / "01-cover.html").write_text(
+            thumb_fragment(blog_id, args.cover.replace("\\n", "\n"), args.label, args.en), encoding="utf-8")
+    elif args.cover:
         (img_dir / "01-cover.html").write_text(
             cover_fragment(args.cover.replace("\\n", "\n"), args.sub, args.kicker, args.tags, theme), encoding="utf-8")
     render_dir(args.post_dir)

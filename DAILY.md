@@ -30,11 +30,15 @@ API 키 없이, 대화창의 Claude가 직접 글과 이미지를 만듭니다. 
 
 ## 3. 이미지 만들기 → `posts/<dir>/images/`
 - 설명 이미지 조각(`02-*.html` …) 직접 작성. 첫 줄 `<!-- 1200x높이 -->`, `assets/image.css` 클래스 사용
-- 렌더 (표지 색과 하단 블로그 이름은 폴더 이름에서 자동):
+- **대표 이미지(01-cover)는 각 블로그에 이미 올라간 썸네일과 같은 서식**으로 만듭니다 (사진 배경 + 라벨 + 빨간 밑줄 제목 + 아래 흰 띠 로고).
+  블로그별 배경·라벨 모양·아래 띠 문구는 폴더 이름에서 자동:
   ```bash
-  python -m blog.images posts/<dir> --cover "제목 첫줄\n*강조 단어*\n셋째 줄" --sub "부제" --kicker "<블로그 kicker> · 번호" --tags 태그1 태그2 태그3
+  python -m blog.images posts/<dir> --cover "제목 첫줄\n*빨간 밑줄 줄*\n셋째 줄" --label "라벨(한글)" --en "영문 한 줄"
   ```
-  kicker: donginensis3047 `INTELLIGENT CONTROL PANEL` / donginensis `INDUSTRIAL DATA INFRA` / bmk3037 `FIELD STORY`
+  - 제목은 3줄, 한 줄 9~11자 안팎. 빨간 밑줄은 한 줄에만
+  - 라벨 예: 지능형 제어반 / 이상감지 체크리스트 / 도입 가이드 (3047), 데이터 수집 / 데이터 연동 가이드 / 설비데이터 기초 (donginensis), 수소·에너지 / 조선·해양 / 적용 사례 / 회사소개 (bmk3037)
+  - 영문 예: PREDICTIVE MAINTENANCE, GLOSSARY, OT PARTNERSHIP, CLASS APPROVAL
+  - 설명 이미지(02~)의 하단 블로그 이름도 폴더 이름에서 자동
 - **사진 생성**: 각 `photos[].prompt`로 Figma `generate_image` (planKey `team::1685988044694788508`, model `gemini-3.1-flash-image`, 1536×1024)
   → `posts/<dir>/photos-src/<file>`로 내려받기 → 다시 `python -m blog.images posts/<dir>` 하면 '연출 이미지' 표기 후 images/에 저장
   - 실패(크레딧 소진 등)면 그대로 둡니다. 미리보기에 ChatGPT 프롬프트가 자동으로 나옵니다. 사용자에게 알려 주기

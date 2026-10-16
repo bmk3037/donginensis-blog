@@ -133,3 +133,36 @@ table.cmp td:first-child { font-weight: 800; width: 22%; }
   background: rgba(6, 20, 44, .72); padding: 6px 12px; border-radius: 4px;
 }
 .photo > img.wm { position: absolute; right: 22px; bottom: 22px; height: 22px; opacity: .92; }
+
+/* ── 블로그 대표 이미지(썸네일) — 세 블로그에 이미 올라간 썸네일 서식을 그대로 따름 ──
+   .thumb.t-bmk3037 / .t-donginensis / .t-donginensis3047, 1080×1080 */
+.thumb { position: relative; width: 1080px; height: 1080px; overflow: hidden; background: #fff; font-family: "Pretendard", sans-serif; }
+.thumb .ph { position: absolute; left: 0; top: 0; width: 1080px; height: 937px; background-size: cover; background-position: center; }
+.thumb .ov { position: absolute; left: 0; top: 0; width: 1080px; height: 937px; }
+.thumb .body { position: absolute; left: 72px; right: 72px; top: 118px; color: #fff; }
+.thumb .pill { display: inline-flex; align-items: center; gap: 12px; height: 62px; padding: 0 26px; border-radius: 31px;
+  font-size: 30px; font-weight: 800; letter-spacing: -0.3px; }
+.thumb .pill i { width: 12px; height: 12px; border-radius: 50%; background: var(--red); display: inline-block; }
+.thumb .en { margin-top: 50px; font-size: 26px; font-weight: 700; letter-spacing: 6px; color: #C9D3E3; }
+.thumb h1 { margin: 86px 0 0; font-size: 96px; line-height: 1.27; font-weight: 800; letter-spacing: -2.5px; color: #fff; }
+.thumb h1 em { font-style: normal; color: #fff; background: linear-gradient(transparent 88%, var(--red) 88%, var(--red) 97%, transparent 97%); }
+.thumb .bar { position: absolute; left: 0; top: 931px; width: 1080px; height: 6px; background: var(--red); }
+.thumb .strip { position: absolute; left: 0; top: 937px; width: 1080px; height: 143px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 72px; background: #fff; }
+.thumb .strip img { height: 60px; }
+.thumb .strip span { font-size: 29px; color: #5A6577; }
+.thumb .spec { position: absolute; left: 72px; right: 72px; top: 858px; padding-top: 22px; border-top: 1.5px solid rgba(255,255,255,.28);
+  font-size: 25px; font-weight: 700; color: #E3E9F3; letter-spacing: -0.2px; }
+.thumb .since { position: absolute; left: 72px; top: 800px; height: 70px; padding: 0 30px; border-radius: 35px; background: #fff;
+  display: inline-flex; align-items: center; gap: 12px; font-size: 27px; font-weight: 800; color: #111B2E; }
+.thumb .since i { width: 14px; height: 14px; border-radius: 50%; background: #1DB45A; display: inline-block; }
+
+/* 현장 이야기(bmk3037): 파란 채운 라벨, 파란 선 */
+.thumb.t-bmk3037 .ov { background: linear-gradient(90deg, rgba(10,32,72,.94) 0%, rgba(10,32,72,.86) 55%, rgba(10,32,72,.70) 100%); }
+.thumb.t-bmk3037 .pill { background: #1857A5; color: #fff; }
+.thumb.t-bmk3037 .bar { background: #1857A5; }
+/* 데이터 인프라(donginensis): 테두리 라벨 + 빨간 점, 아래 실적 줄 */
+.thumb.t-donginensis .ov { background: linear-gradient(90deg, rgba(8,22,50,.95) 0%, rgba(8,22,50,.84) 50%, rgba(8,22,50,.45) 100%); }
+.thumb.t-donginensis .pill, .thumb.t-donginensis3047 .pill { border: 2px solid rgba(255,255,255,.85); color: #fff; }
+/* 지능형 제어반(donginensis3047): 밝은 파란 사진, 흰 '1991~' 라벨 */
+.thumb.t-donginensis3047 .ov { background: linear-gradient(90deg, rgba(10,36,84,.92) 0%, rgba(12,44,100,.70) 52%, rgba(12,44,100,.12) 100%); }

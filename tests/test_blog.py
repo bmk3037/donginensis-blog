@@ -210,6 +210,21 @@ class CharCountTest(unittest.TestCase):
         self.assertEqual(render.char_count(md), (len("제목\n\n굵게 글 링크"), len("제목굵게글링크")))
 
 
+class ThumbTest(unittest.TestCase):
+    def test_thumb_matches_blog_template(self):
+        from blog import images
+        for b, right in [("bmk3037", "donginensis.com"), ("donginensis", "산업설비 데이터 블로그"),
+                         ("donginensis3047", "지능형 제어반 전문 블로그")]:
+            page = images.wrap(images.thumb_fragment(b, "첫 줄\n*강조*\n셋째", "라벨", "English"))
+            self.assertIn(f"thumb-bg/{b}.jpg", page)
+            self.assertIn(right, page)
+            self.assertIn("<em>강조</em>", page)
+            self.assertNotIn("__ASSETS__", page)
+            self.assertIn("ENGLISH", page)
+        self.assertIn("since", images.thumb_fragment("donginensis3047", "t", "l"))
+        self.assertIn("spec", images.thumb_fragment("donginensis", "t", "l"))
+
+
 class ImageThemeTest(unittest.TestCase):
     def test_field_cover_uses_color_logo_and_blog_label(self):
         from blog import images
