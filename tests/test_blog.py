@@ -311,9 +311,10 @@ class ExistingTest(unittest.TestCase):
 class ThreadsTest(unittest.TestCase):
     def day(self, **kw):
         posts = [{"slot": "아침", "type": "생각", "text": "제어반이 먼저 압니다. " * 4, "tag": "지능형제어반"},
-                 {"slot": "점심", "type": "지식", "text": "기존 PLC는 읽기만 합니다. " * 4, "tag": "스마트팩토리"},
+                 {"slot": "점심", "type": "정보", "text": "기존 PLC는 읽기만 합니다. " * 4, "tag": "스마트팩토리"},
                  {"slot": "저녁", "type": "질문", "text": "설비 관리하시는 분들께 여쭤봅니다. 여러분 공장은 점검 기록을 어떻게 남기시나요? 댓글로 알려 주세요.", "tag": "설비관리"}]
-        d = {"date": "2026-10-17", "posts": posts, "replies": [{"if": "a", "reply": "b"}] * 2, "question": "q"}
+        d = {"date": "2026-10-17", "posts": posts, "replies": [{"if": "a", "reply": "b"}] * 2, "question": "q",
+             "comments": {"tags": ["스마트팩토리"], "examples": ["좋은 글이네요", "공감합니다"]}}
         d.update(kw)
         return d
 

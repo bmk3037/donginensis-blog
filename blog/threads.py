@@ -11,6 +11,7 @@ threads/<날짜>.json 형식:
     {"slot": "점심", "type": "지식", ...}, {"slot": "저녁", "type": "질문", ...}
   ],
   "replies": [{"if": "예상 댓글", "reply": "답글 초안"}],
+  "comments": {"tags": ["스마트팩토리", "제조AI"], "examples": ["다른 회사 글에 달 댓글 예시", "..."]},
   "question": "대표에게 드리는 오늘의 질문"
 }
 source: 경험담이면 근거가 된 ceo_notes.md 날짜 (예: "ceo_notes 2026-10-16")
@@ -27,7 +28,7 @@ from blog import existing, quality
 ROOT = Path(__file__).resolve().parent.parent
 THREADS_DIR = ROOT / "threads"
 SLOTS = ["아침", "점심", "저녁"]
-TYPES = {"아침": "생각", "점심": "지식", "저녁": "질문"}
+TYPES = {"아침": {"생각"}, "점심": {"정보", "지식"}, "저녁": {"질문", "협업"}}
 URL_RE = re.compile(r"https?://|www\.|\.com\b")
 # 경험담처럼 읽히는 표현: 근거(source) 없이 쓰면 지어낸 이야기가 될 수 있음
 STORY_RE = re.compile(r"어제|지난주|지난달|그날|그때 (저|제가|현장)|얼마 전|기억이 납니다|일이 있었|겪었")
@@ -63,8 +64,8 @@ def check(day, docs=None, links_before=0):
     links = 0
     for p in posts:
         slot, text = p.get("slot", "?"), p.get("text", "")
-        if p.get("type") != TYPES.get(slot):
-            warn(f"{slot}: 종류는 '{TYPES.get(slot)}'로 (지금 '{p.get('type')}')")
+        if p.get("type") not in TYPES.get(slot, set()):
+            warn(f"{slot}: 종류는 {'/'.join(sorted(TYPES.get(slot, [])))} 중 하나로 (지금 '{p.get('type')}')")
         n = len(text)
         if n > 500:
             fail(f"{slot}: {n}자 — 쓰레드는 500자까지")
@@ -93,7 +94,9 @@ def check(day, docs=None, links_before=0):
     if links and links_before:
         warn("최근 이틀 안에 링크를 달았음 — 사흘에 한 번 정도로")
     if posts and posts[-1].get("slot") == "저녁" and len(day.get("replies", [])) < 2:
-        warn("저녁 질문 글의 답글 초안(replies) 2~3개")
+        warn("저녁 글의 답글 초안(replies) 2~3개")
+    if len(day.get("comments", {}).get("examples", [])) < 2:
+        warn("댓글 품앗이(comments): 둘러볼 태그와 댓글 예시 2~3개")
     if not day.get("question"):
         warn("대표에게 드릴 오늘의 질문(question)이 없음")
     return out
@@ -140,7 +143,12 @@ def render(day, results):
             + "</div>")
     reps = "".join(f'<li><b>{e(r["if"])}</b><br><span id="r{i}">{e(r["reply"])}</span> '
                    f'<button data-t="r{i}">복사</button></li>' for i, r in enumerate(day.get("replies", [])))
-    replies = f'<div class="card"><div class="slot">저녁 질문 글 · 답글 초안</div><ul style="padding-left:18px;font-size:14px;line-height:1.6">{reps}</ul></div>' if reps else ""
+    cm = day.get("comments", {})
+    exs = "".join(f'<li><span id="m{i}">{e(x)}</span> <button data-t="m{i}">복사</button></li>' for i, x in enumerate(cm.get("examples", [])))
+    comments = (f'<div class="card"><div class="slot">댓글 품앗이 (10분) · 둘러볼 태그: {e(" ".join("#" + t for t in cm.get("tags", [])))}</div>'
+                f'<div class="meta">같은 분야 글에 먼저 댓글을 달면 우리 글도 더 퍼집니다. 글 내용에 맞게 조금 고쳐서 쓰세요.</div>'
+                f'<ul style="padding-left:18px;font-size:14px;line-height:1.6">{exs}</ul></div>') if exs else ""
+    replies = f'<div class="card"><div class="slot">저녁 글 · 답글 초안</div><ul style="padding-left:18px;font-size:14px;line-height:1.6">{reps}</ul></div>' if reps else ""
     question = (f'<div class="card q"><div class="slot">오늘의 질문 (대표님 답변 부탁드립니다)</div>'
                 f'<div class="text">{e(day["question"])}</div>'
                 '<div class="meta">대화창에 한두 줄로 답해 주시면 다음 쓰레드 \'생각\' 글에 씁니다.</div></div>') if day.get("question") else ""
@@ -149,7 +157,7 @@ def render(day, results):
         review = f'<div class="card review"><div class="slot">자동 검수</div><ul style="padding-left:18px">{items}</ul></div>'
     else:
         review = '<div class="card review"><div class="slot">자동 검수</div><div style="font-size:13px;color:#0a7a3a">✓ 겹침·길이·링크 점검 통과</div></div>'
-    return PAGE.format(date=e(day["date"]), review=review, cards="".join(cards), replies=replies, question=question)
+    return PAGE.format(date=e(day["date"]), review=review, cards="".join(cards), replies=replies + comments, question=question)
 
 
 def main(argv=None):

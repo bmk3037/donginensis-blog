@@ -62,7 +62,9 @@ python -m blog.generate --id <id> --from-json posts/<dir>/post.json --date <발�
 
 ## 6. 쓰레드 3개 (회사 계정) → `threads/<발행일>.json`
 - `knowledge/threads.md`(규칙)와 `knowledge/ceo_notes.md`(대표 답변)를 읽고 씁니다
-- 아침 '생각' / 점심 '지식'(그날 블로그 글 하나를 3~5줄로, 문장 복사 금지) / 저녁 '질문' + 답글 초안 2~3개
+- 아침 '생각' / 점심 '정보'(블로그 요약·현장 팁·용어, 문장 복사 금지) / 저녁 '질문' 또는 '협업'(번갈아) + 답글 초안 2~3개
+- 친근한 해요체. 스마트제조·DX/AX 솔루션 기업들과 정보 교환·코웍이 목표
+- `comments`: 그날 둘러볼 태그 2~3개 + 다른 회사 글에 달 댓글 예시 3개 (댓글 품앗이)
 - 경험담은 ceo_notes.md에 있는 대표 답변으로만, `source`에 날짜 표시. 쓴 답변은 ceo_notes.md에 `(사용: 날짜 슬롯)` 표시
 - 링크는 사흘에 한 번 정도, 첫 댓글(`first_comment`)에만
 - 오늘의 대표 질문(`question`) 1개
