@@ -35,7 +35,7 @@ ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
 
 <h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">설비 데이터 API의 데이터 형식에 대한 질문</h2>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q3. 어떤 데이터를 받을 수 있나요?</strong>
-모터 권선온도(U·V·W상), 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 대기 온습도, 운전 상태신호입니다. 현장 설비와 목적에 따라 수집 항목은 조정할 수 있습니다.</p>
+온도로는 모터 권선(U·V·W상)과 베어링, 전기로는 전압·전류·전력량, 기계 쪽으로는 진동과 회전속도를 받습니다. 여기에 주변 온습도와 운전·정지 같은 상태신호가 더해집니다. 현장 설비와 목적에 따라 수집 항목은 조정할 수 있습니다.</p>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">AI 이상탐지를 만든다면 온도와 진동, 전류 데이터가 특히 쓸모가 많습니다. 에너지 관리 서비스라면 전력량이 중심이 되고, 가동률 분석이라면 운전 상태신호가 기본이 됩니다. 어떤 서비스를 만들지 알려 주시면 거기에 맞는 항목부터 제안해 드립니다.</p>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q4. 데이터는 어떤 구조로 오나요?</strong>
 설비마다 현장 번호(site_id)와 설비 번호(equipment_id)가 붙고, 그 아래 센서마다 값·단위·상태가 같은 형식으로 들어갑니다. 상태는 센서별 기준값에 따라 정상(normal)·경고(warning)·알람(alarm)으로 나뉘고, 센서 하나라도 경고면 그 설비 전체가 경고로 표시됩니다. 모든 설비가 같은 구조이기 때문에, 설비가 늘어나도 연동 코드를 새로 짤 필요가 없습니다.</p>
@@ -49,7 +49,7 @@ ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q7. 저희 서버가 설비를 직접 제어하게 되나요?</strong>
 아닙니다. 안전 인터록과 최종 제어 권한은 언제나 현장 PLC에 있습니다. 서버는 데이터를 받을 뿐 설비를 움직이지 않고, 제어망과 데이터망도 나눠 둡니다. 현장과 서버 사이 MQTT 통신은 TLS로 암호화하고, 원격 접속은 고객이 승인한 VPN으로만 합니다. 제어반마다 PLC 모델과 버전, 인증서 만료일도 대장으로 관리합니다.</p>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q8. 고객사가 보안 정책상 외부 클라우드를 못 쓴다면요?</strong>
-데이터허브와 대시보드를 고객사 서버나 사내망에 두는 온프레미스 방식으로 구축할 수 있습니다. 이 경우 외부와 연결하지 않고도 운영됩니다. 반대로 인터넷이 들어오지 않는 현장은 LTE 통신 장비를 함께 구성하는 방법이 있습니다.</p>
+데이터허브와 대시보드를 고객사 서버나 사내망에 두는 온프레미스 방식으로 구축할 수 있습니다. 이 경우 외부와 연결하지 않고도 운영됩니다. 반대로 회선이 들어오지 않는 현장이라면 LTE 장비를 붙여 데이터를 내보냅니다.</p>
 <h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">협업 진행에 대한 질문</h2>
 <p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q9. 본격적으로 시작하기 전에 연동을 시험해 볼 수 있나요?</strong>
 네. 먼저 샘플 데이터로 구조를 확인하고, 그다음 시연 장비로 실제 연동을 검증하는 순서로 진행합니다. 실제 고객 현장에 들어가기 전에 귀사 플랫폼과 맞는지 미리 확인할 수 있습니다.</p>

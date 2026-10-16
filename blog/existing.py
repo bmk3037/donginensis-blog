@@ -100,6 +100,14 @@ def sentences(text):
             if len(_norm(s)) >= SENTENCE_MIN and len(_norm(CONTACT_RE.sub("", s))) >= SENTENCE_MIN]
 
 
+RUN = 25
+
+
+def _shared_run(sent_norm, other_norm, n=RUN):
+    """문장 안의 n글자 연속 구간이 다른 글에 그대로 있으면 True"""
+    return any(sent_norm[i:i + n] in other_norm for i in range(0, len(sent_norm) - n + 1))
+
+
 def title_sim(a, b):
     def grams(t):
         t = _norm(t)
@@ -132,7 +140,8 @@ def check(post, post_dir=None, docs=None):
         other = shingles(d["text"])
         body = len(mine & other) / max(len(mine), 1)
         other_norm = _norm(d["text"])
-        same = [s for s in my_sents if _norm(s) in other_norm]
+        # 문장이 통째로 같거나, 앞뒤에 말만 붙이고 25글자 이상을 그대로 쓴 경우
+        same = [s for s in my_sents if _norm(s) in other_norm or _shared_run(_norm(s), other_norm)]
         tsim = title_sim(post["title"], d["title"])
         label = f"[{d['where']}] {d['title'][:40]}"
         if same:

@@ -293,6 +293,12 @@ class ExistingTest(unittest.TestCase):
         res = existing.check({"title": "완전히 다른 제목", "body_markdown": "선박 추진 모터 이야기를 길게 씁니다. " * 3}, docs=docs)
         self.assertEqual(res, [])
 
+    def test_copied_sentence_with_extra_words_fails(self):
+        sent = "설비 수, 모터 용량, 수집 항목, 통신 환경, 기존 제어반 교체 여부에 따라 달라집니다."
+        docs = [{"where": "초안 x", "title": "다른 글", "text": "비용은 " + sent}]
+        res = existing.check({"title": "새 글", "body_markdown": "견적은 " + sent}, docs=docs)
+        self.assertTrue(any("같은 문장" in m for _, m in res))
+
     def test_contact_line_is_not_counted(self):
         line = "문의 전화 051-862-3668 이메일 dongin@donginmne.com"
         self.assertEqual(existing.sentences(line), [])

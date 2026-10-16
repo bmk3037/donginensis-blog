@@ -95,7 +95,7 @@ MQTT는 주로 현장에서 서버나 클라우드로 데이터를 보낼 때 �
 
 OPC UA는 정돈된 구조와 보안, Modbus TCP는 폭넓은 호환성이 강점입니다. 현장에 무엇이 있는지 확인하고 그에 맞는 길을 고르는 것이 가장 빠른 방법입니다.
 
-1991년부터 제어반을 만들어 온 동인엔시스는 Schneider Electric 공식 SI 파트너로서 이런 OT 구간 연결을 맡고 있습니다. 기존 설비 데이터 연동이 필요한 프로젝트가 있다면 IT기업 협업 페이지에서 문의해 주세요.
+동인엔시스는 1991년부터 제어반을 만들어 왔고, 슈나이더 일렉트릭 공식 SI 파트너 자격으로 IT기업이 부담스러워하는 OT 구간 연결을 맡고 있습니다. 기존 설비 데이터 연동이 필요한 프로젝트가 있다면 IT기업 협업 페이지에서 문의해 주세요.
 
 👉 [OT 데이터 연동 협업 문의](https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post011&utm_content=donginensis#inquiry)
 
