@@ -59,3 +59,12 @@ python -m blog.generate --id <id> --from-json posts/<dir>/post.json --date <발�
 - `git add posts topics.csv existing && git commit && git push` (main)
 - GitHub 이슈 3개: 제목 `[<블로그 이름>] <제목>`, 본문 `posts/<dir>/issue.md`, 라벨 `blog-draft`
 - 사용자에게 zip 3개 전송 + 표로 요약: 블로그 / 제목 / 형식 / 글자 수 / 확인할 사실 1줄
+
+## 6. 쓰레드 3개 (회사 계정) → `threads/<발행일>.json`
+- `knowledge/threads.md`(규칙)와 `knowledge/ceo_notes.md`(대표 답변)를 읽고 씁니다
+- 아침 '생각' / 점심 '지식'(그날 블로그 글 하나를 3~5줄로, 문장 복사 금지) / 저녁 '질문' + 답글 초안 2~3개
+- 경험담은 ceo_notes.md에 있는 대표 답변으로만, `source`에 날짜 표시. 쓴 답변은 ceo_notes.md에 `(사용: 날짜 슬롯)` 표시
+- 링크는 사흘에 한 번 정도, 첫 댓글(`first_comment`)에만
+- 오늘의 대표 질문(`question`) 1개
+- 검수·미리보기: `python -m blog.threads threads/<발행일>.json` → ✗ 있으면 고치기 → `threads/<발행일>.html`을 사용자에게 전송
+- 대표가 대화창에 질문 답을 주면 그대로 `knowledge/ceo_notes.md`에 `## 날짜 — 질문` 아래 원문으로 적고 커밋

@@ -308,5 +308,41 @@ class ExistingTest(unittest.TestCase):
         self.assertEqual(existing.post_text(page), "안녕하세요 동인엔시스입니다")
 
 
+class ThreadsTest(unittest.TestCase):
+    def day(self, **kw):
+        posts = [{"slot": "아침", "type": "생각", "text": "제어반이 먼저 압니다. " * 4, "tag": "지능형제어반"},
+                 {"slot": "점심", "type": "지식", "text": "기존 PLC는 읽기만 합니다. " * 4, "tag": "스마트팩토리"},
+                 {"slot": "저녁", "type": "질문", "text": "설비 관리하시는 분들께 여쭤봅니다. 여러분 공장은 점검 기록을 어떻게 남기시나요? 댓글로 알려 주세요.", "tag": "설비관리"}]
+        d = {"date": "2026-10-17", "posts": posts, "replies": [{"if": "a", "reply": "b"}] * 2, "question": "q"}
+        d.update(kw)
+        return d
+
+    def test_clean_day_passes(self):
+        from blog import threads
+        self.assertEqual(threads.check(self.day(), docs=[]), [])
+
+    def test_link_in_body_and_long_text_fail(self):
+        from blog import threads
+        d = self.day()
+        d["posts"][0]["text"] = "자세히는 donginensis.com 에서 " + "가" * 520
+        msgs = [m for lv, m in threads.check(d, docs=[]) if lv == "FAIL"]
+        self.assertTrue(any("링크" in m for m in msgs))
+        self.assertTrue(any("500자" in m for m in msgs))
+
+    def test_story_without_source_warns(self):
+        from blog import threads
+        d = self.day()
+        d["posts"][0]["text"] = "어제 현장에서 펌프가 멈춘 일이 있었습니다. 다행히 금방 잡았습니다."
+        self.assertTrue(any("경험담" in m for _, m in threads.check(d, docs=[])))
+        d["posts"][0]["source"] = "ceo_notes 2026-10-16"
+        self.assertFalse(any("경험담" in m for _, m in threads.check(d, docs=[])))
+
+    def test_render_has_copy_buttons_and_question(self):
+        from blog import threads
+        page = threads.render(self.day(), [])
+        self.assertIn("글 복사", page)
+        self.assertIn("오늘의 질문", page)
+
+
 if __name__ == "__main__":
     unittest.main()
