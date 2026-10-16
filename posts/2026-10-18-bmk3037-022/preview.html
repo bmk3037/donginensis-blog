@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>수소추진선박 통합제어, 연료전지·추진모터·수소탱크를 하나로 묶는 일</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 현장 이야기 · <a href="https://blog.naver.com/bmk3037" target="_blank" style="color:#fff">blog.naver.com/bmk3037</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">수소추진선박 통합제어, 연료전지·추진모터·수소탱크를 하나로 묶는 일</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">바다 위에서 배기가스 대신 물만 내보내는 배. 수소추진선박은 그런 배를 목표로 개발되고 있습니다. 이 글에서는 해양수산부의 소형 수소추진선박 기술개발·실증 과제에서 통합제어와 감시를 맡고 있는 동인엔시스가, <strong style="font-weight:700;color:#111">수소추진선박</strong>에서 제어시스템이 어떤 일을 하는지 현장의 시선으로 풀어 봅니다. 부산에 본사를 둔 동인엔시스는 디젤·전기 하이브리드 배의 제어에서 출발해 수소 충전 설비, 그리고 이제 수소로 움직이는 배까지 바다와 에너지 쪽 제어 경험을 넓혀 왔습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">수소추진선박은 어떻게 움직일까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 배는 수소를 태워서 움직이는 것이 아닙니다. 일반적인 구조를 간단히 그려 보면 이렇습니다.</p>
+<ol style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">수소탱크:</strong> 연료인 수소를 저장합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">연료전지:</strong> 수소와 공기 중 산소를 반응시켜 전기를 만듭니다. 이때 나오는 것은 주로 물과 열입니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">전력 계통:</strong> 만든 전기를 배 안 곳곳에 나눠 보냅니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">추진모터:</strong> 전기로 프로펠러를 돌려 배를 움직입니다.</li>
+</ol>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">결국 '전기로 움직이는 배'이고, 그 전기를 배 안에서 수소로 직접 만들어 쓰는 구조입니다. 그래서 여러 장치가 한 몸처럼 맞물려 돌아가야 합니다.</p>
+<div data-img="02-system.png" style="margin:0 0 18px;text-align:center"><img src="images/02-system.png" alt="02-system.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-system.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">통합제어가 왜 핵심일까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">육상의 공장 설비는 대개 한 대의 설비를 한 제어반이 맡습니다. 그런데 수소 선박에서는 수소탱크, 연료전지, 전력 계통, 추진모터가 서로의 상태에 따라 움직여야 합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">예를 들어 배가 속도를 올리려 하면 추진모터는 더 많은 전기를 원하고, 연료전지는 그만큼 전기를 더 만들어야 하며, 수소탱크에서는 그에 맞게 수소를 공급해야 합니다. 반대로 어느 한 곳에 이상이 생기면, 다른 장치들도 그에 맞춰 출력을 낮추거나 안전한 상태로 넘어가야 합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이처럼 각 장치를 따로따로 제어하는 것이 아니라, 배 전체를 하나의 시스템으로 보고 순서와 조건을 맞추는 것이 통합제어입니다. 동인엔시스가 실증 과제에서 맡은 부분이 바로 이 통합제어와 감시, 그리고 여러 장치를 하나로 엮는 시스템 통합입니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">감시: 바다 위에서는 '먼저 아는 것'이 안전</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">수소는 가볍고 잘 퍼지는 기체라 다룰 때 각별한 주의가 필요합니다. 그래서 수소 설비를 갖춘 배에서는 압력, 온도, 각 장치의 운전 상태를 끊임없이 지켜보는 감시 기능이 제어만큼 중요합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">감시 화면은 기관실 운전자가 배 전체의 상태를 한눈에 파악하는 창입니다. 어떤 장치가 정상인지, 어디서 경보가 났는지, 지금 연료전지가 얼마나 전기를 만들고 있는지를 한곳에서 보여 줘야 합니다. 육지와 멀리 떨어진 바다에서는 문제가 커지기 전에 먼저 알아채는 것이 곧 안전이기 때문입니다.</p>
+<div data-photo="05-photo-h2-vessel.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 친환경 소형 선박 (연출 이미지) <span style="font-weight:400">(파일 이름: 05-photo-h2-vessel.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a small modern white eco-friendly coastal vessel moored at a quiet Korean harbor pier in the morning, sleek hull, a compact deckhouse with cylindrical gas tanks secured on the upper deck, calm water reflections, mountains in the background, no ship name, no flags with text, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">통합제어를 설계할 때 먼저 정하는 것</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">여러 장치를 하나로 묶는 제어는 코드를 짜기 전에 "규칙"부터 정해야 합니다. 이런 배의 통합제어를 설계할 때 특히 먼저 합의하는 항목은 다음과 같습니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">출력을 나누는 우선순위:</strong> 전기가 모자랄 때 어느 장치에 먼저 보내고 어느 쪽을 줄일지 정합니다. 배의 안전과 직결되는 장치가 언제나 앞에 섭니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">이상이 생겼을 때의 순서:</strong> 한 장치에 문제가 생기면 나머지 장치가 어떤 순서로 출력을 낮추고 안전한 상태로 넘어갈지 미리 그려 둡니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">경보의 단계:</strong> 지켜보면 되는 상태, 운전자가 조치해야 하는 상태, 즉시 멈춰야 하는 상태를 나눠 화면과 경보음으로 구분합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">운전자가 보는 화면:</strong> 기관실에서 한눈에 판단할 수 있도록 꼭 필요한 정보만 골라 배치합니다. 정보가 많다고 좋은 화면이 아닙니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">기록:</strong> 언제 어떤 경보가 났고 각 장치가 어떻게 움직였는지 남겨, 문제가 생겼을 때 원인을 되짚을 수 있게 합니다.</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 규칙들이 분명해야 장치를 만드는 여러 회사가 같은 그림을 보고 일할 수 있습니다. 시스템 통합이 기술만큼이나 "조율"의 일이라고 말하는 이유입니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">하이브리드 추진선에서 쌓은 경험</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">수소추진선박의 통합제어는 갑자기 시작된 일이 아닙니다. 동인엔시스는 디젤엔진과 전기모터를 함께 쓰는 하이브리드 추진선의 제어를 먼저 해 왔습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">대표적인 배가 충남병원선(G/T 330톤급)입니다. 섬마을 주민들을 찾아가는 이 배에 동인엔시스는 추진시스템과 통합제어감시를 공급했고, 배는 2023년 8월 취항했습니다. 두 가지 동력을 상황에 맞게 나눠 쓰는 하이브리드 제어는, 여러 동력원과 전력 계통을 함께 다뤄야 하는 수소 선박의 통합제어와 맥이 닿아 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">선박용 제어반을 만드는 기본기도 그대로 이어집니다. 선급 상호인정 인증서를 갖춘 컨트롤러로 구성하고, 배마다 도면 승인을 받은 뒤 검사관이 입회한 시험을 거쳐야 배에 실을 수 있습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">육상의 수소 설비와도 이어지는 기술</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">수소 분야의 경험은 바다에만 머물지 않습니다. 육지에서는 SK E&amp;S의 액화수소충전소 제어시스템을 맡았고, 충전소 제어와 관련해 등록한 특허가 다섯 건입니다. 2026년에는 정부의 수소전문기업 명단에도 이름을 올렸습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">충전소에서 수소를 안전하게 저장하고 공급하는 제어, 배 안에서 수소로 전기를 만들어 움직이는 제어는 무대만 다를 뿐 "수소를 안전하게, 끊김 없이 다룬다"는 같은 목표를 향합니다.</p>
+<div data-img="03-timeline.png" style="margin:0 0 18px;text-align:center"><img src="images/03-timeline.png" alt="03-timeline.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-timeline.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">까다로운 현장의 기준이 데이터의 신뢰로</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">1991년 부산에서 문을 연 뒤 산업·선박용 제어반을 직접 설계하고 제작해 온 동인엔시스에게도, 수소 선박은 가장 공을 들이는 현장 가운데 하나입니다. 흔들리는 바다 위에서, 다루기 까다로운 연료로, 멈추지 않고 돌아가야 하는 시스템. 이런 배의 통합제어는 제어 기술 가운데서도 손이 많이 가는 분야입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이런 현장에서 다듬어진 기준은 육상 공장의 지능형 제어반에도 그대로 적용됩니다. 설비를 제어하면서 온도·전류·진동 같은 데이터를 함께 남기는 제어반이 믿을 만하려면, 그 제어 자체가 먼저 단단해야 하기 때문입니다.</p>
+<div data-photo="06-photo-control-console.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 선박 기관 제어실의 감시 화면 (연출 이미지) <span style="font-weight:400">(파일 이름: 06-photo-control-console.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a compact ship engine control room console: a marine control desk with two monitors showing an abstract system diagram of tanks, fuel cells and motors as simple blue and green blocks (no readable text), illuminated push buttons, a small porthole window, clean bright lighting, no people, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 수소 선박은 언제쯤 실제로 운항하나요?</strong>
+동인엔시스가 참여하는 과제는 2022년 4월부터 2026년 12월까지 기술개발과 실증을 진행하는 과제입니다. 상용 운항 시기는 과제 결과와 관련 제도에 따라 달라집니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 동인엔시스가 배 전체를 만드나요?</strong>
+아닙니다. 연료전지, 추진모터, 수소탱크 시스템을 하나로 묶는 통합제어·감시와 시스템 통합을 맡고 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 다른 친환경 선박 제어도 상담할 수 있나요?</strong>
+네. 하이브리드 추진선, LNG 연료 선박의 연료가스공급 제어 등도 수행해 왔습니다. 선박과 요구사항을 알려 주시면 함께 검토합니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">친환경 선박 제어, 함께 이야기해요</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">수소로 가는 배는 수소탱크와 연료전지, 추진모터가 한 몸처럼 움직여야 하는 배이고, 그 연결을 맡는 것이 통합제어입니다. 동인엔시스는 하이브리드 추진선에서 시작해 수소 선박까지 그 경험을 넓혀 가고 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">수소·에너지 분야의 다른 제어 사례도 홈페이지에서 보실 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/applications.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post022&amp;utm_content=bmk3037#hydrogen">수소·에너지 제어 사례 둘러보기</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">선박·수소 상담 051-862-3668 / dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>수소추진선박 통합제어를 맡으면서 하이브리드 선박 때와 가장 달랐던 점은 무엇이었나요? (공개 가능한 범위에서)</li><li>충남병원선 시운전에서 기억에 남는 장면이 있다면 한 줄로 적어 주세요.</li><li>수소 설비를 다룰 때 팀에서 특히 강조하는 원칙이 있다면 적어 주세요.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #제어반제작 #수소추진선박 #수소선박 #연료전지 #친환경선박 #선박통합제어 #수소전문기업 #부산제어반</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 해양수산부 &#x27;안전기반 소형 수소추진선박 기술개발 및 실증&#x27;(2022.4~2026.12) 참여, 통합제어·감시·시스템 통합 담당</li><li>사실 확인: 수소추진선박 제어: 연료전지, 추진모터, 수소탱크 시스템통합제어</li><li>사실 확인: 충남병원선(G/T 330톤급, 디젤+전기모터 하이브리드, 2023.8 취항) 추진시스템·통합제어감시</li><li>사실 확인: 2026 수소전문기업 등록, 액화수소충전소 제어시스템 특허 5건, SK E&amp;S 액화수소충전소 제어시스템 공급</li><li>사실 확인: Modicon M262 선급 상호인정 인증서, 선박별 도면 승인·검사관 입회 시험</li><li>사실 확인: 수소추진선박의 일반 구조(수소탱크→연료전지→전기→추진모터) 설명은 일반 기술 상식이며 실증선 세부 설계가 아님</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "제어반제작", "수소추진선박", "수소선박", "연료전지", "친환경선박", "선박통합제어", "수소전문기업", "부산제어반"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>

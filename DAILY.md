@@ -39,7 +39,8 @@ API 키 없이, 대화창의 Claude가 직접 글과 이미지를 만듭니다. 
   - 라벨 예: 지능형 제어반 / 이상감지 체크리스트 / 도입 가이드 (3047), 데이터 수집 / 데이터 연동 가이드 / 설비데이터 기초 (donginensis), 수소·에너지 / 조선·해양 / 적용 사례 / 회사소개 (bmk3037)
   - 영문 예: PREDICTIVE MAINTENANCE, GLOSSARY, OT PARTNERSHIP, CLASS APPROVAL
   - 설명 이미지(02~)의 하단 블로그 이름도 폴더 이름에서 자동
-- **사진 생성**: 각 `photos[].prompt`로 Figma `generate_image` (planKey `team::1685988044694788508`, model `gemini-3.1-flash-image`, 1536×1024)
+- **사진 생성**: 각 `photos[].prompt`로 Figma `generate_image` (fileKey `nVEHXOAd34s9ALDBHL3NEP` = '동인엔시스 블로그 사진' 파일, model `gemini-3.1-flash-image`, 1536×1024) → 결과 nodeId로 `download_assets`의 rawImages URL을 내려받기
+  - ⚠ Figma AI 월 크레딧 소진: **2026-11-01까지는 생성하지 않고** 미리보기의 ChatGPT 프롬프트로 대체 (사용자에게 알림)
   → `posts/<dir>/photos-src/<file>`로 내려받기 → 다시 `python -m blog.images posts/<dir>` 하면 '연출 이미지' 표기 후 images/에 저장
   - 실패(크레딧 소진 등)면 그대로 둡니다. 미리보기에 ChatGPT 프롬프트가 자동으로 나옵니다. 사용자에게 알려 주기
   - 사진을 열어 이상한 글자·다른 회사 로고·어색한 손이 없는지 확인, 문제 있으면 1번만 다시 생성

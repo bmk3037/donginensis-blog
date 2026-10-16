@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>스마트팩토리 구축, 설비를 바꿀까 장비를 붙일까 제어반을 바꿀까</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 지능형 제어반 · <a href="https://blog.naver.com/donginensis3047" target="_blank" style="color:#fff">blog.naver.com/donginensis3047</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">스마트팩토리 구축, 설비를 바꿀까 장비를 붙일까 제어반을 바꿀까</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">스마트팩토리를 해 보자는 이야기가 나오면 공장마다 비슷한 고민이 시작됩니다. 설비를 새것으로 바꿔야 하나, 데이터 모으는 장비를 따로 달아야 하나, 아니면 다른 방법이 있나. 이 글에서는 부산에서 35년째 제어반을 설계·제작해 온 동인엔시스가 <strong style="font-weight:700;color:#111">스마트팩토리 구축</strong>의 첫걸음을 세 가지 방식으로 나눠 장단점을 비교해 봤습니다. 우리 공장에 어떤 출발점이 맞는지 가늠하는 데 참고가 되면 좋겠습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">스마트팩토리의 출발점은 결국 '설비 데이터'</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">화면이 멋진 생산관리 시스템도, AI 분석도 결국 현장 설비에서 들어오는 값을 먹고 움직입니다. 모터가 몇 도인지, 전류가 얼마나 흐르는지, 설비가 언제 섰는지 같은 기본 데이터가 없으면 그 위에 무엇을 올려도 제 역할을 하지 못합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">그래서 스마트팩토리 구축을 시작할 때 가장 먼저 정해야 할 질문은 "무슨 시스템을 살까"가 아니라 "설비 데이터를 어디서, 어떻게 꺼낼까"입니다. 이 질문에 대한 답이 크게 세 갈래로 나뉩니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">세 가지 방법, 하나씩 들여다보기</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">어떤 방법이 더 낫다고 단정하기보다, 각각 어떤 공장에 잘 맞는지 살펴보겠습니다.</p>
+<div data-img="02-compare.png" style="margin:0 0 18px;text-align:center"><img src="images/02-compare.png" alt="02-compare.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-compare.png 넣기</div></div>
+
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">방법 1. 설비를 통째로 새것으로 바꾸기</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">데이터 기능이 들어간 최신 설비로 바꾸는 방법입니다. 새 설비는 처음부터 통신 기능을 갖춘 경우가 많아 데이터를 받기가 비교적 수월합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">다만 비용과 시간이 가장 많이 듭니다. 멀쩡히 잘 돌아가는 펌프나 송풍기, 압축기까지 바꾸게 되는 경우가 생기고, 설치하는 동안 생산을 멈춰야 할 수도 있습니다. 설비가 워낙 낡아 어차피 교체할 시기라면 좋은 선택이지만, 데이터만을 위해 설비를 바꾸기에는 부담이 큽니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">방법 2. 기존 설비에 수집 장비를 따로 달기</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비와 제어반은 그대로 두고, 센서와 데이터 수집 장비(게이트웨이)를 덧붙이는 방법입니다. 초기 비용이 상대적으로 적고 빨리 시작할 수 있다는 장점이 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">대신 관리할 장비가 하나 더 늘어납니다. 제어반과 수집 장비를 서로 다른 곳에서 맡으면, 데이터가 끊겼을 때 어디서 문제가 생겼는지 찾기가 어려워집니다. 현장마다 PLC 기종과 통신 방식이 달라 연결 작업을 매번 새로 해야 하는 것도 부담입니다. 설비가 늘어날수록 이 장비들을 하나하나 챙기는 일이 커집니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">방법 3. 제어반을 지능형으로 바꾸기</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비는 그대로 두고, 설비를 움직이는 제어반만 교체하거나 새로 설치하는 방법입니다. 동인엔시스 지능형 제어반은 설비를 제어하면서 운전 데이터도 함께 모으고, 별도 수집 장비 없이 클라우드나 회사 내부 서버로 보냅니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">현장에 들어가는 장비는 제어반 한 면입니다. 제어와 데이터를 한 곳에서 맡기 때문에 문제가 생겨도 확인할 곳이 하나뿐이고, 데이터 형식도 처음부터 같은 구조로 정리해 내보냅니다. 오래된 제어반을 바꿀 시기가 다가온 공장이라면, 교체하는 김에 스마트팩토리의 출발점까지 함께 마련하는 셈입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이미 다른 회사 PLC가 잘 돌고 있어 제어반을 당장 바꾸기 어려운 설비라면, 기존 PLC의 값을 읽어 오는 방식으로 함께 묶을 수도 있습니다. 이때도 기존 PLC 프로그램은 건드리지 않고 읽기만 합니다.</p>
+<div data-img="05-photo-old-new-panel.png" style="margin:0 0 18px;text-align:center"><img src="images/05-photo-old-new-panel.png" alt="05-photo-old-new-panel.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/05-photo-old-new-panel.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">제어반을 바꾸면 매일 무엇이 남을까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">제어반 교체 방식을 고르면, 설비가 돌 때마다 기록이 쌓이기 시작합니다. 모터 권선과 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 주변 온습도, 운전과 정지 상태가 하루 종일 남습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 기록이 쌓이면 일하는 방식이 조금씩 달라집니다. 아침에 출근해서 밤사이 설비가 어땠는지 화면 하나로 확인할 수 있고, 같은 종류의 설비끼리 비교해 유난히 뜨겁거나 많이 흔들리는 녀석을 먼저 찾아낼 수 있습니다. 정해 둔 기준을 넘으면 알람이 오니, 사람이 매번 돌지 않아도 이상이 생긴 설비부터 살펴볼 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">무엇보다 숙련자의 감과 경험에 기대던 판단을 기록으로 남길 수 있다는 점이 큽니다. 담당자가 바뀌어도 그 설비가 지난 몇 달 동안 어떻게 움직였는지 그대로 볼 수 있으니까요. 생산관리 시스템이나 AI 분석을 나중에 붙일 때도 이 기록이 바탕이 됩니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">한눈에 비교하면</h2>
+<table style="border-collapse:collapse;width:100%;margin:0 0 18px;font-size:15px">
+<thead>
+<tr>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">비교 항목</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">설비 교체</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">수집 장비 추가</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">제어반 교체</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">초기 부담</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">가장 큼</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">비교적 작음</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">중간</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">생산 중단</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">길 수 있음</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">짧음</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">제어반 교체 기간</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">관리할 장비</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">새 설비</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">설비 + 수집 장비</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">제어반 하나</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">데이터 형식</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">설비마다 다를 수 있음</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">장비 설정에 따라 다름</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">처음부터 같은 구조</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">잘 맞는 경우</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">설비 자체가 노후</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">빠른 시범 운영</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">제어반 교체 시기, 여러 설비 확대</td>
+</tr>
+</tbody>
+</table>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">어느 방법이 정답이라기보다, 공장 상황에 따라 맞는 출발점이 다릅니다. 실제로는 한 공장 안에서 설비마다 다른 방법을 섞어 쓰는 경우도 많습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">우리 공장은 어디서 시작할까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">아래 질문에 답해 보면 출발점이 좀 더 분명해집니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">설비 자체가 고장이 잦고 부품 구하기도 어려운가?</strong> 그렇다면 설비 교체를 먼저 검토할 때입니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">설비는 멀쩡한데 제어반이 오래됐는가?</strong> 제어반 교체와 데이터 수집을 함께 하는 것이 가장 자연스럽습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">일단 효과부터 보고 싶은가?</strong> 멈추면 손해가 가장 큰 설비 1~2대로 작게 시작해 보세요. 어떤 방법이든 처음부터 공장 전체를 바꿀 필요는 없습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">앞으로 설비를 계속 늘려 갈 계획인가?</strong> 데이터 구조가 처음부터 통일돼 있는 쪽이 나중에 훨씬 편합니다.</li>
+</ul>
+<div data-img="03-start.png" style="margin:0 0 18px;text-align:center"><img src="images/03-start.png" alt="03-start.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-start.png 넣기</div></div>
+
+<div data-photo="06-photo-factory-line.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 펌프·송풍기가 있는 공장 설비 라인 (연출 이미지) <span style="font-weight:400">(파일 이름: 06-photo-factory-line.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic wide photo of a mid-sized Korean factory production hall with blue electric motors driving fans and pumps along one side, pipes and ducts overhead, a production line in the background, clean floor with yellow walkway lines, bright daylight from skylights, no people in focus, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 제어반 교체 기간 동안 생산을 오래 멈춰야 하나요?</strong>
+제어반은 공장에서 미리 만들고 시험까지 마친 뒤 현장에 들어가기 때문에, 현장 교체 작업은 그만큼 짧아집니다. 정확한 일정은 현장 분석 후 생산 계획에 맞춰 잡습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 비용은 어느 쪽이 가장 적게 드나요?</strong>
+설비 수와 모터 용량, 모을 항목, 통신 환경에 따라 달라서 일괄적으로 말씀드리기 어렵습니다. 현장을 보고 세 가지 방법을 함께 견줘 드립니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 구축에는 얼마나 걸리나요?</strong>
+보통 9주에서 15주 사이입니다. 현장을 보는 데 1주, 제어반을 짓는 데 5주 정도가 들고, 서버 준비와 시운전 기간은 현장마다 조금씩 다릅니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 이미 수집 장비를 달아 둔 설비도 있는데요?</strong>
+그 설비는 그대로 두고, 앞으로 제어반을 바꾸는 설비부터 지능형으로 바꾸는 식으로 함께 운영할 수 있습니다. 데이터를 한곳에서 볼 수 있게 묶는 방법도 현장 분석 때 같이 검토합니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">첫 단추를 같이 골라 드립니다</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">스마트팩토리 구축은 큰 시스템을 들이는 일이 아니라, 설비 데이터를 어디서 꺼낼지 정하는 일에서 시작합니다. 설비를 바꿀지, 장비를 붙일지, 제어반을 바꿀지는 공장마다 답이 다릅니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스는 750건이 넘는 프로젝트에서 펌프·송풍기·압축기·컨베이어 같은 설비의 제어반을 직접 만들어 왔습니다. 우리 공장에 맞는 출발점이 궁금하시면 홈페이지에서 적용 가능성 진단을 신청해 주세요.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/manufacturing.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post002&amp;utm_content=donginensis3047#inquiry">우리 공장 출발점 진단받기</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">제조 상담 051-862-3668 · dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>세 가지 방법 중 실제 상담에서 고객사가 가장 많이 고민하는 것은 무엇이었나요?</li><li>설비는 멀쩡한데 제어반이 오래돼서 바꾼 현장이 있다면, 그때 고객 반응을 한 줄로 적어 주세요.</li><li>작게 시작한 뒤 설비를 넓혀 간 사례가 있다면 공개 가능한 범위에서 적어 주세요.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #지능형제어반 #스마트팩토리구축 #스마트팩토리 #제어반교체 #설비데이터 #노후설비 #공장자동화 #설비모니터링</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 설비는 그대로 두고 제어반만 교체 또는 신규 설치, 현장에는 제어반 1면, 별도 수집장비 불필요</li><li>사실 확인: 수집 항목: 모터 권선·베어링 온도, 회전속도, 전압·전류·전력량, 진동, 대기 온습도, 운전 상태</li><li>사실 확인: 기존 타사 PLC는 읽기만 함 (OPC UA → Modbus TCP → 게이트웨이)</li><li>사실 확인: 설비 1~2대부터 단계적 확대, 표준 9~15주, 비용은 현장 분석 후 견적</li><li>사실 확인: 1991년 설립, 부산 본사·양산·기장 공장에서 제어반 설계·제작, 750건 이상 프로젝트</li><li>사실 확인: 세 가지 방식 비교는 일반적인 장단점 설명 (특정 업체·제품 비교 아님)</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "지능형제어반", "스마트팩토리구축", "스마트팩토리", "제어반교체", "설비데이터", "노후설비", "공장자동화", "설비모니터링"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>
