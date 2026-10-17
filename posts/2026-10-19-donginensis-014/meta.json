@@ -1,0 +1,28 @@
+{
+  "topic_id": "14",
+  "blog": "donginensis",
+  "format": "비교형",
+  "title": "OT IT 협업, IT기업과 제어반 회사가 함께 일하는 3가지 방식",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "OTIT협업",
+    "IT기업협업",
+    "MES연동",
+    "디지털트윈",
+    "제조AI",
+    "스마트팩토리",
+    "OT데이터"
+  ],
+  "keyword": "OT IT 협업",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post014&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "협업 모델 1 OT 구간 전담(제어반 설계·제작·설치, PLC·인버터·센서 연동, 시운전·유지보수) / 모델 2 데이터 연동(표준 API, site_id·equipment_id·센서별 값·단위·상태) / 모델 3 공동 제안·영업(고객 공동 발굴, 정부 지원사업 공동 참여, 시연 장비)",
+    "절차: 협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트",
+    "MQTT 토픽 구조·메시지 형식·표준 Tag 규칙은 버전 관리, 세부 문서는 NDA 후 제공",
+    "데이터 소유·이용 범위·보관 기간은 프로젝트별 계약",
+    "스마트공장 공급기업 등록(2026.10), Schneider Electric 공식 SI 파트너, 750건 이상 프로젝트",
+    "각 방식의 장단점·맞는 경우는 일반적인 설명"
+  ],
+  "created": "2026-10-19"
+}

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>하이브리드 추진 선박 제어, 충남병원선과 경남청정호에서 배운 것</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 현장 이야기 · <a href="https://blog.naver.com/bmk3037" target="_blank" style="color:#fff">blog.naver.com/bmk3037</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">하이브리드 추진 선박 제어, 충남병원선과 경남청정호에서 배운 것</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">바다 위에도 하이브리드 자동차 같은 배가 있습니다. 엔진과 전기모터를 상황에 맞게 나눠 쓰는 하이브리드 추진 선박입니다. 이 글에서는 부산에서 1991년부터 산업·선박용 제어반을 만들어 온 동인엔시스가 직접 제어를 맡은 두 척, 충남병원선과 경남청정호를 바탕으로 <strong style="font-weight:700;color:#111">하이브리드 추진 선박</strong>의 제어가 무엇을 하는지 쉽게 풀어 봅니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">하이브리드 추진 선박이란</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">일반적인 배는 디젤엔진 하나로 프로펠러를 돌립니다. 하이브리드 추진 선박은 여기에 전기모터를 더해, 두 가지 동력을 상황에 맞게 골라 쓰거나 함께 씁니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">자동차의 하이브리드와 비슷하게 생각하면 쉽습니다. 천천히 움직이거나 조용히 머물러야 할 때는 전기 쪽을, 먼 거리를 빠르게 이동할 때는 엔진 쪽을 주로 쓰고, 힘이 많이 필요할 때는 둘을 함께 쓰는 식입니다. 이렇게 하면 엔진을 늘 최대로 돌리지 않아도 되어 연료와 배출가스를 줄이고, 소음과 진동도 낮출 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">다만 이것은 일반적인 방식이고, 실제로 어떤 상황에서 어떤 동력을 쓸지는 배의 용도와 설계에 따라 달라집니다.</p>
+<div data-img="02-modes.png" style="margin:0 0 18px;text-align:center"><img src="images/02-modes.png" alt="02-modes.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-modes.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">제어가 하는 일: 두 동력을 한 몸처럼</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동력이 두 개라는 것은 그만큼 판단할 일이 많다는 뜻입니다. 하이브리드 추진 선박의 제어시스템은 대략 이런 일을 맡습니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">동력 전환:</strong> 엔진에서 전기로, 전기에서 엔진으로 바꿀 때 배가 덜컹거리지 않고 부드럽게 이어지게 합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">출력 나누기:</strong> 두 동력을 함께 쓸 때 각각 얼마만큼 힘을 낼지 정합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">전기 관리:</strong> 배 안의 전기를 추진과 다른 장비에 어떻게 나눌지 조율합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">감시와 경보:</strong> 엔진, 모터, 전력 계통의 상태를 한 화면에서 보여 주고, 이상이 생기면 운전자에게 알립니다.</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스가 충남병원선에 공급한 것도 바로 이 추진시스템과 통합제어감시입니다. 여러 장치를 따로따로가 아니라 배 전체를 하나로 보고 다루는 것이 핵심입니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">두 척의 하이브리드 추진 선박 이야기</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">두 배는 크기도, 하는 일도 다르지만 디젤과 전기를 함께 쓴다는 점은 같습니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">충남병원선: 섬과 섬 사이를 오가는 진료실</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">충남병원선은 G/T 330톤급 배로, 디젤엔진과 전기모터를 함께 쓰는 하이브리드 추진 방식입니다. 2023년 8월 취항했습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">병원선은 병원에 가기 어려운 섬 지역 주민들을 찾아가 진료하는 배입니다. 진료실과 의료 장비를 싣고 다니는 배이니만큼, 항해 중에도 정박 중에도 안정적인 전력과 움직임이 중요합니다. 의료 장비가 돌아가는 동안 전기가 흔들리면 안 되고, 섬에 머무는 동안에는 소음과 진동이 적을수록 좋습니다. 하이브리드 추진과 통합제어가 이런 배에 잘 맞는 이유입니다.</p>
+<div data-photo="05-photo-hospital-ship.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 섬 지역을 오가는 병원선 (연출 이미지) <span style="font-weight:400">(파일 이름: 05-photo-hospital-ship.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a mid-sized white government medical service ship cruising on calm blue sea near small green Korean islands on a sunny day, clean modern hull with a simple red stripe and a small red cross symbol without any text, gentle wake, wide angle maritime photography, no ship name, no readable text, no brand logos. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">경남청정호: 바다를 청소하는 배</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">경남청정호는 G/T 120톤급 환경정화선으로, 역시 디젤과 전기모터 하이브리드 방식입니다. 2023년 4월 취항했습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">환경정화선은 바다에 떠다니는 쓰레기를 거둬들이는 배입니다. 넓은 바다를 이동하는 시간도 있지만, 쓰레기를 모으는 동안에는 천천히, 섬세하게 움직여야 합니다. 바다를 깨끗하게 하는 배가 스스로 내뿜는 배출가스를 줄일 수 있다는 점에서도 하이브리드 방식은 의미가 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">두 배 모두 크기가 크지 않은 관공선입니다. 작은 배는 기관실 공간이 좁아 제어반을 놓을 자리도 넉넉하지 않습니다. 정해진 공간 안에 필요한 기능을 담고, 선원들이 한눈에 상태를 알아볼 수 있게 구성하는 것도 설계에서 공을 들인 부분입니다.</p>
+<div data-photo="06-photo-cleanup-boat.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 바다 쓰레기를 수거하는 환경정화선 (연출 이미지) <span style="font-weight:400">(파일 이름: 06-photo-cleanup-boat.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a small marine environmental cleanup vessel with an open collection deck and a crane arm lifting a net of floating debris from calm harbor water in Korea, crew in orange life vests seen from a distance, coastal hills in the background, overcast soft light, no ship name, no readable text, no brand logos. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">선원이 보는 화면, 무엇을 담을까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이런 배에서 제어 화면은 선원과 기계 사이의 통역사입니다. 동력이 둘이다 보니 보여 줄 정보도 많아지는데, 다 늘어놓으면 오히려 중요한 것을 놓치게 됩니다. 그래서 화면을 구성할 때는 다음 순서로 정리합니다.</p>
+<ol style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">지금 어떤 동력으로 가고 있나:</strong> 엔진, 전기, 둘 다 중 무엇인지 화면 맨 위에서 바로 보이게 합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">전기는 어디로 흐르나:</strong> 만들어진 전기가 추진과 다른 장비로 어떻게 나뉘는지 흐름으로 보여 줍니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">무엇이 이상한가:</strong> 경보는 중요도에 따라 색과 순서를 달리해, 급한 것부터 눈에 들어오게 합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">어떻게 해야 하나:</strong> 자주 쓰는 조작은 단계를 줄여, 바쁜 순간에도 실수 없이 다룰 수 있게 합니다.</li>
+</ol>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">화면 하나를 정리하는 일이지만, 실제 항해에서 선원이 덜 헤매고 더 빨리 판단하게 만드는 것이 목표입니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">디젤·LNG 하이브리드까지</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">하이브리드라고 해서 꼭 디젤과 전기의 조합만 있는 것은 아닙니다. 동인엔시스는 여수지방해양수산청 항만청소선(G/T 280톤급)처럼 디젤과 LNG 엔진을 함께 쓰는 배에서 연료가스공급 제어도 맡았습니다. 연료가 달라지면 공급 설비와 안전 조건이 달라지고, 제어가 챙겨야 할 것도 늘어납니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이렇게 서로 다른 동력원을 함께 다뤄 본 경험은 지금 참여하고 있는 수소추진선박 통합제어로 이어지고 있습니다. 동력원이 디젤이든 LNG든 수소 연료전지든, 여러 동력을 하나의 배로 엮는 일이라는 점은 같습니다.</p>
+<div data-img="03-ships.png" style="margin:0 0 18px;text-align:center"><img src="images/03-ships.png" alt="03-ships.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-ships.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">작은 배에서 배운 큰 원칙</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">두 척의 하이브리드 추진 선박을 거치며 다시 확인한 원칙이 있습니다. 동력이 여러 개일수록, 그 사이를 잇는 제어가 단순하고 분명해야 한다는 것입니다. 운전자가 화면을 보고 지금 배가 어떤 상태인지 바로 알 수 있어야 하고, 이상이 생겼을 때 어떤 순서로 대응할지 미리 정해져 있어야 합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 원칙은 육상 공장에 들어가는 지능형 제어반에도 그대로 이어집니다. 설비를 제어하면서 온도·전류·진동 같은 상태를 함께 기록하고, 이상이 생기면 먼저 알려 주는 구조입니다. 흔들리는 바다 위에서 다듬어진 기준이 공장 설비 데이터의 믿음을 받쳐 줍니다. 동인엔시스는 이런 선박 경험을 인정받아 2022년 해양수산부 국가대표 혁신기업으로도 선정됐습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 큰 상선에도 하이브리드 제어를 할 수 있나요?</strong>
+배의 크기와 동력 구성에 따라 검토할 내용이 달라집니다. 대형 선박에서는 연료가스공급 계통의 펌프·히터 제어 등을 수행해 왔고, 요구사항을 보고 함께 판단합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 기존 배를 하이브리드로 바꾸는 것도 가능한가요?</strong>
+개조는 선체와 기관실 여건, 선급 규칙을 함께 봐야 해서 조선소·설계사와 협의가 필요합니다. 제어 쪽 검토는 함께할 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 선박 제어반도 부산에서 만드나요?</strong>
+네. 부산 본사와 양산·기장 공장에서 설계·제작하고, 선박별 도면 승인과 검사관 입회 시험을 거쳐 납품합니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">친환경 선박 제어가 필요하다면</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">하이브리드 추진 선박은 두 동력을 상황에 맞게 쓰는 배이고, 그 판단을 맡는 것이 통합제어입니다. 충남병원선과 경남청정호는 그 제어가 실제 바다에서 쓰이고 있는 사례입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">관공선이나 친환경 선박의 제어를 준비하고 계신다면 홈페이지 조선·해양 분야를 살펴보시고 연락 주세요.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/applications.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post019&amp;utm_content=bmk3037#marine">조선·해양 분야 실적 보기</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">선박 제어 상담 051-862-3668 / dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>충남병원선이나 경남청정호 시운전 때 기억에 남는 장면이 있다면 공개 가능한 범위에서 한 줄로 적어 주세요.</li><li>작은 배의 좁은 기관실에 제어반을 배치할 때 가장 고민했던 점은 무엇이었나요?</li><li>하이브리드 배 제어에서 운전자들이 가장 많이 요청한 기능이 있었다면 적어 주세요.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #제어반제작 #하이브리드추진선박 #하이브리드선박 #충남병원선 #경남청정호 #친환경선박 #선박제어 #부산제어반</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 충남병원선 G/T 330톤급, 디젤엔진+전기모터 하이브리드 추진, 추진시스템·통합제어감시 공급, 2023년 8월 취항</li><li>사실 확인: 환경정화선 경남청정호 G/T 120톤급, 디젤+전기모터 하이브리드, 2023년 4월 취항</li><li>사실 확인: 여수지방해양수산청 항만청소선 G/T 280톤급 디젤·LNG 하이브리드, FGSS 제어</li><li>사실 확인: 해양수산부 국가대표 혁신기업(2022), 2006년부터 해상용 전기제어시스템</li><li>사실 확인: 하이브리드 추진의 일반적인 운전 방식(전기 위주·엔진 위주·함께) 설명은 일반 상식이며 두 선박의 세부 운전 모드가 아님</li><li>사실 확인: 병원선(섬 지역 의료), 환경정화선(해양 쓰레기 수거)의 역할 설명은 일반 정보</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "제어반제작", "하이브리드추진선박", "하이브리드선박", "충남병원선", "경남청정호", "친환경선박", "선박제어", "부산제어반"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>

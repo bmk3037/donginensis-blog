@@ -1,0 +1,28 @@
+{
+  "topic_id": "4",
+  "blog": "donginensis3047",
+  "format": "Q&A형",
+  "title": "설비 진동 감시, 펌프·송풍기 고장 전에 알아차리는 법 Q&A 10가지",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "설비진동감시",
+    "진동센서",
+    "펌프고장",
+    "송풍기",
+    "예지보전",
+    "설비관리",
+    "계획정비"
+  ],
+  "keyword": "설비 진동 감시",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post004&utm_content=donginensis3047#inquiry",
+  "fact_check": [
+    "지능형 제어반 수집 항목에 진동 포함, 24시간 기록, 기준값 넘으면 알람, normal·warning·alarm",
+    "적용 설비: 펌프, 송풍기, 팬, 압축기, 컨베이어, 크레인 등 모터 구동 설비",
+    "설비는 그대로 두고 제어반 교체·신규 설치, 1~2대부터",
+    "AI 이상탐지는 PoC 단계 고도화 중 (기준값 알람은 바로 사용)",
+    "유지관리: 원격 상태 확인, 정기 점검, 알람 기준 조정",
+    "진동 원인(불균형·정렬 불량·풀림·베어링 마모) 설명은 일반적인 설비 점검 상식, 진동 기준 수치는 쓰지 않음"
+  ],
+  "created": "2026-10-19"
+}

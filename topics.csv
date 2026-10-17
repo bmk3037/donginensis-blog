@@ -3,7 +3,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 3,donginensis3047,drafted,제조,모터 권선온도와 베어링 온도를 감시해야 하는 이유,모터 온도 감시,https://donginensis.com/manufacturing.html#inquiry,권선온도(U·V·W)·베어링 온도 이상이 의미하는 것. 24시간 기록과 기준값 알람
 5,donginensis3047,drafted,제조,스마트공장 지원사업으로 지능형 제어반 도입하기,스마트공장 지원사업,https://donginensis.com/manufacturing.html#inquiry,스마트공장 공급기업 등록. 사업 확인부터 사후관리까지 절차. 지원 비율은 공고 기준이라고 안내
 2,donginensis3047,drafted,제조,제어반 교체만으로 스마트팩토리를 시작하는 방법,스마트팩토리 구축,https://donginensis.com/manufacturing.html#inquiry,설비는 그대로 두고 제어반만 바꿔 데이터 수집을 시작하는 방식. 설비 1~2대부터 단계적 확대
-4,donginensis3047,todo,제조,펌프·송풍기 진동 감시로 고장 전에 알아차리기,설비 진동 감시,https://donginensis.com/manufacturing.html#inquiry,진동 데이터와 계획 정비. AI 이상탐지는 고도화 중이라는 점을 정직하게
+4,donginensis3047,drafted,제조,펌프·송풍기 진동 감시로 고장 전에 알아차리기,설비 진동 감시,https://donginensis.com/manufacturing.html#inquiry,진동 데이터와 계획 정비. AI 이상탐지는 고도화 중이라는 점을 정직하게
 41,donginensis3047,todo,제품,모듈러 인출식 VFD 판넬: 설비를 멈추지 않고 모듈만 교체,VFD 판넬,https://donginensis.com/manufacturing.html#inquiry,특허 구조. AI 예지보전과 결합해 고장 징후 시 해당 모듈만 교체하는 무정지 운전 개념
 6,donginensis3047,todo,제조,지능형 제어반 도입 절차 9~15주 단계별 정리,제어반 도입 절차,https://donginensis.com/manufacturing.html,현장 분석 1주·제작 5주·서버 2주·시운전 2~4주 단계별로 무엇을 하는지
 34,donginensis3047,todo,제조,설비 1~2대부터 시작하는 예지보전 첫걸음,예지보전 시작,https://donginensis.com/manufacturing.html#inquiry,작게 시작해 넓히는 방식. 기준값 알람부터. AI는 고도화 중
@@ -27,7 +27,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 13,donginensis,drafted,IT협업,MES·AI 기업이 현장 설비 데이터를 받는 가장 쉬운 방법,설비 데이터 API,https://donginensis.com/partner.html#inquiry,REST API·WebSocket·CSV. site_id·equipment_id 표준 구조. 설비가 늘어도 연동 코드 그대로
 11,donginensis,drafted,기술,기존 PLC 그대로 두고 데이터 읽기: OPC UA·Modbus TCP 선택 기준,OPC UA Modbus TCP,https://donginensis.com/partner.html#inquiry,미쓰비시·LS·지멘스 등 타사 PLC는 읽기 전용. OPC UA→Modbus TCP→게이트웨이 순 선택
 39,donginensis,drafted,AI,고장 데이터 없이 이상을 찾는 비지도 학습 예지보전,비지도학습 예지보전,https://donginensis.com/manufacturing.html#inquiry,정상 패턴 학습으로 미세 이상 탐지. 신규 현장·특수 설비에 유리. 클라우드 학습+엣지 판단 하이브리드. 개발·실증 단계임을 명시
-14,donginensis,todo,IT협업,IT기업과 제어반 회사가 함께 일하는 3가지 방식,OT IT 협업,https://donginensis.com/partner.html#inquiry,OT 구간 전담·데이터 연동·공동 제안 영업. 협업 절차와 NDA
+14,donginensis,drafted,IT협업,IT기업과 제어반 회사가 함께 일하는 3가지 방식,OT IT 협업,https://donginensis.com/partner.html#inquiry,OT 구간 전담·데이터 연동·공동 제안 영업. 협업 절차와 NDA
 9,donginensis,todo,기술,설비 데이터 보안: 서버가 설비를 직접 제어하지 않는 이유,산업 제어 보안,https://donginensis.com/partner.html#inquiry,TLS 암호화·제어망과 데이터망 분리·인터록은 현장 PLC·VPN 원격접속
 40,donginensis,todo,AI,모터 전력 5% 절감을 목표로 한 AI 폐루프 제어 실증,모터 에너지 절감,https://donginensis.com/manufacturing.html#inquiry,kHz 전기 파형 DAQ·비지도 학습 분석·최적 운전값을 PLC에 되돌리는 폐루프. 5%는 실증 결과가 아니라 목표치라고 반드시 명시
 12,donginensis,todo,기술,통신이 끊겨도 데이터가 사라지지 않는 이유,설비 데이터 유실 방지,https://donginensis.com/partner.html#inquiry,제어반 보관·오래된 순 재전송·측정 시각과 순번으로 중복·누락 확인
@@ -57,7 +57,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 16,bmk3037,drafted,조선해양,선박용 제어반 선급 승인 어떻게 진행되나,선박 제어반 선급,https://donginensis.com/applications.html#marine,Modicon M262 상호인정 인증서·선박별 도면 승인·검사관 입회 시험. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
 17,bmk3037,drafted,조선해양,FGSS(연료가스공급시스템) 제어 쉽게 이해하기,FGSS 제어,https://donginensis.com/applications.html#marine,LNG 연료 선박의 FGSS 개념과 글리콜워터 펌프·히터 제어. 벌크선·자동차운반선 실적. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
 22,bmk3037,drafted,수소,수소추진선박의 시스템 통합제어,수소추진선박,https://donginensis.com/applications.html#hydrogen,연료전지·추진모터·수소탱크 통합제어. 해수부 실증 과제(2022~2026). 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
-19,bmk3037,todo,조선해양,하이브리드 추진선박 제어: 충남병원선과 경남청정호 사례,하이브리드 추진 선박,https://donginensis.com/applications.html#marine,디젤+전기모터 하이브리드 추진·통합제어감시. 2023년 취항. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
+19,bmk3037,drafted,조선해양,하이브리드 추진선박 제어: 충남병원선과 경남청정호 사례,하이브리드 추진 선박,https://donginensis.com/applications.html#marine,디젤+전기모터 하이브리드 추진·통합제어감시. 2023년 취항. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
 20,bmk3037,todo,조선해양,진동과 염분을 견뎌야 하는 선박 제어반의 조건,선박 제어반,https://donginensis.com/applications.html#marine,해양 환경 제약과 설계 시 고려할 점. 기관실·갑판 설비. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
 24,bmk3037,todo,에너지,연료전지 발전소 BOP 제어시스템이란,BOP 제어시스템,https://donginensis.com/applications.html#hydrogen,BOP(주변설비) 개념. SK에코플랜트 한국남부발전 CCUS 설비 사례. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
 23,bmk3037,todo,수소,수소전문기업 동인엔시스가 하는 일,수소전문기업,https://donginensis.com/applications.html#hydrogen,예비수소전문기업(2025)에서 수소전문기업 등록(2026)까지. 충전소부터 선박까지. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
