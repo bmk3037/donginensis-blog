@@ -1,0 +1,27 @@
+{
+  "topic_id": "41",
+  "blog": "donginensis3047",
+  "format": "해설형",
+  "title": "VFD 판넬, 고장 나도 설비를 멈추지 않는 모듈러 인출식 구조",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "VFD판넬",
+    "인버터판넬",
+    "인출식",
+    "모듈러",
+    "예지보전",
+    "설비정지",
+    "제어반특허"
+  ],
+  "keyword": "VFD 판넬",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post041&utm_content=donginensis3047#inquiry",
+  "fact_check": [
+    "특허 '모듈러 인출식 VFD 판넬' + AI 예지보전: 고장 징후 시 설비 전체를 멈추지 않고 해당 모듈만 교체",
+    "AI 예지보전은 실증·고도화 단계 (기준값 알람은 바로 사용)",
+    "지능형 제어반 수집 항목(온도·전류·진동 등), 24시간 기록·알람",
+    "1991년 설립, 제어반 설계·제작·PLC·인버터 프로그램·시운전 자체 수행, Schneider Electric 공식 SI 파트너",
+    "VFD·인출식 구조 일반 설명은 일반 기술 상식이며 특허 청구항 세부를 설명한 것이 아님"
+  ],
+  "created": "2026-10-20"
+}

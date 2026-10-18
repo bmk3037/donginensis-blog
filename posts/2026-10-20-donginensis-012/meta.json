@@ -1,0 +1,28 @@
+{
+  "topic_id": "12",
+  "blog": "donginensis",
+  "format": "단계형",
+  "title": "설비 데이터 유실 방지, 통신이 끊겨도 기록이 남는 5단계",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "데이터유실방지",
+    "MQTT",
+    "통신장애",
+    "산업IoT",
+    "데이터품질",
+    "스마트팩토리",
+    "OT데이터"
+  ],
+  "keyword": "설비 데이터 유실 방지",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post012&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "통신이 끊기면 제어반에 보관했다가 복구 후 오래된 순서대로 자동 재전송, 측정 시각·순번으로 중복·누락 확인",
+    "현장↔서버 MQTT/TLS 암호화, 클라우드형·온프레미스형, 인터넷 없는 현장은 LTE",
+    "데이터 구조: 설비-센서-실시간값-상태, REST API(기간 이력)·WebSocket(실시간)",
+    "네트워크 끊겨도 현장 판단(하이브리드 AI 구조)은 실증 단계",
+    "보관 용량·기간 수치는 쓰지 않음 (현장·구성에 따라 다름)",
+    "통신 끊김 원인 예시는 일반적인 현장 상황"
+  ],
+  "created": "2026-10-20"
+}
