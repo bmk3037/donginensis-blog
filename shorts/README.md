@@ -29,7 +29,7 @@
 pip install -r shorts/requirements.txt
 python3 shorts/collect.py @신비한_건축사전_1 --top 60 --bottom 40 --match "전기|전력|발전|에어컨"
 python3 shorts/analyze.py 신비한_건축사전_1
-python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문이 열리는 이유" --out shorts/scripts/06-elevator.md
+python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문이 열리는 이유" --out shorts/scripts/07-elevator-power.md
 ```
 
 ## 대본
@@ -41,8 +41,9 @@ python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문
 | 03 | 우리 집 전기는 어떤 변압기를 거쳐 올까? | 생활 전기 |
 | 04 | 아파트 단수, 지하 펌프는 미리 알고 있었습니다 | 현장·산업 전기 |
 | 05 | 공장 벽마다 붙어 있는 회색 철문의 정체 | 제어반·데이터 |
+| 06 | 엘리베이터가 고장 나기 전에 수리 기사가 먼저 오는 곳이 있습니다 | 생활 전기 |
 
-모든 대본은 감수 전 초안입니다. 수치와 설명은 체크리스트를 확인한 뒤에 씁니다.
+01~05편은 감수를 마쳤습니다. 06편은 감수 전 초안입니다. 수치와 설명은 체크리스트를 확인한 뒤에 씁니다.
 
 ## 주의
 
