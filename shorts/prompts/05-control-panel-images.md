@@ -1,6 +1,6 @@
 # 05편 장면 이미지 프롬프트 (신비한 건축사전 화면 느낌)
 
-05편 「공장 벽의 회색 철문 상자는, 모터가 멈추기 전에 먼저 압니다」의 이미지 13장을 만들 때 씁니다. ChatGPT와 Gemini 모두에 쓸 수 있습니다. 비트당 2장 안팎이고, 7초쯤마다 그림이 바뀝니다.
+05편 「공장 벽의 회색 철문 상자는, 모터가 멈추기 전에 먼저 압니다」의 이미지 30장을 만들 때 씁니다. ChatGPT와 Gemini 모두에 쓸 수 있습니다. 건축사전 상위 영상은 편당 30~35장, 3초마다 새 그림이 나와서 같은 수준으로 맞췄습니다. 01~13은 1차 제작 때 만든 그림이고, 14~30을 새로 만듭니다.
 
 ## 건축사전 화면에서 가져온 것
 
@@ -22,7 +22,7 @@
 2. 같은 대화에서 01부터 13까지 순서대로 하나씩 만듭니다.
 3. 글자나 숫자가 그림에 들어가면 "remove all text, letters and numbers, keep the red label boxes empty"라고 다시 요청합니다.
 4. 붉은색이 너무 많아지면 "only one red-highlighted object, everything else neutral grey"라고 다시 요청합니다.
-5. 다 만들면 제 답변이 끝난 뒤 새 메시지로 01~13 순서대로 첨부해 주세요.
+5. 다 만들면 제 답변이 끝난 뒤 새 메시지로 번호 순서대로 첨부해 주세요.
 
 ## 장면 구성
 
@@ -136,7 +136,133 @@ Image 12. High three-quarter view of a factory utility area: a water pump with i
 Image 13. The same long factory aisle as image 01, from the same high three-quarter angle, the row of grey cabinets with closed doors, the aisle empty and calm, slightly warmer late-afternoon light. No red in this image.
 ```
 
+## 추가 장면 프롬프트 (14~30)
+
+새 대화에서 하면 **공통 스타일**을 먼저 다시 붙여 넣고 시작합니다. 같은 대화에서 이어 하셔도 됩니다. 붉은 강조가 없는 장면은 "No red in this image."가 맞습니다.
+
+| 번호 | 대본 | 합성할 때 얹는 것 |
+|---|---|---|
+| 14 | 두꺼비집이겠거니 | "두꺼비집?" 핀 |
+| 15 | 차단기와 전선만 가득 | 차단기 줄에 테두리 |
+| 16 | 하루 종일 돌아갑니다 | 시계 게이지 |
+| 17 | 사람 귀에 소리가 잡힐 때쯤 | 귀 옆 소리 물결 |
+| 18 | 정해진 날 점검, 그 사이 | 비어 있는 밤 통로 |
+| 19 | 수십 대 모터 | 핀이 차례로 켜짐, "수십 대" |
+| 20 | 라인이 통째로 | 경고 깜박임 |
+| 21 | 상자가 듣게 했습니다 | 선을 따라 상자로 흐르는 빛 |
+| 22 | 쇠구슬이 굴러가며 | 회전 화살표 |
+| 23 | 자석의 힘으로 | 자기력선 흐름 |
+| 24 | 닳거나 기름이 마르면 | 붉은 열기, 떨림 |
+| 25 | 전류가 평소보다 커지면 | 전류 막대가 올라감 |
+| 26 | 자동차 경고등처럼 | 경고등 깜박임 |
+| 27 | 큰 모터 수천 대 | "100마력 이상", "수천 대" |
+| 28 | 멈추기 전에 손쓸 시간 | "교체" 라벨 |
+| 29 | 물·바람·물건 | 흐름선 세 줄 |
+| 30 | 체온과 맥박 | 화면에 심장박동 선 |
+
+### 14 — 닫힌 철문 확대
+
+```
+Image 14. Closer high three-quarter view of three identical tall grey steel electrical cabinets standing side by side against a factory wall, doors closed, simple handles, ventilation louvers. Bright even light. No red in this image.
+```
+
+### 15 — 차단기와 전선만 가득한 상자
+
+```
+Image 15. Front view of an open grey electrical distribution cabinet in a factory: only rows of circuit breakers, copper busbars and neatly bundled cables inside, no screens or computers. Bright even light, clean and orderly. No red in this image.
+```
+
+### 16 — 밤에도 돌아가는 라인
+
+```
+Image 16. High three-quarter view of a long factory production line at night: conveyors and motors running under bright overhead lights, the large windows dark blue outside, no people. Calm, slightly cooler tones. No red in this image.
+```
+
+### 17 — 귀를 기울이는 작업자
+
+```
+Image 17. A factory worker in grey work clothes and a white hard hat, seen from behind, crouching next to a running industrial electric motor and leaning his head close to it as if listening. High three-quarter angle, bright even light, no face visible. No red in this image.
+```
+
+### 18 — 아무도 없는 밤의 통로
+
+```
+Image 18. Top-down drone view of an empty factory aisle at night beside a production line with motors running, only a few overhead lights on, long shadows, nobody around. Quiet mood. No red in this image.
+```
+
+### 19 — 모터 수십 대가 깔린 공장
+
+```
+Image 19. Very wide, high aerial view of a huge factory floor with several parallel production lines, dozens of identical electric motors placed at regular intervals along every line. Tiny red map-pin markers with a white dot stand over every motor. Bright, orderly, mostly grey.
+```
+
+### 20 — 멈춰서 물건이 쌓인 라인
+
+```
+Image 20. High three-quarter view of a stopped conveyor line: boxes piled up and pushed together at one point of the conveyor, the motor next to them traced with a glowing red neon outline, a single amber warning beacon on. Everything else neutral grey.
+```
+
+### 21 — 상자로 들어오는 센서선
+
+```
+Image 21. Close high-angle view of the bottom of a grey electrical cabinet: several thin sensor cables enter through neat cable glands, the cables run across the floor toward a motor in the background. The cables glow with a thin red neon light. Clean, bright.
+```
+
+### 22 — 쇠구슬 베어링 단면
+
+```
+Image 22. Clean engineering cutaway of a single deep-groove ball bearing on a light grey studio background, high three-quarter angle: outer ring, inner ring, a ring of polished steel balls held by a cage, a thin film of grease. Precise, minimal, no red.
+```
+
+### 23 — 코일과 회전자, 자기력선
+
+```
+Image 23. Cutaway of an electric motor stator with copper coils surrounding the rotor, seen from a high three-quarter angle on a light grey background. Thin glowing red curved field lines loop from the coils through the rotor, suggesting the magnetic force that turns it. No text.
+```
+
+### 24 — 닳고 기름이 마른 베어링
+
+```
+Image 24. Macro cutaway of a worn ball bearing: dull scratched steel balls, pitted marks on the outer race, dark dried-up grease, a few metal particles. A faint red heat glow around the balls. Light grey background, engineering-visualization style.
+```
+
+### 25 — 단자함 속 전선 세 가닥
+
+```
+Image 25. Close view of an open terminal box on top of an industrial electric motor: three thick power cables connected to three terminals, the three cables glowing with a thin red neon outline. Bright, clean, high three-quarter angle.
+```
+
+### 26 — 자동차 계기판 경고등
+
+```
+Image 26. Close view of a generic modern car instrument cluster at dusk, gauges dark, a single red warning lamp glowing in the middle. No brand, no logo, no letters or numbers on the dashboard; the lamp is a simple glowing symbol.
+```
+
+### 27 — 큰 모터 수천 대
+
+```
+Image 27. Very wide high aerial view inside a huge power plant equipment hall: long rows of large industrial electric motors and pumps, hundreds of identical units in perspective, steel walkways between them. Bright, orderly, mostly grey. No red in this image.
+```
+
+### 28 — 라인은 돌고, 베어링을 미리 교체
+
+```
+Image 28. A maintenance technician seen from behind at a clean workbench, fitting a new ball bearing onto a motor shaft, while in the background the production line keeps running. The new bearing has a thin glowing red outline. Bright, calm.
+```
+
+### 29 — 물·바람·물건을 옮기는 모터
+
+```
+Image 29. High three-quarter view of a factory utility area: a water pump pushing water through pipes, a large fan blowing air into a duct, and a conveyor carrying boxes, each driven by its own electric motor. Thin glowing blue flow lines show the water, the air and the boxes moving. No red in this image.
+```
+
+### 30 — 화면이 달린 회색 상자
+
+```
+Image 30. Close front view of a grey industrial electrical cabinet door with a small built-in display screen at eye level, the screen dark and completely blank. Clean, bright, slightly warm late-afternoon light. No red in this image.
+```
+
 ## 업로드 전에 지킬 것
 
 - 실사처럼 보이는 AI 이미지이므로, 업로드할 때 유튜브의 '변경되거나 합성된 콘텐츠' 표시를 켭니다(`structure.md` 4장).
-- 모터 단면(06, 07, 10, 11)은 AI가 부품 위치를 틀리게 그리기 쉽습니다. 베어링이 축 끝에, 코일이 바깥 고정자에 있는지 확인하고 쓰겠습니다.
+- 모터 단면(06, 07, 10, 11, 22, 23, 24)은 AI가 부품 위치를 틀리게 그리기 쉽습니다. 베어링이 축 끝에, 코일이 바깥 고정자에 있는지 확인하고 쓰겠습니다.
