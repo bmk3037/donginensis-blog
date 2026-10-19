@@ -1,0 +1,29 @@
+{
+  "topic_id": "40",
+  "blog": "donginensis",
+  "format": "비교형",
+  "title": "모터 에너지 절감, 보기만 하는 데이터와 되돌려 주는 데이터의 차이",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "모터에너지절감",
+    "폐루프제어",
+    "AI실증",
+    "PLC",
+    "에너지절감",
+    "스마트제조",
+    "디지털트윈"
+  ],
+  "keyword": "모터 에너지 절감",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post040&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "2026.04 고정밀 DAQ 기반 AI 예지보전 디지털트윈 솔루션 고도화·실증 착수, kHz 단위 전기 파형, 비지도 학습",
+    "AI가 찾은 최적 운전값을 현장 PLC에 되돌려 보내는 폐루프 방식",
+    "산업용 모터 시스템 전력 소비 5% 이상 절감은 목표치(실증 결과 아님)",
+    "무거운 학습은 클라우드, 파라미터만 현장으로. 네트워크가 끊겨도 현장 자체 판단",
+    "엣지 장치는 검토 중(채택 확정 아님) — 제품명 쓰지 않음",
+    "1991년 부산, 제어반 설계·제작",
+    "열린 구조/닫힌 구조 비교, 안전장치 설명은 일반적인 제어 원리"
+  ],
+  "created": "2026-10-21"
+}

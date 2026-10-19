@@ -1,0 +1,28 @@
+{
+  "topic_id": "34",
+  "blog": "donginensis3047",
+  "format": "단계형",
+  "title": "예지보전 시작, 설비 1~2대로 첫걸음 떼는 4단계",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "예지보전시작",
+    "예지보전",
+    "설비관리",
+    "스마트공장",
+    "시범적용",
+    "설비데이터",
+    "공장자동화"
+  ],
+  "keyword": "예지보전 시작",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post034&utm_content=donginensis3047#inquiry",
+  "fact_check": [
+    "설비 1~2대부터 단계적 확대, 설비는 그대로 두고 제어반 교체·신규 설치",
+    "수집 항목: 모터 권선·베어링 온도, 회전속도, 진동, 전압·전류·전력량, 대기 온습도, 운전 상태신호, 24시간 기록, 기준값 알람(normal·warning·alarm)",
+    "AI 이상탐지는 PoC 단계 고도화 중, 기준값 알람은 바로 사용",
+    "알람 기준은 시운전·안정화 때 설정, 유지관리에서 조정 / 원격 상태 확인·정기 점검·교육",
+    "1991년 설립, 750건 이상 프로젝트",
+    "3개월 지켜보기 등 운영 순서는 권장 방식이며 회사 고유 수치·성과 아님"
+  ],
+  "created": "2026-10-21"
+}
