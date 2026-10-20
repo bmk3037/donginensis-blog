@@ -55,7 +55,7 @@ Reply "ready" and wait.
 ### 묶음 1 (01~09)
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 01. Morning in a clean Korean apartment bathroom: a hand turns a chrome faucet over a white sink, but only a few drops fall. Soft morning light. No red.
 
@@ -79,7 +79,7 @@ Image 09. The same side cutaway of the apartment tower as image 05: the basement
 ### 묶음 2 (10~18)
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 10. Night view of the apartment towers, windows lit randomly with no pattern, quiet and calm. No red.
 
@@ -103,7 +103,7 @@ Image 18. High-angle view of hundreds of identical 2-liter clear plastic water b
 ### 묶음 3 (19~27)
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 19. Early morning apartment complex, many windows lit warm at the same time, soft blue dawn sky. No red.
 

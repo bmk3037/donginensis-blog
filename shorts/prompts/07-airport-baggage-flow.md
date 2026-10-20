@@ -40,7 +40,7 @@ Reply "ready" and wait.
 ### 묶음 1 (01~08)
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 01. An airport check-in counter seen from the side at a high angle: a suitcase rides on the short conveyor belt and is about to disappear through the black rubber strip curtain into the wall. Only a hand on the suitcase handle is visible. No red.
 
@@ -62,7 +62,7 @@ Image 08. Top-down view of a repeating pattern of conveyor junctions and side be
 ### 묶음 2 (09~16)
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 09. A baggage handler seen from behind in a work vest, lifting one suitcase from a mountain of hundreds of suitcases in a grey hall. No face. No red.
 
@@ -84,7 +84,7 @@ Image 16. Close-up of a suitcase handle with two paper baggage tags: one new and
 ### 묶음 3 (17~23)
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 17. Low view under a long conveyor line: a row of small electric drive motors under the belt, each with a small red map-pin marker above it. Grey control cabinet in the background.
 

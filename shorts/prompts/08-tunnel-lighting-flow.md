@@ -10,6 +10,8 @@
 
 ## 2. 공통 스타일 (맨 처음 한 번)
 
+플로우가 한 장 만들고 멈추면: 새 프로젝트는 에이전트 설정이 처음으로 돌아가므로 "생성하기 전에 확인: 안 함"을 다시 확인합니다. 공통 스타일은 묶음 1과 **함께 한 번에** 붙여 넣으면 "ready"에서 멈추지 않습니다.
+
 ```
 I will ask you for 32 images for one vertical YouTube Short about highway tunnel lighting: why tunnel entrances are lit brighter in the daytime than at night. Keep exactly the same look for all of them:
 - Vertical 9:16 portrait.
@@ -27,7 +29,7 @@ Reply "ready" and wait.
 ### 묶음 1 (01~08): 훅과 블랙홀 현상
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 01. Driver's point of view on a sunny mountain highway, the top edge of the dashboard visible at the bottom, a tunnel entrance ahead in the mountainside, very bright midday sun. No red.
 
@@ -49,7 +51,7 @@ Image 08. Driver's point of view near the tunnel exit: the exit is a blinding wh
 ### 묶음 2 (09~16): 딜레마와 답
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 09. A tunnel interior lit as bright as daylight from end to end, almost glaring, cars driving through. No red.
 
@@ -71,7 +73,7 @@ Image 16. A grey electrical control cabinet beside a tunnel portal, a thin dotte
 ### 묶음 3 (17~24): 날씨별 조명과 숫자
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 17. One image split into three vertical panels showing the same tunnel entrance: left on a sunny day with the entrance lights brightest, middle on a cloudy day with them a little dimmer, right at night with them dimmest. Thin white lines between panels. No text.
 
@@ -93,7 +95,7 @@ Image 24. Close-up of a single tunnel lamp deep inside the tunnel, softly dimmed
 ### 묶음 4 (25~32): 클로즈업
 
 ```
-Keep the same style as before. Make these images one by one, one image per prompt.
+Keep the same style as before. Create ALL of the images below right now, in order, without stopping and without asking me to confirm. One image per prompt.
 
 Image 25. A car entering a tunnel seen from behind and above, its headlights switching on, the bright outside behind it. No red.
 
