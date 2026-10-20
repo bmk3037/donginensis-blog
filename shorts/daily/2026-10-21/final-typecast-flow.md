@@ -12,15 +12,14 @@
 훔쳐 가는 사람도 없는데, 한 번 바다를 건너면 많게는 화물의 육 퍼센트가 사라집니다.
 대체 그 화물은 어디로 가는 걸까요?
 엘엔지는 천연가스를 영하 백육십이 도까지 식혀 만든 액체입니다.
-아무리 두껍게 감싸도 바깥 열이 스며들어, 액체가 조금씩 끓어 기체가 되죠.
-이걸 증발가스, 비오지라고 부릅니다.
+아무리 두껍게 감싸도 바깥 열이 스며들어, 액체가 조금씩 끓어 기체가 됩니다. 증발가스, 비오지죠.
 대형 운반선에선 하루에 화물의 영 점 일에서 영 점 일오 퍼센트가 이렇게 날아갑니다.
 날려 보내면 돈이 사라지고, 가둬 두면 탱크 압력이 올라 위험해지죠.
-그래서 배는 이 가스를 붙잡는 기계를 싣고 다닙니다.
-바로 비오지 압축기죠.
+그런데 이 화물을 지키는 기계가 멈추면, 훨씬 큰 문제가 생깁니다.
+그래서 배는 이 가스를 붙잡는 기계, 비오지 압축기를 싣고 다닙니다.
 증발가스를 빨아들여 압력을 높인 뒤, 엔진 연료로 쓰거나 다시 식혀 액체로 되돌립니다.
 이 압축기를 탱크 압력에 맞춰 돌리고 멈추는 게, 옆에 붙은 제어반의 일이고요.
-그런데 여기서 진짜 문제가 생깁니다.
+자, 여기서 진짜 문제입니다.
 이 압축기가 바다 한가운데서 멈추면, 압력은 다시 오르고 아까운 화물을 태워 없애야 할 수도 있거든요.
 문제는, 압축기를 돌리기만 하는 제어반은 압축기가 지쳐 가는 걸 말해 주지 않는다는 겁니다.
 수리 기사도 부를 수 없는 바다 위에서, 멈추고 나서야 알게 되는 거죠.
@@ -68,11 +67,11 @@
 영하 이백오십삼 도, 바로 여러분이 타는 수소버스의 연료죠.
 수소는 원래 기체인데, 대체 왜 이렇게까지 차갑게 식힐까요?
 수소는 너무 가벼워서, 기체로는 조금만 담아도 자리를 많이 차지하거든요.
-영하 이백오십삼 도로 식혀 액체로 만들면 부피가 팔백분의 일로 줄어, 트럭 한 번에 약 열 배를 실어 옵니다.
+영하 이백오십삼 도로 식혀 액체로 만들면 부피가 팔백분의 일로 줄어, 트럭 한 번에 약 열 배를 싣고, 넣는 속도도 기체수소 충전소의 두 배입니다.
 다만 이 액체는 가만히 둬도 데워져 조금씩 날아가고, 버스엔 압력을 높인 기체로 넣어야 하죠.
+그리고 이 모든 게, 충전소 뒤편 펌프 한 대에 달려 있습니다.
 그래서 어떤 충전소는 버스가 오면, 펌프가 액체인 채로 압력을 올리고 넣기 직전에 기체로 바꿉니다.
 이 순서대로 펌프와 밸브를 움직이는 게, 충전소 뒤편 제어반의 일이죠.
-이렇게 넣는 속도는 일 분에 이 킬로그램, 기체수소 충전소의 두 배입니다.
 그런데 여기서 진짜 문제가 생깁니다.
 이천이십사 년 사월 인천에서 국내 처음 상업 운전을 시작한 충전소는, 하루 최대 버스 백이십 대를 채울 수 있습니다.
 이런 곳에서 펌프가 한 번 멈추면, 버스들이 줄줄이 기다려야 할 수도 있죠.
@@ -125,12 +124,12 @@
 세계 전체의 약 이 점 팔구 퍼센트죠.
 그래서 기름 대신 수소를 싣는데, 수소는 같은 부피에 담긴 에너지가 경유의 삼분의 일밖에 안 됩니다.
 할 수 없이 영하 이백오십삼 도 액체로 싣고, 흔들리는 바다 위에서 그 온도를 지켜야 하죠.
+그리고 이걸 전부 한 배에 싣는 순간, 일이 복잡해집니다.
 그리고 엔진 대신, 작은 발전소를 싣습니다.
 바로 수소 연료전지죠.
 수소가 공기 중 산소와 만나 전기와 물이 되고, 그 전기로 모터가 프로펠러를 돌립니다.
-이천이십삼 년 노르웨이에선 이런 여객선이 승객 최대 삼백 명과 차 팔십 대를 싣고 운항을 시작했고요.
 이천이십오 년 십이월엔 우리나라 첫 수소연료전지 추진선박도 물에 띄워졌습니다.
-그런데 여기서 진짜 문제가 생깁니다.
+자, 여기서 진짜 문제입니다.
 연료전지, 배터리, 모터, 영하 이백오십삼 도 탱크가 흔들리는 바다 위에서 한 몸처럼 움직여야 하거든요.
 게다가 아직 처음 가는 길이라, 어디서 무엇이 먼저 지칠지 확실히 아는 사람이 없습니다.
 장치를 하나씩 돌리기만 하는 제어반으로는, 배 전체가 지금 어떤 상태인지 알 수 없죠.
@@ -156,7 +155,7 @@
 08 | Cutaway of the ship interior: a clean room with fuel cell modules, traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 09 | Simple 3D molecule models: hydrogen and oxygen flowing into a fuel cell from two sides, clear water droplets coming out the other side, soft glow. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 10 | Cutaway of an electric motor turning the propeller shaft at the stern of the ship. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-11 | A modern car ferry in a Norwegian fjord with cars on deck and a large cylindrical tank on the upper deck. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+11 | A small hydrogen ferry sailing alone toward the horizon at dawn on an open sea, as if on a brand-new route. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 12 | A small modern aluminum passenger boat being launched down a shipyard slipway into the water, viewed from a distance. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 13 | The ferry in a dark stormy sea with big waves, tense mood. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 14 | Cutaway of the ferry showing the fuel cell room, battery racks, propulsion motor and hydrogen tank, all linked by thin dotted red lines. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.

@@ -2,7 +2,7 @@
 
 - 제목: 연기 대신 물만 내보내는 배가 있습니다. 다른 후보: 「이 배는 기름 대신 영하 253도 연료를 싣고 다닙니다」
 - 분류: 현장·산업 전기, 3부작 「영하의 연료」(올리는 순서 11 → 09 → 10)
-- 길이: 95~100초 목표, 내레이션 공백 제외 675자, 23문장
+- 길이: 95~100초 목표, 내레이션 공백 제외 654자, 23문장
 - 이미지: 플로우 22장 + 합성 그래픽
 - 회사 이름은 영상에 넣지 않음. 관련 실적은 설명란에만.
 
@@ -17,12 +17,12 @@
 |  | 세계 전체의 약 2.89%죠. |
 |  | 그래서 기름 대신 수소를 싣는데, 수소는 같은 부피에 담긴 에너지가 경유의 3분의 1밖에 안 됩니다. |
 |  | 할 수 없이 영하 253도 액체로 싣고, 흔들리는 바다 위에서 그 온도를 지켜야 하죠. |
+|  | 그리고 이걸 전부 한 배에 싣는 순간, 일이 복잡해집니다. |
 | 3. 딜레마 | 그리고 엔진 대신, 작은 발전소를 싣습니다. |
 |  | 바로 수소 연료전지죠. |
 |  | 수소가 공기 중 산소와 만나 전기와 물이 되고, 그 전기로 모터가 프로펠러를 돌립니다. |
-|  | 2023년 노르웨이에선 이런 여객선이 승객 최대 300명과 차 80대를 싣고 운항을 시작했고요. |
 |  | 2025년 12월엔 우리나라 첫 수소연료전지 추진선박도 물에 띄워졌습니다. |
-| 4. 발상 전환 | 그런데 여기서 진짜 문제가 생깁니다. |
+| 4. 발상 전환 | 자, 여기서 진짜 문제입니다. |
 |  | 연료전지, 배터리, 모터, 영하 253도 탱크가 흔들리는 바다 위에서 한 몸처럼 움직여야 하거든요. |
 |  | 게다가 아직 처음 가는 길이라, 어디서 무엇이 먼저 지칠지 확실히 아는 사람이 없습니다. |
 |  | 장치를 하나씩 돌리기만 하는 제어반으로는, 배 전체가 지금 어떤 상태인지 알 수 없죠. |
@@ -67,6 +67,7 @@
 | 5차(슬로건) | 제어반 연결 두 문장이 제각각이라 기억에 안 남음 | 제어·알림을 한 문장으로 묶고, 둘째 문장을 회사 슬로건 "설비를 제어하고, 데이터를 연결하는 것"으로 세 편 똑같이 맞춤. "이 제어반"으로 장면 속 제어반을 가리켜 일반화를 피함 |
 | 6차(녹여내기) | 제어반과 슬로건이 끝에 붙어 있을 뿐, 왜 필요한지가 이야기에서 나오지 않음 | "이 배엔 지휘자가 필요합니다"로 두 번째 반전. 연료전지·배터리·모터·탱크를 함께 지휘(제어)하고, 상태를 기록·알림(데이터), 처음 가는 길이라 쌓인 숫자가 다음 배의 근거(실증)라는 흐름 |
 | 7차(뼈대 v2) | "제어반"만으로는 일반 제어반과 구분이 안 되고, 왜 데이터 연결까지 필요한지가 약함 | structure.md 0장 공식으로 다시 짬: 비트 3 설비 제어(돌리고 멈추는 제어반) → 비트 4 진짜 문제(설비가 멈추면 + "돌리기만 하는 제어반은 지쳐 가는 걸 말해 주지 않는다") → 비트 5 지능형 제어반(제어하면서 데이터를 모아 연결) → 비트 6 둘 다 필요한 이유 |
+| 8차(훅 재점검) | 답이 나온 뒤 중간 훅까지 40초 넘게 열린 질문이 없어 이탈 위험. 중간 훅이 45~58초로 늦음 | 원리 비트 끝에 다음 문제를 미리 던지는 한 줄("이 기계가 멈추면 훨씬 큰 문제", "펌프 한 대에 달려 있다", "한 배에 싣는 순간 복잡해진다")을 넣고, 설비 비트를 줄여 중간 훅을 당김 |
 
 ## 타입캐스트 대본
 
@@ -80,12 +81,12 @@
 세계 전체의 약 이 점 팔구 퍼센트죠.
 그래서 기름 대신 수소를 싣는데, 수소는 같은 부피에 담긴 에너지가 경유의 삼분의 일밖에 안 됩니다.
 할 수 없이 영하 이백오십삼 도 액체로 싣고, 흔들리는 바다 위에서 그 온도를 지켜야 하죠.
+그리고 이걸 전부 한 배에 싣는 순간, 일이 복잡해집니다.
 그리고 엔진 대신, 작은 발전소를 싣습니다.
 바로 수소 연료전지죠.
 수소가 공기 중 산소와 만나 전기와 물이 되고, 그 전기로 모터가 프로펠러를 돌립니다.
-이천이십삼 년 노르웨이에선 이런 여객선이 승객 최대 삼백 명과 차 팔십 대를 싣고 운항을 시작했고요.
 이천이십오 년 십이월엔 우리나라 첫 수소연료전지 추진선박도 물에 띄워졌습니다.
-그런데 여기서 진짜 문제가 생깁니다.
+자, 여기서 진짜 문제입니다.
 연료전지, 배터리, 모터, 영하 이백오십삼 도 탱크가 흔들리는 바다 위에서 한 몸처럼 움직여야 하거든요.
 게다가 아직 처음 가는 길이라, 어디서 무엇이 먼저 지칠지 확실히 아는 사람이 없습니다.
 장치를 하나씩 돌리기만 하는 제어반으로는, 배 전체가 지금 어떤 상태인지 알 수 없죠.
@@ -117,7 +118,7 @@
 08 | Cutaway of the ship interior: a clean room with fuel cell modules, traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 09 | Simple 3D molecule models: hydrogen and oxygen flowing into a fuel cell from two sides, clear water droplets coming out the other side, soft glow. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 10 | Cutaway of an electric motor turning the propeller shaft at the stern of the ship. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-11 | A modern car ferry in a Norwegian fjord with cars on deck and a large cylindrical tank on the upper deck. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+11 | A small hydrogen ferry sailing alone toward the horizon at dawn on an open sea, as if on a brand-new route. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 12 | A small modern aluminum passenger boat being launched down a shipyard slipway into the water, viewed from a distance. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 13 | The ferry in a dark stormy sea with big waves, tense mood. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 14 | Cutaway of the ferry showing the fuel cell room, battery racks, propulsion motor and hydrogen tank, all linked by thin dotted red lines. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
@@ -142,14 +143,14 @@
 | 5. 세계 전체의 약 2.89%죠.… | 05 | 도넛 "2.89%" |
 | 6. 그래서 기름 대신 수소를 싣는데, 수소는… | 06 | 막대 "부피당 에너지: 경유 1 / 수소 1/3" |
 | 7. 할 수 없이 영하 253도 액체로 싣고,… | 07 | 흔들리는 배 위 "영하 253도" |
-| 8. 그리고 엔진 대신, 작은 발전소를 싣습니… | 08 | "엔진 대신 작은 발전소" |
-| 9. 바로 수소 연료전지죠.… | 08 | "수소 연료전지" 큰 글자 |
-| 10. 수소가 공기 중 산소와 만나 전기와 물이… | 09, 10 | "H₂ + O₂ → 전기 + 물" |
-| 11. 2023년 노르웨이에선 이런 여객선이 승… | 11 | 노르웨이 핀 "2023년 · 승객 300 · 차 80" |
+| 8. 그리고 이걸 전부 한 배에 싣는 순간, … | 14 | 네 장치가 점선으로 이어진 단면 "한 배에 전부" |
+| 9. 그리고 엔진 대신, 작은 발전소를 싣습니… | 08 | "엔진 대신 작은 발전소" |
+| 10. 바로 수소 연료전지죠.… | 08 | "수소 연료전지" 큰 글자 |
+| 11. 수소가 공기 중 산소와 만나 전기와 물이… | 09, 10 | "H₂ + O₂ → 전기 + 물" |
 | 12. 2025년 12월엔 우리나라 첫 수소연료… | 12 | 한국 핀 "2025년 12월 · 국내 첫" |
-| 13. 그런데 여기서 진짜 문제가 생깁니다.… | 13 | "진짜 문제" 화면 어둡게 |
+| 13. 자, 여기서 진짜 문제입니다.… | 13 | "진짜 문제" 화면 어둡게 |
 | 14. 연료전지, 배터리, 모터, 영하 253도… | 14 | 네 장치에 차례로 붉은 테두리, 짧은 흔들림 0.5초(이 편의 가장 센 순간) |
-| 15. 게다가 아직 처음 가는 길이라, 어디서 … | 13, 20 | "처음 가는 길" |
+| 15. 게다가 아직 처음 가는 길이라, 어디서 … | 11, 20 | "처음 가는 길" |
 | 16. 장치를 하나씩 돌리기만 하는 제어반으로는… | 15 | "하나씩 돌리기만 하는 제어반" → 말풍선 "…" |
 | 17. 그래서 이런 배에 지능형 제어반을 싣기도… | 16, 21 | "지능형 제어반" 큰 글자 + 지휘봉 |
 | 18. 탱크 압력에 맞춰 수소를 보내고, 연료전… | 14, 17 | ① "설비 제어: 수소·연료전지·배터리·모터를 함께" |
