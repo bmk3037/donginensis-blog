@@ -119,6 +119,57 @@ Clip B (start 13, end 14). The suitcase passes under the scanner arch while red 
 Clip C (start 22). Suitcases slide one by one through the rubber curtain onto the moving carousel; camera slowly pushes in. No text.
 ```
 
+## 6. 건축사전 방식: 같은 장면 두 장(배경 → 인포그래픽) + 잇는 영상
+
+핵심 장면 6개는 건축사전처럼 **같은 장면을 두 장** 만듭니다. 배경 그림(위 01~23 중 하나)을 만든 다음, 그 그림을 고른 상태에서 아래 **인포그래픽 프롬프트**로 화살표·선·빈 라벨을 얹은 그림(05i 같은 이름)을 하나 더 만듭니다. 그다음 두 장을 **시작 → 끝**으로 넣어 8초 영상을 만들면, 화면 안에서 선과 화살표가 그려지며 나타납니다.
+
+- **글자와 숫자는 넣지 않습니다.** 건축사전 화면에도 한글이 깨진 장면이 섞여 있습니다. 우리는 감수한 숫자가 핵심이라, "184km" 같은 글자는 제가 합성할 때 정확히 얹습니다. 그래서 인포그래픽 그림에는 **빈 붉은 라벨 상자**만 둡니다.
+- **영상은 크레딧이 듭니다.** 크레딧이 모자라면 두 장(배경, 인포그래픽)만 만들어 주셔도 됩니다. 제가 두 장을 이어 "배경 → 선이 그려지며 인포그래픽" 움직임을 합성합니다. 영상만큼 살아 있지는 않지만 같은 느낌을 냅니다.
+- 순서: 배경 그림 → 인포그래픽 그림 → (크레딧이 있으면) 잇는 영상. 위 5절 클립 A·B·C는 그대로 둡니다.
+
+| 장면 | 배경 | 인포그래픽 그림에 얹는 것 | 제가 넣을 글자 | 쓰는 곳 |
+|---|---|---|---|---|
+| 1 | 03 공항 항공 | 터미널 바닥 아래로 붉은 점선 길이 사방으로 뻗음 | "184km" | 훅 첫 문장 |
+| 2 | 05 컨베이어 미로 | 미로를 따라 굵은 붉은 경로선 하나, 끝에 붉은 핀 | "마라톤 × 4" | 184km = 마라톤 4번 |
+| 3 | 04 갈림길 | 세 방향 붉은 화살표, 가운데 빈 라벨 | "?" | "대체 어떻게 길을 찾을까요?" |
+| 4 | 12 꼬리표 | 바코드 둘레 붉은 테두리, 붉은 선으로 빈 라벨 연결 | "가방의 주소" | "바코드가 가방의 주소" |
+| 5 | 17 벨트 아래 모터 | 모터마다 붉은 핀과 작은 빈 라벨, 제어반으로 붉은 점선 | "온도·떨림·전류" | 모터를 숫자로 지켜본다 |
+| 6 | 20 지구 | 가방 줄이 지구를 여러 번 감는 붉은 궤도선 | "8억 개", "지구 18바퀴" | 숫자 비트 |
+
+### 인포그래픽 그림 프롬프트 (배경 그림을 고른 상태에서 하나씩)
+
+```
+Image 03i. Use image 03 exactly as it is, same camera and composition. Add only: a cutaway glimpse under the terminal floor with thin dotted red lines spreading out in every direction like a road network, and one small empty solid red label box near the top. No text, no numbers.
+
+Image 05i. Use image 05 exactly as it is. Add only: one thick glowing red route line following the conveyors through the whole maze from one corner to the other, with a red map-pin marker at the end, and one small empty solid red label box. No text, no numbers.
+
+Image 04i. Use image 04 exactly as it is. Add only: three thick red arrows on the three outgoing conveyors, and one small empty solid red label box above the suitcase. No text, no numbers.
+
+Image 12i. Use image 12 exactly as it is. Add only: a glowing red outline around the barcode stripes, and a thin red line from the barcode to one small empty solid red label box. Do not add or change any letters or digits.
+
+Image 17i. Use image 17 exactly as it is. Add only: a small red map-pin marker with a tiny empty red label box above every motor, and thin dotted red lines from all motors to the grey control cabinet. No text, no numbers.
+
+Image 20i. Use image 20 exactly as it is. Add only: several glowing red orbit lines looping around the Earth where the suitcases travel, and two small empty solid red label boxes in the black space. No text, no numbers.
+```
+
+### 잇는 영상 프롬프트 (시작: 배경, 끝: 인포그래픽)
+
+설정: 비율 **9:16**, 길이 **8초**, 개수 **1개**. 건축사전처럼 8초를 "넓게 → 다가가기 → 선이 다 그려진 화면" 세 구간으로 짜서, 어디를 잘라도 자연스럽게 씁니다.
+
+```
+Clip 03→03i. The camera holds the aerial view of the airport for 2 seconds, then slowly pushes in while thin red dotted lines draw themselves outward under the terminal like a growing road map; hold on the finished map for the last 2 seconds. No text.
+
+Clip 05→05i. Slow push-in over the conveyor maze while one glowing red route line draws itself along the conveyors from corner to corner and a red pin drops at the end. Hold for the last 2 seconds. No text.
+
+Clip 04→04i. The suitcase waits at the junction while three red arrows draw onto the three outgoing belts one by one; a red label box pops in above the suitcase. No text.
+
+Clip 12→12i. Slow macro push-in on the baggage tag while a red outline traces around the barcode and a thin red line extends to a label box. Do not change the barcode. No text.
+
+Clip 17→17i. Camera glides along under the conveyor while red pins pop up above each motor one by one and dotted red lines run to the control cabinet. No text.
+
+Clip 20→20i. The Earth slowly rotates while glowing red orbit lines wrap around it one after another. No text.
+```
+
 ## 업로드 전에 지킬 것
 
 - 실제 공항처럼 보이는 AI 이미지이므로 업로드할 때 유튜브의 '변경되거나 합성된 콘텐츠' 표시를 켭니다. 인천공항 실제 시설 사진처럼 소개하지 않습니다.
