@@ -1,0 +1,28 @@
+{
+  "topic_id": "27",
+  "blog": "donginensis3047",
+  "format": "해설형",
+  "title": "공기압축기 모니터링, 여러 대가 도는 압축기실·가압펌프장 관리법",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "공기압축기모니터링",
+    "압축기실",
+    "가압펌프장",
+    "설비데이터",
+    "교대운전",
+    "예지보전",
+    "스마트공장"
+  ],
+  "keyword": "공기압축기 모니터링",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post027&utm_content=donginensis3047#inquiry",
+  "fact_check": [
+    "적용 설비: 압축기·펌프 등 모터 구동 설비, 설비는 그대로 두고 제어반 교체·신규 설치",
+    "수집 항목: 권선온도(U·V·W), 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 대기 온습도, 운전 상태신호",
+    "기준값 알람(normal·warning·alarm), 웹 대시보드·기간별 이력 조회, CSV 내보내기",
+    "AI 5% 절감은 목표치로만 언급하지 않음(본문에 수치 없음)",
+    "운전시간 편중·교대 운전·기동 횟수 이야기는 일반적인 설비 관리 원리이며 회사 고유 수치 아님",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-22"
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>설비 데이터 분석 준비, CSV 내보내기로 먼저 확인하는 5단계</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 데이터 인프라 · <a href="https://blog.naver.com/donginensis" target="_blank" style="color:#fff">blog.naver.com/donginensis</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">설비 데이터 분석 준비, CSV 내보내기로 먼저 확인하는 5단계</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 데이터로 무언가를 해 보자는 이야기가 나오면, 대개 대시보드나 AI 모델부터 그립니다. 그런데 실제로 프로젝트를 늦추는 것은 화면이 아니라 데이터 자체인 경우가 많습니다. 단위가 섞여 있거나, 시간 간격이 들쭉날쭉하거나, 생각했던 값이 아예 없는 식입니다. 부산에서 제어반을 만들면서 그 안에서 나오는 운전 데이터까지 연결하는 회사 동인엔시스가, 본격 연동 전에 CSV 파일 하나로 <strong style="font-weight:700;color:#111">설비 데이터 분석</strong> 준비 상태를 점검하는 다섯 단계를 소개합니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">왜 API보다 CSV가 먼저일까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스 지능형 제어반이 모은 데이터는 세 가지 방법으로 꺼낼 수 있습니다. REST API로 설비·센서 목록과 최신값, 기간 이력을 받거나, WebSocket으로 실시간 측정값을 받거나, 원하는 기간을 CSV 파일로 내려받는 방법입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">연동 개발을 시작하면 API가 기본이 되지만, 처음 데이터를 들여다볼 때는 CSV가 훨씬 가볍습니다. 개발 환경을 꾸리지 않아도 엑셀이나 분석 도구에서 바로 열 수 있고, 현장 담당자와 분석 담당자가 같은 파일을 놓고 이야기할 수 있습니다. 코드를 한 줄도 쓰기 전에 "이 데이터로 우리가 하려는 일이 되는가"를 먼저 확인하는 셈입니다.</p>
+<div data-img="02-steps.png" style="margin:0 0 18px;text-align:center"><img src="images/02-steps.png" alt="02-steps.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-steps.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">1단계. 질문부터 한 줄로 적기</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">파일을 내려받기 전에, 이 데이터로 답하고 싶은 질문을 한 줄로 적습니다. 질문이 있어야 어떤 설비의 어떤 기간을 받을지 정할 수 있습니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">"2호기 펌프의 전력 사용량이 계절마다 얼마나 달라질까?"</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">"베어링 온도가 오르기 전에 진동이 먼저 변할까?"</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">"야간 운전 중 경고가 몇 번이나 떴을까?"</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">질문이 구체적일수록 필요한 열과 기간이 좁혀집니다. 질문은 분석 담당자 혼자 정하기보다 현장 담당자와 함께 적는 편이 좋습니다. 현장에서 실제로 궁금해하는 것과 데이터로 답할 수 있는 것 사이의 거리를 처음부터 줄일 수 있기 때문입니다. 반대로 "일단 다 받아 보자"로 시작하면 파일만 커지고 무엇을 봐야 할지 흐려집니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">2단계. 설비와 기간을 골라 내려받기</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">질문에 맞춰 설비와 기간을 고릅니다. 처음에는 설비 한두 대, 기간은 평소 운전과 특이한 날이 함께 들어가도록 몇 주 정도가 적당합니다. 주말이나 정기 정비가 끼어 있으면 '설비가 서 있을 때 데이터가 어떻게 보이는지'도 함께 확인할 수 있어 좋습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">내려받을 때는 언제, 어떤 조건으로 받았는지 파일 이름이나 메모에 남겨 두세요. "펌프 2호기, 9월 1일~21일, 정비일 9월 14일 포함"처럼 적어 두면 나중에 다른 사람이 같은 파일을 열어도 맥락을 놓치지 않습니다. 현장에서 그 기간에 있었던 일, 예를 들어 부품 교체나 생산량 변화도 함께 적어 두면 데이터에서 튀는 구간을 해석할 때 큰 도움이 됩니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">3단계. 구조 확인: 한 줄이 무엇을 뜻하는지</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">파일을 열면 먼저 한 줄이 무엇을 뜻하는지 확인합니다. 동인엔시스의 데이터는 '설비-센서-실시간값-상태'라는 틀을 따릅니다. 어느 현장(site_id)의 어느 설비(equipment_id)에서, 어떤 센서가, 언제, 어떤 값과 단위로, 어떤 상태였는지가 한 묶음입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">아래는 이해를 돕기 위한 예시입니다. 실제 파일의 열 이름은 프로젝트마다 조금 다를 수 있습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 18px;font-size:15px">
+<thead>
+<tr>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">측정 시각</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">설비</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">센서</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">값</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">단위</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">10:00:00</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">펌프 2호기</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">베어링 온도</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">41.2</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">°C</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">normal</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">10:00:00</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">펌프 2호기</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">전류</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">18.6</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">A</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">normal</td>
+</tr>
+</tbody>
+</table>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 단계에서 볼 것은 세 가지입니다. 필요한 센서가 다 있는지, 단위가 붙어 있는지, 상태 값이 정상·경고·알람 중 무엇으로 찍혀 있는지입니다. 설비가 여러 대여도 이 틀이 같으면 분석 코드도 한 번만 만들면 됩니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">4단계. 품질 확인: 빈칸과 튀는 값 찾기</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">구조가 맞으면 품질을 봅니다. 분석이 틀어지는 원인 대부분이 여기서 미리 걸러집니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">시간 간격:</strong> 측정 시각이 일정한 간격으로 이어지는지, 중간에 비는 구간이 있는지 봅니다. 동인엔시스 데이터는 측정 시각과 순번이 함께 붙어 있어 중복과 누락을 가려낼 수 있습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">단위와 범위:</strong> 온도가 갑자기 수백 도로 찍히는 등 물리적으로 말이 안 되는 값이 있는지 봅니다. 센서 점검이나 배선 작업 중에 생긴 값일 수 있습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">설비 정지 구간:</strong> 설비가 서 있을 때의 값을 정상 운전 데이터와 섞지 않도록 운전 상태신호로 구분합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">상태 라벨:</strong> 경고나 알람이 찍힌 구간이 실제 현장 기록과 맞는지, 현장 담당자와 함께 몇 개만 짚어 봅니다.</li>
+</ul>
+<div data-img="03-quality.png" style="margin:0 0 18px;text-align:center"><img src="images/03-quality.png" alt="03-quality.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-quality.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">5단계. 다음 연결 방법 정하기</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">CSV로 질문에 답할 수 있다는 확신이 서면, 그다음은 어떤 방식으로 데이터를 꾸준히 받을지 정할 차례입니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">하루나 한 주 단위로 모아서 분석한다면 <strong style="font-weight:700;color:#111">REST API의 기간 이력</strong>이면 충분합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">화면에 실시간으로 띄우거나 즉시 반응해야 한다면 <strong style="font-weight:700;color:#111">WebSocket</strong>으로 측정값과 상태 변화를 받습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">정기 보고서처럼 사람이 직접 보는 용도라면 <strong style="font-weight:700;color:#111">CSV 내보내기</strong>를 계속 써도 됩니다.</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">IT기업과 함께하는 프로젝트라면 이 시점에 샘플 데이터에서 시연 장비로 넘어가, 실제 제어반에서 나오는 데이터로 연동을 검증합니다. 그 뒤에 공동 프로젝트로 이어지는 순서입니다.</p>
+<div data-photo="04-photo-data-review.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 현장 담당자와 분석 담당자가 데이터를 함께 확인하는 모습 (연출 이미지) <span style="font-weight:400">(파일 이름: 04-photo-data-review.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of two Korean professionals, one in a factory work vest and one in a casual shirt, sitting together at a meeting table in a factory office reviewing a laptop showing an abstract spreadsheet grid and a simple line chart (no readable text), coffee cups, window to production floor behind, natural light, documentary style, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. CSV는 누가 내려받을 수 있나요?</strong>
+대시보드 접근 권한이 있는 담당자가 웹 화면에서 기간과 설비를 골라 직접 내려받습니다. 따로 요청하고 기다릴 필요가 없습니다. 권한 범위는 프로젝트마다 정합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 설비 데이터 분석에 쓸 기간은 얼마나 필요할까요?</strong>
+질문에 따라 다릅니다. 계절 차이를 보려면 여러 달이, 특정 이상 징후를 보려면 그 일이 있었던 앞뒤 며칠이 중요합니다. 처음에는 몇 주로 구조와 품질을 먼저 확인하는 것을 권합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 데이터는 누구 소유인가요?</strong>
+데이터의 소유와 이용 범위, 보관 기간은 프로젝트별 계약으로 정합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 데이터를 보니 필요한 센서가 빠져 있다면요?</strong>
+3단계에서 빠진 값이 확인되면 그 자체가 중요한 결과입니다. 어떤 센서를 더해야 하는지, 기존 제어반에서 추가할 수 있는지를 현장 조건을 보고 함께 검토합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 우리 회사 분석 도구에서도 열 수 있나요?</strong>
+CSV는 대부분의 스프레드시트와 분석 도구에서 바로 열립니다. 분석 환경이 정해지면 같은 구조를 API로 받도록 이어 갈 수 있습니다.</p>
+<div data-photo="05-photo-laptop-csv.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 내려받은 설비 데이터 파일을 여는 화면 (연출 이미지) <span style="font-weight:400">(파일 이름: 05-photo-laptop-csv.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic close-up photo of a laptop on a clean desk showing an abstract spreadsheet with colored columns and a small green-yellow status column (no readable text), a printed equipment layout sheet and pen beside it, shallow depth of field, soft daylight, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">작은 파일 하나로 먼저 확인하기</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 데이터 분석의 첫걸음은 거창한 시스템이 아니라, 질문 하나와 CSV 파일 하나입니다. 구조와 품질을 미리 확인해 두면 연동 개발도, AI 학습도 헛걸음이 줄어듭니다. 동인엔시스는 제어반에서 처음부터 같은 틀로 데이터를 만들어, 이 확인이 쉬워지도록 합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/manufacturing.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post062&amp;utm_content=donginensis#inquiry">샘플 데이터·연동 상담 문의</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">데이터 연동 문의 051-862-3668 / dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>IT기업과 협업할 때 처음 받은 데이터에서 가장 자주 나온 문제는 무엇이었나요?</li><li>고객사 담당자가 CSV를 받아 가장 먼저 확인하는 값은 무엇인지 한 줄로 적어 주세요.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #설비데이터 #설비데이터분석 #CSV내보내기 #데이터품질 #제조데이터 #RESTAPI #스마트제조 #OT데이터</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 데이터 제공: REST API(설비·센서 목록, 최신값, 기간 이력), WebSocket(실시간), CSV 내보내기</li><li>사실 확인: 데이터 구조: 설비-센서-실시간값-상태, site_id·equipment_id, 센서별 값·단위·상태(normal·warning·alarm)</li><li>사실 확인: 측정 시각·순번으로 중복·누락 확인</li><li>사실 확인: 협업 절차: 협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트, 샘플 데이터 → 시연 장비</li><li>사실 확인: 데이터 소유·이용 범위·보관 기간은 프로젝트별 계약</li><li>사실 확인: CSV 열 예시는 설명용 예시이며 실제 파일 열 이름과 다를 수 있음</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "설비데이터", "설비데이터분석", "CSV내보내기", "데이터품질", "제조데이터", "RESTAPI", "스마트제조", "OT데이터"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>

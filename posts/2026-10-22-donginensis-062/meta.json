@@ -1,0 +1,28 @@
+{
+  "topic_id": "62",
+  "blog": "donginensis",
+  "format": "단계형",
+  "title": "설비 데이터 분석 준비, CSV 내보내기로 먼저 확인하는 5단계",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "설비데이터분석",
+    "CSV내보내기",
+    "데이터품질",
+    "제조데이터",
+    "RESTAPI",
+    "스마트제조",
+    "OT데이터"
+  ],
+  "keyword": "설비 데이터 분석",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post062&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "데이터 제공: REST API(설비·센서 목록, 최신값, 기간 이력), WebSocket(실시간), CSV 내보내기",
+    "데이터 구조: 설비-센서-실시간값-상태, site_id·equipment_id, 센서별 값·단위·상태(normal·warning·alarm)",
+    "측정 시각·순번으로 중복·누락 확인",
+    "협업 절차: 협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트, 샘플 데이터 → 시연 장비",
+    "데이터 소유·이용 범위·보관 기간은 프로젝트별 계약",
+    "CSV 열 예시는 설명용 예시이며 실제 파일 열 이름과 다를 수 있음"
+  ],
+  "created": "2026-10-22"
+}

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>와이어 생산라인 제어, 7개국 공장에서 같은 품질을 지키려면</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 현장 이야기 · <a href="https://blog.naver.com/bmk3037" target="_blank" style="color:#fff">blog.naver.com/bmk3037</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">와이어 생산라인 제어, 7개국 공장에서 같은 품질을 지키려면</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">건물 엘리베이터를 매단 줄, 다리를 붙잡는 케이블, 타이어 속을 받치는 가는 강선. 모두 쇠를 길고 가늘게 뽑아 꼬아 만든 와이어입니다. 같은 와이어가 어느 나라 공장에서 만들어지든 똑같은 품질을 내야 한다면, 라인을 움직이는 제어시스템도 나라를 가리지 않고 같은 기준으로 움직여야 합니다. 동인엔시스는 1991년부터 제어반을 설계·제작해 오며 KOS·고려제강(Kiswire)의 와이어 라인 제어를 한국, 베트남, 미국, 체코, 헝가리, 말레이시아, 중국 7개국에서 맡았습니다. 그 경험을 바탕으로 <strong style="font-weight:700;color:#111">와이어 생산라인 제어</strong>에서 무엇이 중요한지 정리해 보겠습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">와이어는 어떤 공정을 거칠까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">와이어 공장의 라인은 크게 네 가지 공정으로 나눌 수 있습니다. 동인엔시스가 제어를 맡은 라인도 이 네 가지입니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">신선(伸線):</strong> 굵은 선재를 다이스라는 작은 구멍에 차례로 통과시켜 점점 가늘게 뽑아내는 공정입니다. 이 일을 하는 설비가 신선기입니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">연선(撚線):</strong> 가늘어진 선 여러 가닥을 꼬아 한 줄로 만드는 공정입니다. 연선기가 맡습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">도금:</strong> 녹을 막거나 다른 재료와 잘 붙도록 선 표면에 얇은 금속 막을 입힙니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">열처리:</strong> 뽑고 늘이는 과정에서 단단해지고 뒤틀린 조직을 열로 다시 고르게 만들어, 원하는 강도와 성질을 냅니다.</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">공정마다 쓰는 설비는 다르지만 공통점이 있습니다. 선이 끊기지 않고 길게 이어져 흐른다는 것입니다. 그래서 어느 한 곳이 박자를 놓치면 라인 전체가 영향을 받습니다.</p>
+<div data-img="02-process.png" style="margin:0 0 18px;text-align:center"><img src="images/02-process.png" alt="02-process.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-process.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">이어진 선을 다루는 제어의 핵심</h2>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">속도를 맞추는 일</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">신선기에서는 선이 다이스를 하나 지날 때마다 가늘어지는 만큼 길어지고, 그만큼 빨라집니다. 다음 단을 감는 드럼은 앞 단보다 정확히 그만큼 더 빨리 돌아야 합니다. 조금만 느리면 선이 늘어지고, 조금만 빠르면 끊어집니다. 여러 대의 모터를 인버터로 하나의 박자에 묶어 돌리는 것이 와이어 라인 제어의 기본입니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">장력을 지키는 일</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">연선기에서는 여러 가닥이 같은 힘으로 당겨져야 꼬임이 고르게 나옵니다. 한 가닥만 느슨하면 완성된 와이어의 모양과 강도가 달라집니다. 감는 쪽과 푸는 쪽이 서로 힘을 주고받는 균형을 제어가 계속 맞춰 줍니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">온도를 유지하는 일</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">열처리와 도금은 온도와 시간이 품질을 좌우합니다. 선이 지나가는 속도가 바뀌면 열을 받는 시간도 달라지니, 라인 속도와 온도 제어가 함께 움직여야 합니다. 라인을 빠르게 돌리면 생산량은 늘지만 선이 열을 받는 시간은 짧아지므로, 그만큼 온도를 조정하거나 속도 상한을 두는 식으로 두 값을 짝지어 다룹니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">라인이 한 번 서면 생기는 일</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">연속 공정에서 정지는 단순히 '잠깐 멈춤'으로 끝나지 않습니다. 선이 끊기면 다시 다이스와 드럼에 선을 꿰는 작업부터 해야 하고, 열처리 구간에 있던 선은 온도와 시간이 어긋나 불량이 되기 쉽습니다. 라인을 다시 정상 속도로 올리기까지 시간도 걸립니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">그래서 와이어 생산라인 제어는 '잘 돌리는 것'만큼 '어떻게 멈추고 다시 세우는가'를 함께 설계합니다. 이상이 생겼을 때 여러 모터를 같은 비율로 함께 감속시켜 선이 끊기지 않게 세우는 것, 다시 기동할 때 천천히 속도를 맞춰 올리는 것이 그 예입니다. 정지 원인을 기록으로 남겨 두면 같은 원인으로 또 서는 일을 줄일 수 있습니다. 와이어 생산라인 제어에서 기록이 중요한 이유입니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">7개국 현장, 무엇이 달랐나</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">같은 라인을 여러 나라에 세우다 보면, 설비 자체보다 그 설비를 둘러싼 조건이 먼저 다가옵니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 18px;font-size:15px">
+<thead>
+<tr>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">구분</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">나라마다 달라지는 것</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">제어반에서 챙기는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">전원</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">전압·주파수 체계</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">현지 전원에 맞춘 부품 선정과 설계</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">인증</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">유럽·북미 등 지역별 안전 규격</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">해당 규격을 고려한 부품·배선·문서</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">언어</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">운전자가 읽는 화면과 표시</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">현지 운전자가 이해할 수 있는 표시</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">지원</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">본사와의 거리, 시차</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">현지에서 스스로 대응할 수 있는 문서와 교육</td>
+</tr>
+</tbody>
+</table>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스가 CE·UL 인증 솔루션을 40종 넘게 갖추게 된 데에는 이렇게 해외로 나가는 제어반을 꾸준히 만들어 온 이력이 있습니다. 나라가 바뀌어도 같은 품질을 내려면, 설계 단계에서 그 나라의 조건을 먼저 반영해야 합니다.</p>
+<div data-img="03-overseas.png" style="margin:0 0 18px;text-align:center"><img src="images/03-overseas.png" alt="03-overseas.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-overseas.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">해외 라인에서 특히 신경 쓰는 것</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">해외 현장은 국내와 달리 문제가 생겼을 때 바로 달려갈 수 없습니다. 그래서 출고 전에 할 수 있는 일을 최대한 끝내 두는 것이 원칙입니다.</p>
+<ol style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">공장에서 미리 시험하기:</strong> 출고 전 국내 공장에서 배선과 PLC 프로그램을 시험해, 현지에 도착한 뒤 고칠 일을 줄입니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">도면과 문서를 현장 기준으로:</strong> 현지 정비 인력이 보고 따라 할 수 있도록 도면과 설명서를 정리합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">예비품과 교체 방법:</strong> 자주 손보는 부품은 무엇이고 어떻게 바꾸는지 미리 알려 둡니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">시운전과 인계:</strong> 현지 시운전 때 운전자와 정비 담당자에게 조작과 대응 방법을 직접 전합니다.</li>
+</ol>
+<div data-photo="04-photo-wire-line.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 여러 대의 드럼이 이어진 와이어 신선 라인 (연출 이미지) <span style="font-weight:400">(파일 이름: 04-photo-wire-line.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic wide photo of a steel wire drawing line in a large factory: a row of large horizontal capstan drums with shiny steel wire running between them, wire coils on the floor, overhead crane, a row of light-grey electrical control cabinets along the side, industrial lighting, no people, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">이 경험이 지금 하는 일로 이어지는 방식</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">와이어 라인은 여러 모터가 한 박자로 움직이고, 작은 어긋남이 품질과 정지로 바로 이어지는 현장입니다. 이런 라인을 7개국에서 돌려 본 경험은 두 가지를 남겼습니다. 하나는 모터와 인버터가 어떤 상태일 때 문제가 시작되는지에 대한 감각이고, 다른 하나는 사람이 곁에 없어도 설비 상태를 알 수 있어야 한다는 절실함입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">지금 동인엔시스가 만드는 지능형 제어반은 바로 그 지점에서 출발했습니다. 제어반이 설비를 움직이면서 모터 온도와 전류, 진동 같은 운전 데이터를 함께 남기면, 멀리 떨어진 현장의 설비도 기록으로 살펴볼 수 있습니다. 까다로운 현장에서 쌓은 제어 경험이 데이터의 신뢰성으로 이어지는 이유입니다.</p>
+<div data-photo="05-photo-factory-test.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 출고 전 공장에서 제어반을 시험하는 모습 (연출 이미지) <span style="font-weight:400">(파일 이름: 05-photo-factory-test.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo inside a Korean control panel manufacturing workshop: a tall multi-door light-grey control cabinet with doors open showing neat wiring and inverters, a Korean technician in a navy work uniform checking it with a laptop on a cart, other cabinets under assembly in background, bright even lighting, documentary style, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 와이어 생산라인 제어에서 가장 까다로운 부분은 무엇인가요?</strong>
+여러 대의 모터를 하나의 박자로 묶는 속도 동기와 장력 유지입니다. 선이 이어져 흐르기 때문에 한 곳의 어긋남이 라인 전체로 번집니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 해외 공장에 들어갈 제어반도 국내에서 만드나요?</strong>
+네. 국내 공장에서 설계·제작하고 시험을 마친 뒤 출고하며, 현지 시운전과 인계를 진행합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 와이어 말고 다른 연속 공정 라인도 하나요?</strong>
+포장기계, 수지 플랜트, 서보 다축 생산설비 등 여러 제조 라인의 제어시스템을 수행했습니다. 현장 조건을 먼저 듣고 맞는 구성을 제안합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 이미 돌고 있는 해외 라인의 제어반 개선도 상담할 수 있나요?</strong>
+가능합니다. 기존 도면과 현장 상태를 먼저 확인한 뒤, 교체 범위와 일정, 현지 시운전 방법을 함께 정합니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">마치며</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">와이어 한 줄이 어느 나라에서 만들어지든 같은 품질을 내려면, 그 라인을 움직이는 제어도 같은 기준을 지켜야 합니다. 동인엔시스는 나라와 공정을 넘나들며 쌓은 그 기준을 지금의 제어반과 데이터 인프라에 담고 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/applications.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post029&amp;utm_content=bmk3037#manufacturing">제조 분야 적용 사례 보기</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">문의 051-862-3668 · dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>해외 와이어 라인 시운전에서 국내와 가장 달랐던 점은 무엇이었나요?</li><li>현지 운전자에게 인계할 때 가장 공들여 설명한 부분을 한 줄로 적어 주세요.</li><li>KOS·고려제강 이름과 국가 목록을 이렇게 공개해도 되는지 확인 부탁드립니다.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #제어반제작 #와이어생산라인제어 #신선기 #연선기 #해외공장 #CE인증 #UL인증 #공장자동화</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: KOS·고려제강(Kiswire) 신선기·연선기·도금·열처리 라인 제어</li><li>사실 확인: 국가: 한국, 베트남, 미국, 체코, 헝가리, 말레이시아, 중국 (7개국) — 나라별 라인 구분은 쓰지 않음</li><li>사실 확인: CE·UL 인증 솔루션 40종 이상, 750건 이상 프로젝트, 1991년 설립</li><li>사실 확인: 속도 동기·장력·온도 제어, 나라별 전원·인증 차이는 일반적인 기술 설명이며 해당 현장 세부 사양 아님</li><li>사실 확인: 고객사명 공개 범위 확인 권장</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "제어반제작", "와이어생산라인제어", "신선기", "연선기", "해외공장", "CE인증", "UL인증", "공장자동화"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>
