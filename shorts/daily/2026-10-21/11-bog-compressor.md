@@ -2,7 +2,7 @@
 
 - 제목: LNG 운반선의 화물은 바다를 건너는 동안 사라집니다. 다른 후보: 「LNG 운반선의 화물은 바다 위에서 매일 조금씩 사라집니다」
 - 분류: 현장·산업 전기, 3부작 「영하의 연료」(올리는 순서 11 → 09 → 10)
-- 길이: 95~100초 목표, 내레이션 공백 제외 653자, 24문장
+- 길이: 95~100초 목표, 내레이션 공백 제외 606자, 23문장
 - 이미지: 플로우 22장 + 합성 그래픽
 - 회사 이름은 영상에 넣지 않음. 관련 실적은 설명란에만.
 
@@ -15,24 +15,23 @@
 |  | 훔쳐 가는 사람도 없는데, 한 번 바다를 건너면 많게는 화물의 6%가 사라집니다. |
 |  | 대체 그 화물은 어디로 가는 걸까요? |
 | 2. 균열 | LNG는 천연가스를 영하 162도까지 식혀 만든 액체입니다. |
-|  | 부피가 600분의 1로 줄어서, 한 번에 많이 실어 올 수 있거든요. |
-|  | 문제는 아무리 두껍게 감싸도, 바깥 열이 조금씩 스며든다는 겁니다. |
-|  | 그러면 액체가 끓어 기체가 되죠. 이걸 증발가스, BOG라고 부릅니다. |
+|  | 아무리 두껍게 감싸도 바깥 열이 스며들어, 액체가 조금씩 끓어 기체가 되죠. |
+|  | 이걸 증발가스, BOG라고 부릅니다. |
 |  | 대형 운반선에선 하루에 화물의 0.1에서 0.15%가 이렇게 날아갑니다. |
-|  | 작아 보여도, 항해 내내 쌓이면 커지는 거죠. |
 | 3. 딜레마 | 그런데 여기서 진짜 문제가 생깁니다. |
-|  | 그냥 날려 보내면 되지 않냐고요? 돈을 버리는 셈이고, 온실가스도 됩니다. |
-|  | 그럼 탱크에 꽉 가둬 두면요? 기체가 쌓일수록 압력이 올라가 위험해집니다. |
-|  | 버리자니 아깝고, 가두자니 위험한 거죠. |
+|  | 날려 보내면 돈이 사라지고, 탱크에 가둬 두면 압력이 올라 위험해지거든요. |
 | 4. 발상 전환 | 그래서 배는 사라지는 가스를 붙잡는 기계를 싣고 다닙니다. |
-|  | 바로 BOG 압축기입니다. |
-|  | 탱크 위로 올라온 증발가스를 빨아들여, 꾹 눌러 압력을 높이죠. |
-|  | 어떤 배는 그 가스를 엔진 연료로 쓰고, 어떤 배는 다시 식혀 액체로 되돌립니다. |
-|  | 사라질 화물이 연료가 되거나, 다시 화물이 되는 겁니다. |
-| 5. 숫자 | 어떤 배는 탱크 압력을 재다가, 정해 둔 값을 넘으면 압축기를 돌려 가스를 뽑아내고요. |
-| 6. 마무리 | 그 숫자를 받아 압축기를 돌리고, 기준을 넘으면 먼저 알려 주는 게 바로 제어반입니다. |
-|  | 설비를 제어하고, 데이터를 연결하는 것. 그게 이 제어반이 하는 일이죠. |
-|  | 영하 253도의 수소를 싣는 배도, 같은 숙제를 안고 있죠. |
+|  | 바로 BOG 압축기죠. |
+|  | 증발가스를 빨아들여 압력을 높인 뒤, 엔진 연료로 쓰거나 다시 식혀 액체로 되돌립니다. |
+|  | 그런데 이 압축기가 바다 한가운데서 멈추면요? |
+|  | 압력은 다시 오르고, 아까운 화물을 태워 없애야 할 수도 있습니다. |
+|  | 수리 기사도 부를 수 없는 곳에서요. |
+| 5. 숫자 | 그래서 어떤 배는 압축기 옆 제어반에 두 가지 일을 맡깁니다. |
+|  | 하나는 탱크 압력에 맞춰 압축기를 알아서 돌리고 멈추는 것. |
+|  | 다른 하나는 압축기 모터의 온도와 떨림, 전류를 쉬지 않고 기록해, 기준을 넘으면 먼저 알리는 것이죠. |
+|  | 통신이 끊겨도 기록을 쥐고 있다가, 다시 연결되면 차례대로 보내고요. |
+| 6. 마무리 | 설비를 움직이는 것만으로는 부족합니다. |
+|  | 그 설비가 보내는 숫자까지 이어져야, 멈추기 전에 손쓸 시간이 생길 수 있거든요. |
 |  | 지금 이 순간에도 바다 위에선, 누군가 사라지는 화물을 붙잡고 있습니다. |
 
 ## 사실 확인
@@ -48,6 +47,8 @@
 | 탱크 압력이 정해 둔 값을 넘으면 압축기를 돌림 | Kalikatzarakis 외, Energy 2022 [PDF](https://strathprints.strath.ac.uk/80139/1/Kalikatzarakis_etal_Energy_2022_Model_based_analysis_of_the_boil_off_gas_management_and_control.pdf): 탱크 절대압력 4~5.5bar 사이에서 압축기를 켜고 끄는 제어. LNG 연료선 모델이라 "어떤 배는"으로 한정 |
 | 영하 253도 수소 운반선도 증발가스 처리가 숙제 | [Maritime Executive](https://www.maritime-executive.com/article/kawasaki-wins-approval-and-provides-details-for-large-hydrogen-carrier): 증발가스를 줄이는 단열, 증발한 수소를 쓰는 엔진 승인 |
 | 압축기 제어, 모터 온도·전류 수집·기준 알람 | `knowledge/company.md`: LNG 운반선용 BOG 압축기 제어 설계·공급·시운전 실적, 지능형 제어반 수집 항목(모터 권선온도, 전압·전류), 설정 기준을 벗어나면 알람. 적용 설비에 압축기 포함. "요즘 제어반은 ~기도 하고요"로 한정 |
+| 압축기가 멈추면 압력 상승, 남는 가스를 태워 없앰(GCU) | 한국선급 BOG 처리기술(2.1 추진연료 사용 및 GCU). "~할 수도 있습니다"로 한정 |
+| 제어반: 압축기 제어, 모터 온도·떨림·전류 기록, 기준 알람, 통신이 끊기면 보관 후 순서대로 재전송 | `knowledge/company.md` 지능형 제어반(수집 항목, 24시간 기록, 알람, 통신 복구 후 재전송), BOG 압축기 제어 실적. "어떤 배는"으로 한정 |
 | 쓰지 않기로 한 것 | 운송계약 0.15% 이하(원문 재확인 전이라 이번 판에서 뺌), 수영장 크기 비교(운반선 크기·수영장 부피 출처를 못 찾음), 메탄 온난화 배수(숫자 출처 없이 쓰지 않음), 회사 실적(설명란에만) |
 
 ## 검수 기록
@@ -65,6 +66,7 @@
 | 3차(훅) | 둘째 문장이 길고 "도시가스, 그 원료"가 딱딱함 | "여러분 집 가스레인지로 갈 가스를 싣고 오는"으로 줄임(LNG의 52.9%가 도시가스용) |
 | 4차(제어반 연결) | 마지막이 "숫자로 움직이는 기계", "공장도 같은 원리"에서 끝나 제어반과 연결이 약함 | 끝에 두 문장: 숫자를 받아 설비를 움직이는 두뇌가 제어반, 기준을 넘으면 먼저 알림. 회사 이름은 빼고 설명란에 실적과 지능형 제어반 설명 |
 | 5차(슬로건) | 제어반 연결 두 문장이 제각각이라 기억에 안 남음 | 제어·알림을 한 문장으로 묶고, 둘째 문장을 회사 슬로건 "설비를 제어하고, 데이터를 연결하는 것"으로 세 편 똑같이 맞춤. "이 제어반"으로 장면 속 제어반을 가리켜 일반화를 피함 |
+| 6차(녹여내기) | 제어반과 슬로건이 끝에 붙어 있을 뿐, 왜 필요한지가 이야기에서 나오지 않음 | 비트 4 뒤에 두 번째 반전 "그런데 이 압축기가 바다 한가운데서 멈추면요?"를 넣고, 답으로 제어반의 두 가지 일(① 압력에 맞춰 압축기 제어 ② 모터 온도·떨림·전류 기록과 기준 알림, 통신이 끊겨도 보관 후 재전송)을 보여 줌. 결론 "움직이는 것만으로는 부족, 숫자까지 이어져야 손쓸 시간"으로 슬로건을 풀어 씀. 운송계약·수소 운반선 예고 문장은 뺌 |
 
 ## 타입캐스트 대본
 
@@ -76,30 +78,29 @@
 훔쳐 가는 사람도 없는데, 한 번 바다를 건너면 많게는 화물의 육 퍼센트가 사라집니다.
 대체 그 화물은 어디로 가는 걸까요?
 엘엔지는 천연가스를 영하 백육십이 도까지 식혀 만든 액체입니다.
-부피가 육백분의 일로 줄어서, 한 번에 많이 실어 올 수 있거든요.
-문제는 아무리 두껍게 감싸도, 바깥 열이 조금씩 스며든다는 겁니다.
-그러면 액체가 끓어 기체가 되죠. 이걸 증발가스, 비오지라고 부릅니다.
+아무리 두껍게 감싸도 바깥 열이 스며들어, 액체가 조금씩 끓어 기체가 되죠.
+이걸 증발가스, 비오지라고 부릅니다.
 대형 운반선에선 하루에 화물의 영 점 일에서 영 점 일오 퍼센트가 이렇게 날아갑니다.
-작아 보여도, 항해 내내 쌓이면 커지는 거죠.
 그런데 여기서 진짜 문제가 생깁니다.
-그냥 날려 보내면 되지 않냐고요? 돈을 버리는 셈이고, 온실가스도 됩니다.
-그럼 탱크에 꽉 가둬 두면요? 기체가 쌓일수록 압력이 올라가 위험해집니다.
-버리자니 아깝고, 가두자니 위험한 거죠.
+날려 보내면 돈이 사라지고, 탱크에 가둬 두면 압력이 올라 위험해지거든요.
 그래서 배는 사라지는 가스를 붙잡는 기계를 싣고 다닙니다.
-바로 비오지 압축기입니다.
-탱크 위로 올라온 증발가스를 빨아들여, 꾹 눌러 압력을 높이죠.
-어떤 배는 그 가스를 엔진 연료로 쓰고, 어떤 배는 다시 식혀 액체로 되돌립니다.
-사라질 화물이 연료가 되거나, 다시 화물이 되는 겁니다.
-어떤 배는 탱크 압력을 재다가, 정해 둔 값을 넘으면 압축기를 돌려 가스를 뽑아내고요.
-그 숫자를 받아 압축기를 돌리고, 기준을 넘으면 먼저 알려 주는 게 바로 제어반입니다.
-설비를 제어하고, 데이터를 연결하는 것. 그게 이 제어반이 하는 일이죠.
-영하 이백오십삼 도의 수소를 싣는 배도, 같은 숙제를 안고 있죠.
+바로 비오지 압축기죠.
+증발가스를 빨아들여 압력을 높인 뒤, 엔진 연료로 쓰거나 다시 식혀 액체로 되돌립니다.
+그런데 이 압축기가 바다 한가운데서 멈추면요?
+압력은 다시 오르고, 아까운 화물을 태워 없애야 할 수도 있습니다.
+수리 기사도 부를 수 없는 곳에서요.
+그래서 어떤 배는 압축기 옆 제어반에 두 가지 일을 맡깁니다.
+하나는 탱크 압력에 맞춰 압축기를 알아서 돌리고 멈추는 것.
+다른 하나는 압축기 모터의 온도와 떨림, 전류를 쉬지 않고 기록해, 기준을 넘으면 먼저 알리는 것이죠.
+통신이 끊겨도 기록을 쥐고 있다가, 다시 연결되면 차례대로 보내고요.
+설비를 움직이는 것만으로는 부족합니다.
+그 설비가 보내는 숫자까지 이어져야, 멈추기 전에 손쓸 시간이 생길 수 있거든요.
 지금 이 순간에도 바다 위에선, 누군가 사라지는 화물을 붙잡고 있습니다.
 ```
 
 강조: 셋째·넷째 문장의 "대체 ~일까요?", 중간 훅 "그런데 여기서 진짜 문제가 생깁니다.", 비트 4 첫 두 문장.
 
-자막 노란 핵심어: 사라지는, 6%, BOG, 0.1%, 압축기, 제어반, 데이터
+자막 노란 핵심어: 사라지는, 6%, BOG, 압축기, 멈추면, 제어반, 데이터
 
 ## 플로우 프롬프트 (한 줄에 한 장)
 
@@ -111,22 +112,22 @@
 03 | A cozy apartment kitchen with a gas stove burning a blue flame; a thin dotted red line runs from the stove out through the window toward a distant LNG terminal by the sea. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 04 | An empty ship deck at night under moonlight, pipes and valves, quiet mysterious mood, no people. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 05 | Side cutaway of an LNG cargo tank inside a ship hull, filled with pale blue cryogenic liquid, thick insulation layers and light frost visible. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-06 | A giant translucent sphere of natural gas next to a tiny cube of pale blue liquid, clean studio background, showing how much smaller the liquid is. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-07 | Macro cutaway of the thick insulation layers of a cryogenic tank wall; small red arrows show warm heat slowly seeping in from outside. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-08 | Close-up of the cold liquid surface inside the tank with tiny bubbles, white vapor rising toward the top of the tank. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-09 | Cutaway of the tank top: white vapor gathering under the tank roof, the vapor cloud traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-10 | A 3D globe with a dotted red shipping route from the Middle East to East Asia and a tiny LNG carrier on the route. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-11 | The LNG carrier in a dark stormy sea, heavy waves, tense dramatic mood. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-12 | A tall vent mast on the ship deck releasing a white vapor plume into the sky. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-13 | Cutaway of the cargo tank with vapor pressing on the walls; a large blank round pressure gauge whose needle points into a glowing red zone. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-14 | Inside a bright ship compressor room: a large industrial gas compressor with its electric motor and thick insulated pipes; the compressor traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-15 | Cutaway of a centrifugal compressor showing the impeller inside, clean technical look. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-16 | Isometric cutaway of the ship: a thin dotted red line runs from the top of the cargo tank to the compressor room. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-17 | A large ship engine in a clean engine room, warm light, pipes feeding gas into it. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-18 | A frosted cryogenic heat exchanger box; cold liquid flowing back through a pipe into the cargo tank. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-19 | A gray industrial control panel cabinet in the ship compressor room with its door open, neat wiring and blank screens inside, a thin dotted red line running from the panel to the compressor motor. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+06 | Macro cutaway of the thick insulation layers of a cryogenic tank wall; small red arrows show warm heat slowly seeping in from outside. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+07 | Close-up of the cold liquid surface inside the tank with tiny bubbles, white vapor rising toward the top of the tank. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+08 | Cutaway of the tank top: white vapor gathering under the tank roof, the vapor cloud traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+09 | The LNG carrier in a dark stormy sea, heavy waves, tense dramatic mood. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+10 | A tall vent mast on the ship deck releasing a white vapor plume into the sky. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+11 | Cutaway of the cargo tank with vapor pressing on the walls; a large blank round pressure gauge whose needle points into a glowing red zone. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+12 | Inside a bright ship compressor room: a large industrial gas compressor with its electric motor and thick insulated pipes; the compressor traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+13 | Cutaway of a centrifugal compressor showing the impeller inside, clean technical look. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+14 | Isometric cutaway of the ship: a thin dotted red line runs from the top of the cargo tank to the compressor, then splits toward the engine room and back into the tank. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+15 | A tiny LNG carrier alone in the middle of a vast empty ocean, extreme high aerial view, no land in sight. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+16 | The same compressor room with lights dimmed, the compressor stopped, one red warning lamp glowing. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+17 | A steel gas combustion unit on a ship with an orange flame visible through a small round window. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+18 | A gray industrial control panel cabinet in the ship compressor room with its door open, neat wiring and blank screens inside, a thin dotted red line running from the panel to the compressor motor. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+19 | Close-up of the compressor's electric motor with small sensors attached to its housing; thin red lines run from the sensors toward a control panel. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 20 | A ship cargo control room with monitors showing blank line graphs and one blinking red indicator light. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-21 | A liquefied hydrogen carrier ship with one large horizontal cylindrical tank on deck, sailing at sea. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+21 | The LNG carrier sailing at night; a thin dotted red line rises from the ship's mast into the starry sky. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 22 | The same LNG carrier as image 01 at dusk from the same drone angle, calm sea. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 ```
 
@@ -134,30 +135,29 @@
 
 | 문장 | 이미지 | 합성 그래픽·글자 |
 |---|---|---|
-| 1. 여기 바다를 건너는 동안, 화물이 매일 … | 01, 02 | "화물이 매일 사라진다" 큰 글자 |
-| 2. 바로 여러분 집 가스레인지로 갈 가스를 … | 03 | "가스레인지로 갈 가스" 라벨, 붉은 점선이 바다로 |
-| 3. 훔쳐 가는 사람도 없는데, 한 번 바다를… | 10 | 항로를 따라 줄어드는 탱크 그래픽, "많게는 6%" 큰 숫자 |
+| 1. 여기 바다를 건너는 동안, 화물이 매일 … | 01, 02 | "화물이 매일 사라진다" |
+| 2. 바로 여러분 집 가스레인지로 갈 가스를 … | 03 | "가스레인지로 갈 가스", 붉은 점선이 바다로 |
+| 3. 훔쳐 가는 사람도 없는데, 한 번 바다를… | 15 | "많게는 6%" 큰 숫자 |
 | 4. 대체 그 화물은 어디로 가는 걸까요?… | 04 | 큰 "?" |
-| 5. LNG는 천연가스를 영하 162도까지 식… | 05 | "영하 162도" 큰 숫자 |
-| 6. 부피가 600분의 1로 줄어서, 한 번에… | 06 | "부피 1/600" 기체 구가 줄어드는 그래픽 |
-| 7. 문제는 아무리 두껍게 감싸도, 바깥 열이… | 07 | 붉은 열 화살표가 스며듦 |
-| 8. 그러면 액체가 끓어 기체가 되죠. 이걸 … | 08, 09 | "BOG = 증발가스" 라벨 |
-| 9. 대형 운반선에선 하루에 화물의 0.1에서… | 02 | 하루 막대 "0.1~0.15%" |
-| 10. 작아 보여도, 항해 내내 쌓이면 커지는 … | 10 | 하루 막대가 항로를 따라 쌓여 "최대 6%" |
-| 11. 그런데 여기서 진짜 문제가 생깁니다.… | 11 | "진짜 문제" 큰 글자, 화면 어둡게 |
-| 12. 그냥 날려 보내면 되지 않냐고요? 돈을 … | 12 | "버리면? 돈 · 온실가스" |
-| 13. 그럼 탱크에 꽉 가둬 두면요? 기체가 쌓… | 13 | 압력 바늘이 붉은 구간으로, 짧은 흔들림 0.5초(이 편의 가장 센 순간) |
-| 14. 버리자니 아깝고, 가두자니 위험한 거죠.… | 12, 13 | 저울: "아깝다" ↔ "위험하다" |
-| 15. 그래서 배는 사라지는 가스를 붙잡는 기계… | 14 | "붙잡는 기계" |
-| 16. 바로 BOG 압축기입니다.… | 14 | "BOG 압축기" 큰 글자 |
-| 17. 탱크 위로 올라온 증발가스를 빨아들여, … | 15, 16 | 붉은 점선 따라 흐르는 가스 점 |
-| 18. 어떤 배는 그 가스를 엔진 연료로 쓰고,… | 17, 18 | 갈림길 화살표: "엔진 연료" / "다시 액체로" |
-| 19. 사라질 화물이 연료가 되거나, 다시 화물… | 18 | "화물 → 연료 · 화물" |
-| 20. 어떤 배는 탱크 압력을 재다가, 정해 둔… | 20 | 압력 그래프가 기준선을 넘으면 "압축기 ON" |
-| 21. 그 숫자를 받아 압축기를 돌리고, 기준을… | 19 | 붉은 점선이 압축기로 이어지고, 온도·전류 그래프가 기준선을 넘으면 붉게 깜빡 "알림" |
-| 22. 설비를 제어하고, 데이터를 연결하는 것.… | 19 | 슬로건 큰 글자 "설비를 제어하고, 데이터를 연결하다" |
-| 23. 영하 253도의 수소를 싣는 배도, 같은… | 21 | "영하 253도 수소" 다음 편 예고 |
-| 24. 지금 이 순간에도 바다 위에선, 누군가 … | 22 | 첫 장면 구도로 끝, 반복 재생 |
+| 5. LNG는 천연가스를 영하 162도까지 식… | 05 | "영하 162도" |
+| 6. 아무리 두껍게 감싸도 바깥 열이 스며들어… | 06, 07 | 붉은 열 화살표, 끓는 기포 |
+| 7. 이걸 증발가스, BOG라고 부릅니다.… | 08 | "BOG = 증발가스" |
+| 8. 대형 운반선에선 하루에 화물의 0.1에서… | 02 | 하루 막대 "0.1~0.15%" |
+| 9. 그런데 여기서 진짜 문제가 생깁니다.… | 09 | "진짜 문제" 화면 어둡게 |
+| 10. 날려 보내면 돈이 사라지고, 탱크에 가둬… | 10, 11 | "날리면 돈 · 가두면 위험" 저울 |
+| 11. 그래서 배는 사라지는 가스를 붙잡는 기계… | 12 | "붙잡는 기계" |
+| 12. 바로 BOG 압축기죠.… | 12, 13 | "BOG 압축기" 큰 글자 |
+| 13. 증발가스를 빨아들여 압력을 높인 뒤, 엔… | 14 | 붉은 점선 갈림길 "엔진 연료" / "다시 액체로" |
+| 14. 그런데 이 압축기가 바다 한가운데서 멈추… | 15 | "그런데 멈추면?" 큰 글자 |
+| 15. 압력은 다시 오르고, 아까운 화물을 태워… | 16, 17 | 압력 바늘 붉은 구간, 짧은 흔들림 0.5초(이 편의 가장 센 순간) |
+| 16. 수리 기사도 부를 수 없는 곳에서요.… | 15 | "수리 기사도 못 오는 곳" |
+| 17. 그래서 어떤 배는 압축기 옆 제어반에 두… | 18 | "제어반의 두 가지 일" ① ② |
+| 18. 하나는 탱크 압력에 맞춰 압축기를 알아서… | 11, 18 | ① "제어: 압력에 맞춰 돌리고 멈춘다" |
+| 19. 다른 하나는 압축기 모터의 온도와 떨림,… | 19 | ② "데이터: 온도·떨림·전류 기록 → 기준 넘으면 알림" 그래프 |
+| 20. 통신이 끊겨도 기록을 쥐고 있다가, 다시… | 21 | 끊긴 점선이 다시 이어지며 점들이 차례로 흐름 |
+| 21. 설비를 움직이는 것만으로는 부족합니다.… | 20 | "움직이는 것만으론 부족" |
+| 22. 그 설비가 보내는 숫자까지 이어져야, 멈… | 19, 20 | "설비를 제어하고, 데이터를 연결하다" 큰 글자 |
+| 23. 지금 이 순간에도 바다 위에선, 누군가 … | 22 | 첫 장면 구도로 끝, 반복 재생 |
 
 ## 설명란
 

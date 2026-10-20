@@ -2,7 +2,7 @@
 
 - 제목: 이 충전소의 연료는 남극보다 160도 더 차갑습니다. 다른 후보: 「수소버스 충전소 뒤편엔 영하 253도가 숨어 있습니다」
 - 분류: 현장·산업 전기, 3부작 「영하의 연료」(올리는 순서 11 → 09 → 10)
-- 길이: 95~100초 목표, 내레이션 공백 제외 652자, 22문장
+- 길이: 95~100초 목표, 내레이션 공백 제외 622자, 20문장
 - 이미지: 플로우 22장 + 합성 그래픽
 - 회사 이름은 영상에 넣지 않음. 관련 실적은 설명란에만.
 
@@ -13,23 +13,21 @@
 | 1. 훅 | 여기 남극 최저 기온보다 160도 더 차가운 연료를 보관하는 충전소가 있습니다. |
 |  | 영하 253도, 바로 여러분이 타는 수소버스의 연료죠. |
 |  | 수소는 원래 기체인데, 대체 왜 이렇게까지 차갑게 식힐까요? |
-| 2. 균열 | 답은 수소가 너무 가볍다는 데 있습니다. |
-|  | 기체로는 조금만 담아도 자리를 많이 차지하거든요. |
-|  | 그런데 영하 253도로 식혀 액체로 만들면, 부피가 800분의 1로 줄어듭니다. |
-|  | 그래서 트럭 한 대가 한 번에 실어 오는 양이 약 10배가 되죠. |
-|  | 넣는 속도도 1분에 2킬로그램, 기체수소 충전소의 두 배입니다. |
+| 2. 균열 | 수소는 너무 가벼워서, 기체로는 조금만 담아도 자리를 많이 차지하거든요. |
+|  | 영하 253도로 식혀 액체로 만들면 부피가 800분의 1로 줄어, 트럭 한 번에 약 10배를 실어 옵니다. |
+|  | 넣는 속도도 1분에 2킬로그램, 기체수소 충전소의 두 배죠. |
 | 3. 딜레마 | 그런데 여기서 진짜 문제가 생깁니다. |
-|  | 영하 253도의 액체는 가만히 둬도, 바깥 열에 조금씩 데워져 기체로 날아갑니다. |
-|  | 게다가 버스 연료통엔 액체가 아니라, 압력을 높인 기체로 넣어야 하고요. |
-|  | 그럼 미리 기체로 바꿔 두면 되지 않냐고요? 그러면 식힌 이유가 사라지죠. |
-| 4. 발상 전환 | 그래서 액화수소 충전소는 바꾸는 순간을 최대한 뒤로 미룹니다. |
-|  | 예를 들면 액체인 채로 펌프가 압력을 먼저 올리고, 버스에 넣기 직전에 기체로 바꾸는 식이죠. |
-|  | 그 사이 온도와 압력을 매 순간 숫자로 재면서, 펌프를 돌리고 밸브를 엽니다. |
-| 5. 숫자 | 이런 충전소가 2024년 4월, 인천에서 국내 처음으로 상업 운전을 시작했습니다. |
-|  | 시간당 120킬로그램, 하루 최대 버스 120대를 채울 수 있는 규모죠. |
-|  | 버스가 충전하는 몇 분 동안, 뒤에서는 영하 253도를 지키는 기계가 쉬지 않고 일하는 겁니다. |
-| 6. 마무리 | 그 숫자를 받아 펌프와 밸브를 움직이고, 기준을 넘으면 먼저 알려 주는 게 충전소 뒤편의 제어반입니다. |
-|  | 설비를 제어하고, 데이터를 연결하는 것. 그게 이 제어반이 하는 일이죠. |
+|  | 이 액체는 가만히 둬도 바깥 열에 데워져 조금씩 날아가는데, 버스엔 압력을 높인 기체로 넣어야 하거든요. |
+| 4. 발상 전환 | 그래서 바꾸는 순간을 최대한 뒤로 미룹니다. |
+|  | 예를 들면 액체인 채로 펌프가 압력을 올리고, 버스에 넣기 직전에 기체로 바꾸는 식이죠. |
+|  | 문제는 이 과정이 버스가 들어올 때마다, 몇 분 안에 빈틈없이 맞아떨어져야 한다는 겁니다. |
+|  | 2024년 4월 인천에서 국내 처음 상업 운전을 시작한 충전소는, 하루 최대 버스 120대를 채울 수 있습니다. |
+|  | 여기서 펌프가 한 번 멈추면, 버스들이 줄줄이 기다려야 할 수도 있죠. |
+| 5. 숫자 | 그래서 충전소 뒤편 제어반은, 온도와 압력을 재 가며 펌프와 밸브를 순서대로 움직입니다. |
+|  | 동시에 펌프 모터의 온도와 전류를 쉬지 않고 기록해, 기준을 넘는 순간 먼저 알리죠. |
+|  | 그 숫자는 현장에 사람이 없어도, 멀리 있는 담당자의 화면까지 이어지기도 하고요. |
+| 6. 마무리 | 기계를 움직이는 것과, 그 기계의 상태를 숫자로 이어 주는 것. |
+|  | 둘이 함께여야, 문제가 커지기 전에 손쓸 수 있습니다. |
 |  | 다음에 수소버스를 타시면 떠올려 보세요. |
 |  | 그 버스는 방금, 영하 253도로 식혀 둔 연료를 넣고 왔을지도 모릅니다. |
 
@@ -45,6 +43,7 @@
 | 버스에는 고압 기체로 넣는다 | [경기일보 2025-05-13](https://kyeonggi.com/article/20250513580172) "액화수소를 고압의 기체 수소로 전환하는 과정이 필요"(검색 요약으로 확인) |
 | 남극 최저 기온 -89.2℃(1983년 보스토크 기지), 영하 253도와 약 164도 차이 → "160도 더" | [WeatherWatch](https://www.weatherwatch.co.nz/content/weather-records-what-are-the-hottest-driest-coldest-places-on-earth) WMO 인용 "the lowest temperature noted was -89.2 C, recorded on July 21, 1983 in Vostok". 계산 253 − 89.2 = 163.8 |
 | 제어반이 펌프·밸브를 움직이고, 모터 온도·전류가 기준을 넘으면 알림 | `knowledge/company.md`: 액화수소충전소 VFD·PLC·UPS 제어시스템 공급, 지능형 제어반 수집 항목·기준 알람, 적용 설비에 펌프 포함. "~기도 하고요"로 한정 |
+| 제어반: 펌프·밸브 제어, 모터 온도·전류 기록·알람, 서버·대시보드 연결 | `knowledge/company.md` 액화수소충전소 VFD·PLC·UPS 공급, 지능형 제어반 수집 항목·알람·클라우드/서버 연결·원격 상태 확인. "이어지기도 하고요"로 한정 |
 | 쓰지 않기로 한 것 | 2030년 280기 목표(원문 미확인), 충전소 운영사 이름, 회사 실적(설명란에만) |
 
 ## 검수 기록
@@ -62,6 +61,7 @@
 | 3차(훅) | -253이라는 숫자만으로는 감이 안 옴 | 남극과 비교해 체감되게 하고, 영하 253도는 둘째 문장으로 |
 | 4차(제어반 연결) | 마지막이 "숫자로 움직이는 기계", "공장도 같은 원리"에서 끝나 제어반과 연결이 약함 | 끝에 두 문장: 숫자를 받아 설비를 움직이는 두뇌가 제어반, 기준을 넘으면 먼저 알림. 회사 이름은 빼고 설명란에 실적과 지능형 제어반 설명 |
 | 5차(슬로건) | 제어반 연결 두 문장이 제각각이라 기억에 안 남음 | 제어·알림을 한 문장으로 묶고, 둘째 문장을 회사 슬로건 "설비를 제어하고, 데이터를 연결하는 것"으로 세 편 똑같이 맞춤. "이 제어반"으로 장면 속 제어반을 가리켜 일반화를 피함 |
+| 6차(녹여내기) | 제어반과 슬로건이 끝에 붙어 있을 뿐, 왜 필요한지가 이야기에서 나오지 않음 | "몇 분 안에 빈틈없이 맞아떨어져야", "펌프가 멈추면 버스가 줄줄이"로 이유를 먼저 세우고, 제어반의 ① 펌프·밸브 순서 제어 ② 모터 온도·전류 기록·알림 ③ 멀리 있는 담당자 화면까지 연결을 답으로 둠 |
 
 ## 타입캐스트 대본
 
@@ -71,30 +71,28 @@
 여기 남극 최저 기온보다 백육십 도 더 차가운 연료를 보관하는 충전소가 있습니다.
 영하 이백오십삼 도, 바로 여러분이 타는 수소버스의 연료죠.
 수소는 원래 기체인데, 대체 왜 이렇게까지 차갑게 식힐까요?
-답은 수소가 너무 가볍다는 데 있습니다.
-기체로는 조금만 담아도 자리를 많이 차지하거든요.
-그런데 영하 이백오십삼 도로 식혀 액체로 만들면, 부피가 팔백분의 일로 줄어듭니다.
-그래서 트럭 한 대가 한 번에 실어 오는 양이 약 열 배가 되죠.
-넣는 속도도 일 분에 이 킬로그램, 기체수소 충전소의 두 배입니다.
+수소는 너무 가벼워서, 기체로는 조금만 담아도 자리를 많이 차지하거든요.
+영하 이백오십삼 도로 식혀 액체로 만들면 부피가 팔백분의 일로 줄어, 트럭 한 번에 약 열 배를 실어 옵니다.
+넣는 속도도 일 분에 이 킬로그램, 기체수소 충전소의 두 배죠.
 그런데 여기서 진짜 문제가 생깁니다.
-영하 이백오십삼 도의 액체는 가만히 둬도, 바깥 열에 조금씩 데워져 기체로 날아갑니다.
-게다가 버스 연료통엔 액체가 아니라, 압력을 높인 기체로 넣어야 하고요.
-그럼 미리 기체로 바꿔 두면 되지 않냐고요? 그러면 식힌 이유가 사라지죠.
-그래서 액화수소 충전소는 바꾸는 순간을 최대한 뒤로 미룹니다.
-예를 들면 액체인 채로 펌프가 압력을 먼저 올리고, 버스에 넣기 직전에 기체로 바꾸는 식이죠.
-그 사이 온도와 압력을 매 순간 숫자로 재면서, 펌프를 돌리고 밸브를 엽니다.
-이런 충전소가 이천이십사 년 사월, 인천에서 국내 처음으로 상업 운전을 시작했습니다.
-시간당 백이십 킬로그램, 하루 최대 버스 백이십 대를 채울 수 있는 규모죠.
-버스가 충전하는 몇 분 동안, 뒤에서는 영하 이백오십삼 도를 지키는 기계가 쉬지 않고 일하는 겁니다.
-그 숫자를 받아 펌프와 밸브를 움직이고, 기준을 넘으면 먼저 알려 주는 게 충전소 뒤편의 제어반입니다.
-설비를 제어하고, 데이터를 연결하는 것. 그게 이 제어반이 하는 일이죠.
+이 액체는 가만히 둬도 바깥 열에 데워져 조금씩 날아가는데, 버스엔 압력을 높인 기체로 넣어야 하거든요.
+그래서 바꾸는 순간을 최대한 뒤로 미룹니다.
+예를 들면 액체인 채로 펌프가 압력을 올리고, 버스에 넣기 직전에 기체로 바꾸는 식이죠.
+문제는 이 과정이 버스가 들어올 때마다, 몇 분 안에 빈틈없이 맞아떨어져야 한다는 겁니다.
+이천이십사 년 사월 인천에서 국내 처음 상업 운전을 시작한 충전소는, 하루 최대 버스 백이십 대를 채울 수 있습니다.
+여기서 펌프가 한 번 멈추면, 버스들이 줄줄이 기다려야 할 수도 있죠.
+그래서 충전소 뒤편 제어반은, 온도와 압력을 재 가며 펌프와 밸브를 순서대로 움직입니다.
+동시에 펌프 모터의 온도와 전류를 쉬지 않고 기록해, 기준을 넘는 순간 먼저 알리죠.
+그 숫자는 현장에 사람이 없어도, 멀리 있는 담당자의 화면까지 이어지기도 하고요.
+기계를 움직이는 것과, 그 기계의 상태를 숫자로 이어 주는 것.
+둘이 함께여야, 문제가 커지기 전에 손쓸 수 있습니다.
 다음에 수소버스를 타시면 떠올려 보세요.
 그 버스는 방금, 영하 이백오십삼 도로 식혀 둔 연료를 넣고 왔을지도 모릅니다.
 ```
 
 강조: 셋째·넷째 문장의 "대체 ~일까요?", 중간 훅 "그런데 여기서 진짜 문제가 생깁니다.", 비트 4 첫 두 문장.
 
-자막 노란 핵심어: 160도, 영하 253도, 800분의 1, 10배, 두 배, 제어반, 데이터
+자막 노란 핵심어: 160도, 영하 253도, 800분의 1, 10배, 멈추면, 제어반, 데이터
 
 ## 플로우 프롬프트 (한 줄에 한 장)
 
@@ -104,23 +102,23 @@
 01 | A hydrogen bus refueling station in a clean city at midday; behind the dispensers stands a tall white vertical cryogenic storage tank, the tank traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 02 | Close-up of a cryogenic valve and pipe covered in thick white frost, wisps of cold vapor, sunny day. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 03 | A modern city hydrogen bus at a bus stop, passengers seen from behind boarding. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-04 | The hydrogen bus pulling into the refueling station next to a dispenser. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-05 | A huge translucent balloon floating beside a tiny glass vial of clear liquid on a clean studio floor, showing how much space gas takes. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-06 | A tube trailer truck carrying many long steel gas cylinders driving on a highway. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-07 | A liquid hydrogen tanker truck with one large insulated cylindrical tank driving on a highway; the tank traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-08 | Close-up of a refueling nozzle connected to the fuel receptacle of a bus. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-09 | The storage tank at night with cold vapor drifting around it, tense mood. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-10 | Side cutaway of the double-walled vacuum-insulated storage tank: clear cryogenic liquid inside, small red arrows of heat seeping in, vapor gathering at the top. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-11 | Cutaway of the bus roof showing several high-pressure hydrogen cylinders lined up. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-12 | An equipment area of the station: a compact cryogenic pump skid with insulated pipes, the pump traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-13 | Cutaway of a cryogenic piston pump with liquid entering and being pushed to high pressure. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-14 | A row of finned aluminum vaporizer tubes covered in white frost beside the station. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-15 | Isometric cutaway of the station: a thin dotted red line runs from the storage tank through the pump and the vaporizer to the dispenser. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-16 | A control panel cabinet with blank screens in the station equipment room; thin dotted red lines run from pipe sensors to the panel. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
-17 | Aerial view of a coastal industrial area with a hydrogen liquefaction plant and a refueling station nearby, morning light. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-18 | Several hydrogen buses lined up at the station in the early morning. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-19 | A bus depot at night with buses parked and the frosty storage tank softly lit. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-20 | A factory floor with motors and pumps connected to a gray control panel, sensors on the equipment. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+04 | A huge translucent balloon floating beside a tiny glass vial of clear liquid on a clean studio floor, showing how much space gas takes. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+05 | A tube trailer truck carrying many long steel gas cylinders driving on a highway. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+06 | A liquid hydrogen tanker truck with one large insulated cylindrical tank driving on a highway; the tank traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+07 | Close-up of a refueling nozzle connected to the fuel receptacle of a bus. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+08 | The storage tank at night with cold vapor drifting around it, tense mood. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+09 | Side cutaway of the double-walled vacuum-insulated storage tank: clear cryogenic liquid inside, small red arrows of heat seeping in, vapor gathering at the top. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+10 | Cutaway of the bus roof showing several high-pressure hydrogen cylinders lined up. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+11 | An equipment area of the station: a compact cryogenic pump skid with insulated pipes, the pump traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+12 | A row of finned aluminum vaporizer tubes covered in white frost beside the station. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+13 | Isometric cutaway of the station: a thin dotted red line runs from the storage tank through the pump and the vaporizer to the dispenser. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+14 | A hydrogen bus pulling into the dispenser, slight motion blur on the wheels. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+15 | Aerial view of a coastal industrial area with a hydrogen liquefaction plant and a refueling station nearby, morning light. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+16 | A long line of hydrogen buses waiting in a queue at the station entrance, early morning. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+17 | A gray control panel cabinet with blank screens in the station equipment room; thin dotted red lines run from pipe sensors to the panel. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+18 | Close-up of the pump's electric motor with small sensors on its housing; thin red lines run from the sensors toward the control panel. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+19 | An empty office desk at night with a monitor showing blank line graphs and one red alert light, city lights through the window, no people. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
+20 | A bus depot at night with buses parked and the frosty storage tank softly lit. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 21 | The same station and tank as image 01 from the same angle, a bus leaving. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 22 | A vast frozen Antarctic ice plateau in a blizzard with a lone small research station, deep blue cold light. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 ```
@@ -129,28 +127,26 @@
 
 | 문장 | 이미지 | 합성 그래픽·글자 |
 |---|---|---|
-| 1. 여기 남극 최저 기온보다 160도 더 차… | 22, 01 | 온도계 그래픽: 남극 최저 -89.2℃ → -253℃, "160도 더 차갑다" |
+| 1. 여기 남극 최저 기온보다 160도 더 차… | 22, 01 | 온도계: 남극 최저 -89.2℃ → -253℃, "160도 더 차갑다" |
 | 2. 영하 253도, 바로 여러분이 타는 수소… | 02, 03 | "영하 253도 = 수소버스 연료" |
 | 3. 수소는 원래 기체인데, 대체 왜 이렇게까… | 02 | 큰 "?" |
-| 4. 답은 수소가 너무 가볍다는 데 있습니다.… | 05 | "너무 가볍다" |
-| 5. 기체로는 조금만 담아도 자리를 많이 차지… | 05 | 풍선이 화면을 꽉 채움 |
-| 6. 그런데 영하 253도로 식혀 액체로 만들… | 06, 07 | "부피 1/800" 줄어드는 그래픽 |
-| 7. 그래서 트럭 한 대가 한 번에 실어 오는… | 07 | 막대 비교 "1회 운송량 약 10배" |
-| 8. 넣는 속도도 1분에 2킬로그램, 기체수소… | 08 | "1분 2kg vs 1kg" 막대 |
-| 9. 그런데 여기서 진짜 문제가 생깁니다.… | 09 | "진짜 문제" 화면 어둡게 |
-| 10. 영하 253도의 액체는 가만히 둬도, 바… | 10 | 붉은 열 화살표, 김이 피어오름 |
-| 11. 게다가 버스 연료통엔 액체가 아니라, 압… | 11 | "고압 기체로" |
-| 12. 그럼 미리 기체로 바꿔 두면 되지 않냐고… | 09 | "미리 기체로? → 식힌 이유가 사라짐" |
-| 13. 그래서 액화수소 충전소는 바꾸는 순간을 … | 12 | "바꾸는 순간을 뒤로" |
-| 14. 예를 들면 액체인 채로 펌프가 압력을 먼… | 13, 14, 15 | 단계 그래픽: 액체 → 펌프(압력↑) → 기화기 → 버스 |
-| 15. 그 사이 온도와 압력을 매 순간 숫자로 … | 15 | 붉은 점 흐름 + 온도·압력 계기 |
-| 16. 이런 충전소가 2024년 4월, 인천에서… | 17 | "2024년 4월 · 인천 · 국내 첫 상업 운전" 핀 |
-| 17. 시간당 120킬로그램, 하루 최대 버스 … | 18 | "시간당 120kg · 하루 최대 120대" |
-| 18. 버스가 충전하는 몇 분 동안, 뒤에서는 … | 19 | 시계 그래픽 "몇 분" |
-| 19. 그 숫자를 받아 펌프와 밸브를 움직이고,… | 16 | 붉은 점선이 센서에서 제어반으로 모이고, 펌프 모터 그래프가 기준선을 넘으면 붉게 깜빡 "알림" |
-| 20. 설비를 제어하고, 데이터를 연결하는 것.… | 16 | 슬로건 큰 글자 "설비를 제어하고, 데이터를 연결하다" |
-| 21. 다음에 수소버스를 타시면 떠올려 보세요.… | 03 | "여러분의 수소버스" |
-| 22. 그 버스는 방금, 영하 253도로 식혀 … | 21 | 첫 장면 구도로 끝, 반복 재생 |
+| 4. 수소는 너무 가벼워서, 기체로는 조금만 … | 04 | 풍선이 화면을 꽉 채움 "너무 가볍다" |
+| 5. 영하 253도로 식혀 액체로 만들면 부피… | 05, 06 | "부피 1/800" + 막대 "한 번에 약 10배" |
+| 6. 넣는 속도도 1분에 2킬로그램, 기체수소… | 07 | "1분 2kg vs 1kg" |
+| 7. 그런데 여기서 진짜 문제가 생깁니다.… | 08 | "진짜 문제" 화면 어둡게 |
+| 8. 이 액체는 가만히 둬도 바깥 열에 데워져… | 09, 10 | 붉은 열 화살표 → "버스엔 고압 기체로" |
+| 9. 그래서 바꾸는 순간을 최대한 뒤로 미룹니… | 13 | "바꾸는 순간을 뒤로" |
+| 10. 예를 들면 액체인 채로 펌프가 압력을 올… | 11, 12 | 단계 그래픽: 액체 → 펌프(압력↑) → 기화기 → 버스 |
+| 11. 문제는 이 과정이 버스가 들어올 때마다,… | 14 | 시계 그래픽 "몇 분 안에" |
+| 12. 2024년 4월 인천에서 국내 처음 상업… | 15 | 인천 핀 "2024년 4월 · 국내 첫 · 하루 최대 120대" |
+| 13. 여기서 펌프가 한 번 멈추면, 버스들이 … | 16 | "펌프가 멈추면?" 줄 선 버스, 짧은 흔들림 0.5초(이 편의 가장 센 순간) |
+| 14. 그래서 충전소 뒤편 제어반은, 온도와 압… | 17 | ① "제어: 온도·압력 보며 펌프·밸브 순서대로" |
+| 15. 동시에 펌프 모터의 온도와 전류를 쉬지 … | 18 | ② "데이터: 모터 온도·전류 기록 → 기준 넘으면 알림" 그래프 |
+| 16. 그 숫자는 현장에 사람이 없어도, 멀리 … | 19 | 붉은 점선이 멀리 있는 화면까지 이어짐 |
+| 17. 기계를 움직이는 것과, 그 기계의 상태를… | 17, 18 | "움직이는 것 + 숫자로 잇는 것" |
+| 18. 둘이 함께여야, 문제가 커지기 전에 손쓸… | 17 | "설비를 제어하고, 데이터를 연결하다" 큰 글자 |
+| 19. 다음에 수소버스를 타시면 떠올려 보세요.… | 03 | "여러분의 수소버스" |
+| 20. 그 버스는 방금, 영하 253도로 식혀 … | 21 | 첫 장면 구도로 끝, 반복 재생 |
 
 ## 설명란
 
