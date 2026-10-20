@@ -1,0 +1,65 @@
+# 숏츠 합성 도구
+
+타입캐스트 음성과 구글 플로우 이미지를 받아 인포그래픽, 자막, 효과음을 얹은 세로 영상(1080×1920, 30fps, 95~100초)으로 만듭니다. 편집 프로그램 없이 HTML로 장면을 그리고, 크로미움으로 한 프레임씩 찍어 ffmpeg로 묶습니다.
+
+## 파일
+
+| 파일 | 하는 일 |
+|---|---|
+| `setup.sh` | 처음 한 번: ffmpeg, numpy·Pillow, playwright(크로미움), 프리텐다드 글꼴 |
+| `prep_images.py` | 플로우 이미지 zip → `img/00.webp…`와 번호 붙은 한눈 보기 `all.png` |
+| `align.py` | 음성의 쉼을 찾아 문장마다 시작·끝·쉼표 시각을 잡음 → `timeline.js` |
+| `tempo.py` | 배속에 맞춰 `timeline.js`의 시각을 나눔 |
+| `render.mjs` | `scene.html`을 프레임마다 찍어 영상으로(또는 정지 화면만) |
+| `make.sh` | 위를 묶은 명령: `align`, `stills`, `video` |
+| `example-08/` | 08편 터널 조명의 실제 장면(`scene.html`), 효과음(`sfx.py`), 문장(`lines.json`). 새 편은 여기서 복사해 고칩니다. |
+
+## 순서
+
+작업 폴더는 `shorts/compose/work/NN/`(git에 올라가지 않음)입니다.
+
+```bash
+bash shorts/compose/setup.sh                       # 처음 한 번
+W=shorts/compose/work/09; mkdir -p $W
+cp shorts/compose/example-08/{scene.html,sfx.py} $W/
+cp 받은음성.mp3 $W/narration_raw.mp3
+(cd $W && python3 -I ../../prep_images.py 받은이미지.zip)   # all.png를 열어 번호와 장면을 맞춘다
+# lines.json: 타입캐스트에 넣은 대본과 똑같은 문장, 비트 번호와 함께
+bash shorts/compose/make.sh align $W 1.12          # 배속은 결과 길이가 94~100초가 되게
+# scene.html의 SCENES·KEYS·NAMES, sfx.py의 큐를 이 편에 맞게 고친다
+bash shorts/compose/make.sh stills $W 1.5,8,20,40,60,80   # 정지 화면을 먼저 보여 주고 확인받는다
+bash shorts/compose/make.sh video $W $W/09_slug_v1.mp4    # 10~20분 걸림
+```
+
+- **배속:** 타입캐스트 무료 플랜은 속도를 못 바꾸므로 1.0으로 받고 여기서 1.12~1.18배로 올립니다(음 높이는 그대로). 목표는 초당 7자 남짓.
+- **문장 경계가 어긋날 때:** `align`이 출력한 문장별 시작 시각을 보고, 틀린 경계는 `'{"경계 앞 문장 번호": 원래 속도 음성의 쉼 시작 초}'`로 고정해 다시 돌립니다. 예: `bash make.sh align $W 1.12 '{"10":48.86}'`
+- **srt가 있으면** 문장 시작 시각을 맞춰 보는 데 씁니다.
+- **배경음악:** 작업 폴더에 `bgm.mp3`를 두면 목소리 밑에 작게 깔립니다. 유튜브 오디오 보관함처럼 상업 이용이 되는 곡만 씁니다.
+
+## 화면 규칙 (대표님 피드백으로 정한 것)
+
+- 3~4초마다 새 그림. 문장마다 그림이 하나 이상, 같은 그림을 다른 확대로 다시 써도 됩니다.
+- 한 장면 안에서 다시 자르지 않습니다(`cuts: 1`). 순간 확대(펀치), 흐림 없음. 카메라는 1.0 → 1.1~1.15로 천천히 다가가기만.
+- 흔들림은 영상에서 가장 센 순간 한 곳, 0.5초만.
+- 장면 사이는 0.12초 겹침.
+- 자막: 화면 가운데 아래(위에서 1175px), 흰 글자 60px, 검은 테두리, 쉼표에서 끊고 한 줄 15자 이하. 핵심어는 노란색(`KEYS`).
+- 그래픽은 화면 위쪽(y≈330)에 둬서 자막과 겹치지 않게 합니다. 라벨은 붉은 상자(#E5392B), 큰 숫자는 흰 글자에 검은 테두리.
+- 플로우 인포그래픽 이미지는 크레딧이 들어서 만들지 않습니다. 막대·게이지·지도 핀·화살표 같은 인포그래픽은 `scene.html`의 함수로 직접 그립니다(`big`, `tag`, `rings`, `pinDrop`, `arrows`, `donut`, `bars`, `stairs`, `meterBar`, `veil`, `darken` 등).
+- 효과음은 직접 만듭니다(외부 음원 없음): 컷마다 휙, 라벨에 톡, 큰 숫자에 쿵. 목소리보다 작게.
+- 음량은 -14 LUFS, 결과 파일은 20MB 안쪽(휴대폰에서 받기 쉬운 크기).
+
+## 파일 주고받기
+
+- 음성(mp3, srt)은 대화창에 바로 첨부하면 됩니다. Claude가 답하는 도중에 올린 첨부는 저장되지 않으니, 답이 끝난 뒤 다시 올립니다.
+- 이미지가 많아 첨부가 안 되면 구글 드라이브에 zip으로 올리고 공유를 "링크가 있는 모든 사용자"로 바꿔 링크를 줍니다. 받는 쪽은 `curl -L -o images.zip "https://drive.usercontent.google.com/download?id=<파일ID>&export=download&confirm=t"`로 받습니다.
+
+## 자주 생기는 문제
+
+| 증상 | 해결 |
+|---|---|
+| 자막이 말보다 앞서거나 늦음 | `align`의 강제 경계 JSON으로 그 경계만 고정 |
+| 타입캐스트가 단어를 엉뚱하게 읽음(예: "돕니다") | 그 문장 단어를 바꿔("돌아갑니다") 그 줄만 다시 만들어 받음 |
+| 이미지가 아직 없음 | `scene.html`이 "NN 이미지 대기" 회색 판으로 자리를 채우니 먼저 확인용으로 뽑을 수 있음 |
+| 라벨끼리 겹침 | 정지 화면에서 확인하고 좌표를 옮김 |
+| 결과가 30MB 가까이 돼 못 받음 | `make.sh`의 `-maxrate`를 낮춤 |
+| `setTime is not a function` | `window.READY`가 끝나기 전에 불렀거나 이미지 불러오기 코드가 깨진 것. `loadImg`/`Promise.all` 부분 확인 |
