@@ -112,9 +112,9 @@ Image 31. A highway traffic control room with a large wall of dark blank screens
 Image 32. Aerial view of a sunny mountain highway with a tunnel entrance in the middle, cars on the road. No red.
 ```
 
-## 4. 인포그래픽 그림 6장 (같은 장면 두 번째 장)
+## 4. 인포그래픽 그림 6장 (선택, 크레딧이 있을 때만)
 
-배경 그림을 고른 상태에서 하나씩 넣습니다. 글자와 숫자는 넣지 않고, 제가 합성할 때 정확히 얹습니다.
+크레딧이 없으면 건너뜁니다. 그때는 아래 표의 선·테두리·핀·라벨을 제가 합성 단계에서 기본 사진 위에 직접 그리고, 말에 맞춰 한 칸씩 그려지게 움직입니다. 크레딧이 있으면 배경 그림을 고른 상태에서 하나씩 넣습니다. 글자와 숫자는 넣지 않고, 제가 합성할 때 정확히 얹습니다.
 
 | 그림 | 얹는 것 | 제가 넣을 글자 |
 |---|---|---|
