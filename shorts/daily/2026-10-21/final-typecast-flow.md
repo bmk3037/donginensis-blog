@@ -16,7 +16,7 @@
 문제는 아무리 두껍게 감싸도, 바깥 열이 조금씩 스며든다는 겁니다.
 그러면 액체가 끓어 기체가 되죠. 이걸 증발가스, 비오지라고 부릅니다.
 대형 운반선에선 하루에 화물의 영 점 일에서 영 점 일오 퍼센트가 이렇게 날아갑니다.
-하루 영 점 일 퍼센트는 작아 보여도, 항해 내내 쌓이면 그만큼 커지는 거죠.
+작아 보여도, 항해 내내 쌓이면 커지는 거죠.
 그런데 여기서 진짜 문제가 생깁니다.
 그냥 날려 보내면 되지 않냐고요? 돈을 버리는 셈이고, 온실가스도 됩니다.
 그럼 탱크에 꽉 가둬 두면요? 기체가 쌓일수록 압력이 올라가 위험해집니다.
@@ -26,9 +26,9 @@
 탱크 위로 올라온 증발가스를 빨아들여, 꾹 눌러 압력을 높이죠.
 어떤 배는 그 가스를 엔진 연료로 쓰고, 어떤 배는 다시 식혀 액체로 되돌립니다.
 사라질 화물이 연료가 되거나, 다시 화물이 되는 겁니다.
-그래서 운송 계약 때 하루 증발률을 영 점 일오 퍼센트 이하로 정하기도 합니다.
 어떤 배는 탱크 압력을 재다가, 정해 둔 값을 넘으면 압축기를 돌려 가스를 뽑아내고요.
-결국 화물을 지키는 건, 숫자를 보고 움직이는 기계입니다.
+그 숫자를 받아 압축기를 돌리고 멈추는 두뇌가, 바로 제어반이죠.
+요즘 제어반은 압축기 모터의 온도와 전류까지 재다가, 기준을 넘으면 먼저 알려 주기도 하고요.
 영하 이백오십삼 도의 수소를 싣는 배도, 같은 숙제를 안고 있죠.
 지금 이 순간에도 바다 위에선, 누군가 사라지는 화물을 붙잡고 있습니다.
 ```
@@ -54,7 +54,7 @@
 16 | Isometric cutaway of the ship: a thin dotted red line runs from the top of the cargo tank to the compressor room. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 17 | A large ship engine in a clean engine room, warm light, pipes feeding gas into it. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 18 | A frosted cryogenic heat exchanger box; cold liquid flowing back through a pipe into the cargo tank. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-19 | Two hands shaking over a desk with a small ship model and blank documents, viewed from above. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+19 | A gray industrial control panel cabinet in the ship compressor room with its door open, neat wiring and blank screens inside, a thin dotted red line running from the panel to the compressor motor. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 20 | A ship cargo control room with monitors showing blank line graphs and one blinking red indicator light. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 21 | A liquefied hydrogen carrier ship with one large horizontal cylindrical tank on deck, sailing at sea. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 22 | The same LNG carrier as image 01 at dusk from the same drone angle, calm sea. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
@@ -83,8 +83,8 @@
 이런 충전소가 이천이십사 년 사월, 인천에서 국내 처음으로 상업 운전을 시작했습니다.
 시간당 백이십 킬로그램, 하루 최대 버스 백이십 대를 채울 수 있는 규모죠.
 버스가 충전하는 몇 분 동안, 뒤에서는 영하 이백오십삼 도를 지키는 기계가 쉬지 않고 일하는 겁니다.
-결국 핵심은 온도와 압력을 숫자로 재고, 그 숫자에 맞춰 움직이는 거예요.
-공장 설비도 원리는 똑같더라고요.
+충전소 뒤편에서 그 숫자를 받아 펌프와 밸브를 움직이는 두뇌가, 바로 제어반이죠.
+펌프 모터가 평소보다 뜨거워지거나 전류가 튀면, 기준을 넘는 순간 먼저 알려 주기도 하고요.
 다음에 수소버스를 타시면 떠올려 보세요.
 그 버스는 방금, 영하 이백오십삼 도로 식혀 둔 연료를 넣고 왔을지도 모릅니다.
 ```
@@ -131,7 +131,6 @@
 그런데 여기서 진짜 문제가 생깁니다.
 수소는 무게로 따지면 경유보다 에너지가 많지만, 부피로 따지면 삼분의 일밖에 안 되거든요.
 같은 거리를 가려면 연료통이 세 배쯤 커야 한다는 뜻이죠.
-압축한 기체로 실으면 연료통은 더 커지고요.
 할 수 없이 영하 이백오십삼 도 액체로 싣는데, 이번엔 흔들리는 바다 위에서 그 온도를 지켜야 합니다.
 그래서 이 배는 엔진 대신, 작은 발전소를 싣고 다닙니다.
 바로 수소 연료전지입니다.
@@ -140,8 +139,9 @@
 이천이십삼 년 삼월 노르웨이에선, 액화수소로 달리는 여객선 엠에프 하이드라가 운항을 시작했습니다.
 팔십 세제곱미터짜리 수소 탱크를 싣고, 승객 최대 삼백 명과 차 팔십 대를 나르죠.
 우리나라에서도 이천이십오 년 십이월, 첫 수소연료전지 추진선박이 물에 띄워졌습니다.
-이런 배는 흔들리는 바다 위에서 탱크 온도와 압력을 쉬지 않고 숫자로 지켜야 하죠.
-배든 공장이든, 원리는 같더라고요.
+이런 배는 흔들리는 바다 위에서도 온도와 압력을 숫자로 지켜야 하죠.
+그 숫자를 받아 연료전지와 모터, 수소 탱크를 함께 다루는 두뇌가, 배 안의 제어반이죠.
+어느 하나라도 기준을 벗어나면, 먼저 알려 주는 것도 제어반의 몫이고요.
 다음에 바다에서 연기 없는 배를 보시면, 연기 대신 무엇이 나오는지 한번 보세요.
 ```
 
@@ -168,6 +168,6 @@
 18 | Close-up of the large cylindrical hydrogen tank on the ferry's upper deck, traced with a thin glowing red outline. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 19 | A small modern aluminum passenger boat being launched down a shipyard slipway into the water, viewed from a distance. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 20 | A ship bridge console with blank screens showing simple line graphs, the sea through the windows. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-21 | A factory floor with motors connected to a gray control panel, sensors on the equipment. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+21 | A gray marine control panel cabinet in the ship machinery room with blank screens; thin dotted red lines run to it from the fuel cell room, the propulsion motor and the hydrogen tank. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 22 | The same ferry as image 01 from the same angle, water droplets falling, calm sea at sunset. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 ```

@@ -2,7 +2,7 @@
 
 - 제목: LNG 운반선의 화물은 바다를 건너는 동안 사라집니다. 다른 후보: 「LNG 운반선의 화물은 바다 위에서 매일 조금씩 사라집니다」
 - 분류: 현장·산업 전기, 3부작 「영하의 연료」(올리는 순서 11 → 09 → 10)
-- 길이: 95~100초 목표, 내레이션 공백 제외 651자, 24문장
+- 길이: 95~100초 목표, 내레이션 공백 제외 654자, 24문장
 - 이미지: 플로우 22장 + 합성 그래픽
 - 회사 이름은 영상에 넣지 않음. 관련 실적은 설명란에만.
 
@@ -19,7 +19,7 @@
 |  | 문제는 아무리 두껍게 감싸도, 바깥 열이 조금씩 스며든다는 겁니다. |
 |  | 그러면 액체가 끓어 기체가 되죠. 이걸 증발가스, BOG라고 부릅니다. |
 |  | 대형 운반선에선 하루에 화물의 0.1에서 0.15%가 이렇게 날아갑니다. |
-|  | 하루 0.1%는 작아 보여도, 항해 내내 쌓이면 그만큼 커지는 거죠. |
+|  | 작아 보여도, 항해 내내 쌓이면 커지는 거죠. |
 | 3. 딜레마 | 그런데 여기서 진짜 문제가 생깁니다. |
 |  | 그냥 날려 보내면 되지 않냐고요? 돈을 버리는 셈이고, 온실가스도 됩니다. |
 |  | 그럼 탱크에 꽉 가둬 두면요? 기체가 쌓일수록 압력이 올라가 위험해집니다. |
@@ -29,9 +29,9 @@
 |  | 탱크 위로 올라온 증발가스를 빨아들여, 꾹 눌러 압력을 높이죠. |
 |  | 어떤 배는 그 가스를 엔진 연료로 쓰고, 어떤 배는 다시 식혀 액체로 되돌립니다. |
 |  | 사라질 화물이 연료가 되거나, 다시 화물이 되는 겁니다. |
-| 5. 숫자 | 그래서 운송 계약 때 하루 증발률을 0.15% 이하로 정하기도 합니다. |
-|  | 어떤 배는 탱크 압력을 재다가, 정해 둔 값을 넘으면 압축기를 돌려 가스를 뽑아내고요. |
-| 6. 마무리 | 결국 화물을 지키는 건, 숫자를 보고 움직이는 기계입니다. |
+| 5. 숫자 | 어떤 배는 탱크 압력을 재다가, 정해 둔 값을 넘으면 압축기를 돌려 가스를 뽑아내고요. |
+| 6. 마무리 | 그 숫자를 받아 압축기를 돌리고 멈추는 두뇌가, 바로 제어반이죠. |
+|  | 요즘 제어반은 압축기 모터의 온도와 전류까지 재다가, 기준을 넘으면 먼저 알려 주기도 하고요. |
 |  | 영하 253도의 수소를 싣는 배도, 같은 숙제를 안고 있죠. |
 |  | 지금 이 순간에도 바다 위에선, 누군가 사라지는 화물을 붙잡고 있습니다. |
 
@@ -47,7 +47,8 @@
 | 운송계약에서 하루 증발률 0.15% 이하 | [koreascholar](https://db.koreascholar.com/Article/Detail/245474) "BOR에 대해 만선항해를 기준으로 0.15%/day 이하가 되도록 운송계약을 체결한다"(검색 요약으로 확인, 원문 재확인 권장). "정하기도 합니다"로 한정 |
 | 탱크 압력이 정해 둔 값을 넘으면 압축기를 돌림 | Kalikatzarakis 외, Energy 2022 [PDF](https://strathprints.strath.ac.uk/80139/1/Kalikatzarakis_etal_Energy_2022_Model_based_analysis_of_the_boil_off_gas_management_and_control.pdf): 탱크 절대압력 4~5.5bar 사이에서 압축기를 켜고 끄는 제어. LNG 연료선 모델이라 "어떤 배는"으로 한정 |
 | 영하 253도 수소 운반선도 증발가스 처리가 숙제 | [Maritime Executive](https://www.maritime-executive.com/article/kawasaki-wins-approval-and-provides-details-for-large-hydrogen-carrier): 증발가스를 줄이는 단열, 증발한 수소를 쓰는 엔진 승인 |
-| 쓰지 않기로 한 것 | 수영장 크기 비교(운반선 크기·수영장 부피 출처를 못 찾음), 메탄 온난화 배수(숫자 출처 없이 쓰지 않음), 회사 실적(설명란에만) |
+| 압축기 제어, 모터 온도·전류 수집·기준 알람 | `knowledge/company.md`: LNG 운반선용 BOG 압축기 제어 설계·공급·시운전 실적, 지능형 제어반 수집 항목(모터 권선온도, 전압·전류), 설정 기준을 벗어나면 알람. 적용 설비에 압축기 포함. "요즘 제어반은 ~기도 하고요"로 한정 |
+| 쓰지 않기로 한 것 | 운송계약 0.15% 이하(원문 재확인 전이라 이번 판에서 뺌), 수영장 크기 비교(운반선 크기·수영장 부피 출처를 못 찾음), 메탄 온난화 배수(숫자 출처 없이 쓰지 않음), 회사 실적(설명란에만) |
 
 ## 검수 기록
 
@@ -62,6 +63,7 @@
 | 2차 | 마지막 문장이 첫 장면(바다 위 배)으로 돌아가는가 | "지금 이 순간에도 바다 위에선"으로 첫 장면 복귀 |
 | 3차(훅) | 첫 10초에 숫자가 없음(0.1%는 25초쯤, 작게 들림) | 셋째 문장에 "한 번 바다를 건너면 많게는 6%"를 넣고 질문을 넷째 문장으로 |
 | 3차(훅) | 둘째 문장이 길고 "도시가스, 그 원료"가 딱딱함 | "여러분 집 가스레인지로 갈 가스를 싣고 오는"으로 줄임(LNG의 52.9%가 도시가스용) |
+| 4차(제어반 연결) | 마지막이 "숫자로 움직이는 기계", "공장도 같은 원리"에서 끝나 제어반과 연결이 약함 | 끝에 두 문장: 숫자를 받아 설비를 움직이는 두뇌가 제어반, 기준을 넘으면 먼저 알림. 회사 이름은 빼고 설명란에 실적과 지능형 제어반 설명 |
 
 ## 타입캐스트 대본
 
@@ -77,7 +79,7 @@
 문제는 아무리 두껍게 감싸도, 바깥 열이 조금씩 스며든다는 겁니다.
 그러면 액체가 끓어 기체가 되죠. 이걸 증발가스, 비오지라고 부릅니다.
 대형 운반선에선 하루에 화물의 영 점 일에서 영 점 일오 퍼센트가 이렇게 날아갑니다.
-하루 영 점 일 퍼센트는 작아 보여도, 항해 내내 쌓이면 그만큼 커지는 거죠.
+작아 보여도, 항해 내내 쌓이면 커지는 거죠.
 그런데 여기서 진짜 문제가 생깁니다.
 그냥 날려 보내면 되지 않냐고요? 돈을 버리는 셈이고, 온실가스도 됩니다.
 그럼 탱크에 꽉 가둬 두면요? 기체가 쌓일수록 압력이 올라가 위험해집니다.
@@ -87,16 +89,16 @@
 탱크 위로 올라온 증발가스를 빨아들여, 꾹 눌러 압력을 높이죠.
 어떤 배는 그 가스를 엔진 연료로 쓰고, 어떤 배는 다시 식혀 액체로 되돌립니다.
 사라질 화물이 연료가 되거나, 다시 화물이 되는 겁니다.
-그래서 운송 계약 때 하루 증발률을 영 점 일오 퍼센트 이하로 정하기도 합니다.
 어떤 배는 탱크 압력을 재다가, 정해 둔 값을 넘으면 압축기를 돌려 가스를 뽑아내고요.
-결국 화물을 지키는 건, 숫자를 보고 움직이는 기계입니다.
+그 숫자를 받아 압축기를 돌리고 멈추는 두뇌가, 바로 제어반이죠.
+요즘 제어반은 압축기 모터의 온도와 전류까지 재다가, 기준을 넘으면 먼저 알려 주기도 하고요.
 영하 이백오십삼 도의 수소를 싣는 배도, 같은 숙제를 안고 있죠.
 지금 이 순간에도 바다 위에선, 누군가 사라지는 화물을 붙잡고 있습니다.
 ```
 
 강조: 셋째·넷째 문장의 "대체 ~일까요?", 중간 훅 "그런데 여기서 진짜 문제가 생깁니다.", 비트 4 첫 두 문장.
 
-자막 노란 핵심어: 사라지는, 6%, BOG, 0.1%, 압축기, 연료, 숫자
+자막 노란 핵심어: 사라지는, 6%, BOG, 0.1%, 압축기, 제어반, 숫자
 
 ## 플로우 프롬프트 (한 줄에 한 장)
 
@@ -121,7 +123,7 @@
 16 | Isometric cutaway of the ship: a thin dotted red line runs from the top of the cargo tank to the compressor room. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 17 | A large ship engine in a clean engine room, warm light, pipes feeding gas into it. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 18 | A frosted cryogenic heat exchanger box; cold liquid flowing back through a pipe into the cargo tank. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
-19 | Two hands shaking over a desk with a small ship model and blank documents, viewed from above. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
+19 | A gray industrial control panel cabinet in the ship compressor room with its door open, neat wiring and blank screens inside, a thin dotted red line running from the panel to the compressor motor. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 20 | A ship cargo control room with monitors showing blank line graphs and one blinking red indicator light. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. Only accent color glowing red.
 21 | A liquefied hydrogen carrier ship with one large horizontal cylindrical tank on deck, sailing at sea. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 22 | The same LNG carrier as image 01 at dusk from the same drone angle, calm sea. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
@@ -133,14 +135,14 @@
 |---|---|---|
 | 1. 여기 바다를 건너는 동안, 화물이 매일 … | 01, 02 | "화물이 매일 사라진다" 큰 글자 |
 | 2. 바로 여러분 집 가스레인지로 갈 가스를 … | 03 | "가스레인지로 갈 가스" 라벨, 붉은 점선이 바다로 |
-| 3. 훔쳐 가는 사람도 없는데, 한 번 바다를… | 10 | 항로를 따라 줄어드는 탱크 그래픽 "많게는 6%" 큰 숫자 |
+| 3. 훔쳐 가는 사람도 없는데, 한 번 바다를… | 10 | 항로를 따라 줄어드는 탱크 그래픽, "많게는 6%" 큰 숫자 |
 | 4. 대체 그 화물은 어디로 가는 걸까요?… | 04 | 큰 "?" |
 | 5. LNG는 천연가스를 영하 162도까지 식… | 05 | "영하 162도" 큰 숫자 |
 | 6. 부피가 600분의 1로 줄어서, 한 번에… | 06 | "부피 1/600" 기체 구가 줄어드는 그래픽 |
 | 7. 문제는 아무리 두껍게 감싸도, 바깥 열이… | 07 | 붉은 열 화살표가 스며듦 |
 | 8. 그러면 액체가 끓어 기체가 되죠. 이걸 … | 08, 09 | "BOG = 증발가스" 라벨 |
 | 9. 대형 운반선에선 하루에 화물의 0.1에서… | 02 | 하루 막대 "0.1~0.15%" |
-| 10. 하루 0.1%는 작아 보여도, 항해 내내… | 10 | 하루 0.1%가 항해 내내 쌓이는 막대 → "최대 6%" |
+| 10. 작아 보여도, 항해 내내 쌓이면 커지는 … | 10 | 하루 막대가 항로를 따라 쌓여 "최대 6%" |
 | 11. 그런데 여기서 진짜 문제가 생깁니다.… | 11 | "진짜 문제" 큰 글자, 화면 어둡게 |
 | 12. 그냥 날려 보내면 되지 않냐고요? 돈을 … | 12 | "버리면? 돈 · 온실가스" |
 | 13. 그럼 탱크에 꽉 가둬 두면요? 기체가 쌓… | 13 | 압력 바늘이 붉은 구간으로, 짧은 흔들림 0.5초(이 편의 가장 센 순간) |
@@ -150,9 +152,9 @@
 | 17. 탱크 위로 올라온 증발가스를 빨아들여, … | 15, 16 | 붉은 점선 따라 흐르는 가스 점 |
 | 18. 어떤 배는 그 가스를 엔진 연료로 쓰고,… | 17, 18 | 갈림길 화살표: "엔진 연료" / "다시 액체로" |
 | 19. 사라질 화물이 연료가 되거나, 다시 화물… | 18 | "화물 → 연료 · 화물" |
-| 20. 그래서 운송 계약 때 하루 증발률을 0.… | 19 | "하루 0.15% 이하" 계약 도장 |
-| 21. 어떤 배는 탱크 압력을 재다가, 정해 둔… | 20 | 압력 그래프가 기준선을 넘으면 압축기 ON |
-| 22. 결국 화물을 지키는 건, 숫자를 보고 움… | 20 | "숫자를 보고 움직이는 기계" |
+| 20. 어떤 배는 탱크 압력을 재다가, 정해 둔… | 20 | 압력 그래프가 기준선을 넘으면 "압축기 ON" |
+| 21. 그 숫자를 받아 압축기를 돌리고 멈추는 … | 19 | 제어반 문이 열리며 붉은 점선이 압축기로 이어짐, "두뇌 = 제어반" |
+| 22. 요즘 제어반은 압축기 모터의 온도와 전류… | 19 | 모터 온도·전류 그래프, 기준선을 넘으면 붉게 깜빡 "알림" |
 | 23. 영하 253도의 수소를 싣는 배도, 같은… | 21 | "영하 253도 수소" 다음 편 예고 |
 | 24. 지금 이 순간에도 바다 위에선, 누군가 … | 22 | 첫 장면 구도로 끝, 반복 재생 |
 
@@ -160,4 +162,8 @@
 
 LNG 운반선은 항해하는 동안 화물이 조금씩 끓어 기체(BOG, 증발가스)가 됩니다. 이 가스를 붙잡아 엔진 연료로 쓰거나 다시 액체로 되돌리는 기계가 BOG 압축기입니다.
 
-#LNG운반선 #BOG #증발가스 #조선 #압축기
+
+
+동인엔시스는 LNG 운반선용 BOG 압축기 제어를 설계·공급·시운전했습니다. 지능형 제어반은 설비를 제어하면서 운전 데이터를 함께 모으고, 설정 기준을 벗어나면 알람을 보냅니다.
+
+#LNG운반선 #BOG #증발가스 #조선 #압축기 #지능형제어반
