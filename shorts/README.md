@@ -29,7 +29,7 @@
 pip install -r shorts/requirements.txt
 python3 shorts/collect.py @신비한_건축사전_1 --top 60 --bottom 40 --match "전기|전력|발전|에어컨"
 python3 shorts/analyze.py 신비한_건축사전_1
-python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문이 열리는 이유" --out shorts/scripts/08-elevator-power.md
+python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문이 열리는 이유" --out shorts/scripts/09-elevator-power.md
 ```
 
 ## 대본
@@ -43,6 +43,7 @@ python3 shorts/generate.py "엘리베이터가 정전돼도 멈춘 층에서 문
 | 05 | 공장 벽의 회색 철문 상자는, 모터가 멈추기 전에 먼저 압니다 | 제어반·데이터 |
 | 06 | 엘리베이터가 고장 나기 전에 수리 기사가 먼저 오는 곳이 있습니다 | 생활 전기 |
 | 07 | 인천공항 바닥 아래엔 184km짜리 길이 숨어 있습니다 | 현장·산업 전기 |
+| 08 | 고속도로 터널은 낮에 불을 더 세게 켭니다 | 생활 전기 |
 
 01·04·05편은 06편 틀로 다시 짠 감수 전 초안입니다(04·05편은 건축사전 분량과 이미지 30장 안팎에 맞춘 판). 02·03편은 감수를 마쳤고, 06편은 감수 전 초안입니다. 수치와 설명은 체크리스트를 확인한 뒤에 씁니다.
 
