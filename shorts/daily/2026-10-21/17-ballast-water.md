@@ -122,7 +122,7 @@
 19 | A modern grey marine control panel cabinet in a ship machinery room with a small screen showing simple line graphs; thin dotted red lines run into it from a ballast pump and an electrolysis unit; cabinet in the lower two-thirds. Ultra-detailed photorealistic cinematic still, shot on a full-frame camera with a 35mm lens, soft overcast daylight, cool slightly desaturated color grade, subtle film grain, sharp focus on the subject. Composition: the subject sits in the lower two-thirds of the frame and the upper third is a clean, uncluttered area for overlay graphics. Vertical 9:16. No text, no logos, no flags, no license plates, no faces. The only saturated color is a thin glowing red outline on the dotted lines.
 20 | Close-up of a large vertical ballast pump motor in a ship engine room with small sensors on its housing, thin red lines running from the sensors toward the edge of the frame; motor in the lower half. Ultra-detailed photorealistic cinematic still, shot on a full-frame camera with a 35mm lens, soft overcast daylight, cool slightly desaturated color grade, subtle film grain, sharp focus on the subject. Composition: the subject sits in the lower two-thirds of the frame and the upper third is a clean, uncluttered area for overlay graphics. Vertical 9:16. No text, no logos, no flags, no license plates, no faces. The only saturated color is a thin glowing red outline on the sensor lines.
 21 | A cargo ship alone in the middle of a vast open ocean under heavy clouds, the ship tiny and low in the frame, no land anywhere, huge grey sky above. Ultra-detailed photorealistic cinematic still, shot on a full-frame camera with a 35mm lens, soft overcast daylight, cool slightly desaturated color grade, subtle film grain, sharp focus on the subject. Composition: the subject sits in the lower two-thirds of the frame and the upper third is a clean, uncluttered area for overlay graphics. Vertical 9:16. No text, no logos, no flags, no license plates, no faces. No red.
-22 | A cargo ship seen from a harbour promenade at sunset, the ship low in the frame sailing out, warm sky above; the same ship type as image 01. Ultra-detailed photorealistic cinematic still, shot on a full-frame camera with a 35mm lens, soft overcast daylight, cool slightly desaturated color grade, subtle film grain, sharp focus on the subject. Composition: the subject sits in the lower two-thirds of the frame and the upper third is a clean, uncluttered area for overlay graphics. Vertical 9:16. No text, no logos, no flags, no license plates, no faces. No red.
+22 | An empty office at night in a port city with a monitor showing simple line graphs and one small red alert light, harbour lights through the window, no people; desk in the lower half, dark window above. Ultra-detailed photorealistic cinematic still, shot on a full-frame camera with a 35mm lens, soft overcast daylight, cool slightly desaturated color grade, subtle film grain, sharp focus on the subject. Composition: the subject sits in the lower two-thirds of the frame and the upper third is a clean, uncluttered area for overlay graphics. Vertical 9:16. No text, no logos, no flags, no license plates, no faces. The only saturated color is a thin glowing red outline on the alert light.
 ```
 
 ## 플로우 클립 프롬프트 (영상 3개, 선택)
@@ -158,11 +158,11 @@ c03 | 시작 프레임 16 | Slow drift along the dark cargo ship waiting at anch
 | 17. 문제는, 돌리기만 하는… | 18 | "돌리기만 하는 제어반" → 말풍선 "…" |
 | 18. 그래서 필요한 게 지능형… | 19 | "지능형 제어반" 큰 글자 |
 | 19. 펌프와 전원을 제어하면서… | 20 | "전류 · 온도 · 진동" 그래프 |
-| 20. 기준을 넘으면 먼저 알리고… | 21 | 기준선 넘으면 붉게 "먼저 알림", 통신 끊김 → "보관" → "재전송" 칩 |
+| 20. 기준을 넘으면 먼저 알리고… | 20, 21 | 기준선 넘으면 붉게 "먼저 알림", 통신 끊김 → "보관" → "재전송" 칩 |
 | 21. 그래서 항구에 닿기 전에… | 22 | ② "데이터 연결: 육지 화면까지" |
 | 22. 설비를 움직이는 것과… | 19 | "움직이는 것 + 숫자로 잇는 것" |
 | 23. 흔들리는 바다 위에서는… | 19 | "설비 제어 + 데이터 연결" 큰 글자 |
-| 24. 다음에 항구에서 큰 배를… | 22 | 첫 장면 구도로 끝 |
+| 24. 다음에 항구에서 큰 배를… | 01(클립 c01) | 첫 장면 구도로 끝, 반복 재생 |
 
 ## 커버
 
