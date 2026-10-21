@@ -60,7 +60,10 @@ const loadFrame = src => new Promise(r => {
   im.onload = () => (im.decode ? im.decode() : Promise.resolve()).then(r, r); im.onerror = r; im.src = src; CLIPIMG[src] = im;
 });
 const FRAMES = Object.entries(CLIPS).flatMap(([c, n]) => Array.from({ length: n }, (_, k) => `clip/${c}/${String(k + 1).padStart(3, "0")}.jpg`));
-window.READY = Promise.all([...NAMES.map(loadImg), ...FRAMES.map(loadFrame)]).then(() => window.setTime(0));
+// 작업 폴더에 cover.png(make.sh cover)가 있으면 첫 1초를 커버 화면으로 쓴다
+const HASCOVER = { v: false };
+const loadCover = () => new Promise(r => { const im = new Image(); im.onload = () => { HASCOVER.v = true; r(); }; im.onerror = r; im.src = "cover.png"; });
+window.READY = Promise.all([...NAMES.map(loadImg), ...FRAMES.map(loadFrame), loadCover()]).then(() => window.setTime(0));
 
 // 이미지를 화면에 꽉 채우고, 카메라(확대·이동)와 컷 순간의 펀치를 준다. 그래픽은 이미지 픽셀 좌표로 적는다
 function photo(name, t, a, b, cam, overlay = "") {
@@ -512,10 +515,12 @@ window.setTime = function (t) {
     const al = alpha(t, a, b);
     if (al > 0.001) svg += `<g opacity="${al}">${photo(name, t, a, b, cam, ov ? ov(t) : "")}${hud ? hud(t) : ""}</g>`;
   });
+  // 첫 1초는 커버(섬네일) 화면: 피드·격자에서 첫 프레임이 곧 커버가 된다
+  if (HASCOVER.v && t < 1.15) svg += `<image href="cover.png" width="1080" height="1920" opacity="${1 - prog(t, 0.9, 1.15)}"/>`;
   const end = 0;
   svg += `<rect width="1080" height="1920" fill="#000" opacity="${end}"/></svg>`;
   document.getElementById("stage").innerHTML = svg;
-  document.getElementById("sub").innerHTML = subtitle(t);
+  document.getElementById("sub").innerHTML = HASCOVER.v && t < 1.15 ? "" : subtitle(t);
 };
 </script>
 </body>

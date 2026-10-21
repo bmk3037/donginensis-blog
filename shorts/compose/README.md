@@ -29,9 +29,9 @@ cp 받은음성.mp3 $W/narration_raw.mp3
 bash shorts/compose/make.sh align $W 1.12          # 배속은 결과 길이가 94~100초가 되게
 # scene.html의 SCENES·KEYS·NAMES, sfx.py의 큐를 이 편에 맞게 고친다
 bash shorts/compose/make.sh stills $W 1.5,8,20,40,60,80   # 정지 화면을 먼저 보여 주고 확인받는다
-bash shorts/compose/make.sh video $W $W/09_slug_v1.mp4    # 10~20분 걸림
 # cover.json: {"img":"01","pos":"center 45%","kick":"머리표","title":"첫 줄|[노란 글자]|셋째 줄","sub":"아래 문구","logo":""}
-bash shorts/compose/make.sh cover $W                       # cover.jpg, 영상과 함께 보낸다
+bash shorts/compose/make.sh cover $W                       # cover.jpg·cover.png. 영상보다 먼저: 영상 첫 1초가 커버 화면이 된다
+bash shorts/compose/make.sh video $W $W/09_slug_v1.mp4    # 10~20분 걸림
 ```
 
 - **커버:** 쇼츠 피드는 섬네일 없이 바로 재생되지만, 채널 쇼츠 탭·검색·인스타 릴스 격자에는 커버가 보입니다. 인스타는 "커버 편집 → 카메라 롤에서 추가"로, 유튜브는 직접 올리기가 열린 채널(파트너 프로그램)이면 컴퓨터의 YouTube 스튜디오에서 올리고, 아니면 앱에서 큰 글자 장면을 섬네일로 고릅니다. 글자는 가운데에 모여 있어 3:4·1:1로 잘려도 제목이 남습니다.
