@@ -1,0 +1,29 @@
+{
+  "topic_id": "66",
+  "blog": "donginensis",
+  "format": "해설형",
+  "title": "MQTT TLS 인증서 만료, 어느 날 데이터가 끊기는 이유와 관리법",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "TLS인증서만료",
+    "MQTT",
+    "TLS",
+    "설비보안",
+    "제어반관리",
+    "OT보안",
+    "스마트제조"
+  ],
+  "keyword": "TLS 인증서 만료",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post066&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "지능형 제어반은 MQTT/TLS로 클라우드·고객사 서버에 연결",
+    "제어반별 PLC 모델·버전·인증서 만료일을 대장으로 관리",
+    "원격 접속은 고객이 승인한 VPN으로만",
+    "통신이 끊기면 제어반에 보관했다가 복구 후 오래된 순서대로 자동 재전송",
+    "인터록·최종 제어는 현장 PLC, 서버는 데이터만 (인증서 문제로 설비 제어가 멈추지 않음)",
+    "인증서 유효기간·시계 동기화 등은 TLS의 일반 원리이며 특정 기간·제품을 단정하지 않음",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-23"
+}
