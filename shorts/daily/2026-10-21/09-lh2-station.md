@@ -125,6 +125,18 @@
 22 | A vast frozen Antarctic ice plateau in a blizzard with a lone small research station, deep blue cold light. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 ```
 
+## 플로우 클립 프롬프트 (영상 3개)
+
+설정: 프레임 투 비디오(시작 프레임에 해당 이미지), 9:16, 8초, 가장 높은 품질 모델. 소리는 쓰지 않습니다. 파일 이름은 c01, c02, c03으로 저장합니다.
+
+```
+c01 | 시작 프레임 01 | Slow cinematic push-in toward the tall white cryogenic storage tank. Thin white cold vapor drifts down from the tank's valves and pipes and curls along the ground. The parked bus does not move. The thin red outline on the tank glows softly and steadily. Keep the exact same scene, style, colors and lighting as the start frame. No people, no text, no logos, no license plates, no camera cuts. Vertical 9:16.
+c02 | 시작 프레임 02 | Extreme close-up, very slow push-in on the frost-covered valve. Dense white cryogenic vapor pours from the pipe joint and rolls downward, and frost crystals visibly creep and thicken across the metal surface. Lighting stays the same, sunny day. Keep everything else unchanged. No people, no text, no logos, no camera cuts. Vertical 9:16.
+c03 | 시작 프레임 15 | Slow aerial dolly backward along the long line of hydrogen buses waiting at the station entrance in early morning mist, revealing the queue stretching further back. The buses stay still, light mist drifts across the road. Keep the same buses, style and colors as the start frame. No people, no text, no logos, no license plates, no camera cuts. Vertical 9:16.
+```
+
+쓰는 자리: c01은 첫 문장(훅), c02는 "영하 253도", c03은 "버스들이 줄줄이 기다려야". 영상에서 3~4초만 잘라 씁니다.
+
 ## 장면 배치표
 
 | 문장 | 이미지 | 합성 그래픽·글자 |
