@@ -4,7 +4,8 @@ import json, re, subprocess, sys
 audio, lines_path = sys.argv[1], sys.argv[2]
 lines = json.load(open(lines_path))
 n = len(lines)
-spoken = [len(re.sub(r"[\s,.]", "", l["text"])) + 2 * l["text"].count("%") for l in lines]
+# 숫자를 아라비아 숫자로 쓴 자막과 읽는 말의 길이가 다르면 "say"(타입캐스트 대본 문장)를 함께 적는다
+spoken = [len(re.sub(r"[\s,.]", "", l.get("say", l["text"]))) + 2 * l["text"].count("%") for l in lines]
 
 def commas(text, start, end, sil):
     # 쉼표 위치를 글자 비율로 어림하고, 가까운 문장 안 쉼이 있으면 그쪽에 붙인다
