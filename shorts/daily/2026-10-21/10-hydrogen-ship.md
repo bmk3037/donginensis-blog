@@ -18,7 +18,7 @@
 |  | 그래서 기름 대신 수소를 싣는데, 수소는 같은 부피에 담긴 에너지가 경유의 3분의 1밖에 안 됩니다. |
 |  | 할 수 없이 영하 253도 액체로 싣고, 흔들리는 바다 위에서 그 온도를 지켜야 하죠. |
 |  | 그리고 이걸 전부 한 배에 싣는 순간, 일이 복잡해집니다. |
-| 3. 딜레마 | 그리고 엔진 대신, 작은 발전소를 싣습니다. |
+| 3. 딜레마 | 그 대신 엔진 자리엔, 작은 발전소를 싣습니다. |
 |  | 바로 수소 연료전지죠. |
 |  | 수소가 공기 중 산소와 만나 전기와 물이 되고, 그 전기로 모터가 프로펠러를 돌립니다. |
 |  | 2025년 12월엔 우리나라 첫 수소연료전지 추진선박도 물에 띄워졌습니다. |
@@ -82,7 +82,7 @@
 그래서 기름 대신 수소를 싣는데, 수소는 같은 부피에 담긴 에너지가 경유의 삼분의 일밖에 안 됩니다.
 할 수 없이 영하 이백오십삼 도 액체로 싣고, 흔들리는 바다 위에서 그 온도를 지켜야 하죠.
 그리고 이걸 전부 한 배에 싣는 순간, 일이 복잡해집니다.
-그리고 엔진 대신, 작은 발전소를 싣습니다.
+그 대신 엔진 자리엔, 작은 발전소를 싣습니다.
 바로 수소 연료전지죠.
 수소가 공기 중 산소와 만나 전기와 물이 되고, 그 전기로 모터가 프로펠러를 돌립니다.
 이천이십오 년 십이월엔 우리나라 첫 수소연료전지 추진선박도 물에 띄워졌습니다.
@@ -132,6 +132,18 @@
 22 | The same ferry as image 01 from the same angle, water droplets falling, calm sea at sunset. Vertical 9:16, clean 3D engineering-explainer render, soft light, slightly desaturated colors, no text, no logos, no license plates, no faces. No red.
 ```
 
+## 플로우 클립 프롬프트 (영상 3개)
+
+설정: 프레임 투 비디오(시작 프레임에 해당 이미지), 9:16, 8초, 소리 없음. 파일 이름은 c01, c02, c03으로 저장합니다.
+
+```
+c01 | 시작 프레임 01 | Slow cinematic push-in on the ferry sailing away on calm sea. Gentle wake trails behind the hull, small clear water droplets keep falling from the outlet near the waterline, no smoke anywhere. The thin red outline on the outlet glows softly. Keep the exact same ship, style, colors and lighting as the start frame. No people, no text, no logos, no camera cuts. Vertical 9:16.
+c02 | 시작 프레임 03 | Slow push-in on the old ship funnel. Thick dark smoke keeps billowing out and drifts across the sky, heavy and slow. Keep the same funnel, style and lighting as the start frame. No people, no text, no logos, no camera cuts. Vertical 9:16.
+c03 | 시작 프레임 13 | The ferry pitches and rolls in a dark stormy sea; big waves rise and crash against the hull, spray flies, the camera is slightly handheld. Keep the same ship, style, colors and mood as the start frame. No people, no text, no logos, no camera cuts. Vertical 9:16.
+```
+
+쓰는 자리: c01은 첫 문장(훅), c02는 "시커먼 연기부터 떠오를 텐데", c03은 "흔들리는 바다 위에서 한 몸처럼"(이 편의 흔들림 순간). 영상에서 3~4초만 잘라 씁니다.
+
 ## 장면 배치표
 
 | 문장 | 이미지 | 합성 그래픽·글자 |
@@ -144,7 +156,7 @@
 | 6. 그래서 기름 대신 수소를 싣는데, 수소는… | 06 | 막대 "부피당 에너지: 경유 1 / 수소 1/3" |
 | 7. 할 수 없이 영하 253도 액체로 싣고,… | 07 | 흔들리는 배 위 "영하 253도" |
 | 8. 그리고 이걸 전부 한 배에 싣는 순간, … | 14 | 네 장치가 점선으로 이어진 단면 "한 배에 전부" |
-| 9. 그리고 엔진 대신, 작은 발전소를 싣습니… | 08 | "엔진 대신 작은 발전소" |
+| 9. 그 대신 엔진 자리엔, 작은 발전소를 싣습… | 08 | "엔진 대신 작은 발전소" |
 | 10. 바로 수소 연료전지죠.… | 08 | "수소 연료전지" 큰 글자 |
 | 11. 수소가 공기 중 산소와 만나 전기와 물이… | 09, 10 | "H₂ + O₂ → 전기 + 물" |
 | 12. 2025년 12월엔 우리나라 첫 수소연료… | 12 | 한국 핀 "2025년 12월 · 국내 첫" |
