@@ -9,6 +9,7 @@
 #   bash make.sh align  작업폴더 [배속=1.12] ['{"10":48.9}']   음성 배속 + 문장별 시각(timeline.js)
 #   bash make.sh stills 작업폴더 2,12,20                         정지 화면 확인
 #   bash make.sh video  작업폴더 결과.mp4                         효과음 섞고 최종 영상
+#   bash make.sh cover  작업폴더                                  cover.json으로 커버 이미지(cover.jpg)
 set -euo pipefail
 T=$(cd "$(dirname "$0")" && pwd)
 cmd=$1; W=$(cd "$2" && pwd); cd "$W"
@@ -47,5 +48,8 @@ video)
     -maxrate 1400k -bufsize 2800k -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart -shortest "$OUT"
   ls -la "$OUT"; ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT"
   ;;
-*) echo "align | stills | video"; exit 1;;
+cover)
+  node "$T/cover.mjs"; ls -la cover.jpg
+  ;;
+*) echo "align | stills | video | cover"; exit 1;;
 esac

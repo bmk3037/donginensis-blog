@@ -11,7 +11,8 @@
 | `align.py` | 음성의 쉼을 찾아 문장마다 시작·끝·쉼표 시각을 잡음 → `timeline.js` |
 | `tempo.py` | 배속에 맞춰 `timeline.js`의 시각을 나눔 |
 | `render.mjs` | `scene.html`을 프레임마다 찍어 영상으로(또는 정지 화면만) |
-| `make.sh` | 위를 묶은 명령: `align`, `stills`, `video` |
+| `cover.mjs` | 작업 폴더의 `cover.json`으로 커버(섬네일) 이미지 `cover.jpg` 1080×1920 |
+| `make.sh` | 위를 묶은 명령: `align`, `stills`, `video`, `cover` |
 | `example-08/` | 08편 터널 조명의 실제 장면(`scene.html`), 효과음(`sfx.py`), 문장(`lines.json`). 새 편은 여기서 복사해 고칩니다. |
 
 ## 순서
@@ -29,7 +30,11 @@ bash shorts/compose/make.sh align $W 1.12          # 배속은 결과 길이가 
 # scene.html의 SCENES·KEYS·NAMES, sfx.py의 큐를 이 편에 맞게 고친다
 bash shorts/compose/make.sh stills $W 1.5,8,20,40,60,80   # 정지 화면을 먼저 보여 주고 확인받는다
 bash shorts/compose/make.sh video $W $W/09_slug_v1.mp4    # 10~20분 걸림
+# cover.json: {"img":"01","pos":"center 45%","kick":"머리표","title":"첫 줄|[노란 글자]|셋째 줄","sub":"아래 문구","logo":""}
+bash shorts/compose/make.sh cover $W                       # cover.jpg, 영상과 함께 보낸다
 ```
+
+- **커버:** 쇼츠 피드는 섬네일 없이 바로 재생되지만, 채널 쇼츠 탭·검색·인스타 릴스 격자에는 커버가 보입니다. 인스타는 "커버 편집 → 카메라 롤에서 추가"로, 유튜브는 직접 올리기가 열린 채널(파트너 프로그램)이면 컴퓨터의 YouTube 스튜디오에서 올리고, 아니면 앱에서 큰 글자 장면을 섬네일로 고릅니다. 글자는 가운데에 모여 있어 3:4·1:1로 잘려도 제목이 남습니다.
 
 - **배속:** 타입캐스트 무료 플랜은 속도를 못 바꾸므로 1.0으로 받고 여기서 1.12~1.18배로 올립니다(음 높이는 그대로). 목표는 초당 7자 남짓.
 - **문장 경계가 어긋날 때:** `align`이 출력한 문장별 시작 시각을 보고, 틀린 경계는 `'{"경계 앞 문장 번호": 원래 속도 음성의 쉼 시작 초}'`로 고정해 다시 돌립니다. 예: `bash make.sh align $W 1.12 '{"10":48.86}'`
