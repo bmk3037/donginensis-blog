@@ -235,3 +235,21 @@ c08 | 시작 프레임 18 | Slow high drone glide over the plaza at dusk; the ti
 | c08 | Drone_gliding_over_plaza | 좋음. 다만 오른쪽 아래에 "9:16" 글자가 찍힘 → 확대로 잘라 냄 |
 
 모든 클립 오른쪽 아래의 ✦·"Veo" 표시는 합성에서 확대해 화면 밖으로 밀어냄. 클립 소리는 쓰지 않음.
+
+## 다시 만들기 (10/22, 클립 확인 뒤)
+
+설정: 출력 수 1, 모델 Veo 3.1 Lite, **비율은 설정에서 9:16**(프롬프트에 비율 글자 없음). 우선순위 순서.
+
+| 순서 | 무엇 | 시작 그림(받은 파일 이름) | 왜 |
+|---|---|---|---|
+| 1 | 클립 c01 (훅) | `Red_bus_in_city_model` | 첫 3초가 가장 중요한데, 지난번엔 3.5초부터 검은 네모가 떠다님 |
+| 2 | 클립 c07 | `Engineers_working_in_server_hall` (어두운 홀) | 지난번엔 거의 안 움직임 |
+| 3 | 그림 01B (편집) | `Miniature_city_plaza_model_figures`를 참고 이미지로 붙이고 편집 | 지난번 01B는 구도가 달라 같은 화면 안 변화를 못 씀 |
+| 4 (선택) | 클립 c08 | `City_plaza_model_at_dusk` | 지난번엔 "9:16" 글자와 너무 많은 불빛. 안 만들어도 확대로 씀 |
+
+```
+c01 | 시작 프레임 Red_bus_in_city_model | Slow gentle push toward the street corner. The tiny figures walk and the red bus drives slowly, then the warm glow inside the shop windows and the small lights on the shop counters go out one after another from left to right, and the figures stop walking and look around, puzzled. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+c07 | 시작 프레임 Engineers_working_in_server_hall | Slow push forward along the dark server hall. The ceiling lights of the hall switch back on section by section, from the far end toward the camera, until the whole hall is bright and the server racks glow softly again; the tiny engineer figures stay at their places. Keep the same architectural scale model look as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+01B | [Miniature_city_plaza_model_figures 그림을 참고 이미지로 붙이고 편집] Edit the reference image (01A). Keep exactly the same camera angle, framing, composition, buildings, objects and figures as the reference image; do not move or redraw anything else. Change only this: the tiny figures have stopped walking and are looking down at the small phones in their hands or at each other, puzzled, and a few small red 3D X markers float just above the crowd. Highly detailed architectural scale model world made of white and warm beige materials with soft green trees and calm blue water, like a museum city model that fills the entire frame edge to edge (no table, no model base, no studio wall, no model edges visible), tilt-shift photography with shallow depth of field, soft natural daylight with gentle shadows, slightly muted natural colors, calm and clean. People are tiny plain white figures without faces. The only accent color is red, used for small 3D markers placed in the scene. Composition: the subject sits in the lower two-thirds and the upper third is calm for overlay graphics. Vertical 9:16. No text, no letters, no numbers, no logos, no faces.
+c08 | 시작 프레임 City_plaza_model_at_dusk | Slow high drone glide over the plaza at dusk. The warm lights in the windows of the surrounding buildings and the data center cube turn on one after another, calm and quiet. Keep the same architectural scale model look as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
