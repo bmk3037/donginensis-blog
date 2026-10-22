@@ -94,6 +94,19 @@
 - 계기판·화면·꼬리표는 "completely blank" 또는 "barcode stripes only".
 - 그 아래에 장면 배치표(번호 | 대본 문장 | 합성할 때 얹을 인포그래픽과 글자)를 둡니다. 인포그래픽 그림은 따로 만들지 않습니다. 합성 단계에서 그립니다.
 
+### 그림 스타일 고르기 (2026-10-22 대표이사 결정)
+
+플로우 프롬프트를 쓰기 전에 대표이사에게 **"3D 설명 렌더로 할까요, 미니어처 디오라마로 할까요?"**라고 묻고, 고른 스타일로 씁니다. 대표이사가 없는 자동 실행(예약 작업)에서는 두 판을 모두 써 두고 고르게 합니다. 번호와 장면 내용은 두 판이 같아야 합니다(합성 배치를 같이 쓰기 위해).
+
+| 판 | 각 줄 끝에 붙이는 스타일 문장 |
+|---|---|
+| 3D 설명 렌더 | `Vertical 9:16, clean 3D engineering-explainer render, soft bright light, clear natural colors, no text, no logos, no license plates, no faces. Composition: the subject sits in the lower two-thirds and the upper third is clean for overlay graphics.` |
+| 미니어처 디오라마 | `Miniature diorama on a wooden desk: a handmade scale model, tilt-shift photography, shallow depth of field, bright warm daylight from a window, cheerful saturated colors, crisp tiny details; the sea is glossy blue resin and the clouds and smoke are cotton wool. Composition: the subject sits in the lower two-thirds and the upper third is a soft blurred background, clean for overlay graphics. Vertical 9:16. No text, no letters, no logos, no flags, no faces.` |
+
+- 쓰지 않는 스타일: 흐린 날·저채도·필름 그레인 실사(10·17편 실사판이 너무 우울했음).
+- 미니어처판은 장면마다 2~3장 변형을 받으면 컷을 더 빠르게 만들 수 있습니다(17편: 60장 중 56장, 컷 42개).
+- 톤을 맞추려면 01번을 먼저 만들고, 나머지는 01번을 참고 이미지로 붙입니다.
+
 ### 커버(섬네일)
 
 편마다 커버 이미지 1장을 만듭니다(합성 단계에서 `make.sh cover`). 대본 파일에 아래 네 가지를 적습니다.
