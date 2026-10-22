@@ -253,3 +253,10 @@ c07 | 시작 프레임 Engineers_working_in_server_hall | Slow push forward alon
 01B | [Miniature_city_plaza_model_figures 그림을 참고 이미지로 붙이고 편집] Edit the reference image (01A). Keep exactly the same camera angle, framing, composition, buildings, objects and figures as the reference image; do not move or redraw anything else. Change only this: the tiny figures have stopped walking and are looking down at the small phones in their hands or at each other, puzzled, and a few small red 3D X markers float just above the crowd. Highly detailed architectural scale model world made of white and warm beige materials with soft green trees and calm blue water, like a museum city model that fills the entire frame edge to edge (no table, no model base, no studio wall, no model edges visible), tilt-shift photography with shallow depth of field, soft natural daylight with gentle shadows, slightly muted natural colors, calm and clean. People are tiny plain white figures without faces. The only accent color is red, used for small 3D markers placed in the scene. Composition: the subject sits in the lower two-thirds and the upper third is calm for overlay graphics. Vertical 9:16. No text, no letters, no numbers, no logos, no faces.
 c08 | 시작 프레임 City_plaza_model_at_dusk | Slow high drone glide over the plaza at dusk. The warm lights in the windows of the surrounding buildings and the data center cube turn on one after another, calm and quiet. Keep the same architectural scale model look as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
 ```
+
+## 합성 기록 (10/22)
+
+- 클립 8개(c01·c07은 다시 만든 것), 그림 38장, mp3 112.9초 → `emphasis.py 1.14 3,7,10,15,16 3:0.25,10:0.4,15:0.35`, 문장 경계 `{"10":53.95}` 고정 → 98.2초, -14.6 LUFS.
+- 벤치마크 반영: 첫 화면은 커버 카드 대신 첫 클립 위 제목 "구글도, 카카오도 / 멈췄다", 큰 글자 3번("진짜 문제", "127시간 33분", "멈춘 이유는 전원"), 클립 장면을 길게.
+- 그림·클립 오른쪽 아래 ✦·"Veo" 표시와 c08의 "9:16" 글자는 잘라 냄(그림은 아래 8%, 클립은 10%·c08은 20%).
+- v2: "127시간 33분" 강조 때 앞 문장 딱지가 겹쳐 숨김.
