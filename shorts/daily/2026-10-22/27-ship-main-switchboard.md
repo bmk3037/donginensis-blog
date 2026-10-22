@@ -294,3 +294,8 @@ Static view with a very slow push. The red clay lines light up one after another
 ```
 Very slow push toward the bolt. The big clay nut slowly turns loose by itself, a thin gap opens between the busbars and the joint starts to glow soft red. Keep the same claymation look, colors and lighting as the start frame, moving like a stop-motion animation. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
 ```
+
+## 클레이판 합성 기록 (10/22)
+
+- 클레이 그림 17장(클립 없음), 미니어처판과 같은 음성·문장 시각·효과음을 그대로 씀(작업 폴더 `work/27c`). 과열점·차단기 꺼짐 좌표만 그림에 맞게 바꿈.
+- 84.2초, 10.9MB, 끝에 섬네일 1초. 커버는 클레이 배전반(03).
