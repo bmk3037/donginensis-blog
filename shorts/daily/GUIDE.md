@@ -110,6 +110,7 @@
 - 미니어처판은 장면마다 2~3장 변형을 받으면 컷을 더 빠르게 만들 수 있습니다(17편: 60장 중 56장, 컷 42개).
 - 톤을 맞추려면 01번(첫 그림)을 먼저 만들고, 나머지는 01번을 참고 이미지로 붙입니다. 이 순서를 프롬프트 블록 위 "만드는 순서"에 매번 적습니다.
 - **앞뒤 그림(B) 줄은 항상 이렇게 씁니다(10/22, 25편에서 B가 새 구도로 나와 바꿈):** 줄 맨 앞에 `[NNA 그림을 참고 이미지로 붙이고 편집]`, 영어는 `Edit the reference image (NNA). Keep exactly the same camera angle, framing, composition, buildings, objects and figures as the reference image; do not move or redraw anything else. Change only this: …`로 시작합니다. "새로 만들지 말고 A를 붙여 편집"을 안내문에도 적습니다.
+- **그림 프롬프트는 두 덩어리로 나눠 줍니다(10/22 대표이사):** "1단계: A와 단독 그림"(한꺼번에 붙여 넣어 만듦)과 "2단계: B 그림"(1단계가 끝난 뒤 A를 붙여 편집)을 따로 코드 블록으로. 클립은 "3단계"로 또 따로.
 
 ### 클립(움직이는 영상) (2026-10-22 대표이사 Google AI 유료 가입)
 
