@@ -160,6 +160,10 @@ c05 | 시작 프레임 09 | Slow upward tilt following the huge rotor as the ove
 c06 | 시작 프레임 10 | Slow sideways drift along the rows of motor parts; tiny workers wash the parts with hoses, water glistening. Same architectural scale model look and lighting as the start frame. No text, no logos, no camera cuts. Vertical 9:16.
 c07 | 시작 프레임 13A | Slow push along the rolling line; a glowing red-hot steel slab enters from the far end and rolls through the stands toward the camera, steam rising. Same architectural scale model look and lighting as the start frame. No text, no logos, no camera cuts. Vertical 9:16.
 c08 | 시작 프레임 17 | Slow drone glide over the steelworks model at dusk; lights glow in every hall, steam drifts up from the furnaces. Same architectural scale model look and lighting as the start frame. No text, no logos, no camera cuts. Vertical 9:16.
+c09 | 시작 프레임 05A | Slow push along the rolling-mill hall; the glowing steel stops and fades, muddy brown water flows in across the floor and rises up to the motors. Same architectural scale model look and lighting as the start frame. No text, no logos, no camera cuts. Vertical 9:16.
+c10 | 시작 프레임 07A | Slow sideways drift across the muddy hall; tiny workers shovel mud and spray it away with hoses. Same architectural scale model look and lighting as the start frame. No text, no logos, no camera cuts. Vertical 9:16.
+c11 | 시작 프레임 11 | Slow push in as the overhead crane gently lowers the huge rotor back into the stator, tiny workers guiding it. Same architectural scale model look and lighting as the start frame. No text, no logos, no camera cuts. Vertical 9:16.
+c12 | 시작 프레임 12 | Slow high drone glide over the steelworks model; hundreds of tiny workers move busily between the halls and along the roads. Same architectural scale model look and lighting as the start frame. No text, no logos, no camera cuts. Vertical 9:16.
 ```
 
 ## 장면 배치표
