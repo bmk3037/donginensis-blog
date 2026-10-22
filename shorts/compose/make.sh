@@ -37,10 +37,11 @@ video)
   else
     ffmpeg -y -loglevel error -i narration.wav -af "loudnorm=I=-14:TP=-1.5:LRA=11" -ar 44100 mix.wav
   fi
-  # 배경음악이 있으면 bgm.mp3를 두면 된다(목소리보다 훨씬 작게)
-  if [ -f bgm.mp3 ]; then
-    ffmpeg -y -loglevel error -i mix.wav -stream_loop -1 -i bgm.mp3 -filter_complex \
-      "[1:a]volume=0.12[b];[0:a][b]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]" -map "[a]" -ar 44100 mix_bgm.wav
+  # 배경음악: 작업 폴더의 bgm.mp3, 없으면 공통 배경음(assets/bgm_calm.mp3). 목소리가 나올 때는 자동으로 줄인다(덕킹). NOBGM=1이면 뺀다
+  BGM=bgm.mp3; [ -f "$BGM" ] || BGM="$T/assets/bgm_calm.mp3"
+  if [ -z "${NOBGM:-}" ] && [ -f "$BGM" ]; then
+    ffmpeg -y -loglevel error -i mix.wav -stream_loop -1 -i "$BGM" -filter_complex \
+      "[0:a]asplit=2[v][sc];[1:a]volume=0.30,aformat=channel_layouts=stereo[b];[b][sc]sidechaincompress=threshold=0.02:ratio=8:attack=30:release=500[bd];[v][bd]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]" -map "[a]" -ar 44100 mix_bgm.wav
     mv mix_bgm.wav mix.wav
   fi
   # 20MB 안쪽: 휴대폰으로 받기 쉬운 크기
