@@ -272,3 +272,25 @@ Slow drone glide alongside the ship. The ship sails slowly forward out of the ha
 17 | A cute clay crew figure tightening a big bolt on the switchboard busbar with a chunky clay wrench, a small red clay check-mark marker above. Claymation style: everything is handmade from soft modeling clay with visible fingerprints and rounded chunky shapes, bright friendly pastel colors, soft studio lighting with gentle shadows, shallow depth of field, like a stop-motion animation set; the sea is smooth glossy blue clay with little white clay wave curls. People are cute round clay figures with simple dot eyes and no mouths. The only strong accent color is red, used for small clay markers. Composition: the subject sits in the lower two-thirds and the upper third is a soft plain background for overlay graphics. Vertical 9:16. No text, no letters, no numbers, no logos.
 18 | A chunky clay container ship sailing out of a clay harbor at sunrise, little clay tugboats beside it, soft pink sky, peaceful. Claymation style: everything is handmade from soft modeling clay with visible fingerprints and rounded chunky shapes, bright friendly pastel colors, soft studio lighting with gentle shadows, shallow depth of field, like a stop-motion animation set; the sea is smooth glossy blue clay with little white clay wave curls. People are cute round clay figures with simple dot eyes and no mouths. The only strong accent color is red, used for small clay markers. Composition: the subject sits in the lower two-thirds and the upper third is a soft plain background for overlay graphics. Vertical 9:16. No text, no letters, no numbers, no logos.
 ```
+
+### (선택) 클립 3개 — 점토 스타일은 스톱모션처럼 움직여 클립이 가장 자연스럽습니다. 안 만들어도 합성 효과로 대신합니다
+
+설정: 프레임 투 비디오, Veo 3.1 Lite, 출력 수 1, 비율은 설정에서 9:16. 약 30크레딧(하루치 안).
+
+#### 27편 클레이 c01 — 시작 그림: 09번 그림 (배가 파도에 흔들림 (진짜 문제))
+
+```
+Slow gentle drift. The clay ship rolls slowly from side to side on the curly clay waves and the little white clay splashes bounce. Keep the same claymation look, colors and lighting as the start frame, moving like a stop-motion animation. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 27편 클레이 c02 — 시작 그림: 07번 그림 (배전반에서 빨간 선이 하나씩 퍼짐)
+
+```
+Static view with a very slow push. The red clay lines light up one after another, starting from the switchboard and spreading to the stern, the rudder, the pumps and the bridge. Keep the same claymation look, colors and lighting as the start frame, moving like a stop-motion animation. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 27편 클레이 c03 — 시작 그림: 11A번 그림 (볼트가 조금씩 풀리고 빨갛게 달아오름)
+
+```
+Very slow push toward the bolt. The big clay nut slowly turns loose by itself, a thin gap opens between the busbars and the joint starts to glow soft red. Keep the same claymation look, colors and lighting as the start frame, moving like a stop-motion animation. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
