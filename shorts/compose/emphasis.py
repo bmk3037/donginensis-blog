@@ -1,6 +1,6 @@
 """강조 문장만 느리고(1.03배) 3dB 크게, 앞에 짧은 쉼을 넣어 음성을 다시 짓는다. make.sh align 다음에 작업 폴더에서 실행.
    python3 ../../emphasis.py 배속 강조문장번호(0부터) 쉼
-   예: python3 ../../emphasis.py 1.15 1,3,6,8,13 3:0.35,8:0.3,13:0.45   → narration.wav, timeline.js
+   예: python3 ../../emphasis.py 1.15 1,3,6,8,13 3:0.35,8:0.3,13:0.45   → narration.wav, timeline.js"""
 import json, subprocess
 import sys
 BASE = float(sys.argv[1]) if len(sys.argv) > 1 else 1.15
