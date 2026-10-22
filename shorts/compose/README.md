@@ -13,6 +13,7 @@
 | `render.mjs` | `scene.html`을 프레임마다 찍어 영상으로(또는 정지 화면만) |
 | `cover.mjs` | 작업 폴더의 `cover.json`으로 커버(섬네일) 이미지 `cover.jpg` 1080×1920 |
 | `make.sh` | 위를 묶은 명령: `align`, `stills`, `video`, `cover` |
+| `template/` | 2026-10-22부터 쓰는 합성 틀(21편 기준): 시리즈 로고 "숨은 설비 도감", 차분한 카메라, 같은 그림 이어 붙이기, 강조 번쩍임 |
 | `example-08/` | 08편 터널 조명의 실제 장면(`scene.html`), 효과음(`sfx.py`), 문장(`lines.json`). 새 편은 여기서 복사해 고칩니다. |
 
 ## 순서
@@ -22,7 +23,7 @@
 ```bash
 bash shorts/compose/setup.sh                       # 처음 한 번
 W=shorts/compose/work/09; mkdir -p $W
-cp shorts/compose/example-08/{scene.html,sfx.py} $W/
+cp shorts/compose/template/{scene.html,sfx.py} $W/   # 2026-10-22부터 새 틀(로고·차분한 카메라·강조 번쩍임)
 cp 받은음성.mp3 $W/narration_raw.mp3
 (cd $W && python3 -I ../../prep_images.py 받은이미지.zip)   # all.png를 열어 번호와 장면을 맞춘다
 # lines.json: 타입캐스트에 넣은 대본과 똑같은 문장, 비트 번호와 함께

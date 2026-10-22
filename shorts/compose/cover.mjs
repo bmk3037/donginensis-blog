@@ -2,6 +2,7 @@
 // 작업 폴더의 cover.json을 읽는다. 예:
 //   {"img": "11", "pos": "center 45%", "kick": "LNG 운반선의 비밀",
 //    "title": "화물이|[저절로 끓는]|배", "sub": "증발가스 BOG는 어디로 갈까?", "logo": ""}
+//   badge: false면 왼쪽 위 "숨은 설비 도감" 로고를 뺀다(기본은 넣음)
 //   title: |는 줄바꿈, [ ]는 노란 글자. logo: 흰 로고 PNG 경로(회사 이름을 넣지 않는 공개 편은 비움)
 // 결과: cover.jpg(올릴 파일), cover.png
 import { createRequire } from "module";
@@ -33,9 +34,13 @@ body{width:1080px;height:1920px;overflow:hidden;background:#0A2A55;font-family:P
 h1{font-weight:800;font-size:${c.size || 150}px;line-height:1.14;letter-spacing:-.03em;margin:44px 0 40px;text-shadow:0 6px 30px rgba(0,0,0,.6)}
 h1 .y{color:#FFD43B}
 .sub{font-weight:700;font-size:52px;color:#E8EEF6;text-shadow:0 4px 18px rgba(0,0,0,.7)}
+.badge{position:absolute;left:46px;top:46px;width:124px;height:124px;border-radius:50%;background:#0A2A55;border:5px solid #fff;color:#fff;text-align:center;font-weight:800;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+.badge i{position:absolute;inset:8px;border:3px dashed #E5392B;border-radius:50%}
+.badge b{display:block;font-size:23px;margin-top:30px;line-height:1.1}
+.badge u{display:block;font-size:31px;color:#FFD43B;text-decoration:none}
 .logo{position:absolute;left:50%;transform:translateX(-50%);bottom:150px;width:330px}
 </style></head><body><div class="bg"></div><div class="ov"></div>
-<div class="box"><div class="kick">${esc(c.kick)}</div><h1>${title}</h1><div class="sub">${esc(c.sub)}</div></div>${logo}</body></html>`;
+${c.badge === false ? "" : '<div class="badge"><i></i><b>숨은 설비</b><u>도감</u></div>'}<div class="box"><div class="kick">${esc(c.kick)}</div><h1>${title}</h1><div class="sub">${esc(c.sub)}</div></div>${logo}</body></html>`;
 fs.writeFileSync(path.join(dir, "cover.html"), html);
 
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
