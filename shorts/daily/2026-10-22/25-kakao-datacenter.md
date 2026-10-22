@@ -220,3 +220,18 @@ c08 | 시작 프레임 18 | Slow high drone glide over the plaza at dusk; the ti
 
 #구글먹통 #카카오톡 #카톡먹통 #데이터센터 #정전 #지능형제어반 #숨은설비도감
 ```
+
+## 받은 클립 확인 (10/22, zip 18)
+
+| 클립 | 파일 | 결과 |
+|---|---|---|
+| c01 | Figures_looking_at_phones_on | 0~3.5초 좋음(사람이 걷고 버스가 움직임). 3.5초부터 큰 검은 네모가 떠다녀서 앞부분만 쓰고 00B 그림으로 넘김 |
+| c02 | Smoke_rising_from_battery_rack | 좋음(빨간 불빛이 커지고 연기) |
+| c03 | Gas_billowing_from_ceiling_nozzles | 좋음(가스가 건물 위로 뿜어 나옴) |
+| c04 | Firefighter_running_toward_entra… | 좋음(소방차와 소방관 움직임) |
+| c05 | Server_lights_switching_off | 아주 좋음(단지 전체가 어두워짐) |
+| c06 | Drift_from_battery_room | 아주 좋음(빨간 열기가 벽을 넘고 옆방이 꺼짐) |
+| c07 | Engineers_activating_server_racks | 움직임 적음, 쓸 만함 |
+| c08 | Drone_gliding_over_plaza | 좋음. 다만 오른쪽 아래에 "9:16" 글자가 찍힘 → 확대로 잘라 냄 |
+
+모든 클립 오른쪽 아래의 ✦·"Veo" 표시는 합성에서 확대해 화면 밖으로 밀어냄. 클립 소리는 쓰지 않음.
