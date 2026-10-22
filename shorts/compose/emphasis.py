@@ -1,10 +1,12 @@
-"""강조 문장만 느리고(1.03배) 3dB 크게, 앞에 짧은 쉼을 넣어 음성을 다시 짓는다. make.sh align 다음에 작업 폴더에서 실행.
+"""강조 문장만 느리고(1.08배) 3dB 크게, 문장 사이 긴 쉼은 줄이고, 앞에 짧은 쉼을 넣어 음성을 다시 짓는다. make.sh align 다음에 작업 폴더에서 실행.
    python3 ../../emphasis.py 배속 강조문장번호(0부터) 쉼
    예: python3 ../../emphasis.py 1.15 1,3,6,8,13 3:0.35,8:0.3,13:0.45   → narration.wav, timeline.js"""
 import json, subprocess
 import sys
 BASE = float(sys.argv[1]) if len(sys.argv) > 1 else 1.15
-EMPH_T, GAIN = 1.03, 3.0
+EMPH_T, GAIN = 1.08, 3.0
+import os
+EDGE = float(os.environ.get('EDGE', '0.2'))  # 문장 앞뒤 쉼을 이 길이(원래 속도 초)까지만 남긴다
 EMPH = {int(x) for x in sys.argv[2].split(',')} if len(sys.argv) > 2 else set()
 PAUSE = {int(k): float(v) for k, v in (p.split(':') for p in sys.argv[3].split(','))} if len(sys.argv) > 3 else {}
 tl = json.loads(open('timeline_raw.js').read().split('=', 1)[1].strip().rstrip(';'))
@@ -13,6 +15,7 @@ cuts = [0.0] + [L[i]['b'] for i in range(len(L) - 1)] + [dur_raw]
 parts, filt, t0 = [], [], 0.0
 for i, l in enumerate(L):
     a, b = cuts[i], cuts[i + 1]
+    a, b = max(a, l['start'] - EDGE), min(b, l['end'] + EDGE)
     tempo = EMPH_T if i in EMPH else BASE
     g = GAIN if i in EMPH else 0.0
     p = PAUSE.get(i, 0.0)
