@@ -45,7 +45,7 @@ video)
   fi
   # 20MB 안쪽: 휴대폰으로 받기 쉬운 크기
   ffmpeg -y -loglevel error -i video_only.mp4 -i mix.wav -c:v libx264 -crf 29 -preset slow -tune stillimage \
-    -maxrate 1400k -bufsize 2800k -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart -shortest "$OUT"
+    -maxrate 1300k -bufsize 2600k -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart -shortest "$OUT"
   ls -la "$OUT"; ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT"
   ;;
 cover)
