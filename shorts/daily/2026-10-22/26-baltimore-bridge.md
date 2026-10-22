@@ -153,16 +153,56 @@
 | c07 | 15 | "새 다리는 2030년에야" |
 | c08 | 19 | 마지막 장면 |
 
+아래 클립은 **하나씩** 만듭니다. 제목 줄의 시작 그림을 넣고, 그 아래 상자 안 영어만 복사해 붙여 넣으세요(영어에 ship·bridge·police·harbor 등이 들어 있으면 26편이 맞습니다).
+
+#### 26편 c01 — 시작 그림: `Ship_sailing_under_bridge_harbor` (01A)
+
 ```
-c01 | 시작 프레임 01A | Slow gentle push toward the bridge. The huge container ship keeps sailing slowly toward the bridge, then all the lights on the ship go out at once and the ship keeps drifting forward in the dark. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
-c02 | 시작 프레임 05A | Static view with a very slow push. The glowing consoles and screens go dark one after another until the room is dark, then a small red emergency lamp on the ceiling starts to glow. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
-c03 | 시작 프레임 07 | Very slow push toward the highlighted wire. The single highlighted wire flickers with a faint red glow, while the other wires stay still. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
-c04 | 시작 프레임 09 | Slow sideways drift along the ship and the iron lattice tower from one end to the other, showing they are the same length; tiny figures walk on the quay. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
-c05 | 시작 프레임 12 | Slow push from water level. The dark ship drifts slowly closer and closer to the concrete pier; the water ripples around the bow. The ship does not touch the pier yet. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
-c06 | 시작 프레임 14 | Static view. The red lights on the police cars flash, the tiny officers raise their hands and the short line of cars slows down and stops. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
-c07 | 시작 프레임 15 | Slow drone glide along the construction site. A tall crane slowly lifts a bridge segment and the barges move gently on the water. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
-c08 | 시작 프레임 19 | Slow high drone glide over the harbor at dawn. The light grows warmer, a tugboat moves slowly across the calm water. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+Slow gentle push toward the bridge. The huge container ship keeps sailing slowly toward the bridge, then all the lights on the ship go out at once and the ship keeps drifting forward in the dark. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
 ```
+
+#### 26편 c02 — 시작 그림: `Model_navigation_bridge_at_night` (05A)
+
+```
+Static view with a very slow push. The glowing consoles and screens go dark one after another until the room is dark, then a small red emergency lamp on the ceiling starts to glow. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 26편 c03 — 시작 그림: `Red_marker_on_electrical_wire` (07)
+
+```
+Very slow push toward the highlighted wire. The single highlighted wire flickers with a faint red glow, while the other wires stay still. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 26편 c04 — 시작 그림: `Container_ship_scale_model_compa…` (09)
+
+```
+Slow sideways drift along the ship and the iron lattice tower from one end to the other, showing they are the same length; tiny figures walk on the quay. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 26편 c05 — 시작 그림: `Container_ship_drifting_toward_b…` (12)
+
+```
+Slow push from water level. The dark ship drifts slowly closer and closer to the concrete pier; the water ripples around the bow. The ship does not touch the pier yet. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 26편 c06 — 시작 그림: `Police_cars_at_bridge_model` (14)
+
+```
+Static view. The red lights on the police cars flash, the tiny officers raise their hands and the short line of cars slows down and stops. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 26편 c07 — 시작 그림: `Bridge_construction_site_model_c…` (15)
+
+```
+Slow drone glide along the construction site. A tall crane slowly lifts a bridge segment and the barges move gently on the water. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 26편 c08 — 시작 그림: `Harbor_city_architectural_scale_…` (19)
+
+```
+Slow high drone glide over the harbor at dawn. The light grows warmer, a tugboat moves slowly across the calm water. Keep the same architectural scale model look, colors and lighting as the start frame. Nothing new appears in the air. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
 
 ## 장면 배치표
 
