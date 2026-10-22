@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>설비 모니터링 대시보드, 화면에 꼭 있어야 할 6가지</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 데이터 인프라 · <a href="https://blog.naver.com/donginensis" target="_blank" style="color:#fff">blog.naver.com/donginensis</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">설비 모니터링 대시보드, 화면에 꼭 있어야 할 6가지</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 데이터를 모으기 시작하면 다음 질문은 거의 같습니다. "그래서 화면에는 뭘 띄우죠?" 수집할 수 있는 값은 수십 가지인데, 그걸 전부 그래프로 깔아 놓으면 아무도 보지 않는 화면이 됩니다. 부산에서 제어반을 설계·제작하고, 그 제어반이 모은 데이터를 웹 화면까지 연결하는 동인엔시스가 <strong style="font-weight:700;color:#111">설비 모니터링 대시보드</strong>에 꼭 있어야 할 여섯 가지를 체크리스트로 정리했습니다. 현장 담당자와 대시보드를 만드는 IT 담당자가 함께 보시면 좋습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">좋은 대시보드의 기준은 '3초'</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">대시보드를 연 사람이 3초 안에 "지금 괜찮은가, 아닌가"를 알 수 있어야 합니다. 그다음 30초 안에 "어디가, 왜"까지 따라갈 수 있으면 충분합니다. 그래프가 얼마나 화려한지는 그다음 문제입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스의 데이터 솔루션은 현장 설비에서 시작해 산업 통신, 데이터 통합관리, 웹 모니터링, AI·디지털트윈으로 이어지는 다섯 단계로 짜여 있습니다. 그중 사람이 직접 마주하는 곳이 웹 모니터링, 즉 PWA 대시보드입니다. 아래 체크리스트는 이 화면을 설계하며 기준으로 삼는 것들입니다.</p>
+<div data-img="02-layers.png" style="margin:0 0 18px;text-align:center"><img src="images/02-layers.png" alt="02-layers.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-layers.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">여섯 가지 체크리스트</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">아래 항목은 화면을 처음 만들 때뿐 아니라, 이미 쓰고 있는 화면을 점검할 때도 그대로 쓸 수 있습니다. '예'가 적은 항목부터 손보면 됩니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 1. 숫자보다 상태가 먼저 보이는가</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">첫 화면에는 숫자보다 상태가 와야 합니다. 설비마다 정상·경고·알람을 색으로 보여 주면, 수십 대가 있어도 노란색과 빨간색만 찾으면 됩니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">설비 목록이나 배치도에 상태 색이 바로 보이는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">경고·알람 설비가 위로 올라오거나 눈에 띄게 표시되는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">색만으로 구분하기 어려운 사람을 위해 글자나 아이콘도 함께 쓰는지</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스 지능형 제어반은 센서 하나라도 경고면 그 설비를 경고로 판정합니다. 그래서 첫 화면은 설비 단위의 상태만 보여 줘도 놓치는 것이 없습니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 2. 설비에서 센서까지 두 번 안에 닿는가</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">노란색 설비를 눌렀을 때 바로 어느 센서 때문인지 보여야 합니다. 동인엔시스 데이터는 '설비-센서-실시간값-상태'라는 같은 틀로 쌓이기 때문에, 설비 화면에서 센서별 값과 단위, 상태를 같은 모양으로 펼쳐 보일 수 있습니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">설비 → 센서로 한두 번의 클릭이면 닿는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">센서마다 현재 값, 단위, 상태가 함께 보이는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">같은 기종 설비끼리 나란히 비교할 수 있는지</li>
+</ul>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 3. 지금 값 옆에 '평소'가 보이는가</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">베어링 온도 48도라는 숫자 하나로는 판단이 어렵습니다. 어제와 지난주의 흐름이 옆에 있어야 '오르고 있다'는 것이 보입니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">센서를 누르면 기간별 이력 그래프가 열리는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">하루, 일주일, 한 달처럼 기간을 쉽게 바꿀 수 있는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">필요한 기간을 CSV로 내려받아 따로 분석할 수 있는지</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이력 조회는 동인엔시스 대시보드의 기본 기능입니다. 현장에서 "언제부터 이랬지?"라는 질문에 바로 답할 수 있어야 대시보드가 일하는 도구가 됩니다.</p>
+<div data-photo="04-photo-wall-screen.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 공장 사무실 벽면 화면에 띄운 설비 상태 대시보드 (연출 이미지) <span style="font-weight:400">(파일 이름: 04-photo-wall-screen.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a Korean factory office with a large wall-mounted monitor showing an abstract dashboard of green, yellow and grey tiles and small line charts (no readable text), two staff members in work vests looking at it from a desk, window to production floor, natural light, documentary style, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 4. 지나간 경고·알람을 다시 볼 수 있는가</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">알림은 울리고 지나가면 잊히기 쉽습니다. 언제, 어느 설비에서, 어떤 값 때문에 경고가 떴는지 목록으로 남아 있어야 정비 계획에 쓸 수 있습니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">경고·알람이 발생 시각과 함께 기록되는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">설비별로 알림 횟수를 모아 볼 수 있는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">같은 경고가 반복되는 설비가 눈에 띄는지</li>
+</ul>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 5. 데이터가 '살아 있는지' 보이는가</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">의외로 자주 놓치는 항목입니다. 화면의 값이 방금 들어온 것인지, 한 시간 전에 멈춘 것인지 구분이 안 되면 정상으로 보이는 화면을 믿을 수 없습니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">설비마다 마지막으로 값이 들어온 시각이 보이는지</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">일정 시간 이상 값이 안 들어오면 따로 표시되는지</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">통신이 끊긴 동안의 데이터는 제어반이 보관했다가 연결이 살아나면 다시 보내지만, 그사이 화면은 멈춰 있습니다. '값이 없음'도 하나의 상태로 보여 주는 것이 좋습니다. 모든 칸이 초록색인데 사실은 어제부터 값이 멈춰 있었다면, 그 화면은 안심이 아니라 착각을 줍니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 6. 보는 사람에 맞춰 화면이 나뉘는가</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">같은 데이터라도 보는 사람마다 궁금한 것이 다릅니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 18px;font-size:15px">
+<thead>
+<tr>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">보는 사람</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">주로 궁금한 것</th>
+<th style="border:1px solid #c9d1dc;background:#eef2f7;padding:8px 10px;text-align:left">맞는 화면</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">현장 담당자</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">지금 손봐야 할 설비</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">상태 목록, 알림 이력</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">관리자</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">이번 달 설비 상태와 정지</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">기간 요약, 설비별 비교</td>
+</tr>
+<tr>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">IT·분석 담당자</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">원천 데이터</td>
+<td style="border:1px solid #c9d1dc;padding:8px 10px">CSV, REST API, WebSocket</td>
+</tr>
+</tbody>
+</table>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스 대시보드는 웹 브라우저로 여는 PWA 방식이라, 사무실 PC에서도 휴대폰에서도 같은 주소로 열 수 있습니다. PWA는 설치형 앱 없이 브라우저로 쓰면서 홈 화면에 앱처럼 추가해 둘 수 있는 웹 방식입니다. IT기업이 자체 화면을 만들고 싶다면 같은 데이터를 API로 받아 쓸 수 있습니다.</p>
+<div data-img="03-roles.png" style="margin:0 0 18px;text-align:center"><img src="images/03-roles.png" alt="03-roles.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-roles.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">만들 때 흔히 하는 실수</h2>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">모든 값을 첫 화면에:</strong> 수집한 값을 다 보여 주고 싶은 마음은 이해하지만, 첫 화면이 그래프로 가득 차면 정작 이상한 설비를 찾기 어렵습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">평균만 보여 주기:</strong> 공장 전체 평균 온도 같은 숫자는 보기 좋지만, 한 설비의 이상을 가립니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">현장과 상의 없이 만들기:</strong> 현장 담당자가 매일 무엇을 확인하는지 묻지 않고 만든 화면은 금방 열리지 않게 됩니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">만들고 끝내기:</strong> 설비가 늘고 공정이 바뀌면 화면도 바뀌어야 합니다. 몇 달에 한 번은 실제로 어떤 화면이 쓰이는지 확인해 보세요.</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 모니터링 대시보드는 한 번 완성하는 결과물이 아니라, 쓰면서 다듬는 도구라는 점을 기억해 두면 좋습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">체크리스트 한눈에</h2>
+<ol style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">숫자보다 상태가 먼저 보이는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">설비에서 센서까지 두 번 안에 닿는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">지금 값 옆에 평소가 보이는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">지나간 경고·알람을 다시 볼 수 있는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">데이터가 살아 있는지 보이는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">보는 사람에 맞춰 화면이 나뉘는가</li>
+</ol>
+<div data-photo="05-photo-phone-check.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 휴대폰으로 설비 상태를 확인하는 모습 (연출 이미지) <span style="font-weight:400">(파일 이름: 05-photo-phone-check.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic close-up photo of a Korean worker&#x27;s hand holding a smartphone showing an abstract list of colored status tiles (no readable text), standing in a factory corridor with pipes and a light-grey control cabinet blurred behind, shallow depth of field, warm light, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 설비 모니터링 대시보드를 우리 회사 시스템 안에 넣을 수 있나요?</strong>
+데이터를 REST API와 WebSocket으로 받아 고객사나 IT기업의 화면에 직접 띄울 수 있습니다. 연동 범위는 기술 미팅에서 함께 정합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 휴대폰에서도 보이나요?</strong>
+웹 브라우저로 여는 방식이라 휴대폰에서도 같은 화면을 볼 수 있고, 홈 화면에 추가해 두면 앱처럼 바로 열 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 화면 구성을 현장에 맞게 바꿀 수 있나요?</strong>
+설비 구성과 보는 사람에 따라 필요한 화면이 달라지므로, 도입 단계에서 현장과 함께 범위를 정합니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">마무리: 보이는 화면이 아니라 쓰이는 화면</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">좋은 설비 모니터링 대시보드는 많이 보여 주는 화면이 아니라, 필요한 것을 먼저 보여 주는 화면입니다. 상태에서 센서로, 지금에서 평소로, 알림에서 기록으로 자연스럽게 이어지면 화면은 매일 열리는 도구가 됩니다. 동인엔시스는 제어반에서 만든 데이터가 그 화면까지 같은 틀로 이어지도록 설계합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/manufacturing.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post070&amp;utm_content=donginensis#inquiry">대시보드·데이터 연동 상담</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">상담 051-862-3668 · dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>고객사 담당자가 대시보드에서 가장 먼저 찾는 화면은 무엇이었나요?</li><li>IT기업과 화면을 협의할 때 자주 나온 요청을 한 줄로 적어 주세요.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #설비데이터 #설비모니터링대시보드 #웹대시보드 #PWA #설비상태 #이력조회 #스마트제조 #데이터시각화</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 솔루션 5단계 중 웹 모니터링(PWA Dashboard): 상태(normal·warning·alarm) 중심 화면, 이력 조회</li><li>사실 확인: 데이터 제공: REST API, WebSocket, CSV 내보내기 / &#x27;설비-센서-실시간값-상태&#x27; 구조</li><li>사실 확인: 센서 하나라도 경고면 설비 상태도 경고</li><li>사실 확인: PWA는 웹 기술 방식에 대한 일반 설명(브라우저로 열고 홈 화면에 추가 가능)</li><li>사실 확인: 마지막 수신 시각·역할별 화면 등은 대시보드 설계 원칙으로 서술 (모든 기능이 현재 제공된다고 단정하지 않음)</li><li>사실 확인: 1991년 부산, 제어반 설계·제작</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "설비데이터", "설비모니터링대시보드", "웹대시보드", "PWA", "설비상태", "이력조회", "스마트제조", "데이터시각화"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>

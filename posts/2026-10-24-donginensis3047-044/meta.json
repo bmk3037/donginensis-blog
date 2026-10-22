@@ -1,0 +1,28 @@
+{
+  "topic_id": "44",
+  "blog": "donginensis3047",
+  "format": "비교형",
+  "title": "설비 알람 기준, 경고와 알람을 나누면 무엇이 달라질까",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "설비알람기준",
+    "경고알람",
+    "기준값설정",
+    "설비상태",
+    "예지보전",
+    "설비관리",
+    "스마트공장"
+  ],
+  "keyword": "설비 알람 기준",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post044&utm_content=donginensis3047#inquiry",
+  "fact_check": [
+    "상태 판정: 센서별 기준값으로 normal·warning·alarm, 센서 하나라도 경고면 설비 상태도 경고",
+    "기준값은 시운전·안정화 때 정하고 유지관리(알람 기준 조정)에서 다시 맞춤",
+    "수집 항목: 권선온도(U·V·W), 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 대기 온습도, 운전 상태신호",
+    "대응 방법 표·알람 피로 이야기는 일반적인 운영 원칙이며 회사 고유 수치 아님 (온도·진동 기준 숫자는 쓰지 않음)",
+    "AI 이상탐지는 고도화 중",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-24"
+}
