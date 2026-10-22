@@ -94,14 +94,17 @@
 - 계기판·화면·꼬리표는 "completely blank" 또는 "barcode stripes only".
 - 그 아래에 장면 배치표(번호 | 대본 문장 | 합성할 때 얹을 인포그래픽과 글자)를 둡니다. 인포그래픽 그림은 따로 만들지 않습니다. 합성 단계에서 그립니다.
 
-### 그림 스타일 고르기 (2026-10-22 대표이사 결정)
+### 그림 스타일 고르기 (2026-10-22 대표이사 결정, 같은 날 "주제마다 항상 물어봐 줘"로 강화)
 
-플로우 프롬프트를 쓰기 전에 대표이사에게 **"3D 설명 렌더로 할까요, 미니어처 디오라마로 할까요?"**라고 묻고, 고른 스타일로 씁니다. 대표이사가 없는 자동 실행(예약 작업)에서는 두 판을 모두 써 두고 고르게 합니다. 번호와 장면 내용은 두 판이 같아야 합니다(합성 배치를 같이 쓰기 위해).
+**주제가 정해지면, 플로우 프롬프트를 한 줄도 쓰기 전에 매번 대표이사에게 스타일을 묻습니다.** 앞 편과 같은 스타일이 뻔해 보여도 생략하지 않습니다. 사건형이든 설명형이든 같습니다. 고른 스타일로만 씁니다. 대표이사가 없는 자동 실행(예약 작업)에서는 세 판을 모두 써 두고 고르게 합니다. 번호와 장면 내용은 모든 판이 같아야 합니다(합성 배치를 같이 쓰기 위해).
 
-| 판 | 각 줄 끝에 붙이는 스타일 문장 |
-|---|---|
-| 3D 설명 렌더 | `Vertical 9:16, clean 3D engineering-explainer render, soft bright light, clear natural colors, no text, no logos, no license plates, no faces. Composition: the subject sits in the lower two-thirds and the upper third is clean for overlay graphics.` |
-| 미니어처 디오라마 | `Miniature diorama on a wooden desk: a handmade scale model, tilt-shift photography, shallow depth of field, bright warm daylight from a window, cheerful saturated colors, crisp tiny details; the sea is glossy blue resin and the clouds and smoke are cotton wool. Composition: the subject sits in the lower two-thirds and the upper third is a soft blurred background, clean for overlay graphics. Vertical 9:16. No text, no letters, no logos, no flags, no faces.` |
+물을 때는 세 가지를 보여 주고, 주제에 맞는 하나를 "(추천)"으로 앞에 둡니다.
+
+| 판 | 어울리는 주제 | 각 줄 끝에 붙이는 스타일 문장 |
+|---|---|---|
+| 건축 모형 도시 (벤치마크 @2tan_saeng) | 사건형, 도시·공장·나라 규모 이야기(23·24·25편) | `Highly detailed architectural scale model world made of white and warm beige materials with soft green trees and calm blue water, like a museum city model that fills the entire frame edge to edge (no table, no model base, no studio wall, no model edges visible), tilt-shift photography with shallow depth of field, soft natural daylight with gentle shadows, slightly muted natural colors, calm and clean. People are tiny plain white figures without faces. The only accent color is red, used for small 3D markers placed in the scene. Composition: the subject sits in the lower two-thirds and the upper third is calm for overlay graphics. Vertical 9:16. No text, no letters, no numbers, no logos, no faces.` |
+| 3D 설명 렌더 | 기계 속 원리를 보여 줘야 하는 설명형(09편까지) | `Vertical 9:16, clean 3D engineering-explainer render, soft bright light, clear natural colors, no text, no logos, no license plates, no faces. Composition: the subject sits in the lower two-thirds and the upper third is clean for overlay graphics.` |
+| 미니어처 디오라마 | 배·항구·작은 현장, 밝고 귀여운 설명형(17·21편) | `Miniature diorama on a wooden desk: a handmade scale model, tilt-shift photography, shallow depth of field, bright warm daylight from a window, cheerful saturated colors, crisp tiny details; the sea is glossy blue resin and the clouds and smoke are cotton wool. Composition: the subject sits in the lower two-thirds and the upper third is a soft blurred background, clean for overlay graphics. Vertical 9:16. No text, no letters, no logos, no flags, no faces.` |
 
 - 쓰지 않는 스타일: 흐린 날·저채도·필름 그레인 실사(10·17편 실사판이 너무 우울했음).
 - 미니어처판은 장면마다 2~3장 변형을 받으면 컷을 더 빠르게 만들 수 있습니다(17편: 60장 중 56장, 컷 42개).
