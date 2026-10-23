@@ -61,6 +61,7 @@ bash shorts/compose/make.sh video $W $W/09_slug_v1.mp4    # 10~20분 걸림
 - 플로우 인포그래픽 이미지는 크레딧이 들어서 만들지 않습니다. 막대·게이지·지도 핀·화살표 같은 인포그래픽은 `scene.html`의 함수로 직접 그립니다(`big`, `tag`, `rings`, `pinDrop`, `arrows`, `donut`, `bars`, `stairs`, `meterBar`, `veil`, `darken` 등).
 - 효과음은 직접 만듭니다(외부 음원 없음): 컷마다 휙, 라벨에 톡, 큰 숫자에 쿵. 목소리보다 작게.
 - 음량은 -14 LUFS, 결과 파일은 20MB 안쪽(휴대폰에서 받기 쉬운 크기).
+- **올릴 파일은 고화질판으로(10/23, 32편):** 20MB판은 확인용이고, 업로드용은 `video_only.mp4`에서 CRF 19·최대 4.5Mbps로 다시 묶고 `CRF=19 RATE=4500k bash append_cover.sh …`로 커버를 붙인다(60fps면 `FPS=60`도). 지식컷은 3.7Mbps.
 
 ## 파일 주고받기
 
