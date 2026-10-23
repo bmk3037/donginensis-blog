@@ -3,10 +3,10 @@
 #   bash append_cover.sh 입력.mp4 cover.jpg 결과.mp4
 set -euo pipefail
 IN=$1; COVER=$2; OUT=$3
-FPS=${FPS:-30}; RATE=${RATE:-1300k}   # 60fps 편(32편)은 FPS=60 RATE=1500k
+FPS=${FPS:-30}; RATE=${RATE:-1300k}; CRF=${CRF:-29}   # 60fps 편(32편)은 FPS=60 RATE=1500k, 올릴 고화질판은 CRF=19 RATE=4500k
 ffmpeg -y -loglevel error -i "$IN" -loop 1 -t 1.0 -framerate $FPS -i "$COVER" -f lavfi -t 1.0 -i anullsrc=r=44100:cl=stereo -filter_complex \
   "[0:v]fps=$FPS,format=yuv420p,setsar=1[v0];[1:v]scale=1080:1920,format=yuv420p,setsar=1[v1];[0:a]afade=t=out:st=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$IN" | awk '{print $1-0.4}'):d=0.4,aresample=44100,aformat=channel_layouts=stereo[a0];[v0][a0][v1][2:a]concat=n=2:v=1:a=1[v][a]" \
-  -map "[v]" -map "[a]" -c:v libx264 -crf 29 -preset slow -tune stillimage -maxrate $RATE -bufsize $(( ${RATE%k} * 2 ))k -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart "$OUT.tmp.mp4"
+  -map "[v]" -map "[a]" -c:v libx264 -crf $CRF -preset slow -tune stillimage -maxrate $RATE -bufsize $(( ${RATE%k} * 2 ))k -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart "$OUT.tmp.mp4"
 ffmpeg -y -loglevel error -i "$OUT.tmp.mp4" -i "$COVER" -map 0 -map 1 -c copy -c:v:1 mjpeg -disposition:v:1 attached_pic -movflags +faststart "$OUT"
 rm -f "$OUT.tmp.mp4"
 ls -la "$OUT"; ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT"
