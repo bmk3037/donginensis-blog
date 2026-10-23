@@ -288,15 +288,17 @@
 23b | Close underwater view along the finished concrete tunnel on the seabed, its sides and top fully covered with a thick layer of rocks, the cover filling most of the frame and fading into the blue distance, a red bracket marking the thickness of the rock layer. Bright clear underwater daylight with sunlight rays, rich natural colors (warm headlights, white, silver and yellow vehicles, grey concrete, teal-blue water), close framing so the subject fills the frame with little empty water. Photorealistic cinematic 3D cutaway render, documentary engineering look. Recurring motif: bold red annotation lines (dimension lines, a depth ruler with tick marks, red target circles, red arrows) drawn over the scene, without any text or numbers. People only as small silhouettes, no faces. No text, no letters, no numbers, no logos, no license plates. Vertical 9:16.
 ```
 
-## 클립 3개만 넣어 보기 (10/23 대표이사 "제일 중요한 3개만 클립 넣어 보자")
+## 클립 5개 넣어 보기 (10/23 대표이사 "제일 중요한 3개만" → "2개 더, 10크레딧이네, 하루 50 공짜")
 
-사진판에 클립 3개만 섞습니다. 나머지는 그대로 정지 그림 + 합성 효과입니다. 합계 45크레딧(15 × 3), 모두 Veo 3.1 Lite.
+사진판에 클립 5개를 섞습니다. 나머지는 그대로 정지 그림 + 합성 효과입니다. Veo 3.1 Lite가 클립 1개 10크레딧이고 하루 50크레딧이 무료라(10/23 대표이사 확인) 5개면 하루 무료분 안에 들어갑니다.
 
 | 클립 | 문장 | 왜 이 장면 |
 |---|---|---|
 | c01 | 1번 "내 차로 수심 48m 바다 밑을 달리는 길" | 첫 3초 규칙: 0초에 이미 움직이는 장면. 바다 밑을 달리는 느낌이 이 영상의 전부 |
 | c09 | 9번 "바닷물이 터지면 어떡하죠?" | 첫 중간 질문. 물이 터지는 건 정지 그림으로는 안 보임 |
 | c21 | 22번 "사이 물만 빼내면, 바깥 물이 토막을 꽉 밀어붙이거든요" | 영상의 핵심 반전(바다가 거꾸로 도와줌). 물이 빠지고 붙는 움직임이 곧 설명 |
+| c19 | 19번 "탱크에 물을 채우면 … 천천히 내려앉아요" | 커버 제목 "가라앉힌 터널"의 바로 그 장면. 가라앉는 건 움직여야 보임 |
+| c06 | 7번 "거대한 원통 기계 TBM" | 굴착식의 얼굴. 지식컷도 TBM을 크게 보여 줌. 돌아가야 기계로 보임 |
 
 - c09·c21은 지금 있는 그림(`09.jpg`, `21.jpg`)으로 바로 만들 수 있습니다. c01은 새로 만드는 01 그림을 받은 뒤에 만듭니다.
 - 합성: 클립 앞 4초를 2초씩 두 컷(a·b)으로 쓰고, 그 자리의 b 그림(09b·21b)은 예비로 둡니다.
@@ -317,6 +319,18 @@ The crack above the tunnel roof bursts wider and a strong jet of seawater sprays
 
 ```
 The water in the small chamber between the two sections drains out through the pipe, and as it empties the new section presses tightly against the old one, the red arrows on the outside pushing in, the camera holding steady with a slow push in on the joint. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 32편 c19 — 시작 그림: `19.jpg`
+
+```
+Water rises inside the cut-open tanks and the concrete section slowly sinks on its cables down toward the trench within the first seconds, the camera following it downward, sediment stirring as it nears the bottom. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 32편 c06 — 시작 그림: `06.jpg`
+
+```
+The giant cutterhead turns steadily and grinds into the rock face within the first second, rock chips and dust pouring down in front of it, the camera slowly pushing in toward the red target circle at its center. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
 ```
 
 ## 사진판 먼저 (10/23 대표이사 "일단 사진으로만 해 보자. 차이가 얼마나 나는지 비교")
@@ -360,10 +374,10 @@ The water in the small chamber between the two sections drains out through the p
 
 ## 3단계: 클립 24개 (프레임 투 비디오) — 사진판 비교를 본 뒤 정함
 
-- 새 플로우 프로젝트, 출력 수 1, 비율은 설정에서 9:16. 미리보기가 "15크레딧, 동영상 1개"인지 확인. 모두 Veo 3.1 Lite로 만듭니다(Fast는 값이 더 비싸서, c01 결과가 마음에 안 들 때만 Fast로 다시).
+- 새 플로우 프로젝트, 출력 수 1, 비율은 설정에서 9:16. 미리보기가 "10크레딧, 동영상 1개"인지 확인(10/23 다시 확인, 하루 50크레딧 무료). 모두 Veo 3.1 Lite로 만듭니다(Fast는 값이 더 비싸서, c01 결과가 마음에 안 들 때만 Fast로 다시).
 - 하나씩, **시작 그림을 꼭 넣고** 미리보기에 그 그림이 보이는지 확인 후 생성.
 - **24개 모두 만듭니다(10/23 대표이사 "최대한 똑같이").** 지식컷은 거의 모든 컷이 움직이므로 정지 그림으로 바꾸지 않습니다.
-- 합계 **360크레딧**(24개 × 15). 8개씩(120크레딧) 세 번에 나눠 만듭니다: ① c01~c04, c09, c13, c20~c22 ② c05~c08, c10~c12, c14 ③ c15~c19, c23, c24. ①만 먼저 합성해 지식컷과 비교해 볼 수도 있습니다.
+- 합계 **240크레딧**(24개 × 10, 하루 무료 50이면 5일). 8개씩(120크레딧) 세 번에 나눠 만듭니다: ① c01~c04, c09, c13, c20~c22 ② c05~c08, c10~c12, c14 ③ c15~c19, c23, c24. ①만 먼저 합성해 지식컷과 비교해 볼 수도 있습니다.
 - 클립은 8초로 나오지만 **앞 4초만** 써서 앞 2초·뒤 2초 두 컷으로 나눕니다(지식컷도 컷 하나가 2초 안팎, 같은 장면 2컷 → 다음 장면). 그래서 움직임은 처음 4초 안에 분명히 일어나게 썼습니다. 결과가 마음에 안 드는 클립만 다시 만듭니다.
 - 1단계 그림을 받으면 아래 "시작 그림"을 받은 파일 이름으로 바꿔 다시 드립니다.
 
