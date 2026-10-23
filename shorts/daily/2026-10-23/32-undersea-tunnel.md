@@ -252,6 +252,19 @@
 
 빠진 것: **23b** 1장. 48장 중 47장.
 
+### 세 번째 zip (2026-10-23, 다시 만든 첫 장면 5장)
+
+| 번호 | 받은 파일 | 메모 |
+|---|---|---|
+| 01 | Vehicles_driving_through_underwa…_2 | 터널 앞에서 본 차들(노란 버스). **c01 시작 그림** |
+| 01b | Vehicles_driving_through_underwa… (뒤에 _2 없는 것) | 옆에서 본 터널 속 차들 |
+| 02 | Cutaway_view_of_underwater_tunnel | 위에 바다·다리, 아래에 터널(수면 위아래 나눔) |
+| 02b | White_car_driving_undersea_tunnel | 흰 차 뒤에서, 위로 바다 |
+| 23b | Underwater_concrete_tunnel_with_… | 돌로 덮인 터널, 빨간 괄호 |
+
+처음 판 01·01b·02·02b는 `예비/첫판/`으로 옮김. **48장 모두 갖춤.**
+
+
 ### 사진판 비교에서 본 차이 (10/23, `32편_사진판_비교_예시.jpg`)
 
 대표이사: "사진만 보기에는 지식컷 대비 없어 보이네, 인포그래픽이 없어서 그런가."
