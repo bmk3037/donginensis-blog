@@ -5,53 +5,55 @@
 - 우리 홈페이지(donginensis.com)는 GitHub Pages 정적 HTML, 문의 폼은 Google Apps Script로 보냄 → PHP를 쓰지 않아 이번 건과 무관(10/23 확인).
 - 겁주기 금지: "공격 시도 관측"과 "성공 사례는 아직 확인 안 됨"을 같이 말함. 버전 번호는 설명란에만.
 
+## 아주 쉽게 판 (10/23 대표이사 "아주 쉽게")
+
+- 어려운 말 다 뺌: CVE, CVSS, 서버 언어, 2200만, 엠바고, CISO 숫자 → 설명란에만.
+- 비유 하나로 끝까지: **사이트 = 집, 구멍 = 열쇠 없이 열리는 문, 패치 = 새 자물쇠.**
+- 큰 글자 2개만: "9.2", "열에 일곱".
+
 ## 첫 3초
 
 | 항목 | 내용 |
 |---|---|
 | 첫 문장 | **"내가 가입한 사이트, 문이 열려 있을지도 몰라요."** (21자, 약 2.9초) |
-| 첫 장면 | 클립 c01: 끝없이 이어진 복도의 문들이 0초부터 하나씩 열리며 빨간 빛이 새어 나옴 |
+| 첫 장면 | 클립 c01: 끝없는 복도의 문들이 0초부터 하나씩 열리며 빨간 빛이 새어 나옴 |
 | 첫 제목(0~2.2초) | 작은 글자 "내가 가입한 사이트" / 큰 글자 **"문이 열려 있다?"** |
-| 다른 안 B | "로그인도 안 했는데, 남의 서버에 명령을 내린다면?" |
-| 다른 안 C | "열 곳 중 일곱 곳이 쓰는 언어에, 구멍이 났어요." |
+| 다른 안 | "비밀번호 없이 열리는 문이, 인터넷에 생겼어요." / "열 곳 중 일곱 곳이 쓰는 도구에, 구멍이 났어요." |
 
-## 공유·저장
+## 공유
 
 | 항목 | 내용 |
 |---|---|
-| 공유 대상 | 회사 홈페이지·쇼핑몰을 관리하는 사람(사장님, 개발자 친구, 홈페이지 담당) |
-| 공유 한 문장 | "회사 홈페이지를 관리하는 분께, 이 영상 한번 보내 주세요." (21번) |
-| 저장 요약(설명란 📌만) | ① PHP 버전 확인 → 8.5.12·8.4.27·8.3.36·8.2.35 이상 ② 호스팅 업체에 패치 여부 확인(워드프레스 업데이트만으론 안 바뀜) ③ 패치 후 접속 기록 점검 |
-| 말하고 싶은 한 가지 | **로그인 없이** 밖에서 명령을 내릴 수 있는 구멍, 9.2점 |
-| 큰 글자(3개까지) | "9.2"(4번) / "열에 일곱"(6번) / "2200만"(7번) |
-| 설명란 질문 | "우리 회사 홈페이지, PHP 몇 버전인지 알고 계신가요?" |
+| 공유 대상 | 회사 홈페이지·쇼핑몰 관리하는 사람 |
+| 공유 한 문장 | "회사 홈페이지 관리하는 분께, 이 영상 보내 주세요." (20번) |
+| 설명란 📌 | ① PHP 버전 확인(8.5.12·8.4.27·8.3.36·8.2.35 이상) ② 호스팅 업체에 패치 확인 ③ 사이트마다 다른 비밀번호 |
+| 설명란 질문 | "우리 회사 홈페이지, 무엇으로 만들었는지 알고 계신가요?" |
 
-## 대본 (22문장, 공백 제외 598자, 1.15배속 약 89초)
+## 대본 (21문장, 공백 제외 470자, 1.15배속 약 70초)
 
 | 번호 | 내레이션 | 그림·클립 |
 |---|---|---|
 | 1 | 내가 가입한 사이트, 문이 열려 있을지도 몰라요. | 01 · **c01** |
-| 2 | 지난 10월 21일, 웹사이트를 만드는 언어 PHP에서 치명적인 구멍 두 개가 공개됐어요. | 02 |
-| 3 | 로그인도 없이, 밖에서 그 서버에 명령을 내릴 수 있는 구멍이었죠. | 03 · **c02** |
-| 4 | 위험도는 10점 만점에 9.2점, '치명적' 등급이에요. | 04 (큰 글자 "9.2") |
-| 5 | 문제는 PHP가 너무 많이 쓰인다는 거예요. | 05 |
-| 6 | 서버 언어가 알려진 웹사이트 열 곳 중 약 일곱 곳이 PHP를 쓰거든요. | 05 (큰 글자 "열에 일곱") |
-| 7 | 밖에서 접속할 수 있는 PHP 서버만, 세계에 약 2200만 개로 추정되죠. | 06 (큰 글자 "2200만") |
-| 8 | 그런데 일이 더 꼬였어요. | 07 |
-| 9 | 정식 발표 전에, 공격 시연 영상과 고친 파일이 먼저 퍼졌거든요. | 08 |
-| 10 | 한 업체는 약속보다 6시간 넘게 먼저 패치를 공개해, PHP 재단이 약속을 깼다고 비판했죠. | 09 |
-| 11 | 실제 공격 시도가 관측되고 있다는 보안업체 발표도 나왔어요. | 10 |
-| 12 | 다만 공격에 성공한 사례는 아직 확인되지 않았고요. | 10 |
-| 13 | 우리 정부는 민간 사이버위기 경보를 '관심'에서 '주의'로 올렸어요. | 11 |
-| 14 | 그리고 기업 보안책임자 2만 8천 명과 주요 기반시설 111곳에 패치를 요청했죠. | 12 |
-| 15 | 하지만 국내에서 취약한 버전을 쓰는 곳이 얼마나 되는지는 아직 파악되지 않았어요. | 13 |
-| 16 | 가장 확실한 방법은, PHP를 고친 버전으로 바로 올리는 거예요. | 14 |
-| 17 | 공장 설비라면 어떨까요? | 15 |
-| 18 | 지능형 제어반은 데이터를 보내는 데이터망과, 설비를 움직이는 제어망을 나눠 둬요. | 16 |
-| 19 | 서버는 설비를 직접 움직이지 않고, 최종 제어는 현장 PLC가 맡죠. | 17 |
-| 20 | 웹 쪽에 구멍이 나도, 설비까지 바로 넘어가지 않게 나눠 둔 거예요. | 18 |
-| 21 | 회사 홈페이지를 관리하는 분께, 이 영상 한번 보내 주세요. | 19 |
-| 22 | 문은 하나만 열려도, 집 전체가 위험해지니까요. | 20 (01과 같은 복도, 첫 장면으로 이어짐) |
+| 2 | 지난 10월 21일, 인터넷 사이트를 만드는 도구에서 큰 구멍이 발견됐어요. | 02 |
+| 3 | 도구 이름은 PHP예요. | 02 |
+| 4 | 이 구멍으로는, 비밀번호 없이도 사이트 뒤의 컴퓨터를 마음대로 조종할 수 있었죠. | 03 · **c02** |
+| 5 | 열쇠 없이 남의 집 문을 여는 것과 같아요. | 04 |
+| 6 | 위험 점수는 10점 만점에 9.2점이었어요. | 05 (큰 글자 "9.2") |
+| 7 | 그런데 이 도구, 정말 많이 쓰여요. | 06 |
+| 8 | 무엇으로 만들었는지 알려진 사이트만 보면, 열 곳 중 약 일곱 곳이 PHP거든요. | 06 (큰 글자 "열에 일곱") |
+| 9 | 더 큰 문제는, 고친 버전이 정식으로 나오기도 전에 문 여는 시연 영상이 먼저 퍼졌다는 거예요. | 07 |
+| 10 | 실제로 문을 열어 보려는 시도도 보였대요. | 08 |
+| 11 | 다만 열린 곳은 아직 확인되지 않았고요. | 08 |
+| 12 | 그래서 우리 정부도 사이버 경보를 한 단계 올렸어요. | 09 |
+| 13 | 해결 방법은 간단해요, 고친 새 버전으로 바꾸는 거예요. | 10 |
+| 14 | 낡은 자물쇠를 새것으로 바꾸는 것처럼요. | 11 |
+| 15 | 우리는 사이트마다 비밀번호를 다르게 쓰는 게 좋아요. | 12 |
+| 16 | 한 곳이 뚫려도, 다른 곳까지 번지지 않게요. | 12 |
+| 17 | 공장도 똑같아요. | 13 |
+| 18 | 지능형 제어반은 인터넷과 연결된 쪽과, 기계를 움직이는 쪽을 나눠 둬요. | 14 |
+| 19 | 한쪽에 구멍이 나도, 기계까지 바로 번지지 않게요. | 15 |
+| 20 | 회사 홈페이지 관리하는 분께, 이 영상 보내 주세요. | 16 |
+| 21 | 문은 하나만 열려도, 집 전체가 위험해지니까요. | 17 (01과 같은 복도, 첫 장면으로 이어짐) |
 
 ## 사실 확인
 
@@ -74,71 +76,66 @@
 
 | 번호 | 걸린 것 | 고친 것 |
 |---|---|---|
-| 1 | "세계 웹사이트 70%"(보안뉴스 제목), 75%(연합), 80%(국회의원 주장) 제각각 | W3Techs 원 통계 69.3% + "서버 언어가 알려진" 조건으로 "열 곳 중 약 일곱 곳" |
-| 2 | 실제 피해·공격 성공 | 확인 안 됨 → 12번 문장으로 분명히 |
-| 3 | 영향 버전 5.4~8.5.11(구글만) | 영상에서 버전 말하지 않음, 설명란에 고친 버전만 |
-| 4 | "구버전은 패치 없음" — CERT-EU는 7.4·8.0·8.1 최소 소스 패치 공개 | "공식 업데이트 끊김" 문장 뺌 |
-| 5 | "웹이 뚫려도 공장은 안전" 같은 장담 | "바로 넘어가지 않게 나눠 둔 것"까지만(company.md 범위) |
-| 6 | 체인가드 이름 | 영상에선 "한 업체", 설명란에도 이름 안 씀 |
+| 1 | "세계 웹사이트 70%" 기사마다 70·75·80% | W3Techs 69.3%를 "무엇으로 만들었는지 알려진 사이트만 보면 열 곳 중 약 일곱 곳" |
+| 2 | 원격 코드 실행 | "비밀번호 없이 사이트 뒤의 컴퓨터를 마음대로 조종"(ZDNet "시스템을 장악할 수 있다") |
+| 3 | 공격 성공 | "시도는 보였지만 열린 곳은 아직 확인 안 됨"(보안뉴스) |
+| 4 | 정부 대응 | "경보를 한 단계 올림"(관심 → 주의) |
+| 5 | "사이트마다 다른 비밀번호" | 숫자 없는 일반 보안 수칙, 이번 취약점을 막는 방법이라고는 말하지 않음("한 곳이 뚫려도 번지지 않게") |
+| 6 | "웹이 뚫려도 공장은 안전" 장담 | "바로 번지지 않게 나눠 둔다"까지만(company.md: 제어망·데이터망 분리, 최종 제어는 PLC) |
 
 ## 타입캐스트 대본 (속도 1.0, mp3)
 
 ```
 내가 가입한 사이트, 문이 열려 있을지도 몰라요.
-지난 시월 이십일 일, 웹사이트를 만드는 언어 피에이치피에서 치명적인 구멍 두 개가 공개됐어요.
-로그인도 없이, 밖에서 그 서버에 명령을 내릴 수 있는 구멍이었죠.
-위험도는 십 점 만점에 구 점 이 점, 치명적 등급이에요.
-문제는 피에이치피가 너무 많이 쓰인다는 거예요.
-서버 언어가 알려진 웹사이트 열 곳 중 약 일곱 곳이 피에이치피를 쓰거든요.
-밖에서 접속할 수 있는 피에이치피 서버만, 세계에 약 이천이백만 개로 추정되죠.
-그런데 일이 더 꼬였어요.
-정식 발표 전에, 공격 시연 영상과 고친 파일이 먼저 퍼졌거든요.
-한 업체는 약속보다 여섯 시간 넘게 먼저 패치를 공개해, 피에이치피 재단이 약속을 깼다고 비판했죠.
-실제 공격 시도가 관측되고 있다는 보안업체 발표도 나왔어요.
-다만 공격에 성공한 사례는 아직 확인되지 않았고요.
-우리 정부는 민간 사이버위기 경보를 관심에서 주의로 올렸어요.
-그리고 기업 보안책임자 이만 팔천 명과 주요 기반시설 백십일 곳에 패치를 요청했죠.
-하지만 국내에서 취약한 버전을 쓰는 곳이 얼마나 되는지는 아직 파악되지 않았어요.
-가장 확실한 방법은, 피에이치피를 고친 버전으로 바로 올리는 거예요.
-공장 설비라면 어떨까요?
-지능형 제어반은 데이터를 보내는 데이터망과, 설비를 움직이는 제어망을 나눠 둬요.
-서버는 설비를 직접 움직이지 않고, 최종 제어는 현장 피엘씨가 맡죠.
-웹 쪽에 구멍이 나도, 설비까지 바로 넘어가지 않게 나눠 둔 거예요.
-회사 홈페이지를 관리하는 분께, 이 영상 한번 보내 주세요.
+지난 시월 이십일 일, 인터넷 사이트를 만드는 도구에서 큰 구멍이 발견됐어요.
+도구 이름은 피에이치피예요.
+이 구멍으로는, 비밀번호 없이도 사이트 뒤의 컴퓨터를 마음대로 조종할 수 있었죠.
+열쇠 없이 남의 집 문을 여는 것과 같아요.
+위험 점수는 십 점 만점에 구 점 이 점이었어요.
+그런데 이 도구, 정말 많이 쓰여요.
+무엇으로 만들었는지 알려진 사이트만 보면, 열 곳 중 약 일곱 곳이 피에이치피거든요.
+더 큰 문제는, 고친 버전이 정식으로 나오기도 전에 문 여는 시연 영상이 먼저 퍼졌다는 거예요.
+실제로 문을 열어 보려는 시도도 보였대요.
+다만 열린 곳은 아직 확인되지 않았고요.
+그래서 우리 정부도 사이버 경보를 한 단계 올렸어요.
+해결 방법은 간단해요, 고친 새 버전으로 바꾸는 거예요.
+낡은 자물쇠를 새것으로 바꾸는 것처럼요.
+우리는 사이트마다 비밀번호를 다르게 쓰는 게 좋아요.
+한 곳이 뚫려도, 다른 곳까지 번지지 않게요.
+공장도 똑같아요.
+지능형 제어반은 인터넷과 연결된 쪽과, 기계를 움직이는 쪽을 나눠 둬요.
+한쪽에 구멍이 나도, 기계까지 바로 번지지 않게요.
+회사 홈페이지 관리하는 분께, 이 영상 보내 주세요.
 문은 하나만 열려도, 집 전체가 위험해지니까요.
 ```
 
-강조: 3번 "로그인도 없이", 4번 "구 점 이 점", 12번 "다만", 20번.
+강조: 4번 "비밀번호 없이도", 6번 "구 점 이 점", 11번 "다만".
 
 ## 플로우 프롬프트: 사실적인 시네마틱 3D
 
-- 01을 먼저 만들고, 나머지는 01을 참고 이미지로 붙여 색·빛을 맞춥니다. 20은 01과 같은 복도라 **01을 꼭 참고로**.
-- 반복 모티프: **열린 문틈에서 새어 나오는 빨간 빛**(위험) / 차분한 파란 빛(안전). 그림에 글자 없음(숫자·라벨은 합성에서).
-- 1단계 zip을 보내 주시면 번호표를 드립니다.
+- 01을 먼저 만들고, 나머지는 01을 참고 이미지로 붙여 색·빛을 맞춥니다. 17은 01과 같은 복도라 **01을 꼭 참고로**.
+- 반복 모티프: 열린 문틈의 빨간 빛(위험) / 파란 빛(안전). 그림에 글자 없음.
 
-### 1단계: 그림 20장
+### 1단계: 그림 17장
 
 ```
 01 | A very long dim hotel-like corridor with dozens of identical closed doors on both sides stretching into the distance, several doors already slightly ajar with intense red light spilling out through the gaps onto the floor, cold blue ambient light elsewhere. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
 02 | A dark room with a laptop on a desk, its screen showing an abstract website layout made of blank grey blocks, a thin crack of red light running across the screen like a split, blue night light from a window. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
 03 | Over-the-shoulder view of a hooded figure seen from behind in a dark room typing on a keyboard, beyond the monitor a glass wall reveals a server room whose rack lights are starting to turn from blue to red. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-04 | Close-up of a large industrial analog gauge dial in a dark control room, its needle pushed far into the red zone near the maximum, red glow reflecting on the glass. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-05 | Aerial night view of a dense city of glass office towers, roughly seven out of every ten buildings lit in the same cool blue color while the rest are warm white, a few of the blue buildings showing a thin red glow at their doors. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-06 | An enormous data center hall with endless rows of server racks stretching to the horizon, blinking blue status lights, a few racks in the distance glowing red. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-07 | A huge tangled knot of network cables lying on a server room floor, red light glowing from inside the knot, blue racks in the background. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-08 | A sealed steel package marked only with a red stripe, already torn open early on a workbench in a dark warehouse, red light pouring out of it, a wall clock in the background blurred. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-09 | Two silhouetted figures seen from behind in a dim conference room facing each other across a table, a torn paper agreement lying between them under a single lamp. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-10 | A security operations center at night seen from behind the analysts, a wall of large screens showing abstract world maps with many red blinking dots, blue desk lights. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-11 | Night skyline of Seoul with the river and bridges, a large translucent warning beacon light on top of a government building switching from blue to amber, the city calm below. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-12 | Aerial dusk view of critical infrastructure: a power plant with cooling towers, a water treatment plant and a substation, small amber warning lights on each facility. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-13 | A Korean city at night covered in thick fog, only some windows visible, a few faint red lights glowing somewhere in the fog so you cannot tell how many there are. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-14 | A technician seen from behind closing a server rack door and turning its lock, the red light inside fading back to calm blue. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-15 | A large clean factory floor at night with motors, pumps and conveyor lines, a tall industrial control panel standing in the middle under work lights. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-16 | Cutaway view of a factory building split by a thick glass wall: on the left an office side with computers and a server lit in data blue lines flowing out to the internet, on the right the machine side with motors and a control panel connected by separate orange control cables, the two networks not crossing. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-17 | Close-up inside an industrial control panel: a PLC module with small status LEDs and neat wiring, relays and terminals, warm work light. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-18 | The same split factory: red light spreading across the office side on the left stops at the thick glass wall, while the machine side on the right stays calm in blue light with the motors running. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-19 | An office worker seen from behind at a desk late in the evening, looking at a company website on a monitor made of blank layout blocks, a phone in hand about to send a message. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
-20 | The same long corridor of doors as the reference image, all doors now closed in calm blue light except one single door slightly ajar with a thin line of red light spilling across the floor. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+04 | A gloved hand pushing open the front door of a modern apartment without any key, the lock hanging broken, red light spilling out from inside onto a dark hallway. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+05 | Close-up of a large industrial analog gauge dial in a dark control room, its needle pushed far into the red zone near the maximum, red glow reflecting on the glass. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+06 | Aerial night view of a dense city of glass office towers, roughly seven out of every ten buildings lit in the same cool blue color while the rest are warm white, a few of the blue buildings showing a thin red glow at their doors. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+07 | Many hands holding smartphones in a dark crowd, every screen showing the same blurred video of a door being forced open with red light, the video spreading from phone to phone. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+08 | A security operations center at night seen from behind the analysts, a wall of large screens showing abstract world maps with many red blinking dots, blue desk lights. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+09 | Night skyline of Seoul with the river and bridges, a large warning beacon light on top of a tall building switching from blue to amber, the city calm below. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+10 | A technician seen from behind closing a server rack door and turning its lock, the red light inside fading back to calm blue. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+11 | Close-up of two hands replacing an old rusty door lock with a new shiny one on an apartment front door, the old lock lying on the floor, warm safe light. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+12 | A key ring on a wooden table holding many different keys, each key a different shape and color, beside a row of different front doors in soft blue light. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+13 | A large clean factory floor at night with motors, pumps and conveyor lines, a tall industrial control panel standing in the middle under work lights. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+14 | Cutaway view of a factory building split by a thick glass wall: on the left an office side with computers and a server with blue data lines flowing out to the internet, on the right the machine side with motors and a control panel connected by separate orange cables, the two sides not crossing. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+15 | The same split factory: red light spreading across the office side on the left stops at the thick glass wall, while the machine side on the right stays calm in blue light with the motors running. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+16 | An office worker seen from behind at a desk late in the evening, looking at a company website on a monitor made of blank layout blocks, a phone in hand about to send a message. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
+17 | The same long corridor of doors as the reference image, all doors now closed in calm blue light except one single door slightly ajar with a thin line of red light spilling across the floor. Photorealistic cinematic 3D render, moody film lighting, shallow depth of field, realistic materials. Recurring motif: red light leaking through an open door or gap means danger, calm blue light means safe. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos, no readable screens. Vertical 9:16.
 ```
 
 ## 3단계: 클립 2개 (훅만, 새 플로우 프로젝트, 출력 1, "10크레딧, 동영상 1개" 확인)
@@ -160,9 +157,9 @@ The hooded figure presses a key and the server racks beyond the glass turn from 
 | 항목 | 내용 |
 |---|---|
 | 머리표 | 지금 뉴스 |
-| 큰 제목 | 로그인 없이 / [열리는] 문 / PHP 9.2점 |
+| 큰 제목 | 비밀번호 없이 / [열리는] 문 |
 | 아래 문구 | 내가 가입한 사이트는 괜찮을까 |
-| 배경 그림 | 01 또는 20 |
+| 배경 그림 | 01 또는 04 |
 
 ## 설명란
 
