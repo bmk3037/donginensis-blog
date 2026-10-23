@@ -339,7 +339,21 @@ The giant cutterhead turns steadily and grinds into the rock face within the fir
 |---|---|---|---|
 | c01 | Cars_and_bus_driving_underwater_…175517.mp4 | **1.0~5.0초** | 0~1초는 거의 멈춰 있어 잘라 냄(첫 3초 규칙). 5초부터 터널 안으로 들어가 바다가 안 보임 → 안 씀. 720×1280, 24fps |
 | c09 | Seawater_sprays_into_tunnel_roof_…175523.mp4 | **0~2.5초** | 0초부터 물줄기, 좋음. 3초부터 해저 바닥이 터지고 사람이 바다 바닥을 걸어 다님(말이 안 됨) → 안 씀. 두 번째 컷은 09b 그림 |
-| c19·c21·c06 | 아직 | | |
+| c06 | Cutterhead_grinding_into_rock_face_…175733.mp4 | **0~3초** | 커터헤드가 돌며 돌이 쏟아짐, 좋음. 0.5초부터 큰 빨간 과녁이 TBM 위에 겹침(지식컷도 TBM에 과녁이 있어 그대로 씀). 5초부터 먼지로 가려짐 |
+| c19 | Concrete_section_sinks_into_trench_…175735.mp4 | 0~1.5초만(약함) | 토막이 거의 안 내려가고, 2초부터 토막 밑으로 물이 쏟아져 새는 것처럼 보임(대본과 반대), 5초부터 흙탕물이 다 덮음 → **다시 만들기** |
+| c21 | Water_draining_between_chamber_s…175740.mp4 | 0~1.5초만(약함) | 시작 그림이 21(옆 단면)이 아니라 21b(위에 매달린 토막)로 들어감. 빨간 화살표가 이리저리 튀고 토막이 떠다녀 "물 빼면 붙는다"가 안 보임 → **다시 만들기**(시작 그림 `21.jpg`) |
+
+#### 다시 만들기 32편 c19 — 시작 그림: `19.jpg`
+
+```
+The concrete section is lowered slowly and steadily straight down on its cables toward the trench, moving clearly downward during the first four seconds while the camera follows it down, the water level inside the cut-open tanks rising. No water pours out of the section, the seabed stays calm and clear, no sediment clouds. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 다시 만들기 32편 c21 — 시작 그림: `21.jpg` (받은 파일 이름 `Tunnel_joint_cutaway_and_drainage`, 옆에서 자른 단면 그림)
+
+```
+Side cutaway: the water in the narrow chamber between the two steel end walls drains steadily out through the pipe at the bottom, the water level in the chamber visibly dropping during the first four seconds, then the right section slides a short distance to the left and presses tightly against the left section. The red arrows on the right stay in place pointing left. The camera holds steady and nothing else moves. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
 
 ## 사진판 먼저 (10/23 대표이사 "일단 사진으로만 해 보자. 차이가 얼마나 나는지 비교")
 
