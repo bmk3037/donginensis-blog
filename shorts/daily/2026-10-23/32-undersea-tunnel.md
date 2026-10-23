@@ -275,6 +275,37 @@
 23b | Close underwater view along the finished concrete tunnel on the seabed, its sides and top fully covered with a thick layer of rocks, the cover filling most of the frame and fading into the blue distance, a red bracket marking the thickness of the rock layer. Bright clear underwater daylight with sunlight rays, rich natural colors (warm headlights, white, silver and yellow vehicles, grey concrete, teal-blue water), close framing so the subject fills the frame with little empty water. Photorealistic cinematic 3D cutaway render, documentary engineering look. Recurring motif: bold red annotation lines (dimension lines, a depth ruler with tick marks, red target circles, red arrows) drawn over the scene, without any text or numbers. People only as small silhouettes, no faces. No text, no letters, no numbers, no logos, no license plates. Vertical 9:16.
 ```
 
+## 클립 3개만 넣어 보기 (10/23 대표이사 "제일 중요한 3개만 클립 넣어 보자")
+
+사진판에 클립 3개만 섞습니다. 나머지는 그대로 정지 그림 + 합성 효과입니다. 합계 45크레딧(15 × 3), 모두 Veo 3.1 Lite.
+
+| 클립 | 문장 | 왜 이 장면 |
+|---|---|---|
+| c01 | 1번 "내 차로 수심 48m 바다 밑을 달리는 길" | 첫 3초 규칙: 0초에 이미 움직이는 장면. 바다 밑을 달리는 느낌이 이 영상의 전부 |
+| c09 | 9번 "바닷물이 터지면 어떡하죠?" | 첫 중간 질문. 물이 터지는 건 정지 그림으로는 안 보임 |
+| c21 | 22번 "사이 물만 빼내면, 바깥 물이 토막을 꽉 밀어붙이거든요" | 영상의 핵심 반전(바다가 거꾸로 도와줌). 물이 빠지고 붙는 움직임이 곧 설명 |
+
+- c09·c21은 지금 있는 그림(`09.jpg`, `21.jpg`)으로 바로 만들 수 있습니다. c01은 새로 만드는 01 그림을 받은 뒤에 만듭니다.
+- 합성: 클립 앞 4초를 2초씩 두 컷(a·b)으로 쓰고, 그 자리의 b 그림(09b·21b)은 예비로 둡니다.
+
+#### 32편 c01 — 시작 그림: 새로 만든 `01.jpg` (차가 화면 가득한 판)
+
+```
+The cars and the yellow bus are already driving toward the camera from the first frame, headlights sweeping past, while the camera slowly pushes forward into the tunnel opening; above the tunnel roof fish swim by and sunlight rays shimmer through the teal water. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 32편 c09 — 시작 그림: `09.jpg`
+
+```
+The crack above the tunnel roof bursts wider and a strong jet of seawater sprays down into the tunnel within the first second, rock pieces falling, the worker silhouettes stepping back, the camera slowly pushing in toward the crack. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### 32편 c21 — 시작 그림: `21.jpg`
+
+```
+The water in the small chamber between the two sections drains out through the pipe, and as it empties the new section presses tightly against the old one, the red arrows on the outside pushing in, the camera holding steady with a slow push in on the joint. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
 ## 사진판 먼저 (10/23 대표이사 "일단 사진으로만 해 보자. 차이가 얼마나 나는지 비교")
 
 - 클립 없이 그림만으로 먼저 만들어 지식컷과 비교합니다. 클립(3단계)은 비교를 본 뒤 정합니다.
