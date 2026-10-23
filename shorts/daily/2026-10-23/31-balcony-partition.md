@@ -160,7 +160,7 @@
 | 10 | Wardrobe_on_apartment_balcony | 좋음 |
 | 11 | Cluttered_apartment_balcony_used… | 좋음 |
 | 12 | Hand_knocking_on_apartment_wall | 좋음 |
-| 13 | Cutaway_comparison_of_two_walls | **다시**: 콘크리트 벽 vs 속 빈 벽 비교가 안 보이고 사람이 앉아 있음 |
+| 13 | ~~Cutaway_comparison_of_two_walls~~ → 두 번째 zip의 **Person_kicking_apartment_balcony…_20261023125917.jpg** (01을 참고로 다시 만든 그림이 01 이름으로 저장됨) | ✅ 다시 받음: 콘크리트 기둥 옆 얇은 판을 주먹으로 두드리며 소리 물결 |
 | 14 | Closed_balcony_hatch_on_floor | 좋음 |
 | 15 | Person_carrying_box_away | 좋음 |
 | 16 | Person_standing_in_smoky_hallway | 좋음 |
