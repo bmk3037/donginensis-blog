@@ -223,6 +223,43 @@
 
 남은 그림: 1단계 **23**, 2단계 **01b~19b, 23b, 24b**(21장). 20b·21b·22b는 받은 그림으로 채웠으니 2단계에서 빼고 만듭니다.
 
+### 두 번째 zip (2026-10-23, 24장 받음)
+
+| 번호 | 받은 파일 | 메모 |
+|---|---|---|
+| 23 | Underwater_tunnel_covered_in_rocks | |
+| 01b | Cars_driving_through_underwater_… | 위에 내려오는 토막이 같이 보임(첫 장면 뒤 컷으로는 조금 어색, 써 보고 판단) |
+| 02b | Cars_driving_in_underwater_tunnel | |
+| 03b | Tunnel_cross_section_on_seabed | |
+| 04b | Underwater_tunnel_comparison_render | |
+| 05b | Camera_viewing_tunnel_entrance_s… | |
+| 06b | Tunnel_boring_machine_underground | |
+| 07b | Drilled_blast_holes_in_rock | |
+| 08b | Machine_spraying_concrete_in_tunnel | |
+| 09b | Seawater_leaks_into_tunnel_rock | |
+| 10b | Tunnel_rock_layer_dimension_line | 10과 같이 사각 터널 |
+| 11b | Cement_grout_filling_rock_cracks | |
+| 12b | Aerial_view_of_harbor_town | |
+| 13b | Pumps_draining_seawater_tunnel | |
+| 14b | Tunnel_approach_ramp_cutaway_render | |
+| 15b | Building_concrete_tunnel_section… | |
+| 16b | Seawater_flooding_concrete_tunne… | |
+| 17b | Tugboat_towing_concrete_tunnel_s… | |
+| 18b | Dredging_bucket_digging_underwat… | |
+| 19b | Concrete_tunnel_section_underwater | |
+| 24b | Road_entering_undersea_tunnel | |
+| 예비 | Lowering…, Macro_view_of_squeezed_gasket, Tunnel_sections_draining_and_pre… | 20·22·21의 다른 판 |
+
+빠진 것: **23b** 1장. 48장 중 47장.
+
+### 사진판 비교에서 본 차이 (10/23, `32편_사진판_비교_예시.jpg`)
+
+대표이사: "사진만 보기에는 지식컷 대비 없어 보이네, 인포그래픽이 없어서 그런가."
+1. **주석이 약함**: 지식컷은 굵은 빨간 선·상자·과녁 원·한글 라벨이 컷마다 크게 있음. 우리 그림은 빨간 선이 가늘고 흐림 → 합성에서 굵은 빨간 주석과 라벨을 그려 넣음.
+2. **너무 멀고 비어 있음**: 지식컷은 주인공(차, TBM, 이음매)이 화면을 꽉 채움. 우리 그림은 위쪽 절반이 빈 바닷물 → 합성에서 주인공 쪽으로 1.3배 안팎 잘라 키움. 다시 만드는 그림은 "close-up, the subject fills the frame, little empty water"를 넣음.
+3. **어둡고 한 가지 색**: 지식컷은 밝은 낮빛, 노란 차·회색 콘크리트 등 색이 섞임. 우리는 짙은 청록 하나 → 합성에서 밝기·대비를 올림. 다시 만드는 그림은 "bright clear daylight underwater, more color variety"를 넣음.
+
+
 ## 사진판 먼저 (10/23 대표이사 "일단 사진으로만 해 보자. 차이가 얼마나 나는지 비교")
 
 - 클립 없이 그림만으로 먼저 만들어 지식컷과 비교합니다. 클립(3단계)은 비교를 본 뒤 정합니다.
