@@ -333,6 +333,14 @@ Water rises inside the cut-open tanks and the concrete section slowly sinks on i
 The giant cutterhead turns steadily and grinds into the rock face within the first second, rock chips and dust pouring down in front of it, the camera slowly pushing in toward the red target circle at its center. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
 ```
 
+## 받은 클립 (2026-10-23)
+
+| 클립 | 받은 파일 | 쓸 구간 | 메모 |
+|---|---|---|---|
+| c01 | Cars_and_bus_driving_underwater_…175517.mp4 | **1.0~5.0초** | 0~1초는 거의 멈춰 있어 잘라 냄(첫 3초 규칙). 5초부터 터널 안으로 들어가 바다가 안 보임 → 안 씀. 720×1280, 24fps |
+| c09 | Seawater_sprays_into_tunnel_roof_…175523.mp4 | **0~2.5초** | 0초부터 물줄기, 좋음. 3초부터 해저 바닥이 터지고 사람이 바다 바닥을 걸어 다님(말이 안 됨) → 안 씀. 두 번째 컷은 09b 그림 |
+| c19·c21·c06 | 아직 | | |
+
 ## 사진판 먼저 (10/23 대표이사 "일단 사진으로만 해 보자. 차이가 얼마나 나는지 비교")
 
 - 클립 없이 그림만으로 먼저 만들어 지식컷과 비교합니다. 클립(3단계)은 비교를 본 뒤 정합니다.
