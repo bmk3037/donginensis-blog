@@ -35,7 +35,7 @@ bash shorts/compose/make.sh cover $W                       # cover.jpg·cover.pn
 bash shorts/compose/make.sh video $W $W/09_slug_v1.mp4    # 10~20분 걸림
 ```
 
-- **저장 카드(10/23, 29편부터):** `emphasis.py` 다음에 `narration.wav` 끝에 무음 3.2초를 붙이고 `timeline.js`에 `save_card`(원래 길이+0.2)와 늘린 `duration`을 적는다. 마지막 장면을 `TL.duration`까지 늘리고 `saveCard(t, TL.save_card)`로 3줄 요약 카드를 얹는다(29편 `work/29/scene.html`). 효과음은 `put(tl['save_card'], shimmer(1.4), 0.2)`.
+- **저장 카드는 31편 v4부터 쓰지 않음(10/23 대표이사 "이상해").** 예전 방법(참고용): `emphasis.py` 다음에 `narration.wav` 끝에 무음 3.2초를 붙이고 `timeline.js`에 `save_card`(원래 길이+0.2)와 늘린 `duration`을 적는다. 마지막 장면을 `TL.duration`까지 늘리고 `saveCard(t, TL.save_card)`로 3줄 요약 카드를 얹는다(29편 `work/29/scene.html`). 효과음은 `put(tl['save_card'], shimmer(1.4), 0.2)`.
 - **섬네일은 영상 끝에 1초(2026-10-22 대표이사):** 시작은 움직이는 첫 장면 위 제목 한 줄(커버 카드 없음), 렌더링이 끝나면 `bash shorts/compose/append_cover.sh 결과.mp4 cover.jpg 최종.mp4`로 끝에 커버 1초를 붙인다. 올릴 때 인스타는 커버 편집에서 막대를 끝으로(또는 카메라 롤에서 cover.jpg), 유튜브는 섬네일에서 막대를 끝으로.
 - **커버:** 쇼츠 피드는 섬네일 없이 바로 재생되지만, 채널 쇼츠 탭·검색·인스타 릴스 격자에는 커버가 보입니다. 인스타는 "커버 편집 → 카메라 롤에서 추가"로, 유튜브는 직접 올리기가 열린 채널(파트너 프로그램)이면 컴퓨터의 YouTube 스튜디오에서 올리고, 아니면 앱에서 큰 글자 장면을 섬네일로 고릅니다. 글자는 가운데에 모여 있어 3:4·1:1로 잘려도 제목이 남습니다.
 
@@ -48,6 +48,9 @@ bash shorts/compose/make.sh video $W $W/09_slug_v1.mp4    # 10~20분 걸림
 - **배경음악:** 기본으로 공통 배경음 `assets/bgm_calm.mp3`(직접 만든 음원, `assets/make_bgm.py`)가 깔리고, 목소리가 나올 때는 자동으로 줄어듭니다(덕킹). 다른 곡을 쓰려면 작업 폴더에 `bgm.mp3`를 두고, 빼려면 `NOBGM=1 bash make.sh video …`. 남의 곡은 상업 이용이 되는 것만 씁니다.
 
 ## 화면 규칙 (대표님 피드백으로 정한 것)
+
+- **자막 테두리(31편부터 기본):** `#sub`에 `font-weight: 800; font-size: 50px; -webkit-text-stroke: 10px rgba(0,0,0,.88); paint-order: stroke fill;` 밝은 화면(먼지·하얀 벽)에서도 읽히게.
+- **make.sh video의 결과 경로는 절대 경로로**(스크립트가 작업 폴더로 cd 하므로 상대 경로면 마지막 단계에서 실패).
 
 - 3~4초마다 새 그림. 문장마다 그림이 하나 이상, 같은 그림을 다른 확대로 다시 써도 됩니다.
 - 한 장면 안에서 다시 자르지 않습니다(`cuts: 1`). 순간 확대(펀치), 흐림 없음. 카메라는 1.0 → 1.1~1.15로 천천히 다가가기만.
