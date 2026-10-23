@@ -150,7 +150,7 @@
 |---|---|---|
 | 01 | Person_kicking_apartment_balcony… | 좋음 |
 | 02 | Smoke_drifting_from_high-rise_ap… | 좋음 |
-| 03 | Smoke_seeping_into_apartment_liv… | **다시**: 복도에 남자가 서 있어 "엄마와 아기" 문장과 어긋남 |
+| 03 | Smoke_seeping_into_apartment_liv… → 편집본(채팅으로 받음) | ✅ 다시 받음: 남자 지움, 빈 복도에 연기 |
 | 04 | Mother_holding_baby_on_balcony | 좋음 |
 | 05 | Hole_in_balcony_wall | 좋음 |
 | 06 | Red_glow_on_apartment_balcony | 좋음(빨래 건조대 있는 쪽) |
@@ -248,6 +248,24 @@ The person carries the box out of frame and the clear white wall behind glows br
 ```
 The person stays still at the door while the grey smoke keeps seeping in under the door and curling slowly upward. Very slow push-in. Keep the same photorealistic look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
 ```
+
+## 클립 없이 가는 안 (10/23 대표이사 "클립 없이는 안 돼?")
+
+c01(훅)만 클립, 나머지는 그림 + 합성 효과로 움직임을 만듦.
+
+| 번호 | 그림 | 합성 효과 |
+|---|---|---|
+| 1 | c01 | 클립 그대로(0초 시작, 클립 소리 살림 여부는 들어 보고) |
+| 2 | 02 | 천천히 밀어 들어가기 + 위쪽 연기 흔들림(밝기 깜빡임) |
+| 3 | 03 | 문 쪽으로 천천히 밀기 + 화면 가장자리 회색 연기 번짐 |
+| 4 | 04 | 엄마 뒷모습에서 빨간 벽 쪽으로 옆 이동 |
+| 5 | 05 | 구멍 쪽으로 빠르게 밀어 들어가며 흰 빛 번쩍 |
+| 8 | 08 | 빨간 길이 현관 → 베란다 → 옆집으로 점선처럼 그려짐 |
+| 12~13 | 12 | 두드릴 때마다 동그란 물결 3번(효과음 '통통') |
+| 15 | 14 | 바닥 피난구 테두리 빨간 빛 깜빡임 |
+| 16 | 15 | 벽 테두리 빨간 빛이 밝아짐 |
+| 17 | 16 | 문 아래 연기 번짐 + 천천히 밀기 |
+| 나머지 | 각 그림 | 천천히 밀기·당기기 번갈아 |
 
 ## 합성 메모
 
