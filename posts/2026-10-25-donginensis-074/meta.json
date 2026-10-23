@@ -1,0 +1,29 @@
+{
+  "topic_id": "74",
+  "blog": "donginensis",
+  "format": "해설형",
+  "title": "제조 데이터 품질, AI가 쓸 수 있는 데이터의 5가지 조건",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "제조데이터품질",
+    "AI학습데이터",
+    "데이터표준",
+    "제조AI",
+    "OT데이터",
+    "스마트제조",
+    "데이터인프라"
+  ],
+  "keyword": "제조 데이터 품질",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post074&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "데이터 구조: 설비-센서-실시간값-상태, site_id·equipment_id, 센서별 값·단위·상태(normal·warning·alarm)",
+    "측정 시각·순번으로 중복·누락 확인, 통신 끊김 시 보관 후 오래된 순서대로 재전송",
+    "운전 상태신호 수집, 24시간 기록",
+    "데이터 제공 REST API·WebSocket·CSV, MQTT 토픽·Tag 규칙은 버전 관리(세부 문서는 NDA 후)",
+    "AI 이상탐지(비지도 학습)는 실증·고도화 단계",
+    "5가지 조건은 데이터 설계 원칙에 대한 설명이며 특정 AI 모델 성능을 약속하지 않음",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-25"
+}
