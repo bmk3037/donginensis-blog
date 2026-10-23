@@ -144,13 +144,52 @@
 19 | The same Korean apartment balcony and the same white side wall from the same low angle as the reference image, but the wall is whole and undamaged, clear of any objects, softly outlined by the red glow at golden hour, no person. Photorealistic cinematic 3D render, a typical Korean apartment, documentary realism, natural soft light, shallow depth of field, muted colors with warm highlights. Recurring motif: the thin balcony partition wall to the neighbor is outlined by a faint red glow. People only seen from behind or as silhouettes, no faces. No text, no letters, no numbers, no logos. Vertical 9:16.
 ```
 
+## 번호표 (1단계 zip 받음, 2026-10-23)
+
+| 번호 | 받은 파일 이름 | 상태 |
+|---|---|---|
+| 01 | Person_kicking_apartment_balcony… | 좋음 |
+| 02 | Smoke_drifting_from_high-rise_ap… | 좋음 |
+| 03 | Smoke_seeping_into_apartment_liv… | **다시**: 복도에 남자가 서 있어 "엄마와 아기" 문장과 어긋남 |
+| 04 | Mother_holding_baby_on_balcony | 좋음 |
+| 05 | Hole_in_balcony_wall | 좋음 |
+| 06 | Red_glow_on_apartment_balcony | 좋음(빨래 건조대 있는 쪽) |
+| 07 | Gypsum_board_next_to_smartphone | 쓸 만함(판이 폰보다 조금 두꺼워 보임, 큰 글자 "1cm"로 보완) |
+| 08 | Smoke_spreading_between_apartmen… | 좋음 |
+| 09 | Firefighter_looking_at_broken_wall | 좋음 |
+| 10 | Wardrobe_on_apartment_balcony | 좋음 |
+| 11 | Cluttered_apartment_balcony_used… | 좋음 |
+| 12 | Hand_knocking_on_apartment_wall | 좋음 |
+| 13 | Cutaway_comparison_of_two_walls | **다시**: 콘크리트 벽 vs 속 빈 벽 비교가 안 보이고 사람이 앉아 있음 |
+| 14 | Closed_balcony_hatch_on_floor | 좋음 |
+| 15 | Person_carrying_box_away | 좋음 |
+| 16 | Person_standing_in_smoky_hallway | 좋음 |
+| 17 | Smoke_filled_apartment_stairwell | 좋음 |
+| 18 | Korean_apartment_block_at_dusk | 좋음 |
+| 19 | Korean_apartment_balcony_with_glow | 좋음(해 질 녘, 01과 각도는 다름) |
+| c01 | Foot_kicking_through_drywall_wall.mp4 | **이미 받음**: 10초, 1초 안에 벽이 뚫림, 소리 있음 |
+
+### 다시 만들 그림 2장
+
+#### 03 다시 — [03 그림을 참고 이미지로 붙이고 편집]
+
+```
+Edit the reference image (03). Keep exactly the same camera angle, framing, composition, colors, lighting, sofa, baby blanket and smoke. Change only this: remove the man standing in the hallway completely, so the hallway is empty and only the grey smoke seeps in around the closed front door. No text, no letters, no numbers, no logos.
+```
+
+#### 13 다시 — 01 그림을 참고 이미지로 붙여 새로 만들기
+
+```
+13 | Simple cutaway close-up of a balcony side wall cut open like a cross-section, plain dim background, no people: the left half is a thick solid grey concrete wall, the right half is a thin partition made of a single white gypsum board with an empty hollow space behind it, soft circular sound ripples spreading out from the thin board where a knuckle touches it, the thin board outlined by a faint red glow. Photorealistic cinematic 3D render, a typical Korean apartment, documentary realism, natural soft light, shallow depth of field, muted colors with warm highlights. No text, no letters, no numbers, no logos. Vertical 9:16.
+```
+
 ## 3단계: 클립 10개 (프레임 투 비디오)
 
 - 새 플로우 프로젝트, 출력 수 1, 비율은 설정에서 9:16. 미리보기가 "10크레딧, 동영상 1개"인지 확인(c01만 Fast 권장 시 약 20크레딧).
 - 하나씩, **시작 그림을 꼭 넣고** 미리보기에 그 그림(베란다 벽·아파트)이 보이는지 확인 후 생성.
 - 합계 약 110크레딧(c01 Fast 20 + 나머지 9개 Lite 90). 모자라면 c01, c04, c05, c08, c15부터.
 
-#### 31편 c01 — 시작 그림: 01번 그림 (훅, Veo 3.1 Fast 권장)
+#### 31편 c01 — 시작 그림: 01번 그림 (훅, Veo 3.1 Fast 권장) — ✅ 받음
 
 ```
 The foot completes the kick and breaks straight through the thin white wall within the first second, gypsum pieces and white dust flying toward the camera, bright daylight from the neighbor's balcony bursting through the jagged hole. Handheld documentary feel, slow motion after the impact. Keep the same photorealistic look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
