@@ -186,6 +186,43 @@
 24 | High aerial view of a Korean southern coast with green islands and a long sea bridge, and where the bridge ends the road dives under the sea into an immersed tunnel shown through the water as a long chain of concrete sections traced with a glowing red line. Photorealistic cinematic 3D cutaway render, teal-blue seawater, grey-brown layered seabed rock, grey concrete, soft underwater light rays, documentary engineering look. Recurring motif: thin red annotation lines (dimension lines, depth ruler with tick marks, small red target circles, thin red arrows) drawn over the scene, without any text or numbers. People only as small silhouettes, no faces. No text, no letters, no numbers, no logos. Vertical 9:16.
 ```
 
+## 번호표 (1단계 zip 받음, 2026-10-23)
+
+받은 27장을 그림 내용으로 맞춰 `NN.jpg`로 바꿨습니다(플로우 파일 이름은 프롬프트 첫머리를 줄인 것이라 비슷한 이름이 많음). 바꾼 그림은 `shorts/compose/work/32/img/`(git 제외).
+
+| 번호 | 받은 파일 | 메모 |
+|---|---|---|
+| 01 | Cars_driving_through_underwater_… | 깊이 눈금 있음 |
+| 02 | Cars_driving_in_underwater_tunnel | |
+| 03 | Subsea_concrete_tunnel_cross-sec… | |
+| 04 | Underwater_tunnel_split_comparis… | |
+| 05 | Coastal_tunnel_leading_to_island | |
+| 06 | Tunnel_boring_machine_drilling_rock | |
+| 07 | Workers_drilling_inside_rock_tunnel | |
+| 08 | Machine_spraying_concrete_on_wall | |
+| 09 | Seawater_leaks_into_tunnel_cutaway | |
+| 10 | Tunnel_seabed_rock_cutaway_diagram | 터널이 둥근 굴착 터널이 아니라 사각 상자 모양. 굴착식 장면이라 다시 만들면 더 맞음(선택) |
+| 11 | Workers_injecting_grout_into_rock | |
+| 12 | Aerial_view_of_harbor_town | |
+| 13 | Undersea_tunnel_drainage_system_… | |
+| 14 | Tunnel_cutaway_across_strait | |
+| 15 | Workers_building_concrete_tunnel… | |
+| 16 | Concrete_tunnel_in_flooded_basin | |
+| 17 | Tugboats_towing_floating_concret… | |
+| 18 | Dredging_bucket_digging_underwat… | |
+| 19 | Underwater_concrete_tunnel_cutaw… | |
+| 20 | Lowering_concrete_tunnel_section… (뒤에 _2 없는 것) | 옆에 붙이는 장면 |
+| 20b | Lowering_concrete_tunnel_section…_2 | 같은 프롬프트의 두 번째 판 → 두 번째 컷으로 씀 |
+| 21 | Tunnel_joint_cutaway_and_drainage | |
+| 21b | Draining_water_between_tunnel_se… | 두 번째 컷으로 씀 |
+| 22 | Macro_cutaway_of_joint_seam | |
+| 22b | Macro_cutaway_of_joint_seam_2 | 두 번째 컷으로 씀 |
+| 23 | **없음** | 다시 만들어야 함 |
+| 24 | Aerial_view_of_sea_bridge | |
+| (안 씀) | Concrete_tunnel_beneath_seabed_r… | 01과 같은 장면인데 영어 글자("seabed level", "backfill depth")가 그려져 있음 |
+
+남은 그림: 1단계 **23**, 2단계 **01b~19b, 23b, 24b**(21장). 20b·21b·22b는 받은 그림으로 채웠으니 2단계에서 빼고 만듭니다.
+
 ## 사진판 먼저 (10/23 대표이사 "일단 사진으로만 해 보자. 차이가 얼마나 나는지 비교")
 
 - 클립 없이 그림만으로 먼저 만들어 지식컷과 비교합니다. 클립(3단계)은 비교를 본 뒤 정합니다.
