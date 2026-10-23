@@ -188,14 +188,14 @@
 
 ## 3단계: 클립 24개 (프레임 투 비디오)
 
-- 새 플로우 프로젝트, 출력 수 1, 비율은 설정에서 9:16. 미리보기가 "10크레딧, 동영상 1개"인지 확인(c01만 Fast 권장 시 약 20크레딧).
+- 새 플로우 프로젝트, 출력 수 1, 비율은 설정에서 9:16. 미리보기가 "15크레딧, 동영상 1개"인지 확인. 모두 Veo 3.1 Lite로 만듭니다(Fast는 값이 더 비싸서, c01 결과가 마음에 안 들 때만 Fast로 다시).
 - 하나씩, **시작 그림을 꼭 넣고** 미리보기에 그 그림이 보이는지 확인 후 생성.
 - **24개 모두 만듭니다(10/23 대표이사 "최대한 똑같이").** 지식컷은 거의 모든 컷이 움직이므로 정지 그림으로 바꾸지 않습니다.
-- 합계 약 250크레딧(c01 Fast 20 + 나머지 23개 Lite 230). 하루에 다 안 되면 이 순서로 나눠 만듭니다: ① c01~c04, c09, c13, c20~c22 ② c05~c08, c10~c12, c14 ③ c15~c19, c23, c24.
+- 합계 **360크레딧**(24개 × 15). 8개씩(120크레딧) 세 번에 나눠 만듭니다: ① c01~c04, c09, c13, c20~c22 ② c05~c08, c10~c12, c14 ③ c15~c19, c23, c24. ①만 먼저 합성해 지식컷과 비교해 볼 수도 있습니다.
 - 클립은 8초로 나오지만 **앞 4초만** 써서 앞 2초·뒤 2초 두 컷으로 나눕니다(지식컷도 컷 하나가 2초 안팎, 같은 장면 2컷 → 다음 장면). 그래서 움직임은 처음 4초 안에 분명히 일어나게 썼습니다. 결과가 마음에 안 드는 클립만 다시 만듭니다.
 - 1단계 그림을 받으면 아래 "시작 그림"을 받은 파일 이름으로 바꿔 다시 드립니다.
 
-#### 32편 c01 — 시작 그림: 01번 그림 (훅, Veo 3.1 Fast 권장)
+#### 32편 c01 — 시작 그림: 01번 그림 (훅)
 
 ```
 The camera is already moving from the first frame, sinking steadily straight down from just below the sea surface through the teal water until the rock-covered concrete tunnel on the seabed and the car headlights inside it fill the lower frame within two seconds, then keeps slowly pushing in toward the tunnel. The thin red depth ruler stays fixed beside the path. Keep the same photorealistic cinematic 3D cutaway look, colors and lighting as the start frame. No on-screen text, no letters, no numbers, no logos, no camera cuts.
