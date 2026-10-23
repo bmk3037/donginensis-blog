@@ -55,7 +55,7 @@ const at = (i, f) => L[i].start + (L[i].end - L[i].start) * f;
 const cm = (i, k = 0) => L[i].commas[k];
 
 // 이미지 크기는 불러와서 잰다. 아직 없는 이미지는 자리 표시만 한다
-const NAMES = Array.from({ length: 19 }, (_, i) => String(i + 1).padStart(2, "0"));
+const NAMES = [...Array.from({ length: 19 }, (_, i) => String(i + 1).padStart(2, "0")), "01a", "01b"];
 const CLIPS = { c01: 300, c02: 300, c04: 300, c05: 300 }, CLIPIMG = {};
 const SIZE = {}, MISSING = new Set();
 const loadImg = n => new Promise(r => {
@@ -715,14 +715,15 @@ function smokeEdge(t, t0, t1, max = 0.6) {
   return `<radialGradient id="smk" cx="${50 + dr}%" cy="45%" r="70%"><stop offset="${0.55 - 0.3 * p}" stop-color="#8d9196" stop-opacity="0"/><stop offset="1" stop-color="#8d9196" stop-opacity="${max * p}"/></radialGradient><rect width="1080" height="1920" fill="url(#smk)"/>`;
 }
 const SCENES = [
-  ["c01", A(0), B(0), CL("c01", { shake: shakeAt(0.35, 0.5, 14) }), null, null],
+  ["01a", A(0), 0.6, { cx: 580, cy: 900, from: 1.12, to: 1.2 }, null, null],
+  ["01b", 0.6, B(0), { cx: 580, cy: 900, from: 1.26, to: 1.42, fast: 1, shake: shakeAt(0.6, 0.5, 16) }, null, t => flash(t, 0.6, 0.7)],
   ["c02", A(1), B(1), { clip: { id: "c02", from: 1, rate: 1.6 } }, null, t => pin(t, L[1].start + 0.2, 540, 470, "2020년 9월 · 전남 광양", 40) + num(t, cm(1) + 0.9, 540, 640, "48층 아파트의 44층", 56)],
   ["03", A(2), B(2), { cx: 470, cy: 820 }, null, t => smokeEdge(t, A(2), B(2), 0.55) + pin(t, cm(2) + 0.4, 540, 470, "30대 엄마 · 생후 6개월 아기", 38)],
   ["c04", A(3), B(3), { clip: { id: "c04", from: 86, rate: 1.2 } }, null, t => pin(t, L[3].start + 0.2, 540, 470, "아기를 안고", 42) + pin(t, cm(3) + 0.4, 540, 610, "옆집과 맞닿은 벽", 40) + flash(t, A(3) + 2.9, 0.6)],
   ["c05", A(4), B(4), { clip: { id: "c05", from: 30, rate: 2.2 } }, null, t => pin(t, L[4].start + 0.2, 540, 470, "구멍으로 옆집에", 42) + num(t, cm(4) + 0.3, 540, 640, "엄마와 아기 무사", 58)],
   ["06", A(5), B(5), { cx: 560, cy: 700 }, null, t => flash(t, L[5].start + 0.9, 0.55) + tag(t, L[5].start + 0.9, 540, 470, "경량칸막이", 76, "middle")],
   ["07", A(6), cm(6), {}, null, t => big(t, L[6].start + 0.3, 540, 500, "1cm", 190, YEL, "middle") + pin(t, L[6].start + 1.0, 540, 700, "얇은 석고보드", 40)],
-  ["c01", cm(6), B(6), { clip: { id: "c01", from: 40, rate: 0.9 } }, null, t => pin(t, cm(6) + 0.3, 540, 470, "손 · 발로 부수는 비상구", 40)],
+  ["01b", cm(6), B(6), { cx: 580, cy: 900, from: 1.08, to: 1.2 }, null, t => pin(t, cm(6) + 0.3, 540, 470, "손 · 발로 부수는 비상구", 40)],
   ["08", A(7), B(7), {}, null, t => pin(t, L[7].start + 0.2, 540, 470, "현관이 막히면", 42) + pin(t, cm(7) + 0.3, 540, 610, "베란다 → 옆집", 42)],
   ["09", A(8), B(8), { cx: 700, cy: 760 }, null, t => pin(t, L[8].start + 0.2, 540, 470, "광양소방서", 42) + num(t, at(8, 0.55), 540, 640, "용도를 알고 있어서", 56)],
   ["10", A(9), B(9), { cx: 560, cy: 760 }, null, t => (t < L[9].end - 1.6 ? pin(t, L[9].start + 0.2, 540, 470, "한 조사 · 245명", 40) : "") + dim(t, L[9].end - 1.6, 0.4) + flash(t, L[9].end - 1.5, 0.6) + big(t, L[9].end - 1.45, 540, 560, "13.5%", 190, YEL, "middle") + (t > L[9].end - 1.0 ? pin(t, L[9].end - 1.0, 540, 760, "실제로 피할 수 있다", 40) : "")],

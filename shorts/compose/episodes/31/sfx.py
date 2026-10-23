@@ -51,7 +51,7 @@ import wave as _w
 _c = _w.open('c01_audio.wav'); _x = np.frombuffer(_c.readframes(_c.getnframes()), np.int16).astype(float) / 32768
 _x = _x[:int(2.2 * SR)] * np.linspace(1, 0, int(2.2 * SR)) ** 0.5
 put(0.0, _x / max(1e-9, np.abs(_x).max()), 0.6)
-put(0.35, thud(), 0.35)
+put(0.6, thud(), 0.4); put(0.6, boom(0.9), 0.3)
 for i in range(1, 20):
     if i not in (12,): put(Aa(i) - 0.18, whoosh(0.4), 0.08)
 for c in [C(6), C(16)]: put(c - 0.18, whoosh(0.4), 0.08)
