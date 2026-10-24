@@ -54,3 +54,28 @@ Character sheet of a small cute inspection robot mascot named Dogam: a short rou
 ```
 
 대표이사가 사람 엔지니어 캐릭터로 만들어 위 시트 v1로 확정했습니다.
+
+## 캐릭터 일관성 잡는 법 (2026-10-24 대표이사 "캐릭터부터 일관성 있게 잡고 가야 할 듯")
+
+32편 캐릭터판 첫 그림 26장 중 4장이 어른 얼굴로 바뀌고, 안전모 빨간 줄이 띠로 바뀌거나 머리색이 달라짐. 원인: ① 참고 이미지가 10명이 그려진 시트라 플로우가 누구를 따라야 할지 모름 ② 줄마다 캐릭터 설명이 달랐음 ③ 얼굴 가까이 찍는 장면에서 가장 많이 틀어짐.
+
+**1. 참고 이미지는 한 명씩 (`shorts/assets/character/`)**
+
+| 파일 | 쓰는 곳 |
+|---|---|
+| `ref_front.png` | 기본(모든 장면에 붙임) |
+| `ref_face.png` | 얼굴이 크게 나오는 장면에 함께 붙임 |
+| `ref_wave.png` | 손 흔들기·태블릿 든 장면 |
+| `ref_side.png` | 옆모습·걷는 장면 |
+
+**2. 캐릭터 설명은 매번 똑같은 문장을 맨 앞에** (줄마다 바꾸지 않음):
+
+```
+DOGAM, a chibi 3D cartoon field engineer, about 2.5 heads tall: a very big round head and a small body, round baby face with soft pink cheeks, big round dark-brown eyes, tiny button nose, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, navy cargo pants with red piping, black gloves and black work boots
+```
+
+**3. 자세 모음을 먼저 만들어 확정**: 아래 10자세를 회색 배경에 한 명씩 만들어, 시트와 같은 얼굴인 것만 골라 `pose_NN.png`로 저장. 이후 장면 그림은 그 장면에 맞는 자세 그림을 참고 이미지로 붙임(자세 그림이 곧 그 장면의 도감이).
+
+**4. 그래도 틀어지면 합성으로**: 배경은 도감이 없이 만들고, 확정한 자세 그림을 배경 제거해 합성에서 얹음(얼굴이 100% 같음).
+
+**5. 얼굴 가까이 찍는 장면은 줄임**: 허리 위나 전신으로. 얼굴 클로즈업은 자세 모음에서 고른 그림을 그대로 씀.
