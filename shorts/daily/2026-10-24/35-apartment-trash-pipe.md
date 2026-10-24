@@ -133,3 +133,16 @@
 
 #쓰레기 #아파트 #신도시 #숨은설비도감 #도감이
 ```
+
+## 그림 다시 (10/24 대표이사 "도감이는 너무 자주 안 나와도 돼")
+
+도감이를 01(클립 c01)·07·10(클립 c10)·13·14 다섯 장에만 두고, 나머지 중 도감이가 있던 6장(02·03·05·06·08·12)을 설비만 나오게 다시 만듭니다. 04·09·11은 이미 도감이 없음.
+
+```
+02 | A bright modern Korean new-town apartment complex on a sunny morning: a green plaza with a neat row of red and blue mailbox-shaped trash inlets standing on the paving, wide view. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
+03 | An empty, clean apartment road early in the morning: no garbage trucks, no trash bins and no trash bags anywhere, only tidy sidewalks, trees and a few parked bicycles, a calm and curious mood. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
+05 | Long cutaway of the ground under an apartment lawn and road: a wide steel pipe about half a meter across running straight underground into the distance, outlined with a thin glowing red line, the apartment buildings standing above. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
+06 | Inside a bright control room of a trash collection plant: a large control desk with glowing buttons switching on one by one and big blank wall screens, an empty chair, morning light through tall windows. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
+08 | A playful scene: a giant cartoon vacuum cleaner hose plugged into the ground of a toy-like miniature apartment town, sucking hard, little leaves and dust swirling into it. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
+12 | Inside the trash collection plant: a big round cyclone separator where air and trash split, trash falling into a press that squeezes it into a big steel container, the air going out through a filter box with a soft clean glow. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
+```
