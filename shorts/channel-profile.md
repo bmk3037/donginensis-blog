@@ -52,3 +52,22 @@ Square profile picture. DOGAM, the same chibi 3D field engineer as in the refere
 ```
 Wide banner scene, dark navy blue background with a faint blueprint grid and one thin red line along the bottom. In the center, DOGAM, the same chibi 3D field engineer as in the reference image with exactly the same body proportions: exactly 2.5 heads tall (his head, including the hard hat, is 40% of his whole height and as wide as his shoulders), short arms that reach his hips, short sturdy legs, a young boy's face (not a baby), big round dark-brown eyes, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, a cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, a plain white T-shirt, navy cargo pants with red piping, black gloves and black work boots, standing waist-up and holding a big magnifying glass to one eye with a friendly smile. On both sides, three small round display pedestals each, like museum exhibits, evenly spaced in one straight row: on the left a home breaker panel with its little door open, a white multi-outlet power strip, and a water meter with a frozen-looking pipe; on the right a wall air conditioner, an apartment elevator door, and a home boiler. All objects small, clean and cute, same size, lit from above. Bright Pixar-like 3D animation. Keep everything inside the middle horizontal band; empty navy space above and below. No text, letters, numbers or logos anywhere; labels and screens are blank. Horizontal 16:9.
 ```
+
+## 인스타그램·스레드도 꿀팁도감 (10/24 대표이사)
+
+- 아이디는 인스타가 한글을 못 쓰므로 **세 곳 모두 kkultip_dogam으로 통일**(안 되면 kkultip.dogam). 유튜브 핸들도 @kkultip_dogam으로 맞추면 찾기 쉬움.
+- 표시 이름(이름 칸)은 세 곳 모두 **꿀팁도감**. 프로필 사진도 같은 돋보기 도감이.
+- 스레드는 인스타 계정으로 가입하므로 인스타를 먼저 만듦. 인스타 앱 → 프로필 → 아이디 눌러 "계정 추가"(한 앱에서 여러 계정 전환). 프로페셔널 계정(크리에이터)으로 바꿔야 인사이트(저장·공유 수)를 볼 수 있음.
+- 같은 영상을 유튜브 쇼츠·인스타 릴스·스레드에 올림. 인스타·스레드 글에는 설명란 체크리스트를 그대로 붙임(저장용).
+
+인스타 소개(150자 안):
+```
+🔧 현장 엔지니어 도감이의 1분 생활꿀팁
+차단기·멀티탭·보일러, 집 안 설비 꿀팁
+🔖 저장해 두고 급할 때 꺼내 보세요
+👇 유튜브에서도 꿀팁도감
+```
+스레드 소개:
+```
+현장 엔지니어 도감이가 1분 생활꿀팁으로 알려 드려요 🔧 저장해 두고 급할 때 꺼내 보세요
+```
