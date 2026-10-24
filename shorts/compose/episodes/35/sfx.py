@@ -51,6 +51,11 @@ cuts = [S(i) for i in range(1, 14)] + [MID(11)]
 for c in cuts: put(c - 0.12, whoosh(0.3), 0.10)
 for c in [MID(2) + .2, MID(3) + .1, S(4) + .6, MID(5) + .1, S(7) + .3, S(8) + .2, MID(8) + .1, MID(9) + .1, S(10) + .3, MID(11) + .1, S(12) + .2, T(12, .45)]:
     put(c, pop(), 0.16)
+# 2초 안팎 당겨 찍기 컷마다 작은 휙(클립 장면 0·9번 제외, 12번은 2컷 고정)
+for i in range(len(L)):
+    if i in (0, 9): continue
+    a, b = L[i]['a'], L[i]['b']; n = 2 if i == 11 else max(1, round((b - a) / 2.0))
+    for k in range(1, n): put(a + (b - a) * k / n - 0.1, whoosh(0.25), 0.07)
 put(0.0, whoosh(0.9), 0.3); put(0.0, rumble(2.2), 0.14)
 put(MID(6) + 0.3, rumble(1.6), 0.3)
 put(S(9) + 0.2, whoosh(0.8), 0.3)

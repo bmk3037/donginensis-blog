@@ -786,6 +786,8 @@ const SCENES = [
   ["13", S(12), E(12), {}, null, t => rl(t, S(12) + 0.2, 540, 300, "Q. 쓰레기를 나르는 힘은?", 70) + rl(t, at(12, 0.45), 540, 430, "① 컨베이어  ② 바람  ③ 물", 62)],
   ["14", S(13), TL.duration, { from: 1.0, to: 1.12 }, null, null],
 ];
+// 10/24 대표이사 "한 화면이 너무 오래 지속돼": 클립이 아닌 장면은 2초 안팎마다 같은 그림 안에서 당겨 찍기로 나눈다
+SCENES.forEach(sc => { if (!sc[3].clip && !sc[3].cuts) sc[3] = Object.assign({}, sc[3], { cuts: Math.max(1, Math.round((sc[2] - sc[1]) / 2.0)) }); });
 // 같은 그림이 연달아 나오면 하나의 긴 장면으로 잇는다(같은 그림 안에서 다시 자르지 않기)
 (function () {
   const out = [];
