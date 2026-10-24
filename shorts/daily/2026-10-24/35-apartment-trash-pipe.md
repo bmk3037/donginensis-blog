@@ -146,3 +146,9 @@
 08 | A playful scene: a giant cartoon vacuum cleaner hose plugged into the ground of a toy-like miniature apartment town, sucking hard, little leaves and dust swirling into it. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
 12 | Inside the trash collection plant: a big round cyclone separator where air and trash split, trash falling into a press that squeezes it into a big steel container, the air going out through a filter box with a soft clean glow. No people and no characters in this image. Bright Pixar-like 3D animation, a clean modern Korean new-town apartment world, soft colorful daylight. Main subject in the lower two-thirds, upper third calm for overlay labels. No text, letters, numbers or logos anywhere; any signs or screens are blank. Vertical 9:16.
 ```
+
+## 합성 (2026-10-24)
+
+- 다시 만든 6장(02·03·05·06·08·12, 도감이 없음) 받음. 도감이는 01(c01)·07·10(c10)·13·14 다섯 장.
+- 클립: c01(Veo 3.1 Lite 10초) 1.2~6.2초를 1.6배속으로 첫 문장 3초에 맞춤 → 2.5초쯤 봉투가 관을 날아감. c10 1.0~4.6초.
+- 음성 54.7초(첫 문장 3.0초, 1.1배, 문장 사이 쉼 줄임) + 끝 커버 1초.
