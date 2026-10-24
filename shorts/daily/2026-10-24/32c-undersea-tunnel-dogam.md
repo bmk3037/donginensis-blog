@@ -129,6 +129,55 @@
 26 | Same framing as the first scene: the next giant concrete tunnel section starting to sink from just below the sea surface on cables, Dogam (the chibi engineer from the reference sheet: blue hard hat with a red stripe, blue work jacket) riding on top and waving cheerfully at the camera, bubbles rising, a red vertical depth ruler on the left. Bright Pixar-like 3D animation, same look as the reference sheet. Bold red annotation lines, no text. No text, letters, numbers or logos anywhere, including on his clothes. Vertical 9:16.
 ```
 
+
+## 번호표 1차 (2026-10-24, 26장 받음, 줄마다 1장)
+
+출력 수가 1로 들어가 줄마다 1장씩 왔습니다. 번호를 맞춘 그림은 `shorts/compose/work/32c/img/NN.jpg`(git 제외).
+
+| 번호 | 받은 파일 | 판정 |
+|---|---|---|
+| 01 | Engineer_riding_sinking_concrete… | 좋음(훅) |
+| 02 | Animated_character_inside_underw… | 좋음 |
+| 03 | Dogam_looking_up_curiously | 좋음 |
+| 04 | Engineer_walking_in_underwater_t… | 좋음 |
+| 05 | Tunnel_boring_machine_grinding_rock | 좋음(TBM에 귀여운 얼굴) |
+| 06 | Engineer_gives_thumbs_up_tunnel | 좋음 |
+| 07 | Engineer_jumping_from_seawater_leak | 좋음 |
+| 08 | Engineer_tapping_rock_roof | 좋음 |
+| 09 | Engineer_filling_rock_cracks_grout | **다시**: 얼굴이 어른처럼 커져 시트와 다름 |
+| 10 | Aerial_view_of_harbor_town | 좋음 |
+| 11 | Engineer_reading_tablet_near_pumps | 좋음 |
+| 12 | Engineer_comparing_tunnel_types | 좋음 |
+| 13 | Engineer_waving_on_concrete_section | 좋음 |
+| 14 | Engineer_riding_floating_tunnel_… | 좋음 |
+| 15 | Grab_bucket_digging_seabed_trench | 좋음 |
+| 16 | Engineer_lowering_concrete_tunne… | 좋음 |
+| 17 | Engineer_inspecting_tunnel_joint… | 좋음(둥근 고리 모양, 써도 됨) |
+| 18 | Dogam_winking_near_sea_tunnel | **다시**: 어른 얼굴(시트와 다름) |
+| 19 | Engineer_pointing_at_draining_water | 좋음 |
+| 20 | Character_giving_thumbs_up | 좋음 |
+| 21 | Animated_character_holding_umbre… | 좋음 |
+| 22 | Engineer_walking_on_concrete_tun… | **다시**: 둥근 관 하나뿐, 사각 토막 18개가 아님 |
+| 23 | Character_cheering_over_coastal_… | 좋음 |
+| 24 | Dogam_holding_tablet_smiling | **다시**: 어른 얼굴 |
+| 25 | Engineer_cupping_ear_listening | **다시**: 어른 얼굴, 얼굴에 빨간 선이 겹침 |
+| 26 | Engineer_sinking_concrete_tunnel… | **다시**: 둥근 관이라 01(사각 토막)과 구도가 안 이어짐 |
+
+### 다시 만들 6장 (시트를 참고 이미지로 붙이고 한꺼번에)
+
+얼굴이 어른처럼 나온 장은 "큰 머리·작은 몸·아기 얼굴"을, 토막이 둥글게 나온 장은 "사각, 둥근 관 아님"을 넣었습니다.
+
+```
+09 | Close cutaway of rock cracks being filled by grey cement grout from thin steel pipes, the filled zone outlined in red, Dogam exactly as in the reference sheet: a chibi character with a very big head and a small body, round baby face, big brown eyes, tiny nose, blue hard hat with a red stripe, blue work jacket with silver stripes, holding the pipe nozzle like a hose with a focused face, shown at full body. Bright Pixar-like 3D animation, same look as the reference sheet. Bold red annotation lines, no text. No text, letters, numbers or logos anywhere, including on his clothes. Vertical 9:16.
+18 | Dogam exactly as in the reference sheet: a chibi character with a very big head and a small body, round baby face, big brown eyes, tiny nose, blue hard hat with a red stripe, blue work jacket with silver stripes, full body, with a big confident smile winking at the camera, behind him the blue sea pressing in with many red arrows pointing toward a tunnel joint. Bright Pixar-like 3D animation, same look as the reference sheet. Bold red annotation lines, no text. No text, letters, numbers or logos anywhere, including on his clothes. Vertical 9:16.
+22 | Long underwater cutaway along a chain of many connected rectangular concrete tunnel sections (box-shaped with two road openings, not round pipes) lying in a trench on the seabed, each joint marked with a small red tick, Dogam exactly as in the reference sheet: a chibi character with a very big head and a small body, round baby face, big brown eyes, tiny nose, blue hard hat with a red stripe, blue work jacket with silver stripes, walking proudly on top of the first section with his arms spread. Bright Pixar-like 3D animation, same look as the reference sheet. Bold red annotation lines, no text. No text, letters, numbers or logos anywhere, including on his clothes. Vertical 9:16.
+24 | Dogam exactly as in the reference sheet: a chibi character with a very big head and a small body, round baby face, big brown eyes, tiny nose, blue hard hat with a red stripe, blue work jacket with silver stripes, full body, holding his tablet toward the camera like he is sending a message, smiling, a soft blue tunnel background with cars blurred. Bright Pixar-like 3D animation, same look as the reference sheet. Bold red annotation lines, no text. No text, letters, numbers or logos anywhere, including on his clothes. Vertical 9:16.
+25 | Dogam exactly as in the reference sheet: a chibi character with a very big head and a small body, round baby face, big brown eyes, tiny nose, blue hard hat with a red stripe, blue work jacket with silver stripes, full body, leaning toward the camera with a hand cupped to his ear, curious face, as if waiting for answers, an empty red speech-bubble outline beside him with nothing inside. Bright Pixar-like 3D animation, same look as the reference sheet. Bold red annotation lines, no text. No text, letters, numbers or logos anywhere, including on his clothes. Vertical 9:16.
+26 | Same framing as the first scene: the next giant rectangular concrete tunnel section with two road openings (box-shaped, not a round pipe) starting to sink from just below the sea surface on thick cables, Dogam exactly as in the reference sheet: a chibi character with a very big head and a small body, round baby face, big brown eyes, tiny nose, blue hard hat with a red stripe, blue work jacket with silver stripes, riding on top and waving cheerfully at the camera, bubbles rising, a red vertical depth ruler on the left. Bright Pixar-like 3D animation, same look as the reference sheet. Bold red annotation lines, no text. No text, letters, numbers or logos anywhere, including on his clothes. Vertical 9:16.
+```
+
+두 번째 컷(b)은 26줄을 한 번 더 넣어 받습니다(출력 1이면 한 번 더, 출력 2면 위 6장을 다시 만들 때 같이).
+
 ## 클립 5개 (프레임 투 비디오, Veo 3.1 Lite 10크레딧씩)
 
 #### 32편 캐릭터판 c01 — 시작 그림: 01번 그림
