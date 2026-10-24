@@ -191,6 +191,41 @@
 
 첫판 09·22·24·25·26은 `예비`로 옮김.
 
+### 번호표 2차 (2026-10-24, 14번 zip 25장, 26줄 전체를 한 번 더)
+
+1차와 장면마다 나란히 놓고 더 나은 쪽을 골랐습니다. `work/32c/img/`에는 고른 그림, 바뀐 1차 그림은 예비(`NN_1차`).
+
+| 번호 | 2차 받은 파일 | 고름 | 이유 |
+|---|---|---|---|
+| 01 | Engineer_riding_sinking_concrete… | 1차 | 둘 다 좋음. 26(1차)과 구도가 이어짐 |
+| 02 | Character_pointing_inside_underw… | 1차 | 도감이가 크게 보임 |
+| 03 | Dogam_looking_up_at_seawater | **2차** | 표적 원이 깔끔 |
+| 04 | Engineer_walking_through_tunnel_… | **2차** | 육지에서 바다 밑으로 내려가는 단면이 대본과 맞음 |
+| 05 | Tunnel_boring_machine_grinding_rock | **2차** | 귀 막는 표정 |
+| 06 | Engineer_gives_thumbs_up_tunnel | 1차 | 2차는 얼굴이 어른 쪽 |
+| 07 | Engineer_jumping_from_water_leak | **2차** | 물줄기가 더 큼 |
+| 08 | Engineer_tapping_rock_roof | 1차 | 도감이가 크게 보임 |
+| 09 | Engineer_filling_rock_cracks_wit… | 1차(다시 만든 것) | 2차는 얼굴이 굳고 실사 쪽 |
+| 10 | Aerial_view_of_harbor_town | 1차 | 2차 부두 위 인물이 강아지 모양 |
+| 11 | Engineer_reading_tablet_near_pumps | **2차** | 물길이 잘 보임 |
+| 12 | Engineer_comparing_tunnel_constr… | **2차** | 두 방식이 가려지지 않음 |
+| 13 | Engineer_waving_on_concrete_section | 1차 | 비슷함 |
+| 14 | Engineer_riding_floating_tunnel_… | 1차 | 2차는 둥근 관 |
+| 15 | Grab_bucket_digging_trench_seabed | **2차** | 잠수정 안 도감이 |
+| 16 | Engineer_lowering_concrete_tunne… | **2차** | 도감이가 크게 보임 |
+| 17 | Engineer_inspecting_tunnel_joint… | 1차 | 비슷함 |
+| 18 | Dogam_winking_near_tunnel_joint | 없음 | **2차는 강아지 얼굴.** 다시 만들기 |
+| 19 | Engineer_pointing_at_draining_water | 1차 | 2차는 둥근 쇠관 |
+| 20 | Engineer_giving_thumbs_up_gasket | 1차 | 비슷함 |
+| 21 | Engineer_holding_umbrella_underw… | 1차 | 2차는 둥근 유리관 |
+| 22 | Engineer_walking_on_tunnel_sections | 1차(다시 만든 것) | 2차는 둥근 관 |
+| 23 | Character_cheering_near_sea_bridge | **2차** | 다리 끝에서 바다로 들어가는 선 |
+| 24 | Chibi_engineer_holding_tablet | 1차(다시 만든 것) | 2차는 몸에 빨간 원이 겹침 |
+| 25 | (안 옴) | 1차(다시 만든 것) | |
+| 26 | Engineer_riding_sinking_tunnel_s… | 1차(다시 만든 것) | 2차는 둥근 관, 01과 안 이어짐 |
+
+**두 번 다 같은 데서 틀림(일관성 문제의 정체):** 50장 가까이 거의 모두 안전모 빨간 줄이 앞뒤 줄이 아니라 **둘레 띠**로, 점퍼의 은색 반사띠와 빨간 테두리가 **없는 민무늬 파란 작업복**으로 나옴. 얼굴(큰 머리 아기 얼굴)은 강아지 1장, 어른 쪽 2장 말고는 대체로 맞음. 장면 줄에 짧은 설명("blue hard hat with a red stripe, blue work jacket")만 넣어서, 플로우가 띠·민무늬 쪽으로 그림.
+
 ## 클립 5개 (프레임 투 비디오, Veo 3.1 Lite 10크레딧씩)
 
 #### 32편 캐릭터판 c01 — 시작 그림: 01번 그림
