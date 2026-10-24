@@ -75,7 +75,7 @@ Character sheet of a small cute inspection robot mascot named Dogam: a short rou
 **2. 캐릭터 설명은 매번 똑같은 문장을 맨 앞에** (10/24 대표이사 "너무 아기처럼 나와서" → 얼굴을 "아기 아닌 어린 소년"으로 고침, 34편부터) (줄마다 바꾸지 않음):
 
 ```
-DOGAM, a chibi 3D cartoon field engineer, about 2.5 heads tall: a very big round head and a small body, a young boy's face (not a baby), big round dark-brown eyes, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, navy cargo pants with red piping, black gloves and black work boots
+DOGAM, the same chibi 3D field engineer as in the reference image with exactly the same body proportions: exactly 2.5 heads tall (his head, including the hard hat, is 40% of his whole height and as wide as his shoulders), short arms that reach his hips, short sturdy legs, a young boy's face (not a baby), big round dark-brown eyes, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, navy cargo pants with red piping, black gloves and black work boots
 ```
 
 **3. 자세 모음을 먼저 만들어 확정**: 아래 10자세를 회색 배경에 한 명씩 만들어, 시트와 같은 얼굴인 것만 골라 `pose_NN.png`로 저장. 이후 장면 그림은 그 장면에 맞는 자세 그림을 참고 이미지로 붙임(자세 그림이 곧 그 장면의 도감이).
@@ -87,3 +87,12 @@ DOGAM, a chibi 3D cartoon field engineer, about 2.5 heads tall: a very big round
 **6. 참고 이미지는 도감이 사진 한 장으로 (10/24 대표이사 "앞으로 도감이 캐릭터 사진을 한 장 넣고 다 일괄되게 뽑아 달라고 할게"):** 대표이사가 플로우에 도감이 사진 한 장(지금은 유튜브 프로필 그림: 돋보기, 앞뒤 빨간 줄 안전모, 은색 반사띠 점퍼)을 붙이고 그 편 그림을 한꺼번에 뽑습니다. 그래도 줄마다 위 고정 문장(옷·안전모 색)을 맨 앞에 붙입니다. 32편 캐릭터판 18번처럼 참고 이미지가 안 먹히면 노란 안전모·주황 옷으로 나오기 때문입니다.
 
 **마스코트(10/24 대표이사):** 도감이는 동인엔시스 마스코트입니다. 홈페이지·블로그·회사 자료에서는 "동인엔시스 마스코트 도감이"로 소개해도 되고, 숏츠 영상과 설명란에는 회사 이름을 넣지 않습니다(10/24 "회사 문구 없이").
+
+**7. 몸 비율과 화면 속 크기 고정 (10/24 대표이사 "크기도 몸 비율도 똑같이 할 수 있게, 앞으로"):**
+- 고정 문장 맨 앞에 비율을 숫자로: "정확히 2.5등신, 안전모 포함 머리가 키의 40%, 머리 폭 = 어깨 폭, 팔은 엉덩이까지, 짧고 튼튼한 다리". 참고 이미지(프로필)와 "exactly the same body proportions".
+- 장면마다 화면 속 크기를 네 가지 중 하나로 적습니다(줄 끝 스타일 문장 바로 앞):
+  - **크게(전신):** `Show DOGAM full body, filling about 60% of the image height.`
+  - **보통(전신):** `Show DOGAM full body, filling about 40% of the image height.`
+  - **작게(풍경 속):** `Show DOGAM full body, small, about 20% of the image height.`
+  - **상반신:** `Show DOGAM from the waist up, his head about 25% of the image height.`
+- 한 편 안에서는 같은 크기를 되도록 이어 씁니다(보통이 기본). 얼굴만 크게 나오는 장면은 쓰지 않습니다.
