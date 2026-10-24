@@ -13,7 +13,7 @@
 
 ## 1. 파일
 
-- 영상과 커버는 맥의 `~/Downloads/꿀팁도감/` 폴더에 둔다(예: `38_breaker_trip.mp4`, `38_cover.jpg`).
+- 완성본은 GitHub `shorts/media/NN/out/`에 있다(예: `38_breaker_trip.mp4`, `38_cover.jpg`). 먼저 두 파일을 내려받아 맥의 `~/Downloads/꿀팁도감/`에 둔다(GitHub 파일 화면의 다운로드 버튼).
 - 카드의 파일 이름과 폴더 안 파일 이름이 같은지 먼저 확인한다. 없으면 멈추고 보고.
 - 영상은 세로 1080×1920, 1분 이내, 약 10~20MB. 마지막 1초가 커버 화면이다.
 
@@ -68,6 +68,6 @@
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/ASIDE.md 지침서를 읽고,
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/38.md 업로드 카드대로
 유튜브(꿀팁도감) → 인스타 → 스레드 순서로 올려 줘.
-파일은 ~/Downloads/꿀팁도감/ 에 있어. 각 플랫폼에서 게시 누르기 직전에 멈추고 나한테 확인받아.
+파일은 GitHub shorts/media/38/out/ 에 있어, 받아서 올려. 각 플랫폼에서 게시 누르기 직전에 멈추고 나한테 확인받아.
 ```
 (편 번호만 38 → 39로 바꿔서 쓰면 됨)
