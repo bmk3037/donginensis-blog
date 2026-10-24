@@ -96,3 +96,5 @@ DOGAM, the same chibi 3D field engineer as in the reference image with exactly t
   - **작게(풍경 속):** `Show DOGAM full body, small, about 20% of the image height.`
   - **상반신:** `Show DOGAM from the waist up, his head about 25% of the image height.`
 - 한 편 안에서는 같은 크기를 되도록 이어 씁니다(보통이 기본). 얼굴만 크게 나오는 장면은 쓰지 않습니다.
+
+**8. 도감이는 필요한 장면에만 (10/24 대표이사 "도감이는 너무 자주 안 나와도 돼"):** 한 편의 그림 중 **3분의 1 안팎**에만 도감이를 넣습니다. 넣는 곳: 첫 장면(훅), 크게 놀라거나 반전되는 순간 1~2번, 퀴즈·끝 장면. 나머지는 설비 자체(단면, 클로즈업, 움직이는 모습)가 주인공이고 줄 끝에 "No people and no characters in this image."를 붙입니다. 35편까지는 거의 모든 장면에 나왔음.
