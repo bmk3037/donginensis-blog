@@ -214,7 +214,7 @@
 | 15 | Grab_bucket_digging_trench_seabed | **2차** | 잠수정 안 도감이 |
 | 16 | Engineer_lowering_concrete_tunne… | **2차** | 도감이가 크게 보임 |
 | 17 | Engineer_inspecting_tunnel_joint… | 1차 | 비슷함 |
-| 18 | Dogam_winking_near_tunnel_joint | 없음 | **2차는 강아지 얼굴.** 다시 만들기 |
+| 18 | Dogam_winking_near_tunnel_joint | 3차(다시 만든 것) | 2차는 강아지 얼굴, 첫 3차는 노란 안전모·주황 옷(색을 안 적은 탓). 색을 적어 다시 만든 것: 파란 안전모(빨간 띠), 윙크·엄지척, 이음매로 모이는 빨간 화살표. 점퍼만 패딩 모양 |
 | 19 | Engineer_pointing_at_draining_water | 1차 | 2차는 둥근 쇠관 |
 | 20 | Engineer_giving_thumbs_up_gasket | 1차 | 비슷함 |
 | 21 | Engineer_holding_umbrella_underw… | 1차 | 2차는 둥근 유리관 |
