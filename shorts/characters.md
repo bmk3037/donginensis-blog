@@ -2,14 +2,17 @@
 
 대표이사(10/24): "숨은 설비 도감도 캐릭터가 스토리, 공유와 댓글, 회사 문구는 없이 진행한다."
 
-## 주인공: 도감이 (캐릭터 시트 v1, 10/24 대표이사가 플로우로 만듦)
+## 주인공: 도감이 (캐릭터 시트 v2 확정, 10/24 대표이사)
 
-시트: `shorts/assets/character/dogam_sheet_v1.png` (앞·옆·뒤·손 흔들기 + 표정 6개). **모든 장면 그림에 이 시트를 참고 이미지로 붙입니다.**
+시트: **`shorts/assets/character/dogam_sheet_v2.png`** (앞·옆·뒤·손 흔들기 + 표정 6개). **모든 장면 그림에 이 시트를 참고 이미지로 붙입니다.** v1(`dogam_sheet_v1.png`)은 빨간 포인트가 없던 첫 판.
+
+- **색은 동인엔시스 CI와 통일(10/24 대표이사):** 파랑(CI #1857A5, 시트 안전모 실측 #014ECC) + 강조 빨강(CI #E83E30, 시트 줄무늬 실측 #FC3635). 회사 이름·로고·글자는 넣지 않고 색으로만 맞춤.
+- **알아보는 표시:** 안전모 한가운데 앞에서 뒤로 지나는 빨간 줄. 섬네일에서도 이 줄로 알아봄.
 
 | 항목 | 내용 |
 |---|---|
 | 정체 | 숨은 설비를 찾아다니는 현장 엔지니어. 매 편 "순찰"을 가서 평소 못 보는 곳의 설비를 만난다 |
-| 생김새 | 3D 만화풍(2.5등신), 파란 안전모(턱끈), 짧은 검은 머리, 큰 갈색 눈, 파란 작업 점퍼에 은색 반사띠, 남색 카고바지, 검은 장갑·작업화, 손에 검은 견고한 태블릿 |
+| 생김새 | 3D 만화풍(2.5등신), 파란 안전모(턱끈, 가운데 빨간 줄), 짧은 검은 머리, 큰 갈색 눈, 파란 작업 점퍼에 은색 반사띠와 빨간 테두리, 팔에 빨간 무지 패치, 남색 카고바지(빨간 테두리), 검은 장갑·작업화(빨간 고리), 손에 검은 견고한 태블릿 |
 | 소품의 뜻 | 태블릿 = 설비 데이터를 보는 화면. 설비 상태를 확인하는 장면에 씀 |
 | 성격 | 호기심 많고 잘 놀람. 설비를 친구처럼 대함. 아는 척하지 않고 같이 알아냄 |
 | 말투 | 존댓말 1인칭: "여러분, 저 지금 바다 밑 48m에 왔어요!", "어, 이게 왜 이래요?" |
@@ -18,7 +21,7 @@
 
 장면 프롬프트에 넣을 고정 문장:
 ```
-the cute chibi 3D field engineer Dogam from the reference character sheet (royal-blue hard hat with chin strap, short black hair, big brown eyes, royal-blue work jacket with silver reflective stripes, navy cargo pants, black gloves and boots, holding a rugged black tablet), same face and proportions as the sheet
+the cute chibi 3D field engineer Dogam from the reference character sheet (cobalt-blue hard hat with a red stripe running front to back and a chin strap, short black hair, big brown eyes, cobalt-blue work jacket with silver reflective stripes, red piping and plain red sleeve patches, navy cargo pants with red piping, black gloves and boots, holding a rugged black tablet), same face, colors and proportions as the sheet, no text or logos on his clothes
 ```
 
 **그림 스타일:** 도감이가 만화풍이라, 배경도 같은 "Pixar-like 3D animation" 세계로 맞춥니다(사실적인 시네마틱 3D와 섞으면 따로 놀아 보임). 밝고 색이 많은 세계라 32편에서 지적된 "짙은 청록 한 색" 문제도 같이 풀립니다.
