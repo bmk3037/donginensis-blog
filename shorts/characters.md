@@ -2,16 +2,26 @@
 
 대표이사(10/24): "숨은 설비 도감도 캐릭터가 스토리, 공유와 댓글, 회사 문구는 없이 진행한다."
 
-## 주인공: 도감이
+## 주인공: 도감이 (캐릭터 시트 v1, 10/24 대표이사가 플로우로 만듦)
+
+시트: `shorts/assets/character/dogam_sheet_v1.png` (앞·옆·뒤·손 흔들기 + 표정 6개). **모든 장면 그림에 이 시트를 참고 이미지로 붙입니다.**
 
 | 항목 | 내용 |
 |---|---|
-| 정체 | 숨은 설비를 찾아다니는 작은 점검 로봇. 매 편 "순찰"을 가서 평소 못 보는 곳의 설비를 만난다 |
-| 생김새 | 키 작은 둥근 몸통(밝은 주황), 머리는 둥근 화면이고 얼굴은 LED 눈 두 개로만 표정(사람 얼굴 아님), 머리 위 짧은 안테나 끝에 빨간 손전등, 바퀴 하나 + 짧은 팔 두 개, 가슴에 작은 계기판 |
+| 정체 | 숨은 설비를 찾아다니는 현장 엔지니어. 매 편 "순찰"을 가서 평소 못 보는 곳의 설비를 만난다 |
+| 생김새 | 3D 만화풍(2.5등신), 파란 안전모(턱끈), 짧은 검은 머리, 큰 갈색 눈, 파란 작업 점퍼에 은색 반사띠, 남색 카고바지, 검은 장갑·작업화, 손에 검은 견고한 태블릿 |
+| 소품의 뜻 | 태블릿 = 설비 데이터를 보는 화면. 설비 상태를 확인하는 장면에 씀 |
 | 성격 | 호기심 많고 잘 놀람. 설비를 친구처럼 대함. 아는 척하지 않고 같이 알아냄 |
-| 말투 | 1인칭 반말 섞인 존댓말: "여러분, 저 지금 바다 밑 80m에 왔어요!", "어, 이게 왜 이래요?" |
-| 목소리 | 타입캐스트에서 밝고 또렷한 목소리 하나로 고정(모든 편 같게) |
-| 금지 | 사람처럼 보이는 얼굴, 회사 이름·로고·슬로건, 실존 인물 |
+| 말투 | 존댓말 1인칭: "여러분, 저 지금 바다 밑 48m에 왔어요!", "어, 이게 왜 이래요?" |
+| 목소리 | 타입캐스트 밝고 또렷한 목소리 하나로 고정(모든 편 같게) |
+| 금지 | 실사 사람 얼굴(만화풍만), 안전모·옷에 회사 이름·로고·글자, 실존 인물 |
+
+장면 프롬프트에 넣을 고정 문장:
+```
+the cute chibi 3D field engineer Dogam from the reference character sheet (royal-blue hard hat with chin strap, short black hair, big brown eyes, royal-blue work jacket with silver reflective stripes, navy cargo pants, black gloves and boots, holding a rugged black tablet), same face and proportions as the sheet
+```
+
+**그림 스타일:** 도감이가 만화풍이라, 배경도 같은 "Pixar-like 3D animation" 세계로 맞춥니다(사실적인 시네마틱 3D와 섞으면 따로 놀아 보임). 밝고 색이 많은 세계라 32편에서 지적된 "짙은 청록 한 색" 문제도 같이 풀립니다.
 
 ## 설비 캐릭터 (편마다)
 
@@ -34,10 +44,10 @@
 - 설명란에도 공유 대상 한 줄과 댓글 질문 한 줄을 넣는다.
 - **회사 문구 없음:** 영상에도 설명란에도 회사 이름·슬로건("설비를 제어하고, 데이터를 연결하다. ㈜동인엔시스")을 넣지 않는다. 설명란 끝은 "※ 영상의 그림은 AI로 만든 이미지입니다."로 끝낸다.
 
-## 캐릭터 시트 프롬프트 (플로우, 맨 먼저 한 번 만들어 모든 편의 참고 이미지로)
+## (처음 제안했던 로봇 시트 프롬프트, 쓰지 않음)
 
 ```
 Character sheet of a small cute inspection robot mascot named Dogam: a short round body in bright orange with soft rounded edges, a round dark glass screen head showing two large expressive glowing white LED eyes (no mouth, no human face), a short antenna on top ending in a small red flashlight, one rubber wheel at the bottom and two short jointed arms with simple gripper hands, a tiny analog gauge on its chest. Shown four times on one sheet: front view, side view, back view, and a three-quarter view waving. Below, a row of six head close-ups with different LED eye expressions: curious, surprised, worried, happy, determined, sleepy. Pixar-like 3D animation style, soft studio lighting, plain light grey background, consistent proportions and colors in every view. No text, no letters, no numbers, no logos.
 ```
 
-편마다 장면 그림을 만들 때 이 시트를 참고 이미지로 붙이고, 각 줄에 `the small orange inspection robot Dogam from the reference sheet (round screen head with glowing LED eyes, red flashlight antenna, one wheel)`를 넣는다.
+대표이사가 사람 엔지니어 캐릭터로 만들어 위 시트 v1로 확정했습니다.
