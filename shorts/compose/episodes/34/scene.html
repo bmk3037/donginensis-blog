@@ -771,7 +771,7 @@ function dimV(t, t0, x, y0, y1) {
 const MID = i => (L[i].commas.length ? cm(i) : at(i, 0.5));
 const S = A, E = B;
 const SCENES = [
-  ["01", S(0), E(0), { from: 1.0, to: 1.16, fast: true }, null, t => rl(t, 0.6, 540, 330, "설 때 전기를 만든다", 80)],
+  ["01", S(0), E(0), { from: 1.0, to: 1.16, fast: true }, null, t => big(t, -0.3, 540, 290, "지하철 브레이크로", 92, "#fff", "middle") + big(t, -0.2, 540, 470, "140집 전기?", 170, "#FFD43B", "middle")],
   ["02", S(1), E(1), {}, null, null],
   ["03", S(2), E(2), { from: 1.04, to: 1.18 }, null, t => rl(t, S(2) + 0.3, 540, 330, "감속하는 순간", 90)],
   ["04", S(3), E(3), {}, null, t => rl(t, MID(3) + 0.2, 830, 560, "?", 220)],
