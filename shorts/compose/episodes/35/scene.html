@@ -56,7 +56,7 @@ const cm = (i, k = 0) => L[i].commas[k];
 
 // 이미지 크기는 불러와서 잰다. 아직 없는 이미지는 자리 표시만 한다
 const NAMES = Array.from({ length: 14 }, (_, i) => String(i + 1).padStart(2, "0"));
-const CLIPS = {}, CLIPIMG = {}, CFPS = 60;
+const CLIPS = { c01: 236, c10: 213 }, CLIPIMG = {}, CFPS = 60;
 const SIZE = {}, MISSING = new Set();
 const loadImg = n => new Promise(r => {
   const im = new Image();
@@ -771,7 +771,7 @@ function dimV(t, t0, x, y0, y1) {
 const MID = i => (L[i].commas.length ? cm(i) : at(i, 0.5));
 const S = A, E = B;
 const SCENES = [
-  ["01", S(0), E(0), { from: 1.0, to: 1.16, fast: true }, null, t => big(t, -0.3, 540, 290, "쓰레기가 바람 타고", 92, "#fff", "middle") + big(t, -0.2, 540, 470, "시속 70km?", 170, "#FFD43B", "middle")],
+  ["c01", S(0), E(0), { clip: { id: "c01", from: 1 }, from: 1.06, to: 1.12 }, null, t => big(t, -0.3, 540, 290, "쓰레기가 바람 타고", 92, "#fff", "middle") + big(t, -0.2, 540, 470, "시속 70km?", 170, "#FFD43B", "middle")],
   ["02", S(1), E(1), {}, null, null],
   ["03", S(2), E(2), {}, null, t => rl(t, MID(2) + 0.2, 830, 600, "?", 220)],
   ["04", S(3), E(3), {}, null, t => rl(t, MID(3) + 0.1, 540, 330, "임시 저장 통", 100)],
@@ -780,7 +780,7 @@ const SCENES = [
   ["07", S(6), E(6), { shake: shakeAt(MID(6) + 0.3, 0.7, 12) }, null, t => rl(t, MID(6) + 0.3, 540, 330, "시속 60~70km", 120)],
   ["08", S(7), E(7), {}, null, t => rl(t, S(7) + 0.3, 540, 330, "진공청소기 원리", 92)],
   ["09", S(8), E(8), {}, null, t => rl(t, S(8) + 0.2, 540, 330, "① 공기 밸브", 96) + rl(t, MID(8) + 0.1, 540, 470, "② 쓰레기 밸브", 96)],
-  ["10", S(9), E(9), { from: 1.04, to: 1.2, fast: true }, null, t => flash(t, S(9) + 0.2, 0.4) + rl(t, MID(9) + 0.1, 540, 330, "순식간에 집하장까지", 80)],
+  ["c10", S(9), E(9), { clip: { id: "c10", from: 1 }, from: 1.06, to: 1.12 }, null, t => flash(t, S(9) + 0.2, 0.4) + rl(t, MID(9) + 0.1, 540, 330, "순식간에 집하장까지", 80)],
   ["11", S(10), E(10), {}, null, t => rl(t, S(10) + 0.3, 540, 330, "최대 반경 2km", 104)],
   ["12", S(11), E(11), { cuts: 2 }, null, t => rl(t, MID(11) + 0.1, 540, 330, "압축 → 컨테이너", 92)],
   ["13", S(12), E(12), {}, null, t => rl(t, S(12) + 0.2, 540, 300, "Q. 쓰레기를 나르는 힘은?", 70) + rl(t, at(12, 0.45), 540, 430, "① 컨베이어  ② 바람  ③ 물", 62)],
