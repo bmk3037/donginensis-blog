@@ -771,10 +771,10 @@ function dimV(t, t0, x, y0, y1) {
 const MID = i => (L[i].commas.length ? cm(i) : at(i, 0.5));
 const S = A, E = B;
 const SCENES = [
-  ["01", S(0), E(0), { from: 1.0, to: 1.18, fast: true }, null, t => big(t, -0.3, 540, 290, "9.6초에", 112, "#fff", "middle") + big(t, -0.2, 540, 470, "자동차 1대?", 150, "#FFD43B", "middle")],
-  ["02", S(1), at(1, 0.5), {}, null, t => big(t, S(1) + 0.3, 540, 400, "하루 6,000대", 130, "#FFD43B", "middle")],
-  ["03", at(1, 0.5), E(1), {}, null, t => rl(t, at(1, 0.55), 540, 330, "축구장 670개", 104)],
-  ["04", S(2), E(2), {}, null, null],
+  ["01", S(0), E(0), { from: 1.0, to: 1.18, fast: true }, null, t => big(t, -0.3, 540, 290, "이 영상 끝날 때", 100, "#fff", "middle") + big(t, -0.2, 540, 470, "새 차 5대?", 160, "#FFD43B", "middle")],
+  ["04", S(1), E(1), {}, null, t => big(t, S(1) + 0.3, 540, 400, "9.6초마다 1대", 120, "#FFD43B", "middle")],
+  ["03", S(2), at(2, 0.5), {}, null, t => big(t, S(2) + 0.3, 540, 400, "하루 6,000대", 130, "#FFD43B", "middle")],
+  ["02", at(2, 0.5), E(2), {}, null, t => rl(t, at(2, 0.55), 540, 330, "축구장 670개", 104)],
   ["05", S(3), E(3), {}, null, t => rl(t, MID(3) + 0.3, 830, 600, "?", 220)],
   ["c06", S(4), MID(4) + 0.8, { clip: { id: "c06", from: 1 }, from: 1.06, to: 1.1, shake: shakeAt(MID(4) - 0.2, 0.5, 14) }, null, t => rl(t, S(4) + 0.2, 540, 330, "① 프레스", 110)],
   ["07", MID(4) + 0.8, E(4), {}, null, null],
@@ -793,8 +793,8 @@ const SCENES = [
   ["c20", S(10), at(10, 0.55), { clip: { id: "c20", from: 1 }, from: 1.06, to: 1.1 }, null, null],
   ["21", at(10, 0.55), E(10), {}, null, t => big(t, at(10, 0.6), 540, 420, "배 한 척 1,500대", 110, "#FFD43B", "middle")],
   ["22", S(11), E(11), {}, null, t => rl(t, S(11) + 0.2, 540, 300, "Q. 차 뼈대 용접은 누가?", 74) + rl(t, at(11, 0.45), 540, 430, "① 사람  ② 로봇  ③ 반반", 62)],
-  ["23", S(12), MID(12), {}, null, t => big(t, S(12) + 0.3, 540, 400, "9.6초", 170, "#FFD43B", "middle")],
-  ["24", MID(12), TL.duration, { from: 1.0, to: 1.12 }, null, null],
+  ["23", S(12), 48.0, {}, null, null],
+  ["24", 48.0, TL.duration, { from: 1.0, to: 1.12 }, null, t => big(t, 48.0, 540, 400, "벌써 5대!", 160, "#FFD43B", "middle")],
 ];
 // 10/24 대표이사 "한 화면이 너무 오래 지속돼": 클립이 아닌 장면은 2초 안팎마다 같은 그림 안에서 당겨 찍기로 나눈다
 SCENES.forEach(sc => { if (!sc[3].clip && !sc[3].cuts) sc[3] = Object.assign({}, sc[3], { cuts: Math.max(1, Math.round((sc[2] - sc[1]) / 2.0)) }); });
@@ -847,6 +847,14 @@ function badge() {
   return `<g transform="translate(96,96)" opacity="0.94"><circle r="62" fill="#0A2A55" stroke="#fff" stroke-width="5"/><circle r="50" fill="none" stroke="#E5392B" stroke-width="3" stroke-dasharray="6 5"/>
     <text y="-6" text-anchor="middle" ${FONT} font-size="23" fill="#fff">숨은 설비</text><text y="27" text-anchor="middle" ${FONT} font-size="31" fill="#FFD43B">도감</text></g>`;
 }
+// 오른쪽 위 계기판: 영상 시간 9.6초마다 새 차 한 대(첫 문장 "이 영상 끝날 때쯤 다섯 대"를 화면에서 계속 보여 준다)
+function carCount(t) {
+  if (t < 0.3) return "";
+  const n = Math.floor(t / 9.6), p = n > 0 ? back(prog(t, n * 9.6, n * 9.6 + 0.4)) : 1, o = prog(t, 0.3, 0.6);
+  return `<g transform="translate(905,150)" opacity="${o}"><rect x="-150" y="-52" width="300" height="104" rx="52" fill="#0A2A55" fill-opacity="0.88" stroke="#fff" stroke-width="4"/>
+    <text x="-62" y="16" text-anchor="middle" ${FONT} font-size="44" fill="#fff">새 차</text>
+    <g transform="translate(62,0) scale(${p})"><text x="0" y="22" text-anchor="middle" ${FONT} font-size="64" fill="#FFD43B">${n}대</text></g></g>`;
+}
 window.setTime = function (t) {
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920"><rect width="1080" height="1920" fill="#1c1f22"/><filter id="grade"><feColorMatrix type="saturate" values="1.04"/><feComponentTransfer><feFuncR type="linear" slope="1.04" intercept="0"/><feFuncG type="linear" slope="1.04" intercept="0"/><feFuncB type="linear" slope="1.04" intercept="0"/></feComponentTransfer></filter><radialGradient id="vig" cx="50%" cy="45%" r="75%"><stop offset="60%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.22"/></radialGradient><filter id="whip" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="14 3"/></filter>`;
   SCENES.forEach(sc => {
@@ -854,6 +862,7 @@ window.setTime = function (t) {
     const al = alpha(t, a, b);
     if (al > 0.001) svg += `<g opacity="${al}"><g filter="url(#grade)">${photo(name, t, a, b, cam, ov ? ov(t) : "")}</g><rect width="1080" height="1920" fill="url(#vig)"/>${hud ? hud(t) : ""}</g>`;
   });
+  svg += carCount(t);
   const end = 0;
   svg += `<rect width="1080" height="1920" fill="#000" opacity="${end}"/></svg>`;
   document.getElementById("stage").innerHTML = svg;

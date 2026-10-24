@@ -49,12 +49,14 @@ T = lambda i, f: S(i) + (L[i]['end'] - S(i)) * f
 MID = lambda i: C(i) if L[i]['commas'] else T(i, .5)
 A = lambda i: L[i]['a']; B = lambda i: L[i]['b']
 at = lambda i, f: A(i) + (B(i) - A(i)) * f
-cuts = [A(i) for i in range(1, 13)] + [at(1, .5), MID(4) + .8, MID(5), MID(6), at(7, .6), at(8, .34), at(8, .67), at(9, .34), at(9, .67), at(10, .55), MID(12)]
+cuts = [A(i) for i in range(1, 13)] + [at(2, .5), MID(4) + .8, MID(5), MID(6), at(7, .6), at(8, .34), at(8, .67), at(9, .34), at(9, .67), at(10, .55), 48.0]
 for c in cuts: put(c - 0.12, whoosh(0.3), 0.10)
-for c in [at(1, .55), MID(3) + .3, A(4) + .2, A(5) + .2, A(7) + .2, A(8) + .2, at(8, .36), MID(9) + .1, A(11) + .2, at(11, .45)]:
+for c in [at(2, .55), MID(3) + .3, A(4) + .2, A(5) + .2, A(7) + .2, A(8) + .2, at(8, .36), MID(9) + .1, A(11) + .2, at(11, .45)]:
     put(c, pop(), 0.16)
-for c in [A(1) + .3, MID(6) + .1, at(8, .69), A(9) + .5, at(10, .6), A(12) + .3]:
+for c in [A(1) + .3, A(2) + .3, MID(6) + .1, at(8, .69), A(9) + .5, at(10, .6), 48.0]:
     put(c - 0.25, riser(0.3), 0.10); put(c, thud(), 0.32)
+# 오른쪽 위 계기판이 한 대씩 올라갈 때(9.6초마다)
+for k in range(1, 6): put(9.6 * k, pop(), 0.13)
 put(0.0, whoosh(0.9), 0.3); put(0.0, rumble(2.2), 0.14)
 put(MID(4) - 0.2, boom(1.0), 0.4)
 put(A(5) + 0.3, shimmer(0.8), 0.12)
