@@ -1,0 +1,27 @@
+{
+  "topic_id": "87",
+  "blog": "bmk3037",
+  "format": "Q&A형",
+  "title": "분산 PLC 제어, 세정기 한 대에 PLC 5대를 쓴 이유 Q&A 7가지",
+  "tags": [
+    "동인엔시스",
+    "제어반제작",
+    "분산PLC제어",
+    "PLC",
+    "세정기",
+    "설비자동화",
+    "PLC통신",
+    "공장자동화",
+    "산업제어"
+  ],
+  "keyword": "분산 PLC 제어",
+  "landing_url": "https://donginensis.com/applications.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post087&utm_content=bmk3037#manufacturing",
+  "fact_check": [
+    "DMS 고밀도 세정기 제어: 분산 PLC 5대 (구간 구성·통신 방식·사양은 쓰지 않음)",
+    "분산 제어의 장단점, 구간 나누기·통신·시운전 방식은 일반적인 기술 설명이며 해당 프로젝트 세부 사양 아님",
+    "다른 제조 실적: IGis 단열 스페이서 생산설비 서보 13축, 대한화섬 자동 도퍼 서보 8축, 밥스트코리아 포장기계, 동화기업 수지 플랜트",
+    "1991년 설립, 750건 이상, PLC 프로그램·시운전 자체 수행",
+    "고객사명 공개 범위 확인 필요"
+  ],
+  "created": "2026-10-26"
+}

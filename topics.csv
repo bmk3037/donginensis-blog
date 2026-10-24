@@ -13,7 +13,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 44,donginensis3047,drafted,제조,경고와 알람 두 단계로 설비를 지키는 법,설비 알람 기준,https://donginensis.com/manufacturing.html#inquiry,"센서별 기준값으로 normal·warning·alarm 판정, 센서 하나라도 경고면 설비 전체 경고. 기준값은 시운전·안정화 때 정하고 유지관리에서 조정"
 45,donginensis3047,todo,제조,"노후 제어반 교체 시기, 이런 신호가 보이면 점검하세요",노후 제어반 교체,https://donginensis.com/manufacturing.html#inquiry,체크리스트형. 교체할 때 설비는 그대로 두고 제어반만 바꾸면서 데이터 수집까지 붙이는 방법
 46,donginensis3047,drafted,제조,"야간·주말 무인 운전 설비, 사람 없이 지켜보는 방법",무인 설비 감시,https://donginensis.com/manufacturing.html#inquiry,"24시간 기록, 기준 벗어나면 알람, 웹 대시보드·원격 상태 확인. 순회 점검의 빈틈"
-47,donginensis3047,todo,제조,숙련 작업자가 떠나도 설비 상태 기록은 남게,설비 점검 기록,https://donginensis.com/manufacturing.html#inquiry,"수기·엑셀 점검일지의 한계, 제어반이 24시간 기록, 기간별 이력 조회로 노하우를 데이터로 남기기"
+47,donginensis3047,drafted,제조,숙련 작업자가 떠나도 설비 상태 기록은 남게,설비 점검 기록,https://donginensis.com/manufacturing.html#inquiry,"수기·엑셀 점검일지의 한계, 제어반이 24시간 기록, 기간별 이력 조회로 노하우를 데이터로 남기기"
 48,donginensis3047,todo,제조,펌프 전류값으로 읽는 이상 징후,펌프 전류 감시,https://donginensis.com/manufacturing.html#inquiry,"전압·전류·전력량 수집. 전류 변화로 부하 이상을 의심하는 일반 원리 (수치 기준은 만들지 말 것, 현장별 기준값 설정)"
 49,donginensis3047,todo,제조,"냉각탑 팬·송풍기, 데이터로 관리하는 방법",송풍기 모니터링,https://donginensis.com/manufacturing.html#inquiry,"팬·송풍기에서 볼 값(권선온도, 베어링 온도, 진동, 회전속도), 설치 방식(제어반 교체·신규)"
 50,donginensis3047,todo,제조,"컨베이어·크레인 모터, 멈추면 라인이 서는 설비부터",컨베이어 모터 관리,https://donginensis.com/manufacturing.html#inquiry,라인 정지 영향이 큰 설비 우선 적용. 설비 1~2대부터 단계적 확대
@@ -48,7 +48,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 69,donginensis,todo,데이터인프라,"산업 데이터허브, 설비 데이터를 한곳에 모으는 구조",산업 데이터허브,https://donginensis.com/partner.html#inquiry,"Energient Industrial DataHub, 설비-센서-실시간값-상태 시계열 저장, 파트너 API 연동"
 70,donginensis,drafted,데이터인프라,"웹 대시보드로 보는 설비 상태, 무엇을 보여 줘야 할까",설비 모니터링 대시보드,https://donginensis.com/manufacturing.html#inquiry,"PWA Dashboard 웹 모니터링, 상태(normal·warning·alarm) 중심 화면, 이력 조회"
 71,donginensis,todo,IT협업,시연 장비로 설비 데이터 연동을 미리 검증하는 과정,설비 데이터 연동 테스트,https://donginensis.com/partner.html#inquiry,샘플 데이터 → 시연 장비 → 공동 프로젝트. 협업 절차 4단계
-72,donginensis,todo,IT협업,설비 데이터 협업 계약에 꼭 넣을 3가지,데이터 소유권 계약,https://donginensis.com/partner.html#inquiry,데이터 소유·이용 범위·보관 기간은 프로젝트별 계약. NDA 시점
+72,donginensis,drafted,IT협업,설비 데이터 협업 계약에 꼭 넣을 3가지,데이터 소유권 계약,https://donginensis.com/partner.html#inquiry,데이터 소유·이용 범위·보관 기간은 프로젝트별 계약. NDA 시점
 73,donginensis,todo,IT협업,IT기업과 제어반 회사가 정부 지원사업에 함께 참여하는 법,지원사업 공동 참여,https://donginensis.com/partner.html#inquiry,"모델 3 공동 제안·영업, 정부 지원사업 공동 참여, 시연 장비 활용. 비율·금액 쓰지 말 것"
 74,donginensis,drafted,데이터인프라,AI가 쓸 수 있는 제조 데이터의 조건,제조 데이터 품질,https://donginensis.com/partner.html#inquiry,"측정 시각·순번, 단위, 상태 라벨, 같은 형식. 통신 끊김 재전송으로 누락 방지"
 38,donginensis,todo,데이터인프라,제조 AI 프로젝트가 멈추는 진짜 이유: 현장 데이터,제조 AI 데이터,https://donginensis.com/partner.html#inquiry,"PLC 기종·통신 방식이 제각각이고 게이트웨이 유지보수가 부담이라 IT기업 스마트팩토리 프로젝트가 멈춤. OT 구간을 맡는 지능형 제어반 ※ bmk3037에 10/14 발행된 ""MES·AI 회사가 제조 현장에서 자주 막히는 지점""과 겹침 — 쓰려면 다른 각도(예: 데이터 품질 문제 사례)로"
@@ -76,7 +76,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 84,bmk3037,todo,사례,수지 플랜트 전체 제어시스템을 설계·제작한 경험,수지 플랜트 제어,https://donginensis.com/applications.html#manufacturing,동화기업 포르말린 수지 플랜트 전체 제어시스템 설계·제작
 85,bmk3037,todo,사례,"포장기계 제어시스템, 정밀함이 필요한 이유",포장기계 제어,https://donginensis.com/applications.html#manufacturing,밥스트코리아(BOBST) 포장기계 제어시스템
 86,bmk3037,todo,사례,서보 13축·8축 생산설비 제어 이야기,서보 다축 제어,https://donginensis.com/applications.html#manufacturing,"IGis 단열 스페이서 생산설비 서보 13축, 대한화섬 자동 도퍼 서보 8축"
-87,bmk3037,todo,사례,분산 PLC 5대로 묶은 고밀도 세정기 제어,분산 PLC 제어,https://donginensis.com/applications.html#manufacturing,DMS 고밀도 세정기 분산 PLC 5대
+87,bmk3037,drafted,사례,분산 PLC 5대로 묶은 고밀도 세정기 제어,분산 PLC 제어,https://donginensis.com/applications.html#manufacturing,DMS 고밀도 세정기 분산 PLC 5대
 88,bmk3037,todo,회사,"CE·UL 인증 솔루션 40종, 해외로 가는 제어반",해외 수출 제어반,https://donginensis.com/company.html,"CE·UL 인증 솔루션 40종 이상, 고려제강 7개국 라인, 현대차그룹 미국 메타플랜트"
 89,bmk3037,todo,회사,"슈나이더·ABB·후지·이튼·댄포스, 부품 파트너와 함께 만드는 제어반",제어 부품 파트너,https://donginensis.com/company.html,"Schneider 공식 SI 파트너, ABB·Fuji Electric·Eaton·Danfoss 공급 파트너. 연혁의 Agency 이력"
 90,bmk3037,todo,회사,친환경기술연구소는 무엇을 연구하나,친환경기술연구소,https://donginensis.com/company.html,"기업부설연구소(2020), 엔에스타워 8층. 수소·선박 제어, AI 예지보전 실증 등 company.md 범위"

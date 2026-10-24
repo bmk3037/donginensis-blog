@@ -1,0 +1,28 @@
+{
+  "topic_id": "72",
+  "blog": "donginensis",
+  "format": "체크리스트형",
+  "title": "데이터 소유권 계약, 설비 데이터 협업 전에 정할 3가지",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "데이터소유권계약",
+    "데이터협업",
+    "NDA",
+    "IT협업",
+    "제조데이터",
+    "스마트제조",
+    "데이터거버넌스"
+  ],
+  "keyword": "데이터 소유권 계약",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post072&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "데이터 소유·이용 범위·보관 기간은 프로젝트별 계약으로 정함 (기본값을 단정하지 않음)",
+    "협업 절차: 협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트 / MQTT 토픽·Tag 규칙 세부 문서는 NDA 후 제공",
+    "IT기업 협업 모델 1 OT 구간 전담, 모델 2 데이터 연동(표준 API), 모델 3 공동 제안·영업",
+    "원격 접속은 승인된 VPN만, TLS 암호화, 서버는 설비를 직접 제어하지 않음",
+    "법률 자문이 아니며, 계약 문구는 각 회사 법무 검토를 받도록 안내",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-26"
+}
