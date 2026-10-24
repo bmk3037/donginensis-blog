@@ -153,3 +153,22 @@ The round molds of noodles slide steadily into the bath of hot golden oil, lots 
 
 #라면 #라면공장 #공장 #숨은설비도감 #도감이
 ```
+
+## 번호표 (2026-10-24, 25장 받음, 1장은 이전 로고 시험 그림이라 뺌)
+
+| 번호 | 받은 파일 | | 번호 | 받은 파일 |
+|---|---|---|---|---|
+| 01 | Engineer_watching_noodles_pour (c01) | | 13 | Engineer_laughing_in_steam_tunnel |
+| 02 | Noodle_blocks_moving_on_conveyors | | 14 | Noodles_cut_in_factory_mold |
+| 03 | Noodles_moving_on_conveyor_belt | | 15 | Noodles_frying_in_oil (c15) |
+| 04 | Character_waving_in_noodle_factory | | 16 | Lifting_fried_noodle_block |
+| 05 | Engineer_holding_flour_and_noodles | | 17 | Fans_cooling_noodle_blocks |
+| 06 | Stainless_steel_mixer_kneading… | | 18 | Packaging_machine_wrapping… |
+| 07 | Noodle_dough_passing_through_rol… | | 19 | Robot_arm_stacking_noodle_packages |
+| 08 | Lasers_scanning_noodle_dough… | | 20 | Engineer_holding_stopwatch |
+| 09 | Engineer_peeking_at_laser_beam | | 21 | Noodle_factory_glowing_at_night |
+| 10 | Machine_slicing_dough_into_noodles | | 22 | Chibi_engineer_pointing_at_camera |
+| 11 | Noodles_flowing_on_conveyor_factory | | 23 | Character_eating_noodles_at_table |
+| 12 | Wavy_noodles_entering_steam_tunnel | | 24 | Character_pointing_at_noodle_con… |
+
+- 마지막 문장 순서에 맞춰 24("또 쏟아져요") → 23("오늘 저녁 라면도")로 보여 줌.
