@@ -1,0 +1,11 @@
+<!-- 동인엔시스 홈페이지: 도감이 반복 영상(소리 없음, 자동 재생, 반복). 세 파일을 같은 폴더에 올린 뒤 원하는 자리에 붙여 넣으세요. -->
+<video class="dogam-hero" autoplay muted loop playsinline preload="metadata" poster="dogam_hero_poster.jpg"
+       aria-label="동인엔시스 마스코트 도감이가 제어반을 살펴보는 영상" style="width:100%;height:auto;display:block;border-radius:12px">
+  <source src="dogam_hero_loop.webm" type="video/webm">
+  <source src="dogam_hero_loop.mp4" type="video/mp4">
+</video>
+<style>
+  /* 움직임 줄이기를 켠 방문자에게는 정지 그림만 보여 줌 */
+  @media (prefers-reduced-motion: reduce) { .dogam-hero { display: none; } .dogam-hero-still { display: block !important; } }
+</style>
+<img class="dogam-hero-still" src="dogam_hero_poster.jpg" alt="동인엔시스 마스코트 도감이" style="display:none;width:100%;height:auto;border-radius:12px">
