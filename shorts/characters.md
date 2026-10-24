@@ -68,10 +68,10 @@ Character sheet of a small cute inspection robot mascot named Dogam: a short rou
 | `ref_wave.png` | 손 흔들기·태블릿 든 장면 |
 | `ref_side.png` | 옆모습·걷는 장면 |
 
-**2. 캐릭터 설명은 매번 똑같은 문장을 맨 앞에** (줄마다 바꾸지 않음):
+**2. 캐릭터 설명은 매번 똑같은 문장을 맨 앞에** (10/24 대표이사 "너무 아기처럼 나와서" → 얼굴을 "아기 아닌 어린 소년"으로 고침, 34편부터) (줄마다 바꾸지 않음):
 
 ```
-DOGAM, a chibi 3D cartoon field engineer, about 2.5 heads tall: a very big round head and a small body, round baby face with soft pink cheeks, big round dark-brown eyes, tiny button nose, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, navy cargo pants with red piping, black gloves and black work boots
+DOGAM, a chibi 3D cartoon field engineer, about 2.5 heads tall: a very big round head and a small body, a young boy's face (not a baby), big round dark-brown eyes, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, navy cargo pants with red piping, black gloves and black work boots
 ```
 
 **3. 자세 모음을 먼저 만들어 확정**: 아래 10자세를 회색 배경에 한 명씩 만들어, 시트와 같은 얼굴인 것만 골라 `pose_NN.png`로 저장. 이후 장면 그림은 그 장면에 맞는 자세 그림을 참고 이미지로 붙임(자세 그림이 곧 그 장면의 도감이).
