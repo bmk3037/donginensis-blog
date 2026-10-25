@@ -140,7 +140,7 @@ The fingertip presses the small round test button, and the breaker lever right b
 
 | 항목 | 내용 |
 |---|---|
-| 머리표 | 꿀팁도감 · 차단기 |
+| 머리표 | 도감이 생활 팁 · 차단기 |
 | 큰 제목 | 차단기 내려가면 / [3단계] / 이것부터 |
 | 아래 문구 | 저장해 두고 급할 때 꺼내 보세요 |
 | 배경 그림 | 02 |
@@ -158,7 +158,7 @@ The fingertip presses the small round test button, and the breaker lever right b
 ✔ 한 달에 한 번 테스트 버튼: 딱 내려가면 정상
 
 부모님 댁, 혼자 사는 가족에게 보내 주세요.
-꿀팁도감, 다음은 멀티탭 편입니다.
+다음은 멀티탭 편입니다.
 
 출처: 한국안전학회지(2023.10, KS C 4613·4621 감전 보호용 누전차단기 0.03초 이내), 위키트리(2026.10.4, 한국전기안전공사 안내 인용), 경기일보
 ※ 영상의 그림은 AI로 만든 이미지입니다.
