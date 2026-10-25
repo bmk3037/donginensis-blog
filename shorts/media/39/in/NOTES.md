@@ -14,7 +14,13 @@
   - c01: 0~3초에 멀티탭에서 번개 같은 큰 스파크(대본보다 강함, 후킹용), 이후 차단기함을 가리킴.
   - c04: 4~6초에 멀티탭·가전에서 큰 불길이 치솟음(프롬프트는 '달아오름'이었으나 더 강하게 나옴). 편집 때 짧게 쓰거나 앞부분만 쓰기 권장.
   - c02, c03, c05: 프롬프트대로.
-- c06~c10: 사용자가 다른 Flow 계정으로 만들어 추가 예정(아래 프롬프트 그대로).
+- c06~c10: 완료(Flow 계정 bmk3037, 프로젝트 꿀팁도감 39).
+  - c06: 시작 그림에 이미 불꽃이 있어서, 프롬프트에서 불을 뺐는데도 불꽃이 계속되고 3초 뒤부터 검은 연기가 짙게 올라옴. c04와 불 장면이 겹치니 편집 때 짧게(0~3초 위주) 쓰기 권장.
+  - c07: 스위치 끄고 천으로 닦는 동작은 맞음. 다만 3~6초 오른쪽 위에 살색 덩어리(팔/얼굴 일부)가 잠깐 비침 → 0~3초와 7초 이후 위주로 쓰기 권장.
+  - c08: 불 없이 핀 사이로 주황빛 전기 줄기가 번지고 스파크(대본 '전기가 새는 길'과 맞음).
+  - c09: 흔들어 보고 → 아래로 버리고 → 새 멀티탭 들고 웃음. 프롬프트대로.
+  - c10: 폰 → 동파 예방 보온재 감은 배관 들고 손 흔들기. 프롬프트대로.
+  - c06, c08은 불이 겹치지 않게 아래 프롬프트에서 'no flames and no fire'를 넣어 바꿔 만듦(실제 사용한 문장은 맨 아래 '실제 사용 c06/c08').
 
 # 39 final clip prompts (start frame = img_v3/sNN.jpg, Veo 3.1 Lite, 9:16)
 
@@ -79,3 +85,15 @@ For the first three seconds the chibi engineer holds up the new power strip and 
 ```
 
 
+
+## 실제 사용 c06/c08 (위 원래 프롬프트 대신)
+
+### c06
+```
+The camera slowly tracks along the chain from the farthest power strip to the first one by the wall; the first strip's cord near the wall outlet glows brighter red hot with heat shimmer and a thin wisp of smoke rising from it, no flames and no fire. No people appear. Camera: slow tracking along the chain, then hold on the hot cord. Style: same bright Pixar-like 3D animation, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+### c08
+```
+A thin glowing orange path slowly creeps across the damp dust between the prongs, glowing brighter, until one small bright spark pops and fades, no flames and no fire. No people appear. Camera: very slow push-in. Style: same bright Pixar-like 3D animation, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
