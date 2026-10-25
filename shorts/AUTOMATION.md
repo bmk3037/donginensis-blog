@@ -10,8 +10,8 @@
 | ① | Claude | 주제(`daily/topics.md` 다음 후보) → 사실 확인 → 대본 → 검수 → 제작 카드 | `daily/날짜/NN-slug.md`, `produce/NN.md` |
 | ② | Aside | 제작 카드대로 타입캐스트 mp3, 플로우 그림 24장(한 줄씩 생성해 바로 `NN.jpg`로 저장), 클립 2개 → GitHub에 올림 | `media/NN/in/voice.mp3`, `media/NN/in/img/01.jpg~24.jpg`, `media/NN/in/clip/cNN.mp4` |
 | ③ | Claude | 받아쓰기로 음성 확인 → 합성 → 커버 → 업로드 카드 → 완성본 올림 → 대표이사에게 알림 | `media/NN/out/NN_slug.mp4`, `media/NN/out/NN_cover.jpg`, `upload/NN.md` |
-| ④ | 대표이사 | 폰으로 완성본 한 번 보기. 괜찮으면 Aside에 "NN 올려" | - |
-| ⑤ | Aside | `upload/ASIDE.md` 지침대로 유튜브 → 인스타 → 스레드 | `upload/NN.md` 맨 아래 "올린 기록" |
+| ④ | 대표이사 | 폰으로 완성본 한 번 보기. 괜찮으면 Claude에게 "올려" | `upload/NN.md`의 승인 → 예 |
+| ⑤ | Aside 루틴(매일 저녁) | 승인 `예`이고 아직 안 올린 카드를 `upload/ASIDE.md` 지침대로 유튜브 → 인스타 → 스레드 | `upload/NN.md` 맨 아래 "올린 기록" |
 
 - ②에서 그림 번호를 Aside가 생성 순서대로 바로 붙이므로, 합성 때 번호 맞추기가 필요 없다.
 - ④ 확인은 빼지 않는다: 안전 팁은 틀리면 위험하고, 올린 뒤에는 지우고 다시 올리지 않기 때문.
