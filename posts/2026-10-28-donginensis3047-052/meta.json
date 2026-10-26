@@ -1,0 +1,29 @@
+{
+  "topic_id": "52",
+  "blog": "donginensis3047",
+  "format": "해설형",
+  "title": "슈나이더 제어반, PLC·인버터로 지능형 제어반을 짜는 방법",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "슈나이더제어반",
+    "SchneiderElectric",
+    "PLC",
+    "인버터",
+    "SI파트너",
+    "제어반설계",
+    "스마트공장"
+  ],
+  "keyword": "슈나이더 제어반",
+  "landing_url": "https://donginensis.com/?utm_source=naver_blog&utm_medium=blog&utm_campaign=post052&utm_content=donginensis3047#product",
+  "fact_check": [
+    "Schneider Electric 공식 SI 파트너 / ABB·Fuji Electric·Eaton·Danfoss 공급 파트너",
+    "제어반 설계·제작, PLC·인버터 프로그램, 시운전 자체 수행",
+    "선박용 Modicon M262 컨트롤러 선급 상호인정 인증서 보유 (company.md 범위의 유일한 모델명)",
+    "지능형 제어반: PLC로 제어하며 데이터 수집, 별도 수집장비 없이 MQTT/TLS 전송, 수집 항목, 설비 그대로 두고 제어반 교체·신규",
+    "다른 제조사 부품도 현장 조건에 맞춰 쓴다는 점 — 특정 브랜드만 고집하지 않음(공급 파트너 사실 기반)",
+    "역할 분담(PLC·인버터·보호기기 역할)은 일반적인 제어반 구성 설명",
+    "1991년 부산, 750건 이상"
+  ],
+  "created": "2026-10-28"
+}

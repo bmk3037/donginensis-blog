@@ -18,7 +18,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 49,donginensis3047,todo,제조,"냉각탑 팬·송풍기, 데이터로 관리하는 방법",송풍기 모니터링,https://donginensis.com/manufacturing.html#inquiry,"팬·송풍기에서 볼 값(권선온도, 베어링 온도, 진동, 회전속도), 설치 방식(제어반 교체·신규)"
 50,donginensis3047,drafted,제조,"컨베이어·크레인 모터, 멈추면 라인이 서는 설비부터",컨베이어 모터 관리,https://donginensis.com/manufacturing.html#inquiry,라인 정지 영향이 큰 설비 우선 적용. 설비 1~2대부터 단계적 확대
 51,donginensis3047,todo,제조,지능형 제어반 견적에 영향을 주는 5가지,제어반 견적,https://donginensis.com/manufacturing.html#inquiry,"설비 수, 모터 용량, 수집 항목, 통신 환경, 기존 제어반 교체 여부. 금액은 쓰지 말고 현장 분석 후 견적"
-52,donginensis3047,todo,제품,슈나이더 PLC·인버터로 구성하는 지능형 제어반,슈나이더 제어반,https://donginensis.com/#product,"Schneider Electric 공식 SI 파트너, 설계·제작·PLC·인버터 프로그램·시운전 자체 수행. 모델명은 company.md 범위만"
+52,donginensis3047,drafted,제품,슈나이더 PLC·인버터로 구성하는 지능형 제어반,슈나이더 제어반,https://donginensis.com/#product,"Schneider Electric 공식 SI 파트너, 설계·제작·PLC·인버터 프로그램·시운전 자체 수행. 모델명은 company.md 범위만"
 53,donginensis3047,todo,제조,"모터 전력량, 제어반에서 바로 보는 방법",모터 전력량 모니터링,https://donginensis.com/manufacturing.html#inquiry,전압·전류·전력량 수집으로 에너지 사용 파악. AI 5% 절감은 목표치로만 언급
 55,donginensis3047,todo,제조,"지능형 제어반 유지관리, 원격 확인부터 부품 교체까지",제어반 유지보수,https://donginensis.com/manufacturing.html#inquiry,"원격 상태 확인, 정기 점검, 알람 기준 조정, 교육, 현장 대응·부품 교체"
 56,donginensis3047,todo,제조,설비 주변 온습도까지 기록하는 이유,설비 온습도 기록,https://donginensis.com/manufacturing.html#inquiry,대기 온습도 수집 항목의 쓰임: 계절·환경 변화와 설비 온도 함께 보기
@@ -74,7 +74,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 82,bmk3037,todo,조선해양,LNG DF 자동차운반선의 펌프·히터 제어,자동차운반선 제어,https://donginensis.com/applications.html#marine,"GSI, HMM 8,600 CEU DF 자동차운반선 3척 등 FGSS·L.O 펌프·오일히터 제어"
 83,bmk3037,todo,수소,액화수소충전소 제어시스템 특허 5건이 말해 주는 것,액화수소충전소 특허,https://donginensis.com/applications.html#hydrogen,2026 액화수소충전소 제어시스템 특허 5건 등록. 특허 세부 청구항은 추측하지 말 것
 84,bmk3037,drafted,사례,수지 플랜트 전체 제어시스템을 설계·제작한 경험,수지 플랜트 제어,https://donginensis.com/applications.html#manufacturing,동화기업 포르말린 수지 플랜트 전체 제어시스템 설계·제작
-85,bmk3037,todo,사례,"포장기계 제어시스템, 정밀함이 필요한 이유",포장기계 제어,https://donginensis.com/applications.html#manufacturing,밥스트코리아(BOBST) 포장기계 제어시스템
+85,bmk3037,drafted,사례,"포장기계 제어시스템, 정밀함이 필요한 이유",포장기계 제어,https://donginensis.com/applications.html#manufacturing,밥스트코리아(BOBST) 포장기계 제어시스템
 86,bmk3037,todo,사례,서보 13축·8축 생산설비 제어 이야기,서보 다축 제어,https://donginensis.com/applications.html#manufacturing,"IGis 단열 스페이서 생산설비 서보 13축, 대한화섬 자동 도퍼 서보 8축"
 87,bmk3037,drafted,사례,분산 PLC 5대로 묶은 고밀도 세정기 제어,분산 PLC 제어,https://donginensis.com/applications.html#manufacturing,DMS 고밀도 세정기 분산 PLC 5대
 88,bmk3037,todo,회사,"CE·UL 인증 솔루션 40종, 해외로 가는 제어반",해외 수출 제어반,https://donginensis.com/company.html,"CE·UL 인증 솔루션 40종 이상, 고려제강 7개국 라인, 현대차그룹 미국 메타플랜트"
@@ -84,3 +84,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 92,bmk3037,todo,조선해양,해양수산부 국가대표 혁신기업으로 선정되기까지,해양 혁신기업,https://donginensis.com/applications.html#marine,"2022 해양수산부 국가대표 혁신기업, 하이브리드 선박·수소추진선박 실적과 연결"
 93,bmk3037,todo,회사,"부산 히든챔피언·레전드50+, 지역과 함께 크는 제조기업",부산 강소기업,https://donginensis.com/company.html,"부산시 히든챔피언·서비스 강소기업(2023), 전략산업선도기업·레전드50+(2024), 고용노동부 강소기업(2024)"
 18,bmk3037,todo,조선해양,LNG 운반선 BOG 압축기 제어 이야기,BOG 압축기 제어,https://donginensis.com/applications.html#marine,"BOG 개념과 압축기 제어. Atlas Copco·SB선보 실적. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다 ※ donginensis에 2025.09 ""B.O.G 컴프레서, 인버터·PLC·EOCR"" 글과 겹침 — 쓰려면 Atlas Copco·SB선보 사례 중심의 다른 각도로"
+94,donginensis,drafted,데이터인프라,구독형 서비스로 바뀌는 설비 데이터 관리,설비 데이터 구독 서비스,https://donginensis.com/manufacturing.html#inquiry,"DX/AX 솔루션·구독형 서비스(SaaS) 공급사로 전환 '추진 중'으로만. 솔루션 5단계, 데이터허브, PWA 대시보드. 가격·요금 쓰지 말 것"
+95,donginensis,todo,데이터인프라,구축 패키지를 고르기 전에 정할 것,설비 데이터 구축 패키지,https://donginensis.com/manufacturing.html#inquiry,Basic·Standard·AI Advanced 3종 존재만. 가격·구성 세부 쓰지 말 것. 설비 수·수집 항목·통신 환경·AI 필요 여부를 먼저 정리
+96,donginensis,todo,데이터센터,데이터센터 냉각설비를 DCIM·BMS와 연동하는 구조,DCIM 연동,https://donginensis.com/applications.html#datacenter,"냉동기·냉각수 펌프·냉각탑 팬·CDU 제어·감시, MQTT/TLS 표준 연동. 실적 없음 — 적용 방안으로만. aside 10/20 '데이터센터 냉각설비 예지보전'과 겹치지 않게 연동 구조 중심"
+97,donginensis,todo,IT협업,IT기업이 첫 기술 미팅 전에 준비하면 좋은 것,기술 미팅 준비,https://donginensis.com/partner.html#inquiry,협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트. 플랫폼 구조·필요 데이터·연동 방식 정리

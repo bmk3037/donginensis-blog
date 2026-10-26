@@ -1,0 +1,30 @@
+{
+  "topic_id": "94",
+  "blog": "donginensis",
+  "format": "비교형",
+  "title": "설비 데이터 구독 서비스, 한 번 짓는 시스템과 무엇이 다를까",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "설비데이터구독서비스",
+    "SaaS",
+    "구독형서비스",
+    "데이터허브",
+    "스마트제조",
+    "제조DX",
+    "유지관리"
+  ],
+  "keyword": "설비 데이터 구독 서비스",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post094&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "제어반 제작사에서 데이터 기반 DX/AX 솔루션·구독형 서비스(SaaS) 공급사로 전환 '추진 중' — 현재 판매 중인 요금제처럼 쓰지 않음",
+    "솔루션 5단계: 현장 설비 → OT 연결 → 데이터 통합관리(Industrial DataHub) → 웹 모니터링(PWA Dashboard) → AI·디지털트윈",
+    "구축 방식: 클라우드형 / 온프레미스형(고객사 서버·사내망)",
+    "유지관리: 원격 상태 확인, 정기 점검, 알람 기준 조정, 교육, 현장 대응·부품 교체",
+    "구축 패키지 3종(Basic·Standard·AI Advanced)은 존재만 언급, 가격·구성 세부 없음",
+    "구축형·구독형 비교표는 일반적인 서비스 방식 설명이며 동인엔시스 계약 조건이 아님",
+    "AI 이상탐지는 실증·고도화 단계",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-28"
+}
