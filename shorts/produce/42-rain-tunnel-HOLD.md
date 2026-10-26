@@ -1,0 +1,171 @@
+> **⛔ 보류: 만들지 마세요 (10/26 대표이사 "유사 주제가 있는 거 아냐").** 같은 주제를 "신비한 건축사전"이 이미 함("서울 지하 40m에 이런 게 숨어 있습니다" 177만, 3개월 전) + 비슷한 영상 여럿. 주제를 바꿔 새 카드로 냄.
+
+# 42편 제작 카드: 서울 지하 40m 빗물 터널 (실사풍, 클립 10개, 1·2차)
+
+지침 `shorts/produce/ASIDE-MAKE.md`. 결과는 `shorts/media/42/in/`. **이번 편은 실사풍**(사진 같은 3D), 도감이는 s09·s10에만 작게(참고 이미지는 그 두 장과 섬네일에만).
+
+| 묶음 | 만드는 것 | 크레딧 |
+|---|---|---|
+| **1차** | 음성 + 섬네일 thumb.jpg + s01~s05 + c01~c05 | 50 |
+| **2차** | s06~s10 + c06~c10 | 50 |
+
+목소리: 38~41편과 같은 타입캐스트 캐릭터(문정), 속도 1.0.
+
+## 타입캐스트 대본 (1차에서)
+
+```
+서울 지하 사십 미터에, 버스가 다닐 만한 거대한 굴이 있어요.
+지름 십 미터, 길이는 사 점 칠 킬로미터나 되죠.
+정체는 빗물만 담는 터널, 신월 빗물 터널이에요.
+폭우가 쏟아지면, 동네 하수관이 넘치기 전에 빗물이 여기로 쏟아져요.
+최대 삼십이만 톤, 시간당 백 밀리미터 폭우를 버티게 만들었대요.
+비가 그치면, 거대한 펌프가 이 물을 안양천으로 퍼내요.
+이천이십이 년 팔월 서울이 잠긴 폭우 때도, 이 동네는 십칠만 톤을 삼켜 침수 피해가 없었대요.
+그래서 강남역, 광화문, 도림천 밑에도 같은 굴을 만들고 있어요.
+몰랐다면 좋아요, 서울 사는 가족에게 보내 주세요.
+다음엔 인도 위 철망 아래 편이에요, 팔로우하고 기다려 주세요!
+```
+
+# 1차 (c01~c05)
+
+## 섬네일 thumb.jpg (끝 1초 커버용, 영상 첫 화면에는 안 씀)
+
+글자는 합성에서: **서울 지하 40m / 버스 다니는 굴?**. 위 35% 비움.
+
+```
+Thumbnail image, very high contrast, dramatic. A cutaway view of a rainy Seoul-style city street at night with apartment towers, and right beneath the asphalt, 40 meters down, a gigantic round concrete tunnel glowing with lights, so big that a full-size city bus fits inside it. Heavy rain falling above, water pouring down a vertical shaft into the tunnel. At the lower right edge, DOGAM, the same chibi 3D field engineer as in the reference image with exactly the same body proportions: exactly 2.5 heads tall (his head, including the hard hat, is 40% of his whole height and as wide as his shoulders), short arms that reach his hips, short sturdy legs, a young boy's face (not a baby), big round dark-brown eyes, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, a cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, a plain white T-shirt, navy cargo pants with red piping, black gloves and black work boots (a small Pixar-style animated character placed into this realistic scene), small, looking down at the tunnel with a shocked face, his head about 15% of the image height. The top 35% of the image is dark rainy night sky with nothing in it, kept clear for big text. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+## 시작 그림 s01~s05
+
+### s01.jpg (→ c01, 문장 1)
+```
+A rainy city street at night with apartment towers, seen from street level; the asphalt in the foreground is see-through like a cutaway, showing deep underground a gigantic round concrete tunnel with a city bus inside it for scale. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s02.jpg (→ c02, 문장 2)
+```
+Inside a gigantic round concrete tunnel, perfectly straight, stretching far into the distance, wet floor, a few work lights. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s03.jpg (→ c03, 문장 3)
+```
+Looking up from the bottom of a huge vertical concrete shaft that connects the city surface to a giant tunnel below, a round opening of grey sky far above. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s04.jpg (→ c04, 문장 4)
+```
+A city side street in a violent downpour, water rising over the curb, a storm drain grate overflowing; the ground is shown in a cutaway with a big pipe leading down to a giant tunnel. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s05.jpg (→ c05, 문장 5)
+```
+Inside a gigantic round concrete tunnel, a torrent of brown rainwater rushing in from the far end. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### 클립 (Veo 3.1 Lite, 시작 프레임 = 같은 번호 그림)
+
+#### c01.mp4 — 시작 그림 s01.jpg · 문장 1 · 맞출 말: 지하 40m, 버스가 다닐 굴
+```
+From the very first frame the camera dives straight down through the wet asphalt and layers of soil and rock, accelerating, and lands inside the gigantic round concrete tunnel next to the city bus, the tunnel lights flicking on. Camera: fast continuous dive down, then slowing. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c02.mp4 — 시작 그림 s02.jpg · 문장 2 · 맞출 말: 지름 10m, 4.7km
+```
+Rows of lights switch on one after another, racing away down the tunnel into the far distance, revealing how incredibly long and huge it is. Camera: slow push forward down the tunnel. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c03.mp4 — 시작 그림 s03.jpg · 문장 3 · 맞출 말: 빗물만 담는 터널
+```
+Rain starts falling down the huge shaft from the opening far above, thin streams of water running down the curved concrete walls and splashing on the tunnel floor. Camera: slow tilt down from the opening to the floor. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c04.mp4 — 시작 그림 s04.jpg · 문장 4 · 맞출 말: 하수관 넘치기 전 → 여기로
+```
+The overflowing water around the storm drain suddenly swirls and drains away down the grate, and in the cutaway a powerful flow rushes down the pipe and pours like a waterfall into the giant tunnel below. Camera: slow tilt down following the water. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c05.mp4 — 시작 그림 s05.jpg · 문장 5 · 맞출 말: 32만 톤, 시간당 100mm
+```
+The torrent of water roars toward the camera and the water level climbs higher and higher up the curved tunnel walls, filling the huge tunnel. Camera: static, low angle, slight shake from the rushing water. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+## 1차 올리는 곳
+
+`shorts/media/42/in/voice.mp3`, `img/thumb.jpg`, `img/s01.jpg`~`s05.jpg`, `clip/c01.mp4`~`c05.mp4`
+
+**c01은 0초부터 카메라가 이미 아래로 내려가고 있어야 함**(첫 1초 = 영상 첫 화면). 멈춘 채 시작하면 한 번 더 생성.
+
+# 2차 (c06~c10)
+
+## 시작 그림 s06~s10
+
+### s06.jpg (→ c06, 문장 6)
+```
+A huge underground pump station hall with giant blue pump motors and thick steel pipes, lit by work lights. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s07.jpg (→ c07, 문장 7)
+```
+A residential neighborhood street at night in extremely heavy rain, low houses and parked cars, streetlights reflecting on the wet road; a cutaway below shows the giant tunnel. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s08.jpg (→ c08, 문장 8)
+```
+A giant tunnel boring machine with a huge round cutting head deep underground beneath a big city, a fresh concrete tunnel behind it. No people and no characters in this image. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s09.jpg (→ c09, 문장 9)
+```
+Inside the gigantic round concrete tunnel, DOGAM, the same chibi 3D field engineer as in the reference image with exactly the same body proportions: exactly 2.5 heads tall (his head, including the hard hat, is 40% of his whole height and as wide as his shoulders), short arms that reach his hips, short sturdy legs, a young boy's face (not a baby), big round dark-brown eyes, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, a cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, a plain white T-shirt, navy cargo pants with red piping, black gloves and black work boots (a small Pixar-style animated character placed into this realistic scene), standing small on the wet floor, looking up at the camera with an amazed smile, holding a smartphone with a blank glowing screen. Show DOGAM full body, filling about 30% of the image height. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### s10.jpg (→ c10, 문장 10)
+```
+A city sidewalk in daylight with a large metal ventilation grate set into the pavement; DOGAM, the same chibi 3D field engineer as in the reference image with exactly the same body proportions: exactly 2.5 heads tall (his head, including the hard hat, is 40% of his whole height and as wide as his shoulders), short arms that reach his hips, short sturdy legs, a young boy's face (not a baby), big round dark-brown eyes, short black hair with bangs, a glossy cobalt-blue hard hat with ONE red stripe running from front to back over the top (not a band around it) and a black chin strap, a cobalt-blue work jacket with silver reflective stripes on chest and sleeves, thin red piping and small plain red patches on the upper sleeves, a plain white T-shirt, navy cargo pants with red piping, black gloves and black work boots (a small Pixar-style animated character placed into this realistic scene), crouching on the grate and peering down through it with a curious face. Show DOGAM full body, filling about 30% of the image height. Photorealistic cinematic 3D render, dramatic lighting, high detail, real-world scale. Main subject in the lower two-thirds, upper third calm for overlay text. No text, letters, numbers or logos anywhere; signs, buses and screens are blank. Vertical 9:16.
+```
+
+### 클립 (Veo 3.1 Lite, 시작 프레임 = 같은 번호 그림)
+
+#### c06.mp4 — 시작 그림 s06.jpg · 문장 6 · 맞출 말: 펌프로 안양천에
+```
+The giant pumps start up one after another, the pipes shudder, and the camera follows a pipe out to a riverbank outlet where a strong stream of water gushes out into a wide city river. Camera: slow tracking along the pipe to the outlet. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c07.mp4 — 시작 그림 s07.jpg · 문장 7 · 맞출 말: 2022년 8월, 17만 톤, 침수 없음
+```
+The rain pours harder and harder, but the street stays clear as all the water drains away into the ground, while in the cutaway below the giant tunnel fills up with water. Camera: slow crane down from street level into the cutaway. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c08.mp4 — 시작 그림 s08.jpg · 문장 8 · 맞출 말: 강남역·광화문·도림천에도
+```
+The huge round cutting head of the tunnel boring machine starts turning and grinds forward into the rock, dust and small rocks falling, work lights glowing behind it. Camera: slow push toward the cutting head. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c09.mp4 — 시작 그림 s09.jpg · 문장 9 · 맞출 말: 몰랐다면 좋아요, 보내 주세요
+```
+The chibi engineer gives a big thumbs up with a wink, then taps the blank phone screen as if sending a message and holds it up toward the viewer, the huge tunnel stretching behind him. Camera: slow push-in. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+#### c10.mp4 — 시작 그림 s10.jpg · 문장 10 · 맞출 말: 다음 편: 인도 위 철망
+```
+A gust of air blows up through the grate, ruffling the chibi engineer, who looks down into it with wide curious eyes, then looks up at the camera, points down at the grate with a teasing smile and waves goodbye. Camera: slow push-in. Style: same photorealistic cinematic look, colors and lighting as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos, no camera cuts.
+```
+
+## 2차 올리는 곳
+
+`shorts/media/42/in/img/s06.jpg`~`s10.jpg`, `clip/c06.mp4`~`c10.mp4`
+
+## Aside에 붙여 넣을 말
+
+1차:
+```
+https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/produce/ASIDE-MAKE.md 지침을 읽고,
+https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/produce/42.md 제작 카드의 "1차"만 만들어 줘(음성, 섬네일, s01~s05, c01~c05). GitHub에 올리고 보고해 줘.
+```
+
+2차:
+```
+https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/produce/ASIDE-MAKE.md 지침을 읽고,
+https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/produce/42.md 제작 카드의 "2차"만 만들어 줘(s06~s10, c06~c10). 1차 파일은 건드리지 말고 GitHub에 추가로 올리고 보고해 줘.
+```
