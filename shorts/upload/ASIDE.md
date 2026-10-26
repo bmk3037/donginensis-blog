@@ -70,7 +70,7 @@
 ```
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/ASIDE.md 지침을 읽고,
 https://github.com/bmk3037/donginensis-blog/tree/claude/shorts-daily/shorts/upload 에서 "승인"이 예이고 "올린 기록"이 비어 있는 카드를 찾아
-그 카드대로 유튜브(꿀팁도감) → 인스타 → 스레드에 올리고, 올린 기록을 카드 맨 아래에 GitHub에서 직접 적어 커밋해 줘(브랜치 claude/shorts-daily).
+그 카드대로 유튜브(숨은 설비 도감) → 인스타 → 스레드에 올리고, 올린 기록을 카드 맨 아래에 GitHub에서 직접 적어 커밋해 줘(브랜치 claude/shorts-daily).
 없으면 아무것도 하지 말고 "올릴 것 없음"이라고만 보고해.
 ```
 
@@ -79,7 +79,7 @@ https://github.com/bmk3037/donginensis-blog/tree/claude/shorts-daily/shorts/uplo
 ```
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/ASIDE.md 지침서를 읽고,
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/38.md 업로드 카드대로
-유튜브(꿀팁도감) → 인스타 → 스레드 순서로 올려 줘.
+유튜브(숨은 설비 도감) → 인스타 → 스레드 순서로 올려 줘.
 파일은 GitHub shorts/media/38/out/ 에 있어, 받아서 올려. 각 플랫폼에서 게시 누르기 직전에 멈추고 나한테 확인받아.
 ```
 (편 번호만 38 → 39로 바꿔서 쓰면 됨)
