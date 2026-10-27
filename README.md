@@ -20,6 +20,8 @@
 
 **쓰레드(회사 계정)**: 하루 3개(아침 생각·점심 지식·저녁 질문)를 사람이 직접 쓰는 말투로. 규칙은 `knowledge/threads.md`, 경험담 근거는 대표 답변 모음 `knowledge/ceo_notes.md`, 글은 `threads/날짜.json`·`.html`(복사 버튼).
 
+**유튜브 쇼츠(개인 채널 '노빠꾸지식')**: 하루 무료 50크레딧으로 클립 5개 → 쇼츠 1편. `youtube/날짜.json`에 5편(장면별 자막·클립 프롬프트), `python -m blog.youtube page`로 복사 페이지, `python -m blog.youtube stitch json 편번호 clips/편번호`로 클립을 붙이고 자막을 입혀 `youtube/out/`에 mp4 생성(ffmpeg 필요).
+
 세 블로그에 같은 글·같은 이미지를 올리지 않습니다 (유사 문서로 노출이 떨어짐).
 
 네이버 블로그는 공식 글쓰기 API가 없어서 완전 자동 발행은 할 수 없습니다. 무리하게 자동으로 올리면(매크로)
