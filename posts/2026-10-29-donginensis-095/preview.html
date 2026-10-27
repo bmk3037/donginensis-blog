@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>설비 데이터 구축 패키지, 고르기 전에 정할 7가지</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 데이터 인프라 · <a href="https://blog.naver.com/donginensis" target="_blank" style="color:#fff">blog.naver.com/donginensis</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">설비 데이터 구축 패키지, 고르기 전에 정할 7가지</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 데이터 시스템을 알아보다 보면 '패키지'라는 말을 자주 만나게 됩니다. 기본형, 표준형, 고급형처럼 단계별로 나뉜 구성입니다. 동인엔시스도 Basic, Standard, AI Advanced 세 가지 구축 패키지를 갖추고 있습니다. 그런데 패키지 이름부터 고르면 순서가 거꾸로 됩니다. 우리 공장이 무엇을 알고 싶은지, 어디까지 할 수 있는지가 먼저 정리되어야 맞는 패키지가 보입니다. 부산에서 제어반을 설계·제작하며 그 제어반을 데이터의 출발점으로 삼아 온 동인엔시스가, <strong style="font-weight:700;color:#111">설비 데이터 구축 패키지</strong>를 고르기 전에 정해 두면 좋은 일곱 가지를 체크리스트로 정리했습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 글은 설비 데이터 구축 패키지별 가격이나 구성을 안내하는 글이 아닙니다. 구성과 비용은 현장 분석을 거쳐 정해지며, 여기서는 그 분석을 빠르고 정확하게 만드는 준비 항목을 다룹니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">패키지보다 질문이 먼저인 이유</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">같은 '표준형'이라도 펌프 두 대를 보는 공장과 송풍기 스무 대를 보는 공장에 필요한 것은 전혀 다릅니다. 비용을 좌우하는 것도 패키지 이름이 아니라 설비 수와 모터 용량, 수집 항목, 통신 환경, 기존 제어반을 바꿀지 여부 같은 현장 조건입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">그래서 상담에서 가장 먼저 묻는 것도 "어떤 패키지를 원하세요?"가 아니라 "무엇이 궁금하세요?"입니다. 아래 일곱 가지에 답을 적어 보면, 어느 설비 데이터 구축 패키지가 맞는지는 거의 자연스럽게 정해집니다. 반대로 이 질문들을 건너뛰고 패키지부터 고르면, 필요 없는 기능에 돈을 쓰거나 꼭 필요한 값을 빠뜨리기 쉽습니다.</p>
+<div data-img="02-checklist.png" style="margin:0 0 18px;text-align:center"><img src="images/02-checklist.png" alt="02-checklist.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-checklist.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">고르기 전 일곱 가지 체크</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">각 항목 아래 질문에 '예/아니오'나 짧은 메모로 답해 보세요. 완벽하게 채우지 못해도 괜찮습니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 1. 데이터로 답하고 싶은 질문은 무엇인가</h3>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 갑자기 멈추는 설비를 미리 알고 싶은가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 설비별 전기 사용량을 알고 싶은가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 사람이 없는 시간의 설비 상태를 보고 싶은가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 쌓인 데이터를 나중에 AI 분석에 쓰고 싶은가</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">질문에 따라 필요한 수집 항목과 화면, 보관 기간이 달라집니다. 질문이 여러 개라면 가장 급한 것 하나에 표시해 두세요. 첫 단계는 그 질문에 답하는 데 집중하는 편이 성공 확률이 높습니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 2. 처음 대상은 몇 대인가</h3>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 첫 대상 설비의 이름과 대수를 적었는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 같은 종류의 설비가 더 있다면 그 전체 대수도 적었는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 1년 안에 넓히고 싶은 범위가 있는가</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">처음부터 공장 전체를 하기보다 멈추면 가장 곤란한 설비 한두 대로 시작해 넓혀 가는 방식을 권합니다. 다만 나중에 넓힐 범위를 미리 알려 주시면, 처음 구성부터 확장을 고려해 설계할 수 있습니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 3. 무엇을 잴 것인가</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">제어반 한 대로 모을 수 있는 값은 열 가지 가까이 됩니다. 온도만 해도 권선 세 상과 베어링이 있고, 여기에 진동과 회전속도, 전기 쪽 값, 주변 온습도, 운전 상태가 더해집니다. 하지만 모든 설비에서 모든 값이 꼭 필요한 것은 아닙니다.</p>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 그 설비에서 지난 몇 년간 자주 생긴 문제는 무엇인가 (베어링, 과부하, 과열 등)</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 에너지 관리가 목적이라면 전기 쪽 값이 꼭 들어가는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 설비실 환경(여름철 온도, 습기)이 문제인 적이 있는가</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">문제가 자주 생긴 부위의 값부터 챙기면, 같은 비용으로 더 쓸모 있는 데이터를 얻을 수 있습니다. 고장 기록 수첩이 있다면 상담 때 꼭 보여 주세요.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 4. 데이터는 어디에 둘 것인가</h3>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 외부 클라우드에 데이터를 보내도 되는가, 회사 보안 정책을 확인했는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 사내 서버와 사내망 안에서만 운영해야 하는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 설비가 있는 곳에 인터넷 회선이 있는가</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스는 클라우드형과 온프레미스형을 모두 제공합니다. 앞의 방식은 사무실 밖에서도 휴대폰으로 상태를 확인하기 편하고, 뒤의 방식은 데이터가 회사 밖으로 한 번도 나가지 않는다는 점이 강점입니다. 인터넷 회선이 없는 현장은 LTE 장비로 연결하는 방법도 있습니다.</p>
+<div data-photo="04-photo-planning.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 도입 범위를 정리하는 공장 담당자 (연출 이미지) <span style="font-weight:400">(파일 이름: 04-photo-planning.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a Korean factory manager in a light work jacket at a desk writing on a printed checklist form with blank checkboxes (no readable text) next to a laptop showing an abstract factory floor layout with colored equipment markers, coffee cup, factory office window behind, natural light, documentary style, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 5. 다른 시스템과 연결해야 하는가</h3>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 이미 쓰고 있는 MES나 관제 시스템이 있는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 함께 일하는 IT기업이나 AI 솔루션이 있는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 데이터를 엑셀이나 보고서로 정기적으로 뽑아야 하는가</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스 데이터는 REST API와 WebSocket으로 다른 시스템에 넘길 수 있고, CSV로 내려받을 수도 있습니다. 연결할 시스템이 정해져 있다면 그쪽 담당자와 함께 기술 미팅을 잡는 것이 좋습니다. 연결 대상이 처음부터 분명하면 데이터 형식과 전송 주기를 그에 맞춰 정할 수 있어, 나중에 다시 손보는 일이 줄어듭니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 6. AI는 언제 필요한가</h3>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 지금 당장 필요한 것은 기록과 알람인가, AI 분석인가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] AI를 쓴다면 무엇을 기대하는가 (미세한 이상 탐지, 운전 최적화 등)</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">지금 바로 쓰는 기능은 24시간 기록과 기준값에 따른 경고·알람입니다. 평소 모습을 스스로 익혀 작은 변화를 잡아내는 AI 기능은 아직 실증 단계에서 다듬는 중입니다. 많은 현장에서는 기록과 알람으로 시작해 데이터가 쌓인 뒤 AI 단계로 넘어가는 순서가 현실적입니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">체크 7. 운영은 누가 맡는가</h3>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 화면을 매일 볼 담당자가 정해져 있는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 알람이 울리면 누가 대응하는가</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px">[ ] 원격 점검과 정기 점검, 기준값 조정을 어디까지 맡길 것인가</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">시스템은 들이는 것보다 쓰는 것이 더 중요합니다. 화면을 열어 보는 사람이 없으면 아무리 좋은 패키지도 쌓이기만 하는 기록이 됩니다. 동인엔시스는 원격 상태 확인과 정기 점검, 알람 기준 조정, 교육, 현장 대응까지 유지관리를 지원하므로, 내부 인력이 적다면 이 범위를 넓게 잡는 것을 고려해 볼 만합니다.</p>
+<div data-img="03-flow.png" style="margin:0 0 18px;text-align:center"><img src="images/03-flow.png" alt="03-flow.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-flow.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">체크리스트를 채운 뒤에는</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">일곱 가지에 답을 적었다면 홈페이지에서 적용 가능성 진단을 신청해 주세요. 영업일 1~2일 안에 엔지니어가 회신하고, 필요하면 현장을 확인한 뒤 구성안과 견적을 드립니다. 표준 도입 일정은 현장 분석부터 시운전·안정화까지 9~15주이며, 현장 조건에 따라 달라집니다.</p>
+<div data-photo="05-photo-site-visit.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 현장을 확인하는 엔지니어와 고객사 담당자 (연출 이미지) <span style="font-weight:400">(파일 이름: 05-photo-site-visit.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a Korean engineer in a navy jacket and a factory staff member in a safety vest standing beside a row of blue pumps and an old grey control cabinet, the engineer taking notes on a tablet, industrial pump room, natural light, documentary style, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 설비 데이터 구축 패키지별 가격을 알 수 있나요?</strong>
+패키지 이름보다 현장 조건이 금액을 정합니다. 체크리스트에 적은 대상 대수, 수집할 값, 통신 상황, 기존 제어반을 바꿀지 여부를 보고 현장 분석을 거쳐 안내드립니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 처음에 작은 패키지로 시작해도 나중에 넓힐 수 있나요?</strong>
+데이터를 처음부터 같은 구조로 쌓기 때문에, 설비를 늘리거나 다음 단계로 넘어가도 기존 데이터와 화면이 그대로 이어집니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 체크리스트를 다 못 채워도 상담할 수 있나요?</strong>
+물론입니다. 모르는 항목은 비워 두셔도 현장 확인과 상담에서 함께 채워 갑니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">맺으며: 이름보다 목적</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">좋은 패키지는 가장 비싼 패키지가 아니라 우리 공장의 질문에 딱 맞는 패키지입니다. 무엇을 알고 싶은지, 몇 대부터 시작할지, 데이터를 어디에 둘지 정해 두면 선택은 생각보다 쉬워집니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/manufacturing.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post095&amp;utm_content=donginensis#inquiry">적용 가능성 진단 신청</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">도입 상담 051-862-3668 · dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>고객사가 패키지를 고를 때 가장 자주 헷갈려하는 부분은 무엇인가요?</li><li>체크리스트 가운데 상담에서 가장 먼저 확인하는 항목을 한 줄로 적어 주세요.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #설비데이터 #설비데이터구축패키지 #데이터구축 #온프레미스 #클라우드 #스마트제조 #제조DX #도입가이드</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 구축 패키지 3종 Basic·Standard·AI Advanced — 존재만 언급, 가격·구성·포함 기능 세부는 쓰지 않음</li><li>사실 확인: 비용 결정 요인: 설비 수, 모터 용량, 수집 항목, 통신 환경, 기존 제어반 교체 여부 — 금액은 쓰지 않음</li><li>사실 확인: 구축 방식: 클라우드형 / 온프레미스형(고객사 서버·사내망), 인터넷 없는 현장은 LTE 장비</li><li>사실 확인: 데이터 제공 REST API·WebSocket·CSV, 수집 항목, 도입 절차 9~15주, 설비 1~2대부터 단계적 확대</li><li>사실 확인: AI 이상탐지는 실증·고도화 단계 / 유지관리 범위</li><li>사실 확인: aside 3047 &#x27;제어반 제작 견적&#x27; 글과 겹치지 않게 데이터 시스템 선택 기준 위주(전원·설치환경 항목 제외)</li><li>사실 확인: 1991년 부산, 제어반 설계·제작</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "설비데이터", "설비데이터구축패키지", "데이터구축", "온프레미스", "클라우드", "스마트제조", "제조DX", "도입가이드"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>

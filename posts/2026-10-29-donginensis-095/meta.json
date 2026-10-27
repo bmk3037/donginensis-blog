@@ -1,0 +1,29 @@
+{
+  "topic_id": "95",
+  "blog": "donginensis",
+  "format": "체크리스트형",
+  "title": "설비 데이터 구축 패키지, 고르기 전에 정할 7가지",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "설비데이터구축패키지",
+    "데이터구축",
+    "온프레미스",
+    "클라우드",
+    "스마트제조",
+    "제조DX",
+    "도입가이드"
+  ],
+  "keyword": "설비 데이터 구축 패키지",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post095&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "구축 패키지 3종 Basic·Standard·AI Advanced — 존재만 언급, 가격·구성·포함 기능 세부는 쓰지 않음",
+    "비용 결정 요인: 설비 수, 모터 용량, 수집 항목, 통신 환경, 기존 제어반 교체 여부 — 금액은 쓰지 않음",
+    "구축 방식: 클라우드형 / 온프레미스형(고객사 서버·사내망), 인터넷 없는 현장은 LTE 장비",
+    "데이터 제공 REST API·WebSocket·CSV, 수집 항목, 도입 절차 9~15주, 설비 1~2대부터 단계적 확대",
+    "AI 이상탐지는 실증·고도화 단계 / 유지관리 범위",
+    "aside 3047 '제어반 제작 견적' 글과 겹치지 않게 데이터 시스템 선택 기준 위주(전원·설치환경 항목 제외)",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-29"
+}
