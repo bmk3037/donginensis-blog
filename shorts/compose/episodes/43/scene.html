@@ -56,7 +56,7 @@ const cm = (i, k = 0) => L[i].commas[k];
 
 // 이미지 크기는 불러와서 잰다. 아직 없는 이미지는 자리 표시만 한다
 const NAMES = ["thumb", "s01", "s02", "s03", "s04", "s05", "s06", "s07", "s08", "s09", "s10"];
-const CLIPS = { c01: 476, c02: 476, c03: 476, c04: 476, c05: 476, c06: 476, c07: 476, c08: 476, c09: 476, c10: 476, c01_b: 476 }, CLIPIMG = {}, CFPS = 60;
+const CLIPS = { c01: 476, c02: 476, c03: 476, c04: 476, c05: 476, c06: 476, c07: 476, c08: 476, c09: 476 }, CLIPIMG = {}, CFPS = 60;
 const SIZE = {}, MISSING = new Set();
 const loadImg = n => new Promise(r => {
   const im = new Image();
