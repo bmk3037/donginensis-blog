@@ -19,7 +19,7 @@ youtube/<날짜>.json 형식:
   "style": "모든 클립 프롬프트 앞에 붙는 공통 화풍·캐릭터 설명 (영어)",
   "episodes": [
     {"no": 1, "format": "궁금증", "hook": "화면 위 고정 제목", "title": "유튜브 제목",
-     "description": "설명", "tags": ["..."], "check": ["올리기 전 확인할 사실"],
+     "description": "설명", "tags": ["..."], "check": ["올리기 전 확인할 사실"], "notes": ["훅·구조 메모"],
      "scenes": [{"caption": ["자막1", "자막2"], "prompt": "클립 프롬프트 (영어)"}, ... 5개]}
   ]
 }
@@ -93,10 +93,12 @@ def render_page(data):
         all_id = f"p{k}"
         meta = f'{ep["description"]}\n\n' + " ".join("#" + t for t in ep["tags"])
         checks = "".join(f"<li>{e(c)}</li>" for c in ep.get("check", []))
+        notes = "".join(f"<li>{e(n)}</li>" for n in ep.get("notes", []))
         cards.append(
             f'<div class="card"><div class="slot">{ep["no"]}편 · {e(ep["format"])}</div>'
             f'<h2>{e(ep["hook"])}</h2>'
-            f'<div class="meta">클립을 받으면 <b>01.mp4 ~ {len(ep["scenes"]):02d}.mp4</b>로 이름을 바꿔 '
+            + (f'<div class="slot">훅·구조·반전</div><ul class="meta">{notes}</ul>' if notes else "")
+            + f'<div class="meta">클립을 받으면 <b>01.mp4 ~ {len(ep["scenes"]):02d}.mp4</b>로 이름을 바꿔 '
             f'<b>clips/{ep["no"]}</b> 폴더에 넣으세요.</div>'
             f'<pre hidden id="{all_id}">{e(chr(10).join(prompts))}</pre>'
             f'<button data-t="{all_id}">{len(ep["scenes"])}개 한 번에 복사</button>'
