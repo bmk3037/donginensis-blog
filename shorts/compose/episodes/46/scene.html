@@ -27,13 +27,13 @@
   @font-face { font-family: "Pretendard"; src: url("fonts/Pretendard-ExtraBold.woff2") format("woff2"); font-weight: 800; }
   html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #1c1f22; }
   #stage { position: absolute; inset: 0; }
-  /* 건축사전처럼 화면 가운데 아래쪽, 흰 글자에 검은 테두리 */
+  /* 10/28 건축사전 비교: 자막은 화면 가운데(약 62%), 크게, 테두리 대신 옅은 그림자 */
   #sub {
-    position: absolute; left: 60px; right: 60px; top: 1400px;
-    font-family: "Pretendard", sans-serif; font-weight: 800; font-size: 50px; line-height: 1.25;
-    -webkit-text-stroke: 10px rgba(0,0,0,.88); paint-order: stroke fill;
-    color: #fff; text-align: center; word-break: keep-all;
-    text-shadow: 0 2px 6px rgba(0,0,0,.75), 0 0 2px rgba(0,0,0,.9);
+    position: absolute; left: 70px; right: 70px; top: 1150px;
+    font-family: "Pretendard", sans-serif; font-weight: 800; font-size: 62px; line-height: 1.25;
+    color: #fff; text-align: center; word-break: keep-all; letter-spacing: -1px;
+    -webkit-text-stroke: 4px rgba(0,0,0,.45); paint-order: stroke fill;
+    text-shadow: 0 2px 10px rgba(0,0,0,.7), 0 0 3px rgba(0,0,0,.8);
   }
 </style>
 </head>
@@ -782,25 +782,26 @@ const S = A, E = B;
 // 38편: 전부 클립. 클립의 동작 순간(불 꺼짐, 전류 끊김, 레버, 불꽃)을 내레이션 단어 시각에 맞춤(work/38 받아쓰기 단어 시각)
 // K(id, a, b, 클립초 at a, 배속): a 시각에 클립의 그 초가 나오고 배속으로 흐른다
 const K = (id, a, b, c0, rate, hud, extra) => [id + "_" + Math.round(a * 10), a, b, Object.assign({ clip: { id, from: 1 + c0 * 60, rate, t0: a }, from: 1.04, to: 1.1 }, extra || {}), null, hud];
-const HOOK = t => flat(t, -0.3, 540, 300, "송전탑 맨 위 이 줄", 96) + flat(t, -0.2, 540, 470, "전기가 없다?", 160, KRED);
-// 46편(결정 5 첫 전기 편): 건축사전 결. c07(우산 원뿔 옆 AI 숫자)·c10 1.5초 뒤(깨진 빨간 글자)는 안 씀 → s07 그림, c10 앞 1.4초만
+const HOOK = t => flat(t, -0.2, 540, 330, "전기가 없다?", 140, KRED);
+// 46편(결정 5 첫 전기 편). 10/28 건축사전 비교 뒤: 큰 글자는 숫자 장면에만 하나, 나머지는 짧은 빨간 이름표, 자막이 주인공
+// c07(AI 숫자)·c10(깨진 숫자)은 안 씀 → s07·s10 그림
 const S2 = (name, a, b, hud, cam) => [name, a, b, Object.assign({ from: 1.0, to: 1.2, cuts: Math.max(1, Math.round((b - a) / 2.2)) }, cam || {}), null, hud];
 const SCENES = [
   K("c01", 0, E(0), 0.6, 1.4, HOOK, { from: 1.0, to: 1.14, fast: true }),
-  K("c01", S(1), E(1), 6.0, 0.4, t => flat(t, 4.24, 540, 320, "왜 가장 높은 곳에?", 100) + flat(t, 7.42, 540, 480, "이유는 2가지", 130, KRED)),
-  K("c02", S(2), E(2), 0, 1.15, t => flat(t, 11.16, 540, 380, "벼락을 먼저 맞는다", 100, "#fff")),
-  K("c03", S(3), E(3), 0.8, 1.0, t => flat(t, 15.66, 540, 360, "벼락 10만 번+", 140) + flat(t, 16.3, 540, 450, "지난해 우리나라 (기상청)", 48)),
-  K("c04", S(4), E(4), 1.9, 1.0, t => flat(t, 19.64, 540, 400, "우리 동네 정전", 120, KRED)),
-  K("c05", S(5), E(5), 0, 1.0, t => flat(t, 22.30, 540, 330, "땅에 묻기엔", 96) + flat(t, 24.74, 540, 480, "너무 길다", 130, KRED)),
-  K("c06", S(6), E(6), 0.3, 0.95, t => flat(t, 26.30, 540, 330, "피뢰침은 탑 위만", 96) + flat(t, 28.14, 540, 480, "탑 사이는 빈다", 120, KRED)),
-  S2("s07", S(7), E(8), t => flat(t, 30.10, 540, 330, "생각을 뒤집다", 120) + flat(t, 34.24, 540, 490, "대신 맞는 줄", 130, KRED)),
-  K("c08", S(9), E(9), 0.6, 1.3, t => flat(t, 36.74, 540, 330, "우산처럼 덮고", 100) + flat(t, 39.52, 540, 480, "탑 → 땅으로", 120, KRED)),
-  K("c12", S(10), E(10), 0, 0.7, t => flat(t, 41.98, 540, 320, "① 벼락을 대신 맞는다", 80) + flat(t, 43.44, 540, 480, "② 더 놀랍다", 140, KRED)),
-  K("c09", S(11), E(11), 0, 1.0, t => flat(t, 47.62, 540, 400, "속엔 광섬유", 140, KRED)),
-  S2("s10", S(12), E(12), t => flat(t, 50.10, 540, 330, "광섬유는 전기가 안 통한다", 76) + flat(t, 52.52, 540, 480, "벼락에도 신호 그대로", 100, KRED), { from: 1.0, to: 1.25 }),
-  K("c11", S(13), E(13), 0, 1.4, t => flat(t, 55.16, 540, 330, "사고가 나면", 90) + flat(t, 57.60, 540, 480, "변전소에 바로 알림", 110, KRED)),
-  K("c09", S(14), E(14), 4.0, 0.8, t => flat(t, 61.26, 540, 380, "15,000 km+", 160) + flat(t, 62.66, 540, 470, "광섬유 든 맨 위 줄, 전국 송전탑", 46)),
-  K("c12", S(15), TL.duration, 2.6, 0.6, t => flat(t, 66.62, 540, 330, "맨 위 가는 줄을 찾아보세요", 76) + tag(t, 70.94, 540, 470, "좋아요 · 공유 · 팔로우", 40, "middle")),
+  K("c01", S(1), E(1), 6.0, 0.4, t => flat(t, 7.42, 540, 380, "이유 2가지", 130)),
+  K("c02", S(2), E(2), 0, 1.15, null),
+  K("c03", S(3), E(3), 0.8, 1.0, t => flat(t, 15.66, 540, 420, "10만 번+", 170) + flat(t, 16.3, 540, 500, "지난해 낙뢰 (기상청)", 44)),
+  K("c04", S(4), E(4), 1.9, 1.0, null),
+  K("c05", S(5), E(5), 0, 1.0, null),
+  K("c06", S(6), E(6), 0.3, 0.95, t => flat(t, 28.14, 540, 380, "빈 구간", 110, KRED)),
+  S2("s07", S(7), E(8), t => flat(t, 34.24, 540, 330, "대신 맞는 줄", 110, KRED)),
+  K("c08", S(9), E(9), 0.6, 1.3, null),
+  K("c12", S(10), E(10), 0, 0.7, t => flat(t, 43.44, 540, 380, "② 더 놀랍다", 130, KRED)),
+  K("c09", S(11), E(11), 0, 1.0, t => flat(t, 47.62, 540, 380, "광섬유", 130, KRED)),
+  S2("s10", S(12), E(12), null, { from: 1.0, to: 1.25 }),
+  K("c11", S(13), E(13), 0, 1.4, t => flat(t, 57.60, 540, 380, "→ 변전소", 110, KRED)),
+  K("c09", S(14), E(14), 4.0, 0.8, t => flat(t, 61.26, 540, 420, "15,000 km+", 160) + flat(t, 62.66, 540, 500, "광섬유 든 맨 위 줄", 44)),
+  K("c12", S(15), TL.duration, 2.6, 0.6, t => tag(t, 70.94, 540, 380, "좋아요 · 공유 · 팔로우", 40, "middle")),
 ];
 // 저장용 체크리스트 카드(12번 문장 동안)
 function checklist(t, t0) {
@@ -864,7 +865,7 @@ const KEYS = [];
 function subtitle(t) {
   for (const [a, b, s] of CHUNKS) if (t >= a - 0.05 && t < b + 0.05) {
     let h = s.replace(/[.,]$/, "");
-    for (const k of KEYS) if (h.includes(k)) { h = h.replace(k, `<span style="color:#FFD43B">${k}</span>`); break; }
+    // 10/28: 노란 강조 없음(건축사전처럼 흰 글자만)
     return h;
   }
   return "";
