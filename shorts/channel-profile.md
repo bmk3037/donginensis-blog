@@ -1,4 +1,61 @@
-# 채널 프로필 (2026-10-24 결정 3에 맞춰 검토)
+# 채널 프로필
+
+## ★ 2026-10-28 지금 쓰는 프로필 (이 절이 가장 우선, 아래 10/24 안은 지난 기록)
+
+대표이사 10/28: 새 채널 없이 **"숨은 설비 도감"에서 다시 제대로 시작**, 이름은 그대로 두고 **프로필만 수정**. 방향 = 전기·설비판 건축사전(결정 5: 건축사전 결 화면, 도감이 없음, 첫 문장 질문, 한 편 한 주제, 하루 1편 같은 시간). 꿀팁도감 새 채널 안은 접음.
+
+- 이름·@핸들: 그대로(바꾸지 않음).
+- **인스타·스레드 표시 이름: "donginensis" → "숨은 설비 도감"**(회사 이름을 쇼츠 계정에 쓰지 않는 규칙). 아이디는 그대로 둬도 됨.
+- 도감이가 빠졌으니 **프로필 사진·배너를 물건 그림으로** 바꿈.
+
+### 유튜브 채널 소개
+```
+매일 지나치는 곳 아래, 아무도 모르게 돌아가는 설비가 있습니다.
+언덕길 밑 전기장판, 롯데타워의 2층 엘리베이터, 인천공항 활주로의 제설 장비까지.
+다들 안다고 생각하는 것의 진짜 이유를, 단면으로 열어 보여 드립니다.
+
+✔ 매일 같은 시간 1편
+✔ 출처를 확인한 숫자만
+✔ 저장해 두면 쓸모 있는 생활 팁도 가끔
+
+※ 영상 속 그림은 AI로 만든 이미지입니다.
+```
+
+### 인스타 소개 (150자 안)
+```
+🔍 매일 보는 곳 속 숨은 설비, 단면으로 열어 봅니다
+⚡ 전기·설비의 진짜 이유, 1분
+🔖 출처 확인한 숫자만
+👇 유튜브에서도 숨은 설비 도감
+```
+
+### 스레드 소개
+```
+매일 보는 곳 속 숨은 설비의 진짜 이유를 단면으로 열어 봅니다 ⚡ 출처 확인한 숫자만
+```
+
+### 프로필 사진 (Nano Banana, 1:1, 참고 이미지 없음)
+작게 보여도 알아보게 물건 하나만. 글자는 넣지 않음.
+```
+Square profile picture icon. A single light grey concrete cube cut open in a clean cutaway, revealing glowing cyan electric cables and a small steel motor hidden inside, one thin bright red dimension line with arrowheads along one edge. Clean engineering explainer 3D render, architectural visualization style, soft bright daylight, plain very light background, centered, bold simple shape that reads clearly at small size. No text, letters, numbers or logos. 1:1.
+```
+
+### 배너 (Nano Banana 16:9 → Claude가 2560×1440으로 맞추고 가운데 1546×423 칸에 채널 이름을 얹음)
+```
+Wide banner image. A clean cutaway cross-section of a Korean city street in soft bright daylight: above ground a sidewalk, a transmission tower and an apartment building in light grey; below ground, opened like a diagram, hidden pipes, glowing cyan power cables, a pump and a small transformer room, with thin bright red dimension lines and arrowheads. The center band of the image is calm and simple so a title can sit there. Clean engineering explainer 3D render, architectural visualization style. No text, letters, numbers or logos anywhere. 16:9.
+```
+
+### Aside에 붙여 넣을 말 (프로필 바꾸기)
+```
+https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/channel-profile.md 의 "2026-10-28 지금 쓰는 프로필" 절대로
+1) 구글 플로우에서 프로필 사진 1장(1:1), 배너 1장(16:9)을 만들어 GitHub shorts/media/profile/in/에 profile.jpg, banner.jpg로 올리고,
+2) 유튜브 "숨은 설비 도감" 채널 소개, 인스타·스레드 소개를 카드 글자 그대로 바꾸고, 인스타·스레드 표시 이름을 "숨은 설비 도감"으로 바꿔 줘.
+채널 이름과 @핸들·아이디는 바꾸지 마. 프로필 사진·배너는 내가(Claude) 크기를 맞춘 파일이 shorts/media/profile/out/에 올라온 뒤에 바꿔.
+```
+
+---
+
+# (지난 기록) 채널 프로필 2026-10-24 결정 3 검토
 
 대표이사 10/24: "사람들에게 도움 되는 팁을 주는 채널이 되어야 할 듯하다", "프로필도 수정하자, 채널명도 검토".
 
