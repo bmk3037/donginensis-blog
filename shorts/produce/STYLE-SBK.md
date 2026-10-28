@@ -16,10 +16,10 @@
 | 캐릭터 | 없음 | 도감이(섬네일·끝 두 장면) → **45편부터 뺌** |
 | 구글 플로우 표시 | 오른쪽 아래 ✦ 그대로 | 같음 |
 
-## 그림(Nano Banana) 끝에 붙이는 말 — 모든 그림 공통
+## 그림(Nano Banana) 끝에 붙이는 말 — 모든 그림 공통 (10/28 46편 비교 뒤 고침)
 
 ```
-Clean engineering explainer 3D render, architectural visualization style: soft bright overcast daylight, light grey concrete and white surfaces with realistic textures, calm and minimal, one hero object large in the center of the frame, simple or softly blurred background, thin bright red dimension lines with small arrowheads and tick marks drawn along the key part (lines only, no numbers), the key part softly glowing cyan. High detail, real-world scale. Upper third is plain sky or plain wall, kept clear for big text. No text, letters, numbers or logos anywhere. Vertical 9:16.
+Clean engineering explainer 3D render, architectural visualization style: the camera is close to the subject and the hero object fills most of the frame, vivid saturated colors with strong warm-cool contrast (warm sunlit or glowing orange areas against cool blue or cyan), realistic textures, soft natural daylight, simple background, thin bright red dimension lines with small arrowheads along the key part as bare lines only, the key part glowing. High detail, real-world scale. Absolutely no digits, numbers, letters, labels, percent signs or symbols anywhere, including on or near the dimension lines; no logos; screens and labels are blank. No people's faces. Vertical 9:16.
 ```
 
 ## 장면 다섯 가지 (한 편 10장면을 이 중에서 섞는다)
@@ -32,11 +32,21 @@ Clean engineering explainer 3D render, architectural visualization style: soft b
 | D 엑스레이 | 건물·설비 전체에서 핵심만 | `A semi-transparent glass-like (… building / machine) with only (… the key part) glowing bright cyan inside,` |
 | E 흐름 | 물·공기·전기·열이 움직임 | `Inside a cutaway of (…), (… cold air / water / electric current / heat) flowing visibly as a soft glowing stream from (…) to (…),` |
 
-## 클립(Veo) 프롬프트 끝에 붙이는 말
+## 클립(Veo) 프롬프트 끝에 붙이는 말 (10/28 고침)
 
 ```
-Camera: one slow smooth dolly-in (or slow orbit), no cuts. The key part moves clearly from the very first frame. Same clean explainer look, colors and daylight as the start frame. Audio: none. No on-screen text, no letters, no numbers, no logos.
+Camera: one slow smooth move as described, no cuts. The key part moves clearly from the very first frame. Same vivid explainer look, colors and light as the start frame. Audio: none. Absolutely no digits, numbers, letters, labels, percent signs or symbols ever appear, including on the dimension lines; no logos.
 ```
+
+## 10/28 46편과 건축사전 첫 화면 비교 → 고친 것 (가장 우선)
+
+| 차이 | 프롬프트(그림·클립) | 합성 |
+|---|---|---|
+| 우리는 빈 하늘이 많고 물건이 작음 | "위쪽 3분의 1 비우기" 뺌 → **물건에 바짝, 화면을 꽉 채움** | 큰 글자는 물건 옆 빈 곳에 |
+| 우리는 옅은 회색·하늘색뿐 | **진한 색, 따뜻한 색과 차가운 색 대비**(노을·주황 빛 vs 파랑·하늘색) | - |
+| AI가 치수선 옆에 숫자(480.25, 220%)를 지어냄 | **"치수선 포함 어디에도 숫자·글자·기호 없음"** 그림·클립 둘 다 | 숫자는 합성에서만 |
+| 우리는 장면마다 제목 두 줄 | - | **큰 글자는 숫자 장면에만 하나**(10만 번+, 15,000 km+), 나머지는 짧은 빨간 이름표만 |
+| 우리 자막은 아래쪽 작은 글자에 두꺼운 테두리 | - | **자막을 화면 가운데(높이 약 62%), 62px, 테두리 대신 옅은 그림자**, 노란 강조 없음 |
 
 ## 합성에서 바꿀 것 (Claude가 함)
 
