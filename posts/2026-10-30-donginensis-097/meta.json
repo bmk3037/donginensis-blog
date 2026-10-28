@@ -1,0 +1,29 @@
+{
+  "topic_id": "97",
+  "blog": "donginensis",
+  "format": "단계형",
+  "title": "기술 미팅 준비, IT기업이 첫 만남 전에 정리할 5단계",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "기술미팅준비",
+    "IT협업",
+    "OT협업",
+    "데이터연동",
+    "NDA",
+    "스마트제조",
+    "파트너십"
+  ],
+  "keyword": "기술 미팅 준비",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post097&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "협업 절차: 협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트",
+    "협업 모델: 1 OT 구간 전담, 2 데이터 연동(표준 API), 3 공동 제안·영업",
+    "데이터 제공 REST API(목록·최신값·기간 이력)·WebSocket(실시간)·CSV / 지원 통신 Modbus TCP/RTU·MQTT·OPC UA",
+    "MQTT 토픽 구조·메시지 형식·표준 Tag 규칙 세부 문서는 NDA 후 제공",
+    "데이터 소유·이용 범위·보관 기간은 프로젝트별 계약",
+    "준비 항목은 권장 사항이며 필수 제출 서류가 아님",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-30"
+}
