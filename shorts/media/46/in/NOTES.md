@@ -36,3 +36,16 @@
 | clip/c06~c09.mp4 | 11:02~11:03 요청 (계정 A) | 11:12 644f508 |
 | clip/c10~c12.mp4 | 11:03 요청 (계정 A) | 11:12 fe6ee60 |
 | NOTES.md | 11:13 | 이 커밋 |
+
+## 올린 기록 (2026-10-28, KST)
+
+완성본 `46_tower_top_wire.mp4`(74.1초, 1080x1920, 채팅 첨부, `out/`은 GitHub에 없음). 커버는 영상 마지막 프레임.
+
+| 파일 / 게시 | 시각 | 주소·커밋 |
+|---|---|---|
+| 완성본 받음 | 12:05 | 채팅 첨부 |
+| 커버(마지막 프레임) | 12:06 | 46_cover_frame.jpg |
+| 유튜브 게시 | 12:10:10 | https://youtube.com/shorts/KWoDi-zsZtA (고정 댓글 12:11) |
+| 인스타 게시 | 12:13:59 | https://www.instagram.com/donginensis/reel/DfBcLBKvBeC/ (댓글 12:15, 웹 고정 안 됨) |
+| 스레드 게시 | 12:16:55 | https://www.threads.com/@donginensis/post/DfBchP6AR9z (첫 답글 12:17:00) |
+| 업로드 카드 올린 기록 | 12:18 | 2bbfc29 |
