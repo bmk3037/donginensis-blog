@@ -19,7 +19,7 @@
 ## 그림(Nano Banana) 끝에 붙이는 말 — 모든 그림 공통 (10/28 46편 비교 뒤 고침)
 
 ```
-Clean engineering explainer 3D render, architectural visualization style: the camera is close to the subject and the hero object fills most of the frame, vivid saturated colors with strong warm-cool contrast (warm sunlit or glowing orange areas against cool blue or cyan), realistic textures, soft natural daylight, simple background, thin bright red dimension lines with small arrowheads along the key part as bare lines only, the key part glowing. High detail, real-world scale. Absolutely no digits, numbers, letters, labels, percent signs or symbols anywhere, including on or near the dimension lines; no logos; screens and labels are blank. No people's faces. Vertical 9:16.
+Clean engineering explainer 3D render, architectural visualization style: the camera is close to the subject and the hero object fills most of the frame, vivid saturated colors with strong warm-cool contrast (warm sunlit or glowing orange areas against cool blue or cyan), realistic textures, soft natural daylight, simple background, the key part highlighted only by a soft glow, no dimension lines, no measurement marks, no arrows. High detail, real-world scale. Absolutely no digits, numbers, letters, labels, percent signs, arrows or symbols anywhere; no logos; screens and labels are blank. No people's faces. Vertical 9:16.
 ```
 
 ## 장면 다섯 가지 (한 편 10장면을 이 중에서 섞는다)
@@ -35,8 +35,14 @@ Clean engineering explainer 3D render, architectural visualization style: the ca
 ## 클립(Veo) 프롬프트 끝에 붙이는 말 (10/28 고침)
 
 ```
-Camera: one slow smooth move as described, no cuts. The key part moves clearly from the very first frame. Same vivid explainer look, colors and light as the start frame. Audio: none. Absolutely no digits, numbers, letters, labels, percent signs or symbols ever appear, including on the dimension lines; no logos.
+Camera: one slow smooth move as described, no cuts. The key part moves clearly from the very first frame. Same vivid explainer look, colors and light as the start frame. Audio: none. Absolutely no digits, numbers, letters, labels, percent signs, measurement lines, arrows or symbols ever appear; no logos.
 ```
+
+## 10/29 빨간 치수선은 AI 프롬프트에서 뺌 (대표이사 "치수선 뭐냐")
+
+- 건축사전의 시그니처(빨간 치수선 + 실제 치수)를 흉내 내려고 넣었지만, **숫자 없는 치수선은 뜻 없는 빨간 줄**이고, 영상 AI가 치수선을 보면 **숫자를 지어냄**(46편 c07 "480.25", c10 "220%·250%", 47편 c02 "201·31", c08 "35%·5%", c10 작은 숫자).
+- 그래서 **그림·클립 프롬프트엔 치수선·화살표·측정 표시를 넣지 않는다.** 핵심 부분은 빛(glow)으로만 강조.
+- 치수선과 숫자가 필요한 장면(실제 숫자가 있을 때만, 예: 15,000 km, 3.7km)은 **합성에서 Claude가 정확한 선과 숫자를 그린다.**
 
 ## 10/28 46편과 건축사전 첫 화면 비교 → 고친 것 (가장 우선)
 
