@@ -1,0 +1,29 @@
+{
+  "topic_id": "69",
+  "blog": "donginensis",
+  "format": "비교형",
+  "title": "산업 데이터허브, 설비마다 잇는 방식과 한곳에 모으는 방식의 차이",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "산업데이터허브",
+    "데이터허브",
+    "시계열데이터",
+    "데이터연동",
+    "스마트제조",
+    "IT협업",
+    "데이터인프라"
+  ],
+  "keyword": "산업 데이터허브",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post069&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "솔루션 5단계 중 데이터 통합관리: Energient Industrial DataHub, 클라우드 데이터허브에서 '설비-센서-실시간값-상태' 구조로 시계열 저장",
+    "파트너는 REST API·WebSocket 연동, CSV 내보내기",
+    "구축 방식: 클라우드형 / 온프레미스형",
+    "통신 끊김 시 제어반 보관 후 재전송, 측정 시각·순번",
+    "점대점 연결과 허브 연결의 비교는 일반적인 데이터 아키텍처 설명",
+    "aside donginensis 10/16 '설비 데이터 표준화' 글과 겹치지 않게 '연결 구조' 관점 위주(표준화 4단계 설명 반복하지 않음)",
+    "1991년 부산, 제어반 설계·제작"
+  ],
+  "created": "2026-10-31"
+}

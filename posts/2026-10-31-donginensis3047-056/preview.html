@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>설비 온습도 기록, 모터 옆 공기까지 남겨야 하는 이유</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 지능형 제어반 · <a href="https://blog.naver.com/donginensis3047" target="_blank" style="color:#fff">blog.naver.com/donginensis3047</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">설비 온습도 기록, 모터 옆 공기까지 남겨야 하는 이유</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">모터 온도가 지난달보다 높게 나온다면, 그 모터에 문제가 생긴 걸까요? 반드시 그렇지는 않습니다. 설비실 자체가 더워졌을 수도 있기 때문입니다. 설비 데이터를 볼 때 의외로 자주 놓치는 것이 바로 설비 주변의 공기입니다. 1991년부터 부산에서 공장과 선박의 제어반을 설계·제작해 온 동인엔시스는 지능형 제어반으로 모터 온도와 진동, 전류뿐 아니라 설비 주변의 대기 온습도까지 함께 기록합니다. 이 글에서는 <strong style="font-weight:700;color:#111">설비 온습도 기록</strong>이 왜 필요한지, 그리고 그 기록을 어떻게 읽으면 좋은지 풀어 보겠습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">설비의 온도는 혼자 정해지지 않는다</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">모터는 돌면서 끊임없이 열을 냅니다. 그 열은 모터 표면과 냉각팬을 통해 주변 공기로 빠져나갑니다. 그래서 모터 온도는 '모터가 얼마나 일하는가'와 '주변 공기가 얼마나 열을 받아 주는가'가 함께 정합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">주변 공기가 시원하면 같은 일을 해도 모터 온도가 낮게 유지되고, 주변이 더우면 같은 일을 해도 온도가 높아집니다. 여름철 지붕 아래 설비실, 환기가 잘 안 되는 지하 펌프실, 열을 내는 설비가 여러 대 모여 있는 압축기실처럼 주변 온도가 크게 오르내리는 곳일수록 이 차이가 커집니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">그래서 모터 온도 숫자만 보고 판단하면 오해가 생기기 쉽습니다. 사람 체온을 잴 때 방금 뛰고 왔는지, 더운 방에 있었는지를 함께 묻는 것과 같은 이치입니다. 계절이 바뀌었을 뿐인데 설비 이상으로 보이거나, 반대로 진짜 이상이 '여름이라 그렇겠지' 하는 생각에 묻히기도 합니다.</p>
+<div data-img="02-context.png" style="margin:0 0 18px;text-align:center"><img src="images/02-context.png" alt="02-context.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-context.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">주변 온습도가 알려 주는 세 가지</h2>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">하나, 설비 탓인지 환경 탓인지</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">가장 큰 쓰임은 원인을 가르는 일입니다. 모터 온도가 올랐을 때 주변 온도도 같이 올랐다면 환경의 영향이 큰 것이고, 주변 온도는 그대로인데 모터 온도만 올랐다면 설비 쪽을 먼저 의심할 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">여기에 전류와 진동을 함께 보면 판단이 더 분명해집니다. 주변 온도는 그대로이고 전류도 그대로인데 모터 온도만 오른다면, 냉각팬이나 통풍 쪽 문제일 수 있습니다. 전류가 함께 올랐다면 설비가 더 힘들게 일하고 있다는 신호일 수 있습니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">둘, 계절을 넘어서는 비교</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">작년 여름과 올해 여름을 비교하려면 주변 조건이 비슷했는지부터 알아야 합니다. 주변 온습도가 함께 기록되어 있으면 '비슷한 날씨였던 날'끼리 골라 설비 상태를 비교할 수 있습니다. 같은 조건에서 올해 모터 온도가 더 높다면 그때는 설비의 변화로 볼 근거가 생깁니다. 막연한 느낌이 아니라 조건을 맞춘 비교라서 정비 계획을 세울 때도 설득력이 커집니다.</p>
+<h3 style="word-break:keep-all;font-size:18px;font-weight:700;color:#111;margin:28px 0 10px;line-height:1.4">셋, 습기가 만드는 문제의 단서</h3>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">습도는 온도와는 다른 종류의 문제를 알려 줍니다. 습한 날이 이어지거나 낮과 밤의 온도 차가 큰 시기에는 차가운 표면에 물방울이 맺히기 쉽고, 이런 습기는 단자와 접점, 절연 상태에 부담을 줍니다. 설비 주변의 습도가 어떤 시기에 높아지는지 기록으로 알고 있으면, 점검이나 환기 계획을 그 시기에 맞춰 세울 수 있습니다. 장마철이나 환절기처럼 해마다 반복되는 패턴은 한 해만 기록해 두어도 다음 해 대비에 바로 쓸 수 있습니다.</p>
+<div data-photo="04-photo-pump-room.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 여름철 더워지기 쉬운 지하 펌프실 (연출 이미지) <span style="font-weight:400">(파일 이름: 04-photo-pump-room.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic photo of a basement pump room in a Korean factory on a hot humid day: blue pumps and motors, slight condensation on cold water pipes, a wall ventilation fan, a light-grey control cabinet with a small touchscreen, warm hazy light, no people, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">기록을 읽는 순서</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 온습도 기록은 그것만 따로 보기보다 다른 값과 나란히 볼 때 힘을 발휘합니다. 아래 순서로 보는 습관을 들이면 좋습니다.</p>
+<ol style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">설비 값의 변화를 찾습니다.</strong> 모터 권선온도나 베어링 온도가 평소보다 높아진 구간을 찾습니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">같은 시간의 주변 온습도를 봅니다.</strong> 그 구간에 설비실 온도나 습도도 함께 변했는지 확인합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">전류와 진동을 겹쳐 봅니다.</strong> 설비가 더 힘들게 일했는지, 흔들림이 커졌는지 확인합니다.</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">운전 상태를 확인합니다.</strong> 그 시간에 설비가 평소보다 오래 돌았는지, 기동이 잦았는지 봅니다.</li>
+</ol>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 네 가지를 겹쳐 보면 대부분의 온도 변화는 설명이 됩니다. 설명되지 않고 남는 변화가 바로 들여다봐야 할 대상입니다. 동인엔시스가 고객사 담당자 교육에서 화면 보는 법을 설명할 때도 이 순서를 함께 연습합니다. 숫자 하나를 보고 놀라기 전에, 그 숫자 옆의 배경부터 확인하는 습관이 헛걸음을 크게 줄여 줍니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">기준값을 정할 때도 쓰인다</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">지능형 제어반은 센서마다 기준값을 두고 정상·경고·알람을 판정합니다. 처음 기준을 잡는 설치 직후의 몇 주 동안 주변 온습도 기록이 함께 있으면 '여름의 평소'와 '겨울의 평소'를 구분해 볼 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">주변 온도가 크게 바뀌는 현장이라면 계절이 바뀔 때 기준값을 한 번씩 다시 살펴보는 것이 좋습니다. 여름에 맞춰 잡은 기준은 겨울에 너무 느슨할 수 있고, 겨울에 맞춰 잡은 기준은 여름에 경고를 쏟아낼 수 있기 때문입니다. 계절이 바뀌는 시점의 기준 손질은 유지관리 일정에 넣어 함께 챙깁니다.</p>
+<div data-img="03-reading.png" style="margin:0 0 18px;text-align:center"><img src="images/03-reading.png" alt="03-reading.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-reading.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">왜 제어반에서 온습도까지 재는가</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">온습도계는 어디서나 쉽게 살 수 있는 장비입니다. 그런데도 동인엔시스가 지능형 제어반의 수집 항목에 대기 온습도를 넣은 데에는 이유가 있습니다. 따로 단 온습도계는 숫자를 보여 주기는 하지만, 그 숫자가 같은 시각의 모터 온도나 전류와 한 줄로 이어지지 않습니다. 사람이 두 기록을 나란히 맞춰 보려면 시간도 들고, 시각이 조금만 어긋나도 해석이 틀어집니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">제어반이 설비 값과 주변 온습도를 같은 시각에 함께 남기면, 화면에서 두 흐름을 겹쳐 보는 일이 한 번에 끝납니다. 배 위처럼 습기와 온도 변화가 심한 현장에서 제어반을 만들어 온 경험이, 설비 옆 공기까지 함께 기록하는 설계로 이어진 셈입니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">이런 현장이라면 특히 쓸모 있다</h2>
+<ul style="margin:0 0 18px;padding-left:22px">
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">지붕 아래나 외벽 쪽 설비실:</strong> 계절과 하루 사이의 온도 차가 큰 곳</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">지하 펌프실:</strong> 환기가 부족하고 습기가 차기 쉬운 곳</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">압축기실·보일러실 주변:</strong> 다른 설비의 열이 함께 모이는 곳</li>
+<li style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 6px"><strong style="font-weight:700;color:#111">세척수나 스팀을 쓰는 공장:</strong> 습도가 높게 유지되는 곳</li>
+</ul>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이런 곳에서는 설비 온습도 기록이 설비 상태를 읽는 '배경 정보'가 되어, 같은 숫자를 훨씬 정확하게 해석하게 해 줍니다. 반대로 냉난방이 잘 되는 실내 설비라면 우선순위를 조금 낮춰도 됩니다.</p>
+<div data-photo="05-photo-sensor.png" style="border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:18px;margin:0 0 18px;font-size:15px"><div style="font-weight:700;margin-bottom:6px">📷 사진 넣을 자리: 설비 주변 온습도를 함께 기록하는 센서와 제어반 (연출 이미지) <span style="font-weight:400">(파일 이름: 05-photo-sensor.png)</span></div><div style="font-size:13px;margin-bottom:6px">아래 프롬프트를 ChatGPT에 붙여넣어 사진을 만든 뒤 이 자리에 넣으세요. 생성 사진 아래에는 "연출 이미지"라고 적어 주세요.</div><pre class="prompt" style="white-space:pre-wrap;background:#fff;border:1px solid #f0d58a;padding:10px;margin:0 0 8px;font-size:13px;color:#333">Photorealistic close-up photo of a small white temperature and humidity sensor mounted on the side of a light-grey industrial control cabinet in a factory machine room, cable gland and neat wiring visible, motor softly blurred in the background, soft even light, generic unbranded device, no brand logos, no readable text. 3:2 landscape.</pre><button type="button" data-prompt style="background:#1857A5">프롬프트 복사</button></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 온습도를 재려면 따로 장비를 달아야 하나요?</strong>
+지능형 제어반으로 교체하거나 새로 설치하면 대기 온습도가 수집 항목에 포함되어, 다른 설비 값과 같은 시각으로 기록됩니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 설비 온습도 기록만으로 이상을 알 수 있나요?</strong>
+주변 온습도는 원인을 가르는 배경 정보입니다. 모터 온도, 전류, 진동, 운전 상태와 함께 볼 때 의미가 커집니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 기록은 얼마나 보관되나요?</strong>
+보관 기간은 프로젝트별 계약으로 정합니다. 계절 비교를 하려면 1년 이상의 기록이 있으면 좋습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">정리하며: 숫자에 날씨를 붙이는 일</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">설비 온습도 기록은 설비 데이터에 '그날의 날씨'를 붙여 주는 일입니다. 같은 온도라도 그날이 더웠는지, 습했는지를 알면 판단이 달라집니다. 모터 옆 공기까지 함께 남겨 두면, 계절에 속지 않고 설비의 진짜 변화를 볼 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">👉 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/manufacturing.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post056&amp;utm_content=donginensis3047#inquiry">설비 데이터 기록 상담</a></p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">문의 051-862-3668 · dongin@donginmne.com</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>여름철 설비실 온도 때문에 설비 이상으로 오해했던 현장 사례가 있나요?</li><li>습기가 많은 현장에서 고객사에 꼭 권하는 점검이 있다면 한 줄로 적어 주세요.</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #지능형제어반 #설비온습도기록 #대기온습도 #설비환경 #결로 #모터온도 #설비데이터 #스마트공장</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 &#x27;연출 이미지&#x27; 표기)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 수집 항목에 대기 온습도 포함 (권선온도 U·V·W, 베어링 온도, 회전속도, 전압·전류·전력량, 진동, 운전 상태신호)</li><li>사실 확인: 24시간 기록, 기간별 이력, 센서별 기준값 경고·알람, 기준값은 시운전·안정화 때 정하고 유지관리에서 조정</li><li>사실 확인: 설비 그대로 두고 제어반 교체·신규</li><li>사실 확인: 온도·습도가 설비에 미치는 영향(냉각 여유, 결로, 계절 비교)은 일반적인 원리이며 수치 기준은 쓰지 않음</li><li>사실 확인: aside 3047 &#x27;제어반 결로 방지&#x27; 글과 겹치지 않게 &#x27;설비 데이터 해석&#x27; 관점 위주</li><li>사실 확인: 1991년 부산, 제어반 설계·제작</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "지능형제어반", "설비온습도기록", "대기온습도", "설비환경", "결로", "모터온도", "설비데이터", "스마트공장"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>

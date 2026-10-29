@@ -21,7 +21,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 52,donginensis3047,drafted,제품,슈나이더 PLC·인버터로 구성하는 지능형 제어반,슈나이더 제어반,https://donginensis.com/#product,"Schneider Electric 공식 SI 파트너, 설계·제작·PLC·인버터 프로그램·시운전 자체 수행. 모델명은 company.md 범위만"
 53,donginensis3047,drafted,제조,"모터 전력량, 제어반에서 바로 보는 방법",모터 전력량 모니터링,https://donginensis.com/manufacturing.html#inquiry,전압·전류·전력량 수집으로 에너지 사용 파악. AI 5% 절감은 목표치로만 언급
 55,donginensis3047,drafted,제조,"지능형 제어반 유지관리, 원격 확인부터 부품 교체까지",제어반 유지보수,https://donginensis.com/manufacturing.html#inquiry,"원격 상태 확인, 정기 점검, 알람 기준 조정, 교육, 현장 대응·부품 교체"
-56,donginensis3047,todo,제조,설비 주변 온습도까지 기록하는 이유,설비 온습도 기록,https://donginensis.com/manufacturing.html#inquiry,대기 온습도 수집 항목의 쓰임: 계절·환경 변화와 설비 온도 함께 보기
+56,donginensis3047,drafted,제조,설비 주변 온습도까지 기록하는 이유,설비 온습도 기록,https://donginensis.com/manufacturing.html#inquiry,대기 온습도 수집 항목의 쓰임: 계절·환경 변화와 설비 온도 함께 보기
 57,donginensis3047,todo,제조,제어반 공장검사에서 확인하는 것들,제어반 공장검사,https://donginensis.com/manufacturing.html#inquiry,도입 절차 2단계(제작 5주) 중 설계·배선·PLC 프로그램 후 공장검사. 현장 설치 전에 문제를 걸러내는 이유
 37,donginensis,drafted,데이터인프라,"설비 데이터 수집, 왜 제어반에서 시작해야 할까",설비 데이터 수집,https://donginensis.com/manufacturing.html#inquiry,PLC·인버터 안에 있지만 밖으로 안 나오는 데이터. 별도 게이트웨이 방식의 유지보수 부담과 제어반 일체형의 차이(경쟁사 언급 없이). 대표 발언 '현장 설비 데이터가 우선'
 13,donginensis,drafted,IT협업,MES·AI 기업이 현장 설비 데이터를 받는 가장 쉬운 방법,설비 데이터 API,https://donginensis.com/partner.html#inquiry,REST API·WebSocket·CSV. site_id·equipment_id 표준 구조. 설비가 늘어도 연동 코드 그대로
@@ -45,7 +45,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 66,donginensis,drafted,기술,"MQTT TLS 인증서 만료, 현장에서 놓치기 쉬운 관리",TLS 인증서 만료,https://donginensis.com/partner.html#inquiry,제어반별 PLC 모델·버전·인증서 만료일 대장 관리. TLS 암호화
 67,donginensis,todo,AI,kHz 전기 파형 수집이 예지보전에 필요한 이유,고정밀 DAQ,https://donginensis.com/partner.html#inquiry,"2026.04 고정밀 DAQ 기반 AI 예지보전 실증 착수, kHz 단위 전기 파형, 비지도 학습. 실증 단계임을 밝힘"
 68,donginensis,todo,AI,클라우드에서 학습하고 현장에서 판단하는 하이브리드 AI,엣지 클라우드 AI,https://donginensis.com/partner.html#inquiry,"무거운 학습은 클라우드, 최적 파라미터만 엣지로. 네트워크 끊겨도 현장 판단. 엣지 장치는 검토 중"
-69,donginensis,todo,데이터인프라,"산업 데이터허브, 설비 데이터를 한곳에 모으는 구조",산업 데이터허브,https://donginensis.com/partner.html#inquiry,"Energient Industrial DataHub, 설비-센서-실시간값-상태 시계열 저장, 파트너 API 연동"
+69,donginensis,drafted,데이터인프라,"산업 데이터허브, 설비 데이터를 한곳에 모으는 구조",산업 데이터허브,https://donginensis.com/partner.html#inquiry,"Energient Industrial DataHub, 설비-센서-실시간값-상태 시계열 저장, 파트너 API 연동"
 70,donginensis,drafted,데이터인프라,"웹 대시보드로 보는 설비 상태, 무엇을 보여 줘야 할까",설비 모니터링 대시보드,https://donginensis.com/manufacturing.html#inquiry,"PWA Dashboard 웹 모니터링, 상태(normal·warning·alarm) 중심 화면, 이력 조회"
 71,donginensis,todo,IT협업,시연 장비로 설비 데이터 연동을 미리 검증하는 과정,설비 데이터 연동 테스트,https://donginensis.com/partner.html#inquiry,샘플 데이터 → 시연 장비 → 공동 프로젝트. 협업 절차 4단계
 72,donginensis,drafted,IT협업,설비 데이터 협업 계약에 꼭 넣을 3가지,데이터 소유권 계약,https://donginensis.com/partner.html#inquiry,데이터 소유·이용 범위·보관 기간은 프로젝트별 계약. NDA 시점
@@ -80,7 +80,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 88,bmk3037,todo,회사,"CE·UL 인증 솔루션 40종, 해외로 가는 제어반",해외 수출 제어반,https://donginensis.com/company.html,"CE·UL 인증 솔루션 40종 이상, 고려제강 7개국 라인, 현대차그룹 미국 메타플랜트"
 89,bmk3037,todo,회사,"슈나이더·ABB·후지·이튼·댄포스, 부품 파트너와 함께 만드는 제어반",제어 부품 파트너,https://donginensis.com/company.html,"Schneider 공식 SI 파트너, ABB·Fuji Electric·Eaton·Danfoss 공급 파트너. 연혁의 Agency 이력"
 90,bmk3037,drafted,회사,친환경기술연구소는 무엇을 연구하나,친환경기술연구소,https://donginensis.com/company.html,"기업부설연구소(2020), 엔에스타워 8층. 수소·선박 제어, AI 예지보전 실증 등 company.md 범위"
-91,bmk3037,todo,회사,"인증으로 보는 동인엔시스, ISO부터 이노비즈까지",제어반 업체 인증,https://donginensis.com/resources.html,"ISO 9001·14001·45001, 벤처·메인비즈·이노비즈, TCB T-4"
+91,bmk3037,drafted,회사,"인증으로 보는 동인엔시스, ISO부터 이노비즈까지",제어반 업체 인증,https://donginensis.com/resources.html,"ISO 9001·14001·45001, 벤처·메인비즈·이노비즈, TCB T-4"
 92,bmk3037,todo,조선해양,해양수산부 국가대표 혁신기업으로 선정되기까지,해양 혁신기업,https://donginensis.com/applications.html#marine,"2022 해양수산부 국가대표 혁신기업, 하이브리드 선박·수소추진선박 실적과 연결"
 93,bmk3037,todo,회사,"부산 히든챔피언·레전드50+, 지역과 함께 크는 제조기업",부산 강소기업,https://donginensis.com/company.html,"부산시 히든챔피언·서비스 강소기업(2023), 전략산업선도기업·레전드50+(2024), 고용노동부 강소기업(2024)"
 18,bmk3037,drafted,조선해양,LNG 운반선 BOG 압축기 제어 이야기,BOG 압축기 제어,https://donginensis.com/applications.html#marine,"BOG 개념과 압축기 제어. Atlas Copco·SB선보 실적. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다 ※ donginensis에 2025.09 ""B.O.G 컴프레서, 인버터·PLC·EOCR"" 글과 겹침 — 쓰려면 Atlas Copco·SB선보 사례 중심의 다른 각도로"
