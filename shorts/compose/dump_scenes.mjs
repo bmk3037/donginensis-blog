@@ -8,7 +8,7 @@ catch { ({ chromium } = createRequire((process.env.PLAYWRIGHT_DIR || "/opt/node-
 const dir = process.cwd();
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
-await page.goto("file://" + dir + "/" + (process.env.SCENE || "scene_v2.html"));
+await page.goto("file://" + dir + "/" + (process.env.SCENE || "scene_v2.html"), { waitUntil: "domcontentloaded", timeout: 0 });
 const out = await page.evaluate(() => ({
   duration: window.TL.duration,
   scenes: SCENES.filter(s => s[3].clip).map(s => ({ id: s[3].clip.id, a: s[1], b: s[2], from: s[3].clip.from, rate: s[3].clip.rate || 1, t0: s[3].clip.t0 ?? s[1] }))

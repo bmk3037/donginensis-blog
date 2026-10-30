@@ -2,7 +2,11 @@
 # 기존 편을 v2 방식으로 다시 편집: 원본 24fps, 클립 안 확대 컷 없음, 클립 위 확대 약하게, 클립 환경음, 고화질.
 #   bash redo_v2.sh 47        (work/47의 scene.html·narration.wav·sfx.wav·cover.jpg와 media/47/in/clip을 쓴다)
 set -euo pipefail
-N=$1; T=$(cd "$(dirname "$0")" && pwd); R=$(cd "$T/../.." && pwd); W=$T/work/$N; cd "$W"
+N=$1
+LOCK=/tmp/claude-0/redo/lock_$N
+mkdir "$LOCK" 2>/dev/null || { echo "SKIP $N (이미 진행 중이거나 끝남)"; exit 0; }
+trap 'rm -rf "$LOCK"' ERR
+T=$(cd "$(dirname "$0")" && pwd); R=$(cd "$T/../.." && pwd); W=$T/work/$N; cd "$W"
 SRC=$R/shorts/media/$N/in/clip
 [ -d "$SRC" ] || SRC=$W/clipsrc
 mkdir -p clipn

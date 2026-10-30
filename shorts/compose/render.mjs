@@ -15,7 +15,8 @@ const dir = process.cwd();
 const [mode, arg, fpsArg] = process.argv.slice(2);
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
-await page.goto("file://" + dir + "/" + (process.env.SCENE || "scene.html"));
+page.setDefaultTimeout(0);   // 클립 프레임 수천 장을 읽는 동안 여러 렌더가 겹치면 30초를 넘김
+await page.goto("file://" + dir + "/" + (process.env.SCENE || "scene.html"), { waitUntil: "domcontentloaded", timeout: 0 });
 await page.evaluate(() => document.fonts.ready);
 await page.evaluate(() => window.READY);
 if (mode === "stills") {
