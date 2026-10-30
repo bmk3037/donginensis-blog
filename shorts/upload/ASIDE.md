@@ -1,5 +1,8 @@
 # 꿀팁도감 업로드 지침서 (Aside 에이전트용)
 
+> **2026-10-30 대표이사: 스레드는 이제 올리지 않는다.** 아래 "2-3. 스레드", 올린 기록 표의 스레드 줄, 붙여 넣는 말의 "스레드"는 모두 **건너뛴다.** 올리는 곳은 **유튜브 쇼츠와 인스타 릴스 둘뿐**이다. 카드에 스레드 글이 있어도 올리지 않고, 올린 기록에는 "스레드: 안 올림(10/30 대표이사)"으로 적는다.
+
+
 이 지침은 Aside 브라우저의 AI 에이전트가 따르는 문서입니다. 사람(대표이사)은 맨 아래 "Aside에 붙여 넣을 말"만 쓰면 됩니다.
 한 편마다 업로드 카드(`shorts/upload/NN.md`)가 있고, 카드에 적힌 글자를 **한 글자도 바꾸지 않고** 그대로 붙여 넣습니다.
 
@@ -22,7 +25,7 @@
 
 ## 2. 순서 (한 편당)
 
-유튜브 쇼츠 → 인스타그램 릴스 → 스레드. 같은 날 같은 시간대에 셋 다 올린다.
+유튜브 쇼츠 → 인스타그램 릴스(10/30부터 스레드는 올리지 않음). 같은 날 같은 시간대에 둘 다 올린다.
 
 ### 2-1. 유튜브 (studio.youtube.com, 채널 꿀팁도감)
 
@@ -61,7 +64,7 @@
 |---|---|---|---|---|
 | 유튜브 | | | | 됨/안 됨 |
 | 인스타 | | | | 됨/안 됨 |
-| 스레드 | | | | 됨/안 됨 |
+| 스레드 | 안 올림(10/30 대표이사) | | | |
 
 ## 4. (선택) 하루 뒤 숫자 모으기
 
@@ -72,7 +75,7 @@
 ```
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/ASIDE.md 지침을 읽고,
 https://github.com/bmk3037/donginensis-blog/tree/claude/shorts-daily/shorts/upload 에서 "승인"이 예이고 "올린 기록"이 비어 있는 카드를 찾아
-그 카드대로 유튜브(숨은 설비 도감) → 인스타 → 스레드에 올리고, 올린 기록을 카드 맨 아래에 GitHub에서 직접 적어 커밋해 줘(브랜치 claude/shorts-daily).
+그 카드대로 유튜브(숨은 설비 도감) → 인스타에 올리고, 올린 기록을 카드 맨 아래에 GitHub에서 직접 적어 커밋해 줘(브랜치 claude/shorts-daily).
 없으면 아무것도 하지 말고 "올릴 것 없음"이라고만 보고해.
 ```
 
@@ -81,7 +84,7 @@ https://github.com/bmk3037/donginensis-blog/tree/claude/shorts-daily/shorts/uplo
 ```
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/ASIDE.md 지침서를 읽고,
 https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/upload/38.md 업로드 카드대로
-유튜브(숨은 설비 도감) → 인스타 → 스레드 순서로 올려 줘.
+유튜브(숨은 설비 도감) → 인스타 순서로 올려 줘.
 파일은 GitHub shorts/media/38/out/ 에 있어, 받아서 올려. 각 플랫폼에서 게시 누르기 직전에 멈추고 나한테 확인받아.
 ```
 (편 번호만 38 → 39로 바꿔서 쓰면 됨)
