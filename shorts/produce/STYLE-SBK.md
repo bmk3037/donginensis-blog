@@ -25,9 +25,18 @@ One continuous shot, no cuts, no on-screen text. The subject moves clearly from 
 ```
 클립 앞부분에 **카메라 움직임을 한 줄로 따로 적는다**: 예 `Camera: fast push-in.` / `Camera: low tracking shot sliding past.` / `Camera: crane up.` / `Camera: rack focus from the foreground part to the background.` / `Camera: handheld, slight natural shake.`
 
-**시험 진행 중(10/30 대표이사 "프롬프트 8초를 애초에 다른 각도에서 안 되나"):** 클립 하나에 샷 셋 쓰기 `Shot 1 (0-2.5s): … HARD CUT. Shot 2 (2.5-5.5s): … HARD CUT. Shot 3 (5.5-8s): …`. Veo 3.1 Lite가 따르는지 `shorts/produce/TEST-multishot.md`(3클립, 30크레딧)로 확인한다. **합격하면 이 방식이 기본**(한 클립 = 3샷, 크레딧 그대로), 불합격이면 위의 A·B 그림 2장 방식으로 간다.
+**★ 한 클립 3샷이 기본(10/30 시험 합격, 대표이사 "8초여도 다르네, 앞으로 이렇게 하자"):** 시험 클립 t1~t3(`shorts/media/test-multishot/`)에서 세 클립 모두 하드 컷이 2번 생겨 **8초 클립 하나가 서로 다른 각도의 샷 3개**가 됐다(크레딧 그대로). 시험에서 드러난 점:
+- Veo는 컷을 정한 시각이 아니라 **대략 3등분(약 2.4초, 4.75초)** 에 넣는다 → 프롬프트도 `Shot 1 (0-2.6s) / Shot 2 (2.6-5.3s) / Shot 3 (5.3-8s)`로 쓴다. 합성에서 샷마다 따로 잘라 쓰므로 **나쁜 샷은 통째로 버릴 수 있다.**
+- 샷마다 장면을 다시 해석해 **설비 모양·바닥색·건물이 바뀐다**(t1 원통 팬 → 네모 틀 팬 → 연기 뿜는 작은 팬, t3 단면 그림 → 실사). 그래서 **샷마다 다른 문장에 쓰고, 한 샷을 다른 샷과 이어 붙여 "같은 물건"처럼 보이게 하지 않는다.** 프롬프트에는 "same object, same shape and colors in every shot"을 넣는다.
+- 복잡한 장면에서 **글자·숫자·표지가 더 자주 생긴다**(t3 기둥 "52", t2 바닥 흰 화살표·차 로고). 프롬프트에 `No signs, no markings, no numbers or letters on walls, pillars, floors or vehicles; no brand logos.`를 넣고, 합성에서 문제 샷은 뺀다.
+- 소리는 그대로 나온다(환경음 −11~−39dB, 조용한 장면은 작음).
+**프롬프트 틀:**
+```
+Three shots with hard cuts, one continuous scene in <장소>. Shot 1 (0-2.6s): <넓은 장면, 카메라 움직임>. HARD CUT. Shot 2 (2.6-5.3s): <부품 클로즈업, 움직임>. HARD CUT. Shot 3 (5.3-8s): <다른 각도·추적·크레인>. In every shot the <물건> keeps the same shape and colors. No signs, no markings, no numbers or letters on walls, pillars, floors or vehicles; no brand logos. <클립 공통 끝말>
+```
+이 방식이면 클립 12개로 샷 36개 → 1분 24~30샷을 크레딧 그대로 넘긴다. 문장마다 그림 2장(A·B)으로 가던 위 안은 **쓰지 않는다**(크레딧 2배). 시작 그림 1장 = 클립 1개 = 샷 3개.
 
-**크레딧:** 한 편 16문장 기준 시작 그림 약 30장(0 크레딧) + 클립 약 24~28개(편당 240~280). 한 Flow 계정으로 모자라면 둘로 나눠 만듦. 문장 수가 많은 편은 B를 줄여 샷 24개를 최소로 지킴.
+**크레딧:** 클립 12~14개(편당 120~140)로 변함 없음. 한 Flow 계정으로 모자라면 둘로 나눠 만듦.
 
 ## 그 채널 화면에서 본 것 (상위 쇼츠 8편 첫 화면, 10/28)
 
