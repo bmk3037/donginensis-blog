@@ -1,0 +1,31 @@
+{
+  "topic_id": "9",
+  "blog": "donginensis",
+  "format": "해설형",
+  "title": "산업 제어 보안, 서버가 설비를 직접 제어하지 않는 이유",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "산업제어보안",
+    "설비데이터보안",
+    "인터록",
+    "PLC",
+    "망분리",
+    "OT보안",
+    "IT협업",
+    "지능형제어반"
+  ],
+  "keyword": "산업 제어 보안",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post009&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "MQTT 통신 TLS 암호화 / 인터록·최종 제어는 현장 PLC, 서버는 설비 직접 제어 안 함 / 제어망·데이터망 분리",
+    "원격 접속은 고객 승인 VPN만, 제어반별 PLC 모델·버전·인증서 만료일 대장 관리",
+    "타사 PLC(미쓰비시·LS·지멘스 등)는 읽기만: OPC UA → Modbus TCP → 전용 프로토콜(게이트웨이)",
+    "REST API(설비·센서 목록, 최신값, 기간 이력), 통신 끊김 시 보관 후 재전송, 온프레미스형",
+    "AI 최적 운전값을 PLC로 보내는 폐루프는 실증·개발 단계 (완료처럼 쓰지 않음)",
+    "MQTT 토픽·메시지 형식·태그 규칙 버전 관리, 세부 문서는 NDA 후",
+    "Schneider 공식 SI 파트너, 750건 이상 프로젝트",
+    "aside 'MQTT TLS 보안'(10/15)·초안 066(TLS 인증서)과 겹치지 않게 '제어 권한 분리' 관점 위주. 인터록 예시·응답 속도 설명은 일반론"
+  ],
+  "created": "2026-11-01"
+}

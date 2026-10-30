@@ -52,7 +52,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 73,donginensis,drafted,IT협업,IT기업과 제어반 회사가 정부 지원사업에 함께 참여하는 법,지원사업 공동 참여,https://donginensis.com/partner.html#inquiry,"모델 3 공동 제안·영업, 정부 지원사업 공동 참여, 시연 장비 활용. 비율·금액 쓰지 말 것"
 74,donginensis,drafted,데이터인프라,AI가 쓸 수 있는 제조 데이터의 조건,제조 데이터 품질,https://donginensis.com/partner.html#inquiry,"측정 시각·순번, 단위, 상태 라벨, 같은 형식. 통신 끊김 재전송으로 누락 방지"
 38,donginensis,todo,데이터인프라,제조 AI 프로젝트가 멈추는 진짜 이유: 현장 데이터,제조 AI 데이터,https://donginensis.com/partner.html#inquiry,"PLC 기종·통신 방식이 제각각이고 게이트웨이 유지보수가 부담이라 IT기업 스마트팩토리 프로젝트가 멈춤. OT 구간을 맡는 지능형 제어반 ※ bmk3037에 10/14 발행된 ""MES·AI 회사가 제조 현장에서 자주 막히는 지점""과 겹침 — 쓰려면 다른 각도(예: 데이터 품질 문제 사례)로"
-9,donginensis,todo,기술,설비 데이터 보안: 서버가 설비를 직접 제어하지 않는 이유,산업 제어 보안,https://donginensis.com/partner.html#inquiry,"TLS 암호화·제어망과 데이터망 분리·인터록은 현장 PLC·VPN 원격접속 ※ donginensis에 10/15 ""MQTT TLS 보안 | 공장 설비 데이터, 외부로 보내도 안전할까?""(aside)와 겹침 — 쓰려면 다른 각도로"
+9,donginensis,drafted,기술,설비 데이터 보안: 서버가 설비를 직접 제어하지 않는 이유,산업 제어 보안,https://donginensis.com/partner.html#inquiry,"TLS 암호화·제어망과 데이터망 분리·인터록은 현장 PLC·VPN 원격접속 ※ donginensis에 10/15 ""MQTT TLS 보안 | 공장 설비 데이터, 외부로 보내도 안전할까?""(aside)와 겹침 — 쓰려면 다른 각도로"
 21,bmk3037,published,수소,액화수소충전소 제어시스템은 무엇을 제어하나,액화수소충전소 제어,https://donginensis.com/applications.html#hydrogen,저장탱크·기화기·배관 설비 제어·감시. 특허 5건·SK E&S 실증. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
 16,bmk3037,drafted,조선해양,선박용 제어반 선급 승인 어떻게 진행되나,선박 제어반 선급,https://donginensis.com/applications.html#marine,Modicon M262 상호인정 인증서·선박별 도면 승인·검사관 입회 시험. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
 17,bmk3037,drafted,조선해양,FGSS(연료가스공급시스템) 제어 쉽게 이해하기,FGSS 제어,https://donginensis.com/applications.html#marine,LNG 연료 선박의 FGSS 개념과 글리콜워터 펌프·히터 제어. 벌크선·자동차운반선 실적. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
@@ -77,7 +77,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 85,bmk3037,drafted,사례,"포장기계 제어시스템, 정밀함이 필요한 이유",포장기계 제어,https://donginensis.com/applications.html#manufacturing,밥스트코리아(BOBST) 포장기계 제어시스템
 86,bmk3037,todo,사례,서보 13축·8축 생산설비 제어 이야기,서보 다축 제어,https://donginensis.com/applications.html#manufacturing,"IGis 단열 스페이서 생산설비 서보 13축, 대한화섬 자동 도퍼 서보 8축"
 87,bmk3037,drafted,사례,분산 PLC 5대로 묶은 고밀도 세정기 제어,분산 PLC 제어,https://donginensis.com/applications.html#manufacturing,DMS 고밀도 세정기 분산 PLC 5대
-88,bmk3037,todo,회사,"CE·UL 인증 솔루션 40종, 해외로 가는 제어반",해외 수출 제어반,https://donginensis.com/company.html,"CE·UL 인증 솔루션 40종 이상, 고려제강 7개국 라인, 현대차그룹 미국 메타플랜트"
+88,bmk3037,drafted,회사,"CE·UL 인증 솔루션 40종, 해외로 가는 제어반",해외 수출 제어반,https://donginensis.com/company.html,"CE·UL 인증 솔루션 40종 이상, 고려제강 7개국 라인, 현대차그룹 미국 메타플랜트"
 89,bmk3037,todo,회사,"슈나이더·ABB·후지·이튼·댄포스, 부품 파트너와 함께 만드는 제어반",제어 부품 파트너,https://donginensis.com/company.html,"Schneider 공식 SI 파트너, ABB·Fuji Electric·Eaton·Danfoss 공급 파트너. 연혁의 Agency 이력"
 90,bmk3037,drafted,회사,친환경기술연구소는 무엇을 연구하나,친환경기술연구소,https://donginensis.com/company.html,"기업부설연구소(2020), 엔에스타워 8층. 수소·선박 제어, AI 예지보전 실증 등 company.md 범위"
 91,bmk3037,drafted,회사,"인증으로 보는 동인엔시스, ISO부터 이노비즈까지",제어반 업체 인증,https://donginensis.com/resources.html,"ISO 9001·14001·45001, 벤처·메인비즈·이노비즈, TCB T-4"
@@ -88,7 +88,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 95,donginensis,drafted,데이터인프라,구축 패키지를 고르기 전에 정할 것,설비 데이터 구축 패키지,https://donginensis.com/manufacturing.html#inquiry,Basic·Standard·AI Advanced 3종 존재만. 가격·구성 세부 쓰지 말 것. 설비 수·수집 항목·통신 환경·AI 필요 여부를 먼저 정리
 96,donginensis,todo,데이터센터,데이터센터 냉각설비를 DCIM·BMS와 연동하는 구조,DCIM 연동,https://donginensis.com/applications.html#datacenter,"냉동기·냉각수 펌프·냉각탑 팬·CDU 제어·감시, MQTT/TLS 표준 연동. 실적 없음 — 적용 방안으로만. aside 10/20 '데이터센터 냉각설비 예지보전'과 겹치지 않게 연동 구조 중심"
 97,donginensis,drafted,IT협업,IT기업이 첫 기술 미팅 전에 준비하면 좋은 것,기술 미팅 준비,https://donginensis.com/partner.html#inquiry,협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트. 플랫폼 구조·필요 데이터·연동 방식 정리
-98,donginensis3047,todo,제조,"시운전·안정화 2~4주, 지능형 제어반이 자리 잡는 기간",제어반 시운전,https://donginensis.com/manufacturing.html#inquiry,"도입 절차 4단계 시운전·안정화(2~4주): 현장 시운전, 알람 기준 설정, 운영 교육"
+98,donginensis3047,drafted,제조,"시운전·안정화 2~4주, 지능형 제어반이 자리 잡는 기간",제어반 시운전,https://donginensis.com/manufacturing.html#inquiry,"도입 절차 4단계 시운전·안정화(2~4주): 현장 시운전, 알람 기준 설정, 운영 교육"
 99,donginensis3047,todo,제조,"인터넷이 없는 공장, LTE로 연결하는 지능형 제어반",공장 LTE 연결,https://donginensis.com/manufacturing.html#inquiry,"인터넷 없는 현장은 LTE 장비. 클라우드형/온프레미스형, 통신 끊김 시 보관·재전송"
 100,donginensis3047,todo,제조,권선온도를 U·V·W 세 상으로 나눠 보는 이유,모터 권선온도,https://donginensis.com/manufacturing.html#inquiry,권선온도(U·V·W) 수집. 상별 차이로 보는 일반 원리(수치 기준 만들지 말 것). 003과 겹치지 않게
 101,donginensis3047,todo,제조,회전속도 데이터로 보는 설비 상태,모터 회전속도,https://donginensis.com/manufacturing.html#inquiry,"회전속도 수집, 인버터 설비, 진동·전류와 함께 보기. 일반 원리"
