@@ -28,3 +28,4 @@ description: 타입캐스트 음성과 구글 플로우 이미지로 숏츠 영�
 답하는 도중에 올라온 첨부는 저장되지 않으니, 답이 끝난 뒤 다시 올려 달라고 한다.
 
 **10/30부터 합성(대표이사 "단조롭고 같은 화면 반복, 끊김", 최우선):** 클립 프레임은 `minterpolate` 보간 없이 **원본 24fps 그대로** 뽑아(`ffmpeg -i cNN.mp4 -vf scale=720:1280 -q:v 3 clipn/cNN/%03d.jpg`) `scene.html`의 `CFPS = 24`, 경로 `clipn/`로 쓰고 **24fps로 렌더**(`node ../../render.mjs video out.mp4 24`). **2초마다 확대해 자르는 자동 컷(cuts)은 쓰지 않는다.** 샷 사이 컷은 a·b 클립으로. 클립 환경음은 `ambient.wav`로 장면 위치에 맞춰 깔고(`shorts/compose/mixv2.sh`) 목소리 밑으로 −24dB쯤 둔다. 예: `work/jetfan`(48편 v2).
+클립 위 확대는 `from: 1.0, to: 1.03`(훅 장면만 1.06)으로 약하게. 최종 인코딩은 20MB 제한 없이 `mixv2.sh`(CRF 18, 최대 8Mbps)와 `FPS=24 RATE=8000k CRF=20 bash append_cover.sh`를 쓴다(20MB는 휴대폰으로 받기 편하라고 둔 옛 제한).
