@@ -2,6 +2,30 @@
 
 **따라 하는 것은 화면 결(그림체·카메라·글자 얹는 법)뿐이다.** 그 채널의 주제·대본·제목은 따라 하지 않는다(따라 한 채널은 원본의 1~2%, `benchmark-competitors-2026-10.md`). 회사 이름·건축사전 이름은 프롬프트에도 넣지 않는다.
 
+## ★ 10/30 샷 늘리기·움직임 다양화·환경음 (대표이사 "다른 채널에 비해 단조롭고 같은 화면이 반복되고 끊긴다", "샷을 늘리자", 다음 화부터 전부 적용, 이 절이 아래보다 우선)
+
+48편(jetfan) 영상을 재 보니: 62초에 클립 14개(샷 14개), 클립마다 "slow push-in" 한 가지 움직임, 2초마다 같은 영상을 확대해 자르는 가짜 컷(같은 화면 반복), 24fps 클립을 60fps로 보간해 일렁임, 클립에 든 환경음은 버림.
+
+| 항목 | 이전 | 10/30부터 |
+|---|---|---|
+| 샷 수 | 문장 1~2개당 클립 1개(1분에 12~14샷) | **문장마다 서로 다른 시작 그림 2장(A·B)**, 클립은 각각 **앞 3~4초만** 씀 → 1분에 **24~30샷** |
+| 샷 A·B 짜기 | - | A = 넓은 장면(어디서), B = 다른 각도·다른 대상(클로즈업·부품·사람 손·반대편). **같은 구도의 확대판은 B가 아니다** |
+| 카메라 | 거의 전부 slow push-in/orbit | 클립마다 **다른 움직임**: 빠른 푸시, 추적(tracking), 궤도, 위로 솟기(crane), 초점 이동(rack focus), 낮은 앵글 지나가기, 손으로 든 듯한 흔들림. **한 편에 같은 움직임 3번 이상 금지**, "slow"는 한 편에 3번 안쪽 |
+| 움직임 | 핵심 부분이 천천히 | **첫 1.5초 안에 동작 시작, 1.5초마다 새 일이 일어남**(물체가 움직이고, 손이 누르고, 연기·물·빛이 흐름) |
+| 클립 안 컷 | "no cuts" | 한 샷은 컷 없이 이어서(샷 하나 = 한 테이크). 샷 사이 컷은 편집에서 |
+| 소리 | "Audio: none", 효과음만 | **환경음을 살림**(기계 소리, 바람, 발소리). 프롬프트에 "Audio: natural ambient sound only, no music, no speech" |
+| 합성 | 60fps 보간, 2초마다 확대 컷 | **원본 24fps 그대로, 24fps로 렌더, 확대 컷 없음**, 클립 환경음을 −24dB쯤 목소리 밑에 깔기(`compose/mixv2.sh`) |
+
+**새 클립 공통 끝말 (이전 "Camera: one slow smooth move…" 대신, 10/30부터):**
+```
+One continuous shot, no cuts, no on-screen text. The subject moves clearly from the very first frame and something new happens about every 1.5 seconds. Same vivid explainer look, colors and light as the start frame. Audio: natural ambient sound of the scene only (machine hum, air, footsteps), no music, no speech. Absolutely no digits, numbers, letters, labels, percent signs, measurement lines, arrows or symbols ever appear; no logos.
+```
+클립 앞부분에 **카메라 움직임을 한 줄로 따로 적는다**: 예 `Camera: fast push-in.` / `Camera: low tracking shot sliding past.` / `Camera: crane up.` / `Camera: rack focus from the foreground part to the background.` / `Camera: handheld, slight natural shake.`
+
+**시험(한 편에 1~2개만):** 클립 하나에 샷 둘 쓰기 `Shot 1 (0-3s): … Shot 2 (3-6s): …`. Veo 3.1 Lite가 따르는지 아직 모름. 따르면 같은 크레딧으로 샷이 늘어남.
+
+**크레딧:** 한 편 16문장 기준 시작 그림 약 30장(0 크레딧) + 클립 약 24~28개(편당 240~280). 한 Flow 계정으로 모자라면 둘로 나눠 만듦. 문장 수가 많은 편은 B를 줄여 샷 24개를 최소로 지킴.
+
 ## 그 채널 화면에서 본 것 (상위 쇼츠 8편 첫 화면, 10/28)
 
 | 특징 | 내용 | 우리 지금(42~44편) |
