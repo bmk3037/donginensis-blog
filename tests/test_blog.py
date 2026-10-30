@@ -347,3 +347,19 @@ class ThreadsTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TrackerTest(unittest.TestCase):
+    def test_published_draft_is_checked(self):
+        from blog import tracker
+        rows = [
+            {"date": "2026-10-16", "blog": "donginensis3047", "id": "3", "dir": "2026-10-16-donginensis3047-003", "title": "모터 온도 감시, 신호 7가지"},
+            {"date": "2026-10-17", "blog": "bmk3037", "id": "17", "dir": "2026-10-17-bmk3037-017", "title": "FGSS 제어"},
+        ]
+        pub = {"donginensis3047": {tracker._norm("모터 온도 감시 | 신호 7가지"): "https://blog.naver.com/x/1"}}
+        body = tracker.build(rows, pub, {"2026-10-17-bmk3037-017": "확인 필요"})
+        self.assertIn("발행 1 / 초안 2편", body)
+        self.assertIn("- [x] 10-16 · 모터 온도 감시", body)
+        self.assertIn("- [ ] 10-17 · FGSS 제어", body)
+        self.assertIn("⚠ 확인 필요", body)
+        self.assertTrue(body.startswith("<!-- blog-tracker -->"))

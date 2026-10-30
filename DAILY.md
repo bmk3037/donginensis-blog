@@ -57,8 +57,10 @@ python -m blog.generate --id <id> --from-json posts/<dir>/post.json --date <발�
 - `python -m unittest discover -s tests`
 
 ## 5. 저장·전달
+- `python -m blog.tracker --mark > <scratchpad>/tracker.md` — 발행된 초안을 찾아 topics.csv에 '발행됨'으로 기록하고, 목록 이슈 본문을 만듭니다
 - `git add posts topics.csv existing && git commit && git push` (main)
-- GitHub 이슈 3개: 제목 `[<블로그 이름>] <제목>`, 본문 `posts/<dir>/issue.md`, 라벨 `blog-draft`
+- GitHub: 초안마다 이슈를 새로 만들지 않습니다. **목록 이슈 1개**(라벨 `blog-tracker`, 본문 첫 줄 `<!-- blog-tracker -->`)의 본문을 `tracker.md` 내용으로 바꿉니다
+  - 발행 전 확인 사항은 각 폴더의 `issue.md`에 그대로 있습니다
 - 사용자에게 zip 3개 전송 + 표로 요약: 블로그 / 제목 / 형식 / 글자 수 / 확인할 사실 1줄
 
 ## 6. 쓰레드 3개 (회사 계정) → `threads/<발행일>.json`
