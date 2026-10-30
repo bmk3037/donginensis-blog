@@ -10,5 +10,5 @@ ffmpeg -y -loglevel error -i narration.wav -i sfx.wav -i ambient.wav -stream_loo
 [2:a]volume=${AMB:-1.0},aformat=channel_layouts=stereo[am];[am][c1]sidechaincompress=threshold=0.02:ratio=5:attack=20:release=400[amd];\
 [3:a]volume=${BGMV:-0.22},aformat=channel_layouts=stereo[b];[b][c2]sidechaincompress=threshold=0.02:ratio=8:attack=30:release=500[bd];\
 [v][amd][bd]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]" -map "[a]" -ar 44100 mix_v2.wav
-ffmpeg -y -loglevel error -i "$IN" -i mix_v2.wav -c:v libx264 -crf 26 -preset slow -maxrate 1600k -bufsize 3200k -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart -shortest "$OUT"
+ffmpeg -y -loglevel error -i "$IN" -i mix_v2.wav -c:v libx264 -crf 18 -preset slow -maxrate 8000k -bufsize 16000k -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart -shortest "$OUT"
 ls -la "$OUT"; ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT"
