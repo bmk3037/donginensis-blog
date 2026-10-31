@@ -28,15 +28,26 @@ if (mode === "stills") {
   const fps = Number(fpsArg || 30);
   const dur = await page.evaluate(() => window.TL.duration);
   const n = Math.ceil(dur * fps);
-  const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(fps), "-i", "-",
-    "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", arg], { stdio: ["pipe", "inherit", "inherit"] });
-  for (let i = 0; i < n; i++) {
-    await page.evaluate(t => window.setTime(t), i / fps);
-    const buf = await page.screenshot({ type: "jpeg", quality: 92 });
-    if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once("drain", r));
-    if (i % 300 === 0) console.log(`${i}/${n}`);
+  // 10/31: 컨테이너가 쉬는 사이 꺼져도 이어서 하도록 10초(CHUNK 프레임)씩 조각 파일로 만들고, 있는 조각은 건너뛴 뒤 이어 붙인다
+  const CH = Number(process.env.CHUNK || fps * 10), fs = await import("fs");
+  const cdir = dir + "/chunks_" + path.basename(arg, ".mp4"); fs.mkdirSync(cdir, { recursive: true });
+  const parts = [];
+  for (let c0 = 0, k = 0; c0 < n; c0 += CH, k++) {
+    const part = `${cdir}/part_${String(k).padStart(3, "0")}.mp4`; parts.push(part);
+    if (fs.existsSync(part)) { console.log(`skip ${k}`); continue; }
+    const tmp = part + ".tmp.mp4";
+    const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(fps), "-i", "-",
+      "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", tmp], { stdio: ["pipe", "inherit", "inherit"] });
+    for (let i = c0; i < Math.min(n, c0 + CH); i++) {
+      await page.evaluate(t => window.setTime(t), i / fps);
+      const buf = await page.screenshot({ type: "jpeg", quality: 92 });
+      if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once("drain", r));
+    }
+    ff.stdin.end();
+    await new Promise(r => ff.on("close", r));
+    fs.renameSync(tmp, part); console.log(`${Math.min(n, c0 + CH)}/${n}`);
   }
-  ff.stdin.end();
-  await new Promise(r => ff.on("close", r));
+  fs.writeFileSync(cdir + "/list.txt", parts.map(p => `file '${p}'`).join("\n") + "\n");
+  await new Promise(r => spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", cdir + "/list.txt", "-c", "copy", arg], { stdio: "inherit" }).on("close", r));
 }
 await browser.close();
