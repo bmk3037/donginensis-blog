@@ -1,0 +1,864 @@
+<!doctype html>
+<!--
+  숏츠 합성 틀(2026-10-22). 새 편은 이 파일과 sfx.py를 작업 폴더에 복사해 고친다. 21편(LNG 잠액식 펌프)이 실제 예다.
+  편마다 고칠 곳: <title>, NAMES(img/ 안의 그림 이름), SCENES, KEYS. sfx.py는 맨 아래 큐만.
+  이 틀에 들어 있는 규칙:
+    - 왼쪽 위 시리즈 로고 "숨은 설비 도감"(badge), 첫 1.15초는 커버
+    - 차분한 카메라: 회전·좌우 왕복·뒤로 빠지기 없이 천천히 다가가기만
+    - 같은 그림이 연달아 나오면 한 장면으로 이어 붙임(끊겨 보이지 않게)
+    - 강조 순간: flash(하얀 번쩍임) + 큰 글자, 흔들림은 가장 센 순간 한 곳 0.5초
+-->
+<!--
+  08편 「고속도로 터널은 낮에 불을 더 세게 켭니다」 합성 장면. 새 편은 이 파일을 작업 폴더에 복사해 고친다.
+  편마다 고칠 곳(나머지 함수는 그대로 쓰는 도구 상자):
+    1. <title>
+    2. NAMES: 이미지 장수(length)
+    3. SCENES: [이미지 번호, 시작, 끝, 카메라, 그림 위 그래픽(이미지 좌표), 화면 위 그래픽(화면 좌표)]
+       시각은 A(i)/B(i)=i번 문장 구간, cm(i,k)=i번 문장 k번째 쉼표, at(i,0.5)=문장 중간.
+    4. KEYS: 자막에서 노랗게 칠할 핵심어
+  지켜야 할 것: 컷 안에서 다시 자르지 않기(cuts 1), 순간 확대·흐림 없음, 흔들림은 가장 센 순간 0.5초만.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>36 라면 공장</title>
+<style>
+  @font-face { font-family: "Pretendard"; src: url("fonts/Pretendard-Bold.woff2") format("woff2"); font-weight: 700; }
+  @font-face { font-family: "Pretendard"; src: url("fonts/Pretendard-ExtraBold.woff2") format("woff2"); font-weight: 800; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #1c1f22; }
+  #stage { position: absolute; inset: 0; }
+  /* 건축사전처럼 화면 가운데 아래쪽, 흰 글자에 검은 테두리 */
+  #sub {
+    position: absolute; left: 60px; right: 60px; top: 1400px;
+    font-family: "Pretendard", sans-serif; font-weight: 800; font-size: 50px; line-height: 1.25;
+    -webkit-text-stroke: 10px rgba(0,0,0,.88); paint-order: stroke fill;
+    color: #fff; text-align: center; word-break: keep-all;
+    text-shadow: 0 2px 6px rgba(0,0,0,.75), 0 0 2px rgba(0,0,0,.9);
+  }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="sub"></div>
+<script src="timeline.js"></script>
+<script>
+const RED = "#E5392B", YEL = "#FFD43B";
+const L = TL.lines;
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+const out = x => 1 - Math.pow(1 - x, 3);
+const back = x => { const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+const FONT = `font-family="Pretendard" font-weight="800"`;
+const at = (i, f) => L[i].start + (L[i].end - L[i].start) * f;
+const cm = (i, k = 0) => L[i].commas[k];
+
+// 이미지 크기는 불러와서 잰다. 아직 없는 이미지는 자리 표시만 한다
+const NAMES = Array.from({ length: 24 }, (_, i) => String(i + 1).padStart(2, "0"));
+const CLIPS = { c01: 190, c15: 116 }, CLIPIMG = {}, CFPS = 60;
+const SIZE = {}, MISSING = new Set();
+const loadImg = n => new Promise(r => {
+  const im = new Image();
+  im.onload = () => { SIZE[n] = [im.naturalWidth, im.naturalHeight]; r(); };
+  im.onerror = () => { SIZE[n] = [948, 1659]; MISSING.add(n); r(); };
+  im.src = `img/${n}.webp`;
+});
+const loadFrame = src => new Promise(r => {
+  const im = new Image();
+  im.onload = () => (im.decode ? im.decode() : Promise.resolve()).then(r, r); im.onerror = r; im.src = src; CLIPIMG[src] = im;
+});
+const FRAMES = Object.entries(CLIPS).flatMap(([c, n]) => Array.from({ length: n }, (_, k) => `clip/${c}/${String(k + 1).padStart(3, "0")}.jpg`));
+window.READY = Promise.all([...NAMES.map(loadImg), ...FRAMES.map(loadFrame)]).then(() => window.setTime(0));
+
+// 이미지를 화면에 꽉 채우고, 카메라(확대·이동)와 컷 순간의 펀치를 준다. 그래픽은 이미지 픽셀 좌표로 적는다
+function photo(name, t, a, b, cam, overlay = "") {
+  const clip = cam.clip;
+  const [w, h] = clip ? [720, 1280] : SIZE[name];
+  const K = Math.max(1080 / w, 1920 / h), ox = (1080 - w * K) / 2, oy = (1920 - h * K) / 2;
+  const p = ease(prog(t, a, b));
+  // 건축사전처럼 2~3초마다 컷: 같은 그림을 넓게 → 가까이 → 다른 쪽으로 잘라 쓴다
+  const n = cam.cuts || 1, len = (b - a) / n;
+  const k = clamp(Math.floor((t - a) / len), 0, n - 1), t0 = a + k * len;
+  const Z = [1, 1.2, 1.08, 1.28][k % 4], DX = [0, -50, 45, 0][k % 4], DY = [0, 35, -30, 10][k % 4];
+  const punch = 1;
+  // 차분한 카메라(10/22 대표이사 피드백): 회전·좌우 왕복·뒤로 빠지기 없이 천천히 다가가기만
+  const s0 = cam.cx ? 1.22 : 1.03, s = lerp(cam.from || s0, cam.to || s0 + 0.1, cam.fast ? out(prog(t, a, b)) : p) * Z * punch;
+  const dx = DX, dy = DY;
+  const blur = "";
+  const cx = cam.cx || 540, cy = cam.cy || 900, rot = 0;
+  const shake = cam.shake ? cam.shake(t) : [0, 0];
+  const fi = clip ? Math.max(1, Math.min(CLIPS[clip.id], Math.floor((clip.from || 1) + (t - (clip.t0 ?? a)) * CFPS * (clip.rate || 1)))) : 0;
+  const rv = cam.reveal;
+  if (rv && !MISSING.has(name)) {
+    const p2 = out(prog(t, rv.t0, rv.t0 + (rv.dur || 1.4))), id = "rv" + name + Math.round(a * 100);
+    const shape = rv.mode === "down" ? `<rect x="-20" y="-20" width="${w + 40}" height="${(h + 40) * p2}" fill="#fff"/>`
+      : `<circle cx="${rv.x}" cy="${rv.y}" r="${Math.hypot(w, h) * p2}" fill="#fff"/>`;
+    const inner = `<image href="img/${rv.bg}.webp" width="${w}" height="${h}"/><mask id="${id}">${shape}</mask><image href="img/${name}.webp" width="${w}" height="${h}" mask="url(#${id})"/>`;
+    return `<g transform="translate(${dx + shake[0]},${dy + shake[1]}) translate(${cx},${cy}) rotate(${rot}) scale(${s}) translate(${-cx},${-cy})">
+    <g transform="translate(${ox},${oy}) scale(${K})">${inner}${overlay}</g></g>`;
+  }
+  const img = clip ? `<image href="clip/${clip.id}/${String(fi).padStart(3, "0")}.jpg" width="720" height="1280"/>` : MISSING.has(name)
+    ? `<rect width="${w}" height="${h}" fill="#3a3f45"/><text x="${w / 2}" y="${h / 2}" text-anchor="middle" ${FONT} font-size="80" fill="#9aa">${name} 이미지 대기</text>`
+    : `<image href="img/${name}.webp" width="${w}" height="${h}"/>`;
+  return `<g${blur} transform="translate(${dx + shake[0]},${dy + shake[1]}) translate(${cx},${cy}) rotate(${rot}) scale(${s}) translate(${-cx},${-cy})">
+    <g transform="translate(${ox},${oy}) scale(${K})">${img}${overlay}</g></g>`;
+}
+// 그림에 그려진 빈 붉은 라벨 상자에 한글을 채운다
+function fillBox(t, t0, x, y, w, h, text, size) {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.4)), fs = size || h * 0.66;
+  return `<g transform="translate(${x + w / 2},${y + h / 2}) scale(${p}) translate(${-x - w / 2},${-y - h / 2})">
+    <rect x="${x - 2}" y="${y - 2}" width="${w + 4}" height="${h + 4}" rx="4" fill="${RED}"/>
+    <text x="${x + w / 2}" y="${y + h / 2 + fs * 0.36}" text-anchor="middle" ${FONT} font-size="${fs}" fill="#fff">${text}</text></g>`;
+}
+// 우리가 새로 다는 붉은 라벨
+function tag(t, t0, x, y, text, size = 46, anchor = "start") {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.4)), w = text.length * size * 0.98 + size * 0.9, h = size * 1.5;
+  const x0 = anchor === "end" ? x - w : anchor === "middle" ? x - w / 2 : x;
+  return `<g transform="translate(${x0 + w / 2},${y}) scale(${p}) translate(${-x0 - w / 2},${-y})" opacity="${prog(t, t0, t0 + 0.12)}">
+    <rect x="${x0}" y="${y - h / 2}" width="${w}" height="${h}" rx="6" fill="${RED}"/>
+    <text x="${x0 + w / 2}" y="${y + size * 0.36}" text-anchor="middle" ${FONT} font-size="${size}" fill="#fff">${text}</text></g>`;
+}
+// 큰 숫자(흰 글자, 검은 테두리)
+function big(t, t0, x, y, text, size = 150, color = "#fff", anchor = "start") {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.45));
+  return `<g transform="translate(${x},${y}) scale(${p}) translate(${-x},${-y})" opacity="${prog(t, t0, t0 + 0.12)}">
+    <text x="${x}" y="${y}" text-anchor="${anchor}" ${FONT} font-size="${size}" fill="${color}" stroke="#000" stroke-width="${size / 12}" paint-order="stroke" stroke-linejoin="round">${text}</text></g>`;
+}
+function rings(t, t0, x, y, r = 40, n = 2) {
+  if (t < t0) return "";
+  let s = "";
+  for (let k = 0; k < n; k++) {
+    const ph = ((t - t0) * 0.9 + k / n) % 1;
+    s += `<circle cx="${x}" cy="${y}" r="${r * (0.4 + 1.6 * ph)}" fill="none" stroke="${RED}" stroke-width="5" opacity="${(1 - ph) * prog(t, t0, t0 + 0.2)}"/>`;
+  }
+  return s;
+}
+function heat(t, t0, x, y, r) {
+  if (t < t0) return "";
+  const g = 0.45 + 0.3 * Math.sin((t - t0) * 7);
+  return `<radialGradient id="h${x}${y}"><stop offset="0" stop-color="${RED}" stop-opacity="${g * prog(t, t0, t0 + 0.5)}"/><stop offset="1" stop-color="${RED}" stop-opacity="0"/></radialGradient>
+    <circle cx="${x}" cy="${y}" r="${r}" fill="url(#h${x}${y})"/>`;
+}
+// 상자가 '듣는' 표시: 상자 쪽으로 좁아지는 호
+function listen(t, t0, x, y, dir = 1) {
+  if (t < t0) return "";
+  let s = "";
+  for (let k = 0; k < 3; k++) {
+    const ph = ((t - t0) * 0.8 + k / 3) % 1, r = 160 - 120 * ph;
+    s += `<path d="M ${x + dir * r * 0.55} ${y - r} A ${r} ${r} 0 0 ${dir > 0 ? 1 : 0} ${x + dir * r * 0.55} ${y + r}" fill="none" stroke="${RED}" stroke-width="9" stroke-linecap="round" opacity="${Math.sin(ph * Math.PI)}"/>`;
+  }
+  return s;
+}
+// 09: 제어반 화면 안 그래프(화면의 기울기에 맞춰 붙인다)
+function screen(t, t0, tWarn) {
+  if (t < t0) return "";
+  const W = 300, H = 200, p = prog(t, t0, tWarn + 0.6);
+  const lines = [
+    { c: "#59C3FF", f: x => 120 - 18 * Math.sin(x * 9) - 6 * Math.sin(x * 23), k: "전류" },
+    { c: "#F2C14E", f: x => 150 - 10 * Math.sin(x * 7 + 1), k: "떨림" },
+    { c: RED, f: x => 165 - 25 * x - 105 * Math.pow(Math.max(0, x - 0.6) / 0.4, 2), k: "온도" },
+  ];
+  let s = `<g transform="matrix(${257 / W},${65 / W},${-1 / H},${258 / H},598,392)">
+    <rect width="${W}" height="${H}" fill="#0d1620"/>
+    <line x1="8" y1="62" x2="${W - 8}" y2="62" stroke="#fff" stroke-width="2" stroke-dasharray="8 6" opacity=".7"/>
+    <text x="${W - 10}" y="54" text-anchor="end" ${FONT} font-size="15" fill="#fff" opacity=".85">기준</text>`;
+  for (const ln of lines) {
+    let d = "";
+    for (let i = 0; i <= 60 * p; i++) { const x = i / 60; d += `${i ? "L" : "M"}${10 + x * (W - 20)} ${ln.f(x)} `; }
+    s += `<path d="${d}" fill="none" stroke="${ln.c}" stroke-width="4" stroke-linejoin="round"/>`;
+  }
+  s += `<text x="12" y="${H - 10}" ${FONT} font-size="15" fill="#59C3FF">전류</text>
+    <text x="62" y="${H - 10}" ${FONT} font-size="15" fill="#F2C14E">떨림</text>
+    <text x="112" y="${H - 10}" ${FONT} font-size="15" fill="${RED}">온도</text>`;
+  if (t > tWarn) {
+    const blink = Math.sin((t - tWarn) * 14) > -0.2 ? 1 : 0.25;
+    s += `<rect width="${W}" height="${H}" fill="none" stroke="${RED}" stroke-width="8" opacity="${blink}"/>
+      <g opacity="${blink}"><rect x="${W / 2 - 50}" y="12" width="100" height="34" rx="5" fill="${RED}"/>
+      <text x="${W / 2}" y="37" text-anchor="middle" ${FONT} font-size="22" fill="#fff">경고</text></g>`;
+  }
+  return s + "</g>";
+}
+// 11: 온도계와 수명 막대
+function thermo(t, t0, tLife) {
+  if (t < t0) return "";
+  const x = 120, y0 = 330, y1 = 1000, o = prog(t, t0, t0 + 0.3);
+  const lvl = lerp(0.45, 0.8, out(prog(t, t0 + 0.2, t0 + 1.4)));
+  const life = lerp(1, 0.5, out(prog(t, tLife, tLife + 1.0)));
+  return `<g opacity="${o}">
+    <rect x="${x - 34}" y="${y0}" width="68" height="${y1 - y0}" rx="34" fill="#fff" stroke="#222" stroke-width="6"/>
+    <circle cx="${x}" cy="${y1 + 30}" r="62" fill="${RED}" stroke="#222" stroke-width="6"/>
+    <rect x="${x - 20}" y="${y1 - (y1 - y0 - 20) * lvl}" width="40" height="${(y1 - y0 - 20) * lvl + 30}" fill="${RED}"/>
+    <line x1="${x + 40}" y1="${y1 - (y1 - y0 - 20) * 0.45}" x2="${x + 80}" y2="${y1 - (y1 - y0 - 20) * 0.45}" stroke="#fff" stroke-width="6"/>
+    <line x1="${x + 40}" y1="${y1 - (y1 - y0 - 20) * 0.8}" x2="${x + 80}" y2="${y1 - (y1 - y0 - 20) * 0.8}" stroke="#fff" stroke-width="6"/>
+  </g>
+  ${big(t, t0 + 0.9, x + 100, y1 - (y1 - y0 - 20) * 0.8 + 30, "+10℃", 96, "#fff")}
+  ${t > tLife ? `<g opacity="${prog(t, tLife, tLife + 0.2)}">
+    <text x="${x - 40}" y="1220" ${FONT} font-size="54" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">수명</text>
+    <rect x="${x - 40}" y="1245" width="420" height="56" rx="8" fill="#000" opacity=".45"/>
+    <rect x="${x - 40}" y="1245" width="${420 * life}" height="56" rx="8" fill="${RED}"/>
+    ${life < 0.55 ? `<text x="${x + 400}" y="1290" ${FONT} font-size="60" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">½</text>` : ""}</g>` : ""}`;
+}
+
+// 그림에 없는 붉은 외곽선을 직접 그린다(대체 장면용)
+function poly(t, t0, pts) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + 0.7)), glow = 0.75 + 0.25 * Math.sin((t - t0) * 6);
+  const d = "M" + pts.map(q => q.join(" ")).join(" L") + " Z";
+  return `<path d="${d}" fill="${RED}" fill-opacity="${0.1 * p}" stroke="${RED}" stroke-width="12" stroke-linejoin="round" opacity="${0.35 * p * glow}" filter="blur(6px)"/>
+    <path d="${d}" fill="none" stroke="#ff5a4a" stroke-width="5" stroke-linejoin="round" pathLength="100" stroke-dasharray="${100 * p} 100" opacity="${glow}"/>`;
+}
+function donut(t, t0, cx, cy, r, pct, label) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + 1.0)), v = pct * p, a = -Math.PI / 2 + 2 * Math.PI * v / 100;
+  const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="80"/>
+    <path d="M ${cx} ${cy - r} A ${r} ${r} 0 ${v > 50 ? 1 : 0} 1 ${x} ${y}" fill="none" stroke="${RED}" stroke-width="80"/>
+    <text x="${cx}" y="${cy + 50}" text-anchor="middle" ${FONT} font-size="150" fill="#fff" stroke="#000" stroke-width="10" paint-order="stroke">${Math.round(v)}%</text>
+    <text x="${cx}" y="${cy + 130}" text-anchor="middle" ${FONT} font-size="56" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">${label}</text></g>`;
+}
+
+// 점선을 따라 상자 쪽으로 흐르는 데이터 점
+function flow(t, t0, pts, color = "#ff6a5a") {
+  if (t < t0) return "";
+  const seg = [], tot = [0];
+  for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(d); tot.push(tot[i - 1] + d); }
+  const L = tot[tot.length - 1], o = prog(t, t0, t0 + 0.3);
+  let s = "";
+  for (let j = 0; j < 4; j++) {
+    const u = (((t - t0) * 0.55 + j / 4) % 1) * L;
+    let i = 0; while (i < seg.length - 1 && tot[i + 1] < u) i++;
+    const f = (u - tot[i]) / seg[i], x = lerp(pts[i][0], pts[i + 1][0], f), y = lerp(pts[i][1], pts[i + 1][1], f);
+    s += `<circle cx="${x}" cy="${y}" r="16" fill="${color}" opacity="${0.35 * o}"/><circle cx="${x}" cy="${y}" r="8" fill="#fff" opacity="${o}"/>`;
+  }
+  return s;
+}
+// 붉은 점선 경로가 그려진다(순찰 동선)
+function route(t, t0, pts, id, dur = 1.6) {
+  if (t < t0) return "";
+  const d = "M" + pts.map(q => q.join(" ")).join(" L"), p = out(prog(t, t0, t0 + dur));
+  return `<mask id="${id}"><path d="${d}" fill="none" stroke="#fff" stroke-width="40" pathLength="1" stroke-dasharray="${p} 1"/></mask>
+    <path d="${d}" fill="none" stroke="${RED}" stroke-width="12" stroke-dasharray="1 20" stroke-linecap="round" mask="url(#${id})"/>`;
+}
+// 건축사전식 붉은 화살표 세 개가 한 점으로 모인다
+function arrows(t, t0, x, y, r = 300) {
+  if (t < t0) return "";
+  let s = "";
+  [-38, 0, 38].forEach((ang, k) => {
+    const p = back(prog(t, t0 + 0.08 * k, t0 + 0.08 * k + 0.45)), a = (ang - 90) * Math.PI / 180;
+    const d = r * (1.6 - 0.6 * p), x1 = x + Math.cos(a) * d, y1 = y + Math.sin(a) * d, x2 = x + Math.cos(a) * r * 0.42, y2 = y + Math.sin(a) * r * 0.42;
+    const hx = Math.cos(a), hy = Math.sin(a), nx = -hy, ny = hx;
+    s += `<g opacity="${prog(t, t0 + 0.08 * k, t0 + 0.08 * k + 0.15)}"><line x1="${x1}" y1="${y1}" x2="${x2 + hx * 40}" y2="${y2 + hy * 40}" stroke="${RED}" stroke-width="26" stroke-linecap="round"/>
+      <polygon points="${x2},${y2} ${x2 + hx * 70 + nx * 40},${y2 + hy * 70 + ny * 40} ${x2 + hx * 70 - nx * 40},${y2 + hy * 70 - ny * 40}" fill="${RED}"/></g>`;
+  });
+  return s;
+}
+// 하루 24시간 원형 게이지
+function clock24(t, t0, x, y, r = 120) {
+  if (t < t0) return "";
+  const p = prog(t, t0, t0 + 1.6), a = -Math.PI / 2 + 2 * Math.PI * p * 0.999;
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><circle cx="${x}" cy="${y}" r="${r}" fill="#0b121b" fill-opacity=".72" stroke="#fff" stroke-opacity=".3" stroke-width="22"/>
+    <path d="M ${x} ${y - r} A ${r} ${r} 0 ${p > 0.5 ? 1 : 0} 1 ${x + r * Math.cos(a)} ${y + r * Math.sin(a)}" fill="none" stroke="${RED}" stroke-width="22" stroke-linecap="round"/>
+    <text x="${x}" y="${y + 18}" text-anchor="middle" ${FONT} font-size="64" fill="#fff">${Math.round(24 * p)}시간</text></g>`;
+}
+// 떨어지는 핀 + 라벨
+function pinDrop(t, t0, x, y, label) {
+  if (t < t0) return "";
+  const d = back(prog(t, t0, t0 + 0.5)), ring = ((t - t0) * 0.9) % 1;
+  return `<g transform="translate(0,${-180 * (1 - d)})" opacity="${prog(t, t0, t0 + 0.12)}">
+    <circle cx="${x}" cy="${y}" r="${14 + 50 * ring}" fill="none" stroke="${RED}" stroke-width="4" opacity="${1 - ring}"/>
+    <path d="M${x} ${y} C ${x - 30} ${y - 44}, ${x - 30} ${y - 86}, ${x} ${y - 86} C ${x + 30} ${y - 86}, ${x + 30} ${y - 44}, ${x} ${y} Z" fill="${RED}" stroke="#fff" stroke-width="4"/>
+    <circle cx="${x}" cy="${y - 58}" r="11" fill="#fff"/></g>${tag(t, t0 + 0.3, x + 36, y - 120, label, 38)}`;
+}
+// 심장박동 선(마지막 장면)
+function ecg(t, t0, y = 760) {
+  if (t < t0) return "";
+  const p = prog(t, t0, t0 + 2.2), W = 1080;
+  let d = "", N = 200;
+  for (let i = 0; i <= N * p; i++) {
+    const x = i / N * W, u = (x % 270) / 270;
+    const v = u > 0.42 && u < 0.46 ? -120 : u >= 0.46 && u < 0.5 ? 90 : u >= 0.5 && u < 0.54 ? -40 : 0;
+    d += `${i ? "L" : "M"}${x} ${y + v} `;
+  }
+  return `<path d="${d}" fill="none" stroke="${RED}" stroke-width="16" opacity=".35" filter="blur(6px)"/><path d="${d}" fill="none" stroke="#ff5a4a" stroke-width="7" stroke-linejoin="round"/>`;
+}
+
+// 회전 화살표(베어링이 돈다)
+function spin(t, t0, x, y, r) {
+  if (t < t0) return "";
+  const a0 = (t - t0) * 2.2, o = prog(t, t0, t0 + 0.3);
+  const p1 = [x + r * Math.cos(a0), y + r * Math.sin(a0)], a1 = a0 + 4.2, p2 = [x + r * Math.cos(a1), y + r * Math.sin(a1)];
+  const tx = -Math.sin(a1), ty = Math.cos(a1), nx = Math.cos(a1), ny = Math.sin(a1);
+  return `<g opacity="${o}"><path d="M ${p1[0]} ${p1[1]} A ${r} ${r} 0 1 1 ${p2[0]} ${p2[1]}" fill="none" stroke="${RED}" stroke-width="22" stroke-linecap="round"/>
+    <polygon points="${p2[0] + tx * 60},${p2[1] + ty * 60} ${p2[0] + nx * 40},${p2[1] + ny * 40} ${p2[0] - nx * 40},${p2[1] - ny * 40}" fill="${RED}"/></g>`;
+}
+// 전류 막대(화면 좌표)
+function gauge(t, t0, tHigh) {
+  if (t < t0) return "";
+  const x = 860, y0 = 420, h = 600, lv = lerp(0.35, 0.5, out(prog(t, t0, t0 + 0.8))) + 0.38 * out(prog(t, tHigh, tHigh + 1.0)), lim = 0.72;
+  const over = lv > lim, blink = over && Math.sin((t - tHigh) * 14) > 0 ? 1 : 0.6;
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><rect x="${x - 50}" y="${y0}" width="100" height="${h}" rx="14" fill="#0b121b" opacity=".75"/>
+    <rect x="${x - 34}" y="${y0 + h - 16 - (h - 32) * lv}" width="68" height="${(h - 32) * lv}" rx="8" fill="${over ? RED : "#59C3FF"}" opacity="${blink}"/>
+    <line x1="${x - 70}" y1="${y0 + h - 16 - (h - 32) * lim}" x2="${x + 70}" y2="${y0 + h - 16 - (h - 32) * lim}" stroke="#fff" stroke-width="5" stroke-dasharray="14 8"/>
+    <text x="${x}" y="${y0 - 24}" text-anchor="middle" ${FONT} font-size="54" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">전류</text></g>`;
+}
+function glow(t, t0, x, y, r, color, blink = true) {
+  if (t < t0) return "";
+  const g = blink ? (Math.sin((t - t0) * 9) > -0.3 ? 1 : 0.35) : 0.6 + 0.4 * Math.sin((t - t0) * 6);
+  const id = "g" + Math.round(x) + Math.round(y);
+  return `<radialGradient id="${id}"><stop offset="0" stop-color="${color}" stop-opacity="${0.85 * g}"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></radialGradient>
+    <circle cx="${x}" cy="${y}" r="${r}" fill="url(#${id})"/>`;
+}
+// 30: 상자 화면 안의 심장박동 선
+function ecgBox(t, t0, x0, y0, w, h) {
+  if (t < t0) return "";
+  const p = prog(t, t0, t0 + 1.6), N = 120;
+  let d = "";
+  for (let i = 0; i <= N * p; i++) {
+    const x = i / N, u = (x * w % 110) / 110, v = u > 0.42 && u < 0.47 ? -0.36 : u >= 0.47 && u < 0.52 ? 0.28 : u >= 0.52 && u < 0.56 ? -0.1 : 0;
+    d += `${i ? "L" : "M"}${x0 + x * w} ${y0 + h / 2 + v * h} `;
+  }
+  return `<path d="${d}" fill="none" stroke="#ff5a4a" stroke-width="6" stroke-linejoin="round"/>`;
+}
+
+// 05: 건물 옆에 10미터마다 붉은 치수 눈금이 쌓이고 기압이 하나씩 오른다
+function dimStack(t, t0, t1, x, yBot, yTop, n, upto) {
+  if (t < t0) return "";
+  const k = Math.min(upto, Math.floor(lerp(0, n, prog(t, t0, t1)) + 1e-6)), seg = (yBot - yTop) / n, yk = yBot - seg * k;
+  let s = `<line x1="${x}" y1="${yBot}" x2="${x}" y2="${yk}" stroke="${RED}" stroke-width="10" stroke-linecap="round"/>`;
+  for (let i = 0; i <= k; i++) s += `<line x1="${x - 34}" y1="${yBot - seg * i}" x2="${x + 34}" y2="${yBot - seg * i}" stroke="${RED}" stroke-width="8"/>`;
+  return s;
+}
+// 일주일 달력: 첫 칸만 "점검", 나머지는 "?"
+function calendar(t, t0, y = 1430) {
+  if (t < t0) return "";
+  let s = "";
+  for (let i = 0; i < 7; i++) {
+    const p = back(prog(t, t0 + 0.07 * i, t0 + 0.07 * i + 0.35)), x = 75 + i * 135;
+    s += `<g transform="translate(${x + 60},${y + 60}) scale(${p}) translate(${-x - 60},${-y - 60})">
+      <rect x="${x}" y="${y}" width="120" height="120" rx="12" fill="${i ? "#0b121b" : RED}" opacity="${i ? .78 : 1}"/>
+      <text x="${x + 60}" y="${y + 78}" text-anchor="middle" ${FONT} font-size="${i ? 60 : 40}" fill="#fff">${i ? "?" : "점검"}</text></g>`;
+  }
+  return s;
+}
+// 잘고 빠른 진동 파형(화면 좌표)
+function wave(t, t0, y = 1440, amp = 1) {
+  if (t < t0) return "";
+  const o = prog(t, t0, t0 + 0.3), grow = lerp(0.25, 1, prog(t, t0, t0 + 2.5)) * amp;
+  let d = "";
+  for (let i = 0; i <= 220; i++) { const x = 70 + i * 4.3, v = Math.sin(i * 1.9 + t * 40) * 18 * grow + Math.sin(i * 0.31 + t * 6) * 10; d += `${i ? "L" : "M"}${x} ${y + v} `; }
+  return `<rect x="50" y="${y - 90}" width="980" height="180" rx="16" fill="#0b121b" opacity="${0.72 * o}"/><path d="${d}" fill="none" stroke="#ff5a4a" stroke-width="5" opacity="${o}"/>`;
+}
+// 화면 속 그래프(사각 영역): 평평하다 어느 날부터 오른다
+function riseGraph(t, t0, x0, y0, w, h, tRise) {
+  if (t < t0) return "";
+  const p = prog(t, t0, tRise + 1.2), N = 80;
+  let d = "";
+  for (let i = 0; i <= N * p; i++) { const u = i / N, v = 0.25 + 0.05 * Math.sin(u * 37) + (u > 0.6 ? Math.pow((u - 0.6) / 0.4, 2) * 0.5 : 0); d += `${i ? "L" : "M"}${x0 + u * w} ${y0 + h - v * h} `; }
+  const warn = t > tRise + 0.8;
+  return `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="#0d1620" opacity=".92"/>
+    <line x1="${x0 + 8}" y1="${y0 + h * 0.35}" x2="${x0 + w - 8}" y2="${y0 + h * 0.35}" stroke="#fff" stroke-width="3" stroke-dasharray="10 8" opacity=".7"/>
+    <path d="${d}" fill="none" stroke="${warn ? RED : "#59C3FF"}" stroke-width="6" stroke-linejoin="round"/>
+    ${warn && Math.sin((t - tRise) * 12) > -0.2 ? `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="none" stroke="${RED}" stroke-width="10"/>` : ""}`;
+}
+function darken(t, t0, t1, max = 0.6) { return t < t0 ? "" : `<rect x="-60" y="-60" width="900" height="1500" fill="#000" opacity="${max * prog(t, t0, t1)}"/>`; }
+
+// 미탑재 비교 막대(화면 좌표)
+function bars(t, t0, showWorld) {
+  if (t < t0) return "";
+  const o = prog(t, t0, t0 + 0.3), W = 820, p = out(prog(t, t0 + 0.2, t0 + 1.0));
+  let s = `<g opacity="${o}"><rect x="60" y="300" width="960" height="${showWorld ? 360 : 220}" rx="18" fill="#0b121b" opacity=".8"/>
+    <text x="100" y="370" ${FONT} font-size="44" fill="#fff">인천공항</text>
+    <rect x="100" y="395" width="${Math.max(10, W * 2 / 111 * p)}" height="44" rx="6" fill="${RED}"/>
+    <text x="${130 + W * 2 / 111}" y="433" ${FONT} font-size="44" fill="#fff">${Math.round(2 * p)}개</text>`;
+  if (showWorld) {
+    const q = out(prog(t, showWorld, showWorld + 1.2));
+    s += `<text x="100" y="530" ${FONT} font-size="44" fill="#fff" opacity="${prog(t, showWorld, showWorld + 0.2)}">세계 평균</text>
+      <rect x="100" y="555" width="${W * q}" height="44" rx="6" fill="#8a96a3"/>
+      <text x="${Math.min(110 + W * q, 900)}" y="593" ${FONT} font-size="44" fill="#fff" text-anchor="${q > 0.8 ? "end" : "start"}" opacity="${q > 0.05 ? 1 : 0}">${Math.round(111 * q)}개</text>`;
+  }
+  return s + `<text x="1000" y="345" text-anchor="end" ${FONT} font-size="30" fill="#c9d1d9">가방 100만 개당 못 실은 수</text></g>`;
+}
+
+// 화면 전체 덮개: 블랙홀(검게) · 화이트홀(하얗게)이 순간 덮였다가 서서히 걷힌다
+function veil(t, t0, dur, color, peak = 0.95) {
+  if (t < t0) return "";
+  const p = prog(t, t0, t0 + dur), o = peak * (p < 0.08 ? p / 0.08 : 1 - out((p - 0.08) / 0.92));
+  return `<rect width="1080" height="1920" fill="${color}" opacity="${o}"/>`;
+}
+// 계단 그래프: 입구에서 안쪽으로 밝기가 한 칸씩 내려간다(화면 좌표)
+function stairs(t, t0, dur) {
+  if (t < t0) return "";
+  const n = 5, hs = [1, 0.62, 0.38, 0.22, 0.14], x0 = 90, w = 900, y0 = 980, H = 560, bw = w / n;
+  let s = `<rect x="60" y="${y0 - H - 60}" width="960" height="${H + 150}" rx="18" fill="#0b121b" opacity="${0.78 * prog(t, t0, t0 + 0.3)}"/>`;
+  for (let i = 0; i < n; i++) {
+    const p = out(prog(t, t0 + i * dur / n, t0 + (i + 1) * dur / n)), h = H * hs[i] * p;
+    s += `<rect x="${x0 + i * bw + 8}" y="${y0 - h}" width="${bw - 16}" height="${h}" rx="6" fill="${i ? "#FFD43B" : RED}" opacity="${0.35 + 0.65 * hs[i]}"/>`;
+  }
+  s += `<text x="${x0 + 10}" y="${y0 + 60}" ${FONT} font-size="40" fill="#fff">입구</text><text x="${x0 + w - 10}" y="${y0 + 60}" text-anchor="end" ${FONT} font-size="40" fill="#fff">안쪽</text>`;
+  return s;
+}
+// 저울: 왼쪽 "전기요금", 오른쪽 "안전"이 번갈아 기운다
+function seesaw(t, t0, tFlip) {
+  if (t < t0) return "";
+  const o = prog(t, t0, t0 + 0.3), ang = t < tFlip ? -14 * out(prog(t, t0, t0 + 0.6)) : lerp(-14, 14, out(prog(t, tFlip, tFlip + 0.6)));
+  return `<g opacity="${o}" transform="translate(540,620)"><rect x="-470" y="-300" width="940" height="560" rx="20" fill="#0b121b" opacity=".75"/>
+    <polygon points="0,40 -60,180 60,180" fill="#8a96a3"/>
+    <g transform="rotate(${ang})"><rect x="-400" y="20" width="800" height="22" rx="10" fill="#fff"/>
+      <rect x="-400" y="-110" width="260" height="130" rx="14" fill="${RED}"/><text x="-270" y="-30" text-anchor="middle" ${FONT} font-size="54" fill="#fff">전기요금</text>
+      <rect x="140" y="-110" width="260" height="130" rx="14" fill="#FFD43B"/><text x="270" y="-30" text-anchor="middle" ${FONT} font-size="54" fill="#1b1b1b">안전</text></g></g>`;
+}
+// 세 칸 밝기 막대(맑음·흐림·밤), 칸마다 시각에 맞춰 솟는다
+function triBars(t, ts) {
+  const lv = [1, 0.6, 0.22], lab = ["맑음", "흐림", "밤"];
+  let s = "";
+  ts.forEach((t0, i) => {
+    if (t < t0) return;
+    const p = back(prog(t, t0, t0 + 0.5)), x = 70 + i * 330, h = 360 * lv[i] * Math.min(p, 1.05);
+    s += `<rect x="${x}" y="${300}" width="280" height="540" rx="14" fill="#0b121b" opacity=".72"/>
+      <rect x="${x + 70}" y="${700 - h}" width="140" height="${h}" rx="8" fill="${i === 2 ? "#8a96a3" : "#FFD43B"}"/>
+      <text x="${x + 140}" y="800" text-anchor="middle" ${FONT} font-size="56" fill="#fff">${lab[i]}</text>`;
+  });
+  return s;
+}
+// 줄어드는 전기요금 막대
+function shrink(t, t0) {
+  if (t < t0) return "";
+  const o = prog(t, t0, t0 + 0.3), p = out(prog(t, t0 + 0.6, t0 + 1.8)), w = lerp(860, 860 * 0.44, p);
+  return `<g opacity="${o}"><rect x="60" y="440" width="960" height="300" rx="18" fill="#0b121b" opacity=".8"/>
+    <text x="110" y="520" ${FONT} font-size="48" fill="#fff">한 해 전기요금</text>
+    <rect x="110" y="560" width="860" height="70" rx="10" fill="#8a96a3" opacity=".35"/>
+    <rect x="110" y="560" width="${w}" height="70" rx="10" fill="#FFD43B"/>
+    ${p > 0.5 ? `<text x="${110 + w + 20}" y="612" ${FONT} font-size="56" fill="${RED}" stroke="#000" stroke-width="5" paint-order="stroke">−46억 원</text>` : ""}
+    <text x="110" y="700" ${FONT} font-size="38" fill="#c9d1d9">252곳 기준, 약 56% 절감 (2015년 한국도로공사 발표)</text></g>`;
+}
+// 거리 막대: 1초에 28m
+function meterBar(t, t0) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + 1.0)), w = 820 * p;
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><line x1="130" y1="860" x2="${130 + w}" y2="860" stroke="${RED}" stroke-width="12" stroke-linecap="round"/>
+    <line x1="130" y1="825" x2="130" y2="895" stroke="${RED}" stroke-width="10"/>${p > 0.98 ? `<line x1="950" y1="825" x2="950" y2="895" stroke="${RED}" stroke-width="10"/>` : ""}
+    <text x="540" y="970" text-anchor="middle" ${FONT} font-size="72" fill="#fff" stroke="#000" stroke-width="7" paint-order="stroke">1초 = ${Math.round(28 * p)}m</text></g>`;
+}
+
+const shakeAt = (t0, dur, amp) => t => {
+  const k = t > t0 ? Math.max(0, 1 - prog(t, t0, t0 + dur)) : 0;
+  return [k * amp * Math.sin(t * 91), k * amp * 0.7 * Math.cos(t * 73)];
+};
+const A = i => L[i].a, B = i => L[i].b;
+const T = (i, f, x) => t => f(t, x);
+// 박진감: 쉼표마다 컷, 좌우 번갈아 밀기, 움직이는 숫자
+const MV = [{ from: 1.08, to: 1.32, dx0: -70, dx1: 60, dy0: 40, dy1: -40, r0: -1.6, r1: 0.4 }, { from: 1.36, to: 1.1, dx0: 60, dx1: -50, r0: 1.4, r1: -0.2 }, { from: 1.2, to: 1.28, dy0: 140, dy1: -120 }, { from: 1.22, to: 1.26, dx0: 110, dx1: -110, r0: 0.8, r1: -0.8 }];
+let mvk = 0; const mv = (extra = {}) => Object.assign({}, MV[mvk++ % MV.length], extra);
+const zoomTo = (cx, cy, extra = {}) => Object.assign({ from: 1.45, to: 1.75, cx, cy, r0: -1, r1: 1 }, extra);
+const dim = (t, t0, max = 0.45) => t < t0 ? "" : `<rect width="1080" height="1920" fill="#000" opacity="${max * prog(t, t0, t0 + 0.4)}"/>`;
+// 온도계: 남극 최저 -89℃에서 -253℃까지 내려간다(화면 좌표, 왼쪽)
+function thermoDrop(t, t0) {
+  if (t < t0) return "";
+  const x = 150, y0 = 330, y1 = 1000, o = prog(t, t0, t0 + 0.3), p = out(prog(t, t0 + 0.2, t0 + 1.6));
+  const v = Math.round(lerp(-89, -253, p)), lvl = lerp(0.78, 0.12, p), H = y1 - y0 - 20;
+  return `<g opacity="${o}">
+    <rect x="${x - 34}" y="${y0}" width="68" height="${y1 - y0}" rx="34" fill="#fff" stroke="#222" stroke-width="6"/>
+    <circle cx="${x}" cy="${y1 + 30}" r="62" fill="#4CB8FF" stroke="#222" stroke-width="6"/>
+    <rect x="${x - 20}" y="${y1 - H * lvl}" width="40" height="${H * lvl + 30}" fill="#4CB8FF"/>
+    <line x1="${x + 40}" y1="${y1 - H * 0.78}" x2="${x + 80}" y2="${y1 - H * 0.78}" stroke="#fff" stroke-width="6"/>
+    <text x="${x + 95}" y="${y1 - H * 0.78 + 16}" ${FONT} font-size="44" fill="#fff" stroke="#000" stroke-width="5" paint-order="stroke">남극 −89℃</text>
+    <text x="${x + 95}" y="${y1 - H * lvl + 20}" ${FONT} font-size="${lerp(60, 110, p)}" fill="${YEL}" stroke="#000" stroke-width="8" paint-order="stroke">${v}℃</text></g>`;
+}
+// 큰 공이 점으로 줄어든다: 부피 1/800
+function shrink800(t, t0) {
+  if (t < t0) return "";
+  const p = ease(prog(t, t0 + 0.3, t0 + 1.5)), r = lerp(320, 12, p), cx = 540, cy = 720;
+  const n = Math.round(lerp(1, 800, p));
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="#4CB8FF" fill-opacity="0.35" stroke="#fff" stroke-width="10"/>
+    ${big(t, t0 + 0.3, 540, 380, `부피 1/${n}`, 120, YEL, "middle")}</g>`;
+}
+// 0 → N 세기(큰 노란 글자)
+function countN(t, t0, n, pre = "", post = "", dur = 1.2, y = 380, size = 130) {
+  if (t < t0) return "";
+  const v = Math.round(n * out(prog(t, t0, t0 + dur)));
+  return big(t, t0, 540, y, `${pre}${v}${post}`, size, YEL, "middle");
+}
+// 단계 칩이 차례로 켜진다: 액체 → 펌프 압력↑ → 기체 → 버스
+function steps(t, t0, labels, gap = 0.5) {
+  if (t < t0) return "";
+  let s = "";
+  const w = 230, y = 360;
+  labels.forEach((lb, i) => {
+    const ti = t0 + i * gap; if (t < ti) return;
+    const p = back(prog(t, ti, ti + 0.4)), x = 60 + i * 250;
+    s += `<g transform="translate(${x + w / 2},${y + 50}) scale(${p}) translate(${-x - w / 2},${-y - 50})" opacity="${prog(t, ti, ti + 0.12)}">
+      <rect x="${x}" y="${y}" width="${w}" height="100" rx="14" fill="${i === labels.length - 1 ? YEL : RED}"/>
+      <text x="${x + w / 2}" y="${y + 66}" text-anchor="middle" ${FONT} font-size="46" fill="${i === labels.length - 1 ? "#1b1b1b" : "#fff"}">${lb}</text></g>`;
+    if (i < labels.length - 1 && t > ti + 0.3) s += `<polygon points="${x + w + 2},${y + 36} ${x + w + 18},${y + 50} ${x + w + 2},${y + 64}" fill="#fff" opacity="${prog(t, ti + 0.3, ti + 0.45)}"/>`;
+  });
+  return s;
+}
+// 모터 온도·전류 그래프(상자 안)
+function motorGraph(t, t0, tWarn, la = "온도", lb = "전류") {
+  if (t < t0) return "";
+  const p = prog(t, t0, (tWarn || t0 + 2.6) + 0.4), x0 = 120, y0 = 820, w = 840, h = 300, N = 70;
+  const warn = tWarn && t > tWarn, blink = warn && Math.sin((t - tWarn) * 12) > -0.2;
+  const line = (f, c) => { let d = ""; for (let i = 0; i <= N * p; i++) { const u = i / N; d += (i ? " L " : "M ") + (x0 + w * u).toFixed(1) + " " + (y0 - h * f(u)).toFixed(1); } return `<path d="${d}" fill="none" stroke="${c}" stroke-width="8" stroke-linejoin="round"/>`; };
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><rect x="${x0 - 30}" y="${y0 - h - 70}" width="${w + 60}" height="${h + 120}" rx="18" fill="#0b1220" opacity="0.82"/>
+    <text x="${x0}" y="${y0 - h - 18}" ${FONT} font-size="44" fill="${RED}">${la}</text><text x="${x0 + la.length * 46 + 36}" y="${y0 - h - 18}" ${FONT} font-size="44" fill="#59C3FF">${lb}</text>
+    <text x="${x0 + w}" y="${y0 - h - 18}" text-anchor="end" ${FONT} font-size="36" fill="#fff" opacity=".8">기준</text>
+    <line x1="${x0}" y1="${y0 - h * 0.68}" x2="${x0 + w}" y2="${y0 - h * 0.68}" stroke="${YEL}" stroke-width="4" stroke-dasharray="14 10"/>
+    ${line(u => 0.3 + 0.05 * Math.sin(u * 31) + 0.45 * Math.pow(Math.max(0, u - 0.55) / 0.45, 2), RED)}
+    ${line(u => 0.45 + 0.06 * Math.sin(u * 19 + 1), "#59C3FF")}
+    ${blink ? `<rect x="${x0 - 30}" y="${y0 - h - 70}" width="${w + 60}" height="${h + 120}" rx="18" fill="none" stroke="${RED}" stroke-width="10"/>` : ""}</g>`;
+}
+// 소수점 도넛: 2.89%
+function donutDec(t, t0, cx, cy, r, pct, label) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + 1.2)), v = pct * p, a = -Math.PI / 2 + 2 * Math.PI * v / 100;
+  const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="#0b1220" fill-opacity=".55" stroke="#fff" stroke-opacity=".3" stroke-width="60"/>
+    <path d="M ${cx} ${cy - r} A ${r} ${r} 0 0 1 ${x} ${y}" fill="none" stroke="${RED}" stroke-width="60" stroke-linecap="round"/>
+    <text x="${cx}" y="${cy + 40}" text-anchor="middle" ${FONT} font-size="130" fill="${YEL}" stroke="#000" stroke-width="10" paint-order="stroke">${v.toFixed(2)}%</text>
+    <text x="${cx}" y="${cy + 120}" text-anchor="middle" ${FONT} font-size="50" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">${label}</text></g>`;
+}
+// 가로 막대 비교(화면 위쪽)
+function cmpBars(t, t0, rows, title) {
+  if (t < t0) return "";
+  const o = prog(t, t0, t0 + 0.3), W = 700;
+  let s = `<g opacity="${o}"><rect x="60" y="300" width="960" height="${120 + rows.length * 110}" rx="18" fill="#0b1220" opacity=".8"/>
+    <text x="100" y="365" ${FONT} font-size="44" fill="#fff">${title}</text>`;
+  rows.forEach(([lb, v, c], i) => {
+    const p = out(prog(t, t0 + 0.3 + i * 0.35, t0 + 1.2 + i * 0.35)), y = 420 + i * 110;
+    s += `<text x="100" y="${y + 50}" ${FONT} font-size="48" fill="#fff">${lb}</text>
+      <rect x="250" y="${y + 10}" width="${W * v * p}" height="60" rx="8" fill="${c}"/>
+      <text x="${260 + W * v * p}" y="${y + 54}" ${FONT} font-size="46" fill="${YEL}" stroke="#000" stroke-width="5" paint-order="stroke">${v === 1 ? "1" : "1/3"}</text>`;
+  });
+  return s + "</g>";
+}
+// 수소 + 산소 → 전기 + 물
+function reaction(t, t0) {
+  if (t < t0) return "";
+  const items = [["H₂", RED], ["+", null], ["O₂", RED], ["→", null], ["전기", YEL], ["+", null], ["물", "#4CB8FF"]];
+  let s = "", x = 70;
+  items.forEach(([lb, c], i) => {
+    const ti = t0 + i * 0.22, w = c ? (lb.length > 1 ? 170 : 120) : 70;
+    if (t >= ti) {
+      const p = back(prog(t, ti, ti + 0.35));
+      s += `<g transform="translate(${x + w / 2},410) scale(${p}) translate(${-x - w / 2},-410)" opacity="${prog(t, ti, ti + 0.1)}">`;
+      if (c) s += `<rect x="${x}" y="360" width="${w}" height="100" rx="14" fill="${c}"/><text x="${x + w / 2}" y="428" text-anchor="middle" ${FONT} font-size="50" fill="${c === YEL ? "#1b1b1b" : "#fff"}">${lb}</text>`;
+      else s += `<text x="${x + w / 2}" y="432" text-anchor="middle" ${FONT} font-size="64" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">${lb}</text>`;
+      s += "</g>";
+    }
+    x += w + 14;
+  });
+  return s;
+}
+// 평형수 탱크가 차오르고, 배가 물속으로 내려앉는다
+function ballast(t, t0, t1) {
+  if (t < t0) return "";
+  const p = ease(prog(t, t0 + 0.2, t1)), x = 140, y = 300, w = 800, h = 300;
+  const sink = 60 * p;
+  return `<g opacity="${prog(t, t0, t0 + 0.25)}"><rect x="${x - 20}" y="${y - 20}" width="${w + 40}" height="${h + 110}" rx="18" fill="#0b1220" opacity=".78"/>
+    <line x1="${x}" y1="${y + 150}" x2="${x + w}" y2="${y + 150}" stroke="#4CB8FF" stroke-width="4" stroke-dasharray="14 10"/>
+    <g transform="translate(0,${sink})"><path d="M ${x + 60} ${y + 40} L ${x + w - 60} ${y + 40} L ${x + w - 120} ${y + 150} L ${x + 120} ${y + 150} Z" fill="#8a96a3" stroke="#fff" stroke-width="5"/>
+      <rect x="${x + 140}" y="${y + 150 - 34 - 70 * 0}" width="${w - 280}" height="0" fill="none"/>
+      <path d="M ${x + 120 + 0} ${y + 150} L ${x + w - 120} ${y + 150} L ${x + w - 120 - 30 * p} ${y + 150 - 60 * p} L ${x + 120 + 30 * p} ${y + 150 - 60 * p} Z" fill="#4CB8FF" opacity=".9"/></g>
+    <text x="${x + w / 2}" y="${y + h + 70}" text-anchor="middle" ${FONT} font-size="54" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">바닥 탱크에 바닷물 → 균형</text></g>`;
+}
+// 단계 칩(빨강): 멈춤이 이어지는 사슬
+function chain(t, t0, labels, gap = 0.6, color = RED) {
+  if (t < t0) return "";
+  let s = "";
+  const w = 300, y = 360;
+  labels.forEach((lb, i) => {
+    const ti = t0 + i * gap; if (t < ti) return;
+    const p = back(prog(t, ti, ti + 0.4)), x = 60 + i * 335;
+    s += `<g transform="translate(${x + w / 2},${y + 50}) scale(${p}) translate(${-x - w / 2},${-y - 50})" opacity="${prog(t, ti, ti + 0.12)}">
+      <rect x="${x}" y="${y}" width="${w}" height="100" rx="14" fill="${i === labels.length - 1 ? YEL : color}"/>
+      <text x="${x + w / 2}" y="${y + 66}" text-anchor="middle" ${FONT} font-size="48" fill="${i === labels.length - 1 ? "#1b1b1b" : "#fff"}">${lb}</text></g>`;
+    if (i < labels.length - 1 && t > ti + 0.3) s += `<polygon points="${x + w + 6},${y + 36} ${x + w + 26},${y + 50} ${x + w + 6},${y + 64}" fill="#fff" opacity="${prog(t, ti + 0.3, ti + 0.45)}"/>`;
+  });
+  return s;
+}
+// 강조 순간: 하얀 번쩍임
+const flash = (t, t0, peak = 0.75) => veil(t, t0, 0.4, "#fff", peak);
+// 불의 세 요소 칩, tX부터 산소에 빨간 ✕
+function fire3(t, t0, tX) {
+  if (t < t0) return "";
+  let s = "";
+  ["연료", "열", "산소"].forEach((lb, i) => {
+    const ti = t0 + i * 0.35; if (t < ti) return;
+    const p = back(prog(t, ti, ti + 0.4)), x = 90 + i * 310, w = 260, y = 340;
+    s += `<g transform="translate(${x + w / 2},${y + 60}) scale(${p}) translate(${-x - w / 2},${-y - 60})"><rect x="${x}" y="${y}" width="${w}" height="120" rx="16" fill="${i === 2 ? "#4CB8FF" : "#F28C28"}"/>
+      <text x="${x + w / 2}" y="${y + 80}" text-anchor="middle" ${FONT} font-size="60" fill="#fff">${lb}</text></g>`;
+    if (i < 2 && t > ti + 0.2) s += `<text x="${x + w + 25}" y="${y + 82}" text-anchor="middle" ${FONT} font-size="60" fill="#fff" stroke="#000" stroke-width="6" paint-order="stroke">+</text>`;
+  });
+  if (tX && t > tX) {
+    const p = out(prog(t, tX, tX + 0.25)), cx = 90 + 2 * 310 + 130, cy = 400, r = 95 * p;
+    s += `<g stroke="${RED}" stroke-width="22" stroke-linecap="round"><line x1="${cx - r}" y1="${cy - r}" x2="${cx + r}" y2="${cy + r}"/><line x1="${cx + r}" y1="${cy - r}" x2="${cx - r}" y2="${cy + r}"/></g>`;
+  }
+  return s;
+}
+// 하루 가스 사용: 저녁에 치솟는 막대
+function demand(t, t0) {
+  if (t < t0) return "";
+  const hs = [0.35, 0.3, 0.42, 0.5, 0.48, 0.62, 0.95, 1.0], x0 = 110, y0 = 760, H = 330, bw = 100;
+  let s = `<g opacity="${prog(t, t0, t0 + 0.25)}"><rect x="70" y="${y0 - H - 90}" width="940" height="${H + 160}" rx="18" fill="#0b1220" opacity=".78"/>
+    <text x="110" y="${y0 - H - 35}" ${FONT} font-size="44" fill="#fff">하루 가스 사용</text>`;
+  hs.forEach((h, i) => {
+    const p = out(prog(t, t0 + 0.2 + i * 0.12, t0 + 0.6 + i * 0.12)), hh = H * h * p;
+    s += `<rect x="${x0 + i * 110}" y="${y0 - hh}" width="${bw - 20}" height="${hh}" rx="8" fill="${i >= 6 ? RED : "#59C3FF"}"/>`;
+  });
+  return s + `<text x="${x0}" y="${y0 + 50}" ${FONT} font-size="36" fill="#c9d1d9">아침</text><text x="${x0 + 7 * 110 + 80}" y="${y0 + 50}" text-anchor="end" ${FONT} font-size="36" fill="${YEL}">겨울 저녁</text></g>`;
+}
+const RD = "#FF5A48";
+// 장면 속 빨간 딱지(벤치마크): 물체를 가리키는 작은 빨간 말풍선
+function pin(t, t0, x, y, text, size = 38) {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.35)), w = text.length * size * 0.92 + size * 0.9, h = size * 1.45, x0 = x - w / 2, y0 = y - h - 22;
+  return `<g transform="translate(${x},${y}) scale(${p}) translate(${-x},${-y})" opacity="${prog(t, t0, t0 + 0.1)}">
+    <rect x="${x0}" y="${y0}" width="${w}" height="${h}" rx="${h / 2}" fill="${RED}" stroke="#fff" stroke-width="3"/>
+    <polygon points="${x - 12},${y0 + h - 1} ${x + 12},${y0 + h - 1} ${x},${y}" fill="${RED}"/>
+    <text x="${x}" y="${y0 + h / 2 + size * 0.35}" text-anchor="middle" ${FONT} font-size="${size}" fill="#fff">${text}</text></g>`;
+}
+// 빨간 동그라미 아이콘: x, !, ?, clock, cal, tool
+function icon(t, t0, x, y, kind, r = 42) {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.35));
+  let g = "";
+  if (kind === "x") g = `<line x1="${-r * .45}" y1="${-r * .45}" x2="${r * .45}" y2="${r * .45}" stroke="#fff" stroke-width="9" stroke-linecap="round"/><line x1="${r * .45}" y1="${-r * .45}" x2="${-r * .45}" y2="${r * .45}" stroke="#fff" stroke-width="9" stroke-linecap="round"/>`;
+  else if (kind === "!" || kind === "?") g = `<text y="${r * .38}" text-anchor="middle" ${FONT} font-size="${r * 1.2}" fill="#fff">${kind}</text>`;
+  else if (kind === "clock") { const a = (t - t0) * 6; g = `<circle r="${r * .6}" fill="none" stroke="#fff" stroke-width="6"/><line x1="0" y1="0" x2="0" y2="${-r * .42}" stroke="#fff" stroke-width="6" stroke-linecap="round"/><line x1="0" y1="0" x2="${r * .35 * Math.cos(a)}" y2="${r * .35 * Math.sin(a)}" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`; }
+  else if (kind === "cal") g = `<rect x="${-r * .5}" y="${-r * .42}" width="${r}" height="${r * .9}" rx="5" fill="#fff"/><rect x="${-r * .5}" y="${-r * .42}" width="${r}" height="${r * .26}" fill="#ffd0cb"/>`;
+  else if (kind === "tool") g = `<path d="M ${-r * .4} ${r * .4} L ${r * .2} ${-r * .2}" stroke="#fff" stroke-width="10" stroke-linecap="round"/><circle cx="${r * .28}" cy="${-r * .28}" r="${r * .22}" fill="none" stroke="#fff" stroke-width="7"/>`;
+  return `<g transform="translate(${x},${y}) scale(${p})" opacity="${prog(t, t0, t0 + 0.1)}"><circle r="${r}" fill="${RED}" stroke="#fff" stroke-width="4"/>${g}</g>`;
+}
+// 빨간 숫자 딱지(크게)
+function num(t, t0, x, y, text, size = 66) {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.4)), w = text.length * size * 0.72 + size, h = size * 1.4;
+  return `<g transform="translate(${x},${y}) scale(${p}) translate(${-x},${-y})" opacity="${prog(t, t0, t0 + 0.1)}"><rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" rx="14" fill="${RED}"/>
+    <text x="${x}" y="${y + size * 0.36}" text-anchor="middle" ${FONT} font-size="${size}" fill="#fff">${text}</text></g>`;
+}
+// 서서히 꺼지는 도시(어둡게 덮기)
+const fadeOut = (t, t0, t1, max = 0.6) => t < t0 ? "" : `<rect width="1080" height="1920" fill="#06080c" opacity="${max * ease(prog(t, t0, t1))}"/>`;
+// 수요 곡선이 6400만 선을 넘는다
+function demandLine(t, t0) {
+  if (t < t0) return "";
+  const p = prog(t, t0, t0 + 2.4), x0 = 110, y0 = 760, w = 860, h = 300, N = 60;
+  let d = ""; for (let i = 0; i <= N * p; i++) { const u = i / N; d += (i ? " L " : "M ") + (x0 + w * u).toFixed(1) + " " + (y0 - h * (0.2 + 0.75 * Math.pow(u, 1.6))).toFixed(1); }
+  const over = p > 0.62;
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><rect x="${x0 - 30}" y="${y0 - h - 60}" width="${w + 60}" height="${h + 100}" rx="18" fill="#0b1220" opacity=".72"/>
+    <line x1="${x0}" y1="${y0 - h * 0.62}" x2="${x0 + w}" y2="${y0 - h * 0.62}" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+    <text x="${x0 + w}" y="${y0 - h * 0.62 - 14}" text-anchor="end" ${FONT} font-size="34" fill="#fff">예측 6400만kW</text>
+    <path d="${d}" fill="none" stroke="${over ? RED : "#59C3FF"}" stroke-width="8" stroke-linejoin="round"/></g>`;
+}
+// 예비력 게이지가 0으로
+function reserve(t, t0) {
+  if (t < t0) return "";
+  const p = ease(prog(t, t0, t0 + 1.4)), x = 160, y = 330, w = 760, v = 1 - p;
+  return `<g opacity="${prog(t, t0, t0 + 0.2)}"><text x="${x}" y="${y - 18}" ${FONT} font-size="40" fill="#fff" stroke="#000" stroke-width="5" paint-order="stroke">남은 전기(예비력)</text>
+    <rect x="${x}" y="${y}" width="${w}" height="60" rx="10" fill="#0b1220" opacity=".7"/><rect x="${x}" y="${y}" width="${Math.max(0, w * v)}" height="60" rx="10" fill="${v < 0.25 ? RED : "#59C3FF"}"/></g>`;
+}
+// 바닥 원근을 따라 그어지는 빨간 점선 화살표(벤치마크의 땅 위 점선)
+function dashLine(t, t0, x1, y1, x2, y2, dur = 0.9) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + dur)), x = lerp(x1, x2, p), y = lerp(y1, y2, p), ang = Math.atan2(y2 - y1, x2 - x1);
+  const head = p > 0.98 ? `<polygon points="${x2},${y2} ${x2 - 26 * Math.cos(ang - 0.45)},${y2 - 26 * Math.sin(ang - 0.45)} ${x2 - 26 * Math.cos(ang + 0.45)},${y2 - 26 * Math.sin(ang + 0.45)}" fill="${RED}"/>` : "";
+  return `<g><line x1="${x1}" y1="${y1}" x2="${x}" y2="${y}" stroke="#fff" stroke-width="11" stroke-dasharray="22 14" stroke-linecap="round" opacity=".85"/><line x1="${x1}" y1="${y1}" x2="${x}" y2="${y}" stroke="${RED}" stroke-width="7" stroke-dasharray="22 14" stroke-linecap="round"/>${head}</g>`;
+}
+// 평평한 감시 그래프: 이상 징후 없음
+function flatGraph(t, t0) {
+  if (t < t0) return "";
+  const p = prog(t, t0, t0 + 1.8), x0 = 140, y0 = 640, w = 800, h = 200, N = 60;
+  let d = ""; for (let i = 0; i <= N * p; i++) { const u = i / N; d += (i ? " L " : "M ") + (x0 + w * u).toFixed(1) + " " + (y0 - h * (0.45 + 0.03 * Math.sin(u * 22))).toFixed(1); }
+  return `<g opacity="${prog(t, t0, t0 + 0.25)}"><rect x="${x0 - 40}" y="${y0 - h - 80}" width="${w + 80}" height="${h + 120}" rx="18" fill="#0b1220" opacity=".72"/>
+    <text x="${x0}" y="${y0 - h - 28}" ${FONT} font-size="36" fill="#c9d1d9">배터리 온도</text>
+    <line x1="${x0}" y1="${y0 - h * 0.85}" x2="${x0 + w}" y2="${y0 - h * 0.85}" stroke="${RED}" stroke-width="3" stroke-dasharray="10 8"/>
+    <path d="${d}" fill="none" stroke="#7CD992" stroke-width="7"/>
+    ${p > 0.95 ? `<text x="${x0 + w}" y="${y0 + 26}" text-anchor="end" ${FONT} font-size="36" fill="#fff">이상 징후 없음</text>` : ""}</g>`;
+}
+const CL = (id, extra = {}) => Object.assign({ clip: { id } }, extra);
+// 정전: 화면이 어두워지고 빨간 비상등이 깜빡인다
+function blackout(t, t0, x = 540, y = 700) {
+  if (t < t0) return "";
+  const d = 0.65 * ease(prog(t, t0, t0 + 0.8)), on = prog(t, t0 + 0.6, t0 + 0.9) * (0.55 + 0.45 * Math.abs(Math.sin((t - t0) * 3)));
+  return `<rect width="1080" height="1920" fill="#05070c" opacity="${d}"/><radialGradient id="eg"><stop offset="0" stop-color="${RED}" stop-opacity=".75"/><stop offset="1" stop-color="${RED}" stop-opacity="0"/></radialGradient><circle cx="${x}" cy="${y}" r="420" fill="url(#eg)" opacity="${on}"/>`;
+}
+// 그림 좌표로 그리는 과열점(볼트 이음부가 빨갛게 달아오름)
+const hotJoint = (t, t0, x, y, max = 1) => t < t0 ? "" : `<radialGradient id="hj"><stop offset="0" stop-color="#ff3b1f" stop-opacity=".95"/><stop offset=".5" stop-color="#ff6a3d" stop-opacity=".45"/><stop offset="1" stop-color="#ff6a3d" stop-opacity="0"/></radialGradient><circle cx="${x}" cy="${y}" r="${150 * (0.6 + 0.4 * prog(t, t0, t0 + 2))}" fill="url(#hj)" opacity="${max * prog(t, t0, t0 + 1.5) * (0.8 + 0.2 * Math.sin(t * 6))}"/>`;
+// 그림 좌표: 차단기 오른쪽 3분의 1이 꺼짐
+const sectionOff = (t, t0) => t < t0 ? "" : `<polygon points="640,1022 1080,893 1080,1158 640,1290" fill="#0b0f16" opacity="${0.55 * prog(t, t0, t0 + 0.5)}"/>`;
+// 코일 자기장: 파란 물결이 퍼진다
+function field(t, t0, x, y) {
+  if (t < t0) return "";
+  let g = "";
+  for (let k = 0; k < 4; k++) { const ph = ((t - t0) * 0.7 + k / 4) % 1; g += `<circle cx="${x}" cy="${y}" r="${60 + 260 * ph}" fill="none" stroke="#59C3FF" stroke-width="6" opacity="${(1 - ph) * 0.8 * prog(t, t0, t0 + 0.3)}"/>`; }
+  return g;
+}
+// 끝 저장 카드(3줄 요약 + 저장·공유)
+function saveCard(t, t0) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + 0.5)), y = 560 + 40 * (1 - p);
+  const rows = ["① 옆집 쪽 벽을 두드려 보기(통통)", "② 그 벽 앞엔 짐 · 붙박이장 금지", "③ 현관이 막히면 칸막이 · 대피공간"];
+  return `<g opacity="${p}"><rect width="1080" height="1920" fill="#06080c" opacity=".55"/>
+    <rect x="80" y="${y}" width="920" height="640" rx="36" fill="#fffdf7"/>
+    <rect x="80" y="${y}" width="920" height="120" rx="36" fill="${RED}"/><rect x="80" y="${y + 84}" width="920" height="36" fill="${RED}"/>
+    <text x="540" y="${y + 80}" text-anchor="middle" ${FONT} font-size="54" fill="#fff">저장해 두세요</text>
+    ${rows.map((r, i) => `<text x="130" y="${y + 230 + i * 120}" ${FONT} font-size="46" fill="#1b1f24">${r}</text>`).join("")}
+    <g transform="translate(540,${y + 720})"><rect x="-210" y="-48" width="420" height="80" rx="40" fill="#0A2A55"/><text y="8" text-anchor="middle" ${FONT} font-size="40" fill="#FFD43B">저장 · 공유</text></g></g>`;
+}
+// 가장자리부터 번지는 회색 연기(화면 좌표)
+function smokeEdge(t, t0, t1, max = 0.6) {
+  if (t < t0) return "";
+  const p = ease(prog(t, t0, t1)), dr = Math.sin(t * 1.3) * 3;
+  return `<radialGradient id="smk" cx="${50 + dr}%" cy="45%" r="70%"><stop offset="${0.55 - 0.3 * p}" stop-color="#8d9196" stop-opacity="0"/><stop offset="1" stop-color="#8d9196" stop-opacity="${max * p}"/></radialGradient><rect width="1080" height="1920" fill="url(#smk)"/>`;
+}
+
+// ── 32편: 지식컷식 주석(화면 좌표) ──
+// 빨간 글자 + 흰 테두리 라벨
+function rl(t, t0, x, y, text, size = 92, anchor = "middle") {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.35));
+  return `<g transform="translate(${x},${y}) scale(${p}) translate(${-x},${-y})" opacity="${prog(t, t0, t0 + 0.1)}">
+    <text x="${x}" y="${y}" text-anchor="${anchor}" ${FONT} font-size="${size}" fill="${RED}" stroke="#fff" stroke-width="${size / 7}" paint-order="stroke" stroke-linejoin="round">${text}</text></g>`;
+}
+// 그려지는 선(치수선 등)
+function seg(t, t0, x1, y1, x2, y2, w = 7, dur = 0.5) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + dur));
+  return `<line x1="${x1}" y1="${y1}" x2="${lerp(x1, x2, p)}" y2="${lerp(y1, y2, p)}" stroke="${RED}" stroke-width="${w}" stroke-linecap="round"/>`;
+}
+// 세로 깊이 눈금자
+function ruler(t, t0, x, y0, y1, dur = 1.0) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + dur)), y = lerp(y0, y1, p);
+  let s = `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y}" stroke="${RED}" stroke-width="7"/>`;
+  for (let k = y0; k <= y; k += 48) s += `<line x1="${x}" y1="${k}" x2="${x + ((k - y0) % 240 ? 22 : 44)}" y2="${k}" stroke="${RED}" stroke-width="5"/>`;
+  return s + (p > 0.98 ? `<circle cx="${x}" cy="${y1}" r="12" fill="${RED}"/>` : "");
+}
+// 모서리 괄호 상자
+function brk(t, t0, x0, y0, x1, y1, w = 8) {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.35)), cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, Lk = 60;
+  let s = "";
+  for (const [x, y, dx, dy] of [[x0, y0, 1, 1], [x1, y0, -1, 1], [x0, y1, 1, -1], [x1, y1, -1, -1]])
+    s += `<path d="M ${x + dx * Lk} ${y} L ${x} ${y} L ${x} ${y + dy * Lk}" fill="none" stroke="${RED}" stroke-width="${w}" stroke-linecap="square"/>`;
+  return `<g transform="translate(${cx},${cy}) scale(${lerp(1.15, 1, Math.min(p, 1))}) translate(${-cx},${-cy})" opacity="${prog(t, t0, t0 + 0.12)}">${s}</g>`;
+}
+// 과녁 원
+function target(t, t0, x, y, r = 90) {
+  if (t < t0) return "";
+  const p = back(prog(t, t0, t0 + 0.4)), rr = r * p;
+  return `<g opacity="${prog(t, t0, t0 + 0.12)}"><circle cx="${x}" cy="${y}" r="${rr}" fill="none" stroke="${RED}" stroke-width="8"/><circle cx="${x}" cy="${y}" r="${rr * 0.32}" fill="none" stroke="${RED}" stroke-width="6"/>
+    <line x1="${x - rr * 1.35}" y1="${y}" x2="${x - rr * 0.55}" y2="${y}" stroke="${RED}" stroke-width="6"/><line x1="${x + rr * 0.55}" y1="${y}" x2="${x + rr * 1.35}" y2="${y}" stroke="${RED}" stroke-width="6"/>
+    <line x1="${x}" y1="${y - rr * 1.35}" x2="${x}" y2="${y - rr * 0.55}" stroke="${RED}" stroke-width="6"/><line x1="${x}" y1="${y + rr * 0.55}" x2="${x}" y2="${y + rr * 1.35}" stroke="${RED}" stroke-width="6"/></g>`;
+}
+// 빨간 화살표
+function arw(t, t0, x1, y1, x2, y2, w = 14) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + 0.45)), x = lerp(x1, x2, p), y = lerp(y1, y2, p), a = Math.atan2(y2 - y1, x2 - x1), hx = Math.cos(a), hy = Math.sin(a);
+  return `<g opacity="${prog(t, t0, t0 + 0.1)}"><line x1="${x1}" y1="${y1}" x2="${x - hx * 30}" y2="${y - hy * 30}" stroke="${RED}" stroke-width="${w}" stroke-linecap="round"/>
+    <polygon points="${x},${y} ${x - hx * 50 - hy * 30},${y - hy * 50 + hx * 30} ${x - hx * 50 + hy * 30},${y - hy * 50 - hx * 30}" fill="${RED}"/></g>`;
+}
+// 양쪽 화살 치수선(세로)
+function dimV(t, t0, x, y0, y1) {
+  if (t < t0) return "";
+  const p = out(prog(t, t0, t0 + 0.5)), m = (y0 + y1) / 2, a = lerp(m, y0, p), b = lerp(m, y1, p);
+  return `<g><line x1="${x}" y1="${a}" x2="${x}" y2="${b}" stroke="${RED}" stroke-width="7"/><line x1="${x - 34}" y1="${y0}" x2="${x + 34}" y2="${y0}" stroke="${RED}" stroke-width="7" opacity="${p}"/><line x1="${x - 34}" y1="${y1}" x2="${x + 34}" y2="${y1}" stroke="${RED}" stroke-width="7" opacity="${p}"/>
+    <polygon points="${x},${a} ${x - 18},${a + 30} ${x + 18},${a + 30}" fill="${RED}"/><polygon points="${x},${b} ${x - 18},${b - 30} ${x + 18},${b - 30}" fill="${RED}"/></g>`;
+}
+const MID = i => (L[i].commas.length ? cm(i) : at(i, 0.5));
+const S = A, E = B;
+const SCENES = [
+  ["c01", S(0), E(0), { clip: { id: "c01", from: 1 }, from: 1.06, to: 1.12 }, null, t => big(t, -0.3, 540, 290, "라면 하루", 112, "#fff", "middle") + big(t, -0.2, 540, 470, "665만 개?", 170, "#FFD43B", "middle")],
+  ["02", S(1), at(1, 0.5), {}, null, t => big(t, S(1) + 0.2, 540, 380, "1초에 70봉지+", 120, "#FFD43B", "middle")],
+  ["03", at(1, 0.5), E(1), { from: 1.05, to: 1.2, fast: true }, null, null],
+  ["04", S(2), E(2), {}, null, null],
+  ["05", S(3), E(3), {}, null, t => rl(t, MID(3) + 0.3, 830, 600, "?", 220)],
+  ["06", S(4), E(4), {}, null, t => rl(t, S(4) + 0.3, 540, 330, "① 배합", 110)],
+  ["07", S(5), MID(5), {}, null, t => rl(t, S(5) + 0.2, 540, 330, "② 압연", 110)],
+  ["08", MID(5), at(5, 0.78), {}, null, t => big(t, MID(5) + 0.2, 540, 400, "0.01mm", 150, "#FFD43B", "middle")],
+  ["09", at(5, 0.78), E(5), {}, null, null],
+  ["10", S(6), MID(6), {}, null, t => rl(t, S(6) + 0.2, 540, 330, "③ 절출", 110)],
+  ["11", MID(6), E(6), {}, null, null],
+  ["12", S(7), E(7), {}, null, t => rl(t, S(7) + 0.1, 540, 330, "④ 증숙", 110)],
+  ["13", E(7), E(7) + 0.85, {}, null, null],
+  ["14", E(7) + 0.85, MID(8), {}, null, t => rl(t, E(7) + 0.95, 540, 330, "⑤ 성형", 110)],
+  ["c15", MID(8), MID(8) + 1.35, { clip: { id: "c15", from: 1 }, from: 1.06, to: 1.12 }, null, t => rl(t, MID(8) - 1, 540, 330, "⑥ 유탕(튀기기)", 96)],
+  ["16", MID(8) + 1.35, E(8), {}, null, t => rl(t, MID(8) + 1.4, 540, 330, "수분 5% 미만", 100)],
+  ["17", S(9), MID(9), {}, null, t => rl(t, S(9) + 0.2, 540, 330, "⑦ 냉각", 110)],
+  ["18", MID(9), E(9), {}, null, t => rl(t, MID(9) + 0.1, 540, 330, "포장", 110)],
+  ["19", S(10), MID(10), {}, null, null],
+  ["20", MID(10), E(10), {}, null, t => dim(t, MID(10) + 0.2, 0.2) + flash(t, MID(10) + 0.4, 0.4) + big(t, MID(10) + 0.4, 540, 520, "35분", 200, "#FFD43B", "middle")],
+  ["21", S(11), E(11), {}, null, t => rl(t, MID(11) + 0.1, 540, 330, "점심때만 멈춤", 100)],
+  ["22", S(12), E(12), {}, null, t => rl(t, S(12) + 0.2, 540, 300, "Q. 면을 튀기는 단계는?", 74) + rl(t, at(12, 0.45), 540, 430, "① 증숙  ② 유탕  ③ 냉각", 62)],
+  ["24", S(13), cm(13, 1), { from: 1.0, to: 1.1 }, null, null],
+  ["23", cm(13, 1), TL.duration, { from: 1.0, to: 1.12 }, null, null],
+];
+// 10/24 대표이사 "한 화면이 너무 오래 지속돼": 클립이 아닌 장면은 2초 안팎마다 같은 그림 안에서 당겨 찍기로 나눈다
+SCENES.forEach(sc => { if (!sc[3].clip && !sc[3].cuts) sc[3] = Object.assign({}, sc[3], { cuts: Math.max(1, Math.round((sc[2] - sc[1]) / 2.0)) }); });
+// 같은 그림이 연달아 나오면 하나의 긴 장면으로 잇는다(같은 그림 안에서 다시 자르지 않기)
+(function () {
+  const out = [];
+  for (const sc of SCENES) {
+    const [n, a, b, cam, ov, hud] = sc;
+    const h = hud ? (t => (t < b + 0.06 ? hud(t) : "")) : null;
+    const last = out[out.length - 1];
+    if (last && last[0] === n) {
+      const ph = last[5];
+      last[2] = b;
+      last[5] = t => (ph ? ph(t) : "") + (h ? h(t) : "");
+      if (cam.shake && !last[3].shake) last[3] = Object.assign({}, last[3], { shake: cam.shake });
+    } else out.push([n, a, b, cam, ov, h]);
+  }
+  SCENES.length = 0; out.forEach(x => SCENES.push(x));
+})();
+const ALT = {};
+const FADE = 0.05;
+const alpha = (t, a, b) => Math.min(prog(t, a - FADE / 2, a + FADE / 2), 1 - prog(t, b - FADE / 2, b + FADE / 2));
+
+// 자막은 건축사전처럼 짧게 끊는다: 쉼표에서 나누고, 15자를 넘으면 어절로 다시 나눈다
+const CHUNKS = [];
+for (const l of L) {
+  const parts = l.text.split(/,\s*/), edges = [l.start, ...l.commas, l.end];
+  parts.forEach((p, k) => {
+    const words = p.split(" "), groups = [];
+    for (const w of words) {
+      const g = groups[groups.length - 1];
+      if (g && (g + " " + w).length <= 9) groups[groups.length - 1] = g + " " + w; else groups.push(w);
+    }
+    const a = edges[k], b = edges[k + 1], tot = groups.reduce((s, g) => s + g.length, 0);
+    let c = a;
+    for (const g of groups) { const d = (b - a) * g.length / tot; CHUNKS.push([c, c + d, g + (k < parts.length - 1 && g === groups[groups.length - 1] ? "," : "")]); c += d; }
+  });
+}
+const KEYS = [];
+function subtitle(t) {
+  for (const [a, b, s] of CHUNKS) if (t >= a - 0.05 && t < b + 0.05) {
+    let h = s.replace(/[.,]$/, "");
+    for (const k of KEYS) if (h.includes(k)) { h = h.replace(k, `<span style="color:#FFD43B">${k}</span>`); break; }
+    return h;
+  }
+  return "";
+}
+// 시리즈 로고(왼쪽 위): 숨은 설비 도감
+function badge() {
+  return `<g transform="translate(96,96)" opacity="0.94"><circle r="62" fill="#0A2A55" stroke="#fff" stroke-width="5"/><circle r="50" fill="none" stroke="#E5392B" stroke-width="3" stroke-dasharray="6 5"/>
+    <text y="-6" text-anchor="middle" ${FONT} font-size="23" fill="#fff">숨은 설비</text><text y="27" text-anchor="middle" ${FONT} font-size="31" fill="#FFD43B">도감</text></g>`;
+}
+window.setTime = function (t) {
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920"><rect width="1080" height="1920" fill="#1c1f22"/><filter id="grade"><feColorMatrix type="saturate" values="1.04"/><feComponentTransfer><feFuncR type="linear" slope="1.04" intercept="0"/><feFuncG type="linear" slope="1.04" intercept="0"/><feFuncB type="linear" slope="1.04" intercept="0"/></feComponentTransfer></filter><radialGradient id="vig" cx="50%" cy="45%" r="75%"><stop offset="60%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.22"/></radialGradient><filter id="whip" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="14 3"/></filter>`;
+  SCENES.forEach(sc => {
+    const [name, a, b, cam, ov, hud] = sc;
+    const al = alpha(t, a, b);
+    if (al > 0.001) svg += `<g opacity="${al}"><g filter="url(#grade)">${photo(name, t, a, b, cam, ov ? ov(t) : "")}</g><rect width="1080" height="1920" fill="url(#vig)"/>${hud ? hud(t) : ""}</g>`;
+  });
+  const end = 0;
+  svg += `<rect width="1080" height="1920" fill="#000" opacity="${end}"/></svg>`;
+  document.getElementById("stage").innerHTML = svg;
+  document.getElementById("sub").innerHTML = subtitle(t);
+};
+</script>
+</body>
+</html>

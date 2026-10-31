@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:P;src:url(../../fonts/Pretendard-ExtraBold.woff2)}
+body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
+.bg{position:absolute;inset:0;background:url(img/thumb.jpg) center center/cover}
+.shade{position:absolute;left:0;right:0;top:0;height:760px;background:linear-gradient(#0a1f3dcc,#0a1f3d00)}
+.t{position:absolute;left:0;right:0;text-align:center;font-family:P;-webkit-text-stroke:0;paint-order:stroke fill}
+.a{top:170px;font-size:104px;color:#fff;-webkit-text-stroke:16px #000}
+.b{top:300px;font-size:164px;color:#FFD43B;-webkit-text-stroke:22px #000;letter-spacing:-4px}
+.c{top:540px;font-size:64px;color:#fff;-webkit-text-stroke:10px #000}
+.badge{position:absolute;left:40px;top:40px;width:124px;height:124px;border-radius:50%;background:#0A2A55;border:5px solid #fff;color:#fff;font-family:P;text-align:center;font-size:23px;line-height:1.1;display:flex;flex-direction:column;justify-content:center}
+.badge b{color:#FFD43B;font-size:31px}
+</style></head><body><div class="bg"></div><div class="shade"></div>
+<div class="badge">숨은 설비<b>도감</b></div>
+<div class="t a">국립중앙박물관</div><div class="t b">유물 4점 중 3점은</div><div class="t c">한 번도 전시된 적이 없다</div>
+<script>
+// 10/31: 줄이 넘쳐 글자가 다음 줄로 떨어져 겹치던 문제(49·51 커버) → 한 줄로 고정하고 폭에 맞춰 글자 크기를 줄인다
+function fitText(){document.querySelectorAll('.t').forEach(e=>{e.style.whiteSpace='nowrap';let fs=parseFloat(getComputedStyle(e).fontSize);const box=document.createElement('span');box.style.display='inline-block';box.innerHTML=e.innerHTML;e.innerHTML='';e.appendChild(box);while(box.getBoundingClientRect().width>960&&fs>40){fs-=4;e.style.fontSize=fs+'px';}});}
+document.fonts.ready.then(fitText);
+</script></body></html>
