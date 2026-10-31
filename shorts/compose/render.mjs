@@ -21,6 +21,7 @@ await page.evaluate(() => document.fonts.ready);
 await page.evaluate(() => window.READY);
 if (mode === "stills") {
   for (const t of arg.split(",").map(Number)) {
+    if (await page.evaluate(() => typeof window.prepare === "function")) await page.evaluate(t => window.prepare(t - 0.2, t + 0.2), t);
     await page.evaluate(t => window.setTime(t), t);
     await page.screenshot({ path: `${dir}/still_${t.toFixed(2).padStart(6, "0")}.png` });
   }
@@ -35,6 +36,7 @@ if (mode === "stills") {
   for (let c0 = 0, k = 0; c0 < n; c0 += CH, k++) {
     const part = `${cdir}/part_${String(k).padStart(3, "0")}.mp4`; parts.push(part);
     if (fs.existsSync(part)) { console.log(`skip ${k}`); continue; }
+    if (await page.evaluate(() => typeof window.prepare === "function")) await page.evaluate(([a, b]) => window.prepare(a, b), [c0 / fps, Math.min(n, c0 + CH) / fps]);
     const tmp = part + ".tmp.mp4";
     const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(fps), "-i", "-",
       "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", tmp], { stdio: ["pipe", "inherit", "inherit"] });
