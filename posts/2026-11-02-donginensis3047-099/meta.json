@@ -1,0 +1,28 @@
+{
+  "topic_id": "99",
+  "blog": "donginensis3047",
+  "format": "Q&A형",
+  "title": "공장 LTE 연결, 인터넷 없는 현장에서 지능형 제어반 쓰는 법 Q&A",
+  "tags": [
+    "동인엔시스",
+    "지능형제어반",
+    "공장LTE연결",
+    "LTE",
+    "원격감시",
+    "펌프장",
+    "온프레미스",
+    "설비데이터",
+    "스마트공장"
+  ],
+  "keyword": "공장 LTE 연결",
+  "landing_url": "https://donginensis.com/manufacturing.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post099&utm_content=donginensis3047#inquiry",
+  "fact_check": [
+    "인터넷 없는 현장은 LTE 장비로 대응 / 온프레미스형(고객사 서버·사내망, 외부 연결 없이) — LTE 장비 사양·통신비·속도는 쓰지 않음",
+    "인터록·최종 제어는 현장 PLC, 서버는 직접 제어 안 함 / MQTT TLS / 원격 접속은 고객 승인 VPN만",
+    "통신 끊김 시 보관 후 오래된 순서로 재전송, 측정 시각·순번",
+    "수집 항목·24시간 기록·센서별 normal/warning/alarm, 제어반 1면",
+    "현장 분석 1주에 수집 포인트 확인, 비용은 통신 환경 등에 따라 현장 분석 후 견적, 설비 1~2대부터",
+    "배수지·폐수처리장 예시, 안테나 위치, 함 안 신호 약화는 일반론"
+  ],
+  "created": "2026-11-02"
+}

@@ -34,7 +34,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 42,donginensis,todo,데이터인프라,설비 데이터 표준화: 설비-센서-실시간값-상태 구조,설비 데이터 표준화,https://donginensis.com/partner.html#inquiry,"site_id·equipment_id, 센서별 값·단위·상태, normal·warning·alarm 판정. 설비가 늘어도 연동 코드 그대로 ※ donginensis에 10/16 ""설비 데이터 표준화 | 설비가 달라도 데이터 구조는 같게""(aside 자동 발행)와 겹침 — 다른 각도로만"
 7,donginensis,todo,제조,인터넷이 없는 공장에서도 설비 데이터를 모을 수 있을까,공장 설비 데이터 수집,https://donginensis.com/manufacturing.html#inquiry,LTE 구성과 온프레미스형. 통신 끊김 시 보관 후 재전송
 8,donginensis,todo,제조,외부 클라우드가 안 되는 공장을 위한 온프레미스 설비 모니터링,온프레미스 설비 모니터링,https://donginensis.com/manufacturing.html#inquiry,고객사 서버·사내망 설치. 보안 정책이 엄격한 현장
-15,donginensis,todo,IT협업,디지털트윈을 만들 때 OT 데이터가 막히는 지점,디지털트윈 OT 데이터,https://donginensis.com/partner.html#inquiry,PLC와 인버터 안의 데이터가 제어반 밖으로 안 나오는 문제와 해결 구조
+15,donginensis,drafted,IT협업,디지털트윈을 만들 때 OT 데이터가 막히는 지점,디지털트윈 OT 데이터,https://donginensis.com/partner.html#inquiry,PLC와 인버터 안의 데이터가 제어반 밖으로 안 나오는 문제와 해결 구조
 43,donginensis,todo,데이터인프라,스마트공장 데이터 솔루션 5단계 구조 한눈에 보기,스마트공장 솔루션,https://donginensis.com/manufacturing.html#inquiry,현장 설비→OT 연결→데이터허브→PWA 대시보드→AI·디지털트윈. Modbus TCP/RTU·MQTT·OPC UA. 패키지 Basic·Standard·AI Advanced(가격 언급 금지)
 60,donginensis,todo,기술,"Modbus RTU와 Modbus TCP, 무엇이 다를까",Modbus RTU TCP 차이,https://donginensis.com/partner.html#inquiry,비교형. 지원 통신 Modbus TCP/RTU·MQTT·OPC UA. 기존 설비 연결 시 선택 기준
 61,donginensis,todo,기술,"REST API와 WebSocket, 설비 데이터는 언제 무엇으로 받을까",REST API WebSocket,https://donginensis.com/partner.html#inquiry,"REST(목록·최신값·기간 이력) vs WebSocket(실시간 측정값·상태 변화), CSV 내보내기"
@@ -69,7 +69,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 31,bmk3037,drafted,회사,"1991년 전포동에서 엔에스타워까지, 연혁으로 보는 동인엔시스",동인엔시스 연혁,https://donginensis.com/company.html,"연혁형. 1991 설립 → 1997 Siemens Agency → 2001 Fuji Electric → 2006 산업용·해상용 → 2018 엔에스타워 → 2020 Danfoss·ABB → 2023 양산 2공장 → 2026 지능형 제어반. 이미 발행된 ""부산에서 35년…""(데이터 사업 시작 이유)과 겹치지 않게 연도별 사실 위주"
 32,bmk3037,todo,회사,혁신프리미어 1000 선정과 지능형 제어반,혁신프리미어 1000,https://donginensis.com/news.html,2026 산업통상자원부 혁신프리미어 1000 선정 의미와 지능형 제어반 출시
 33,bmk3037,drafted,회사,부산·양산 공장에서 제어반이 만들어지는 과정,제어반 제작 공정,https://donginensis.com/company.html,설계·제작·배선·PLC 프로그램·공장검사. 사업장 소개. 현장 사진 위주. 마무리: 까다로운 현장의 제어 경험이 지능형 제어반 데이터 인프라의 신뢰성으로 이어진다
-80,bmk3037,todo,조선해양,항만청소선의 디젤·LNG 하이브리드와 연료가스공급 제어,항만청소선,https://donginensis.com/applications.html#marine,"여수지방해양수산청 항만청소선(G/T 280톤급), 디젤·LNG 엔진 하이브리드, FGSS 제어"
+80,bmk3037,drafted,조선해양,항만청소선의 디젤·LNG 하이브리드와 연료가스공급 제어,항만청소선,https://donginensis.com/applications.html#marine,"여수지방해양수산청 항만청소선(G/T 280톤급), 디젤·LNG 엔진 하이브리드, FGSS 제어"
 81,bmk3037,todo,조선해양,벌크선 FGSS 글리콜워터 펌프 제어 이야기,글리콜워터 펌프,https://donginensis.com/applications.html#marine,"Jiangsu New Times 벌크선 13척, Namura 95,000 DWT. FGSS 글리콜워터 펌프 역할"
 82,bmk3037,todo,조선해양,LNG DF 자동차운반선의 펌프·히터 제어,자동차운반선 제어,https://donginensis.com/applications.html#marine,"GSI, HMM 8,600 CEU DF 자동차운반선 3척 등 FGSS·L.O 펌프·오일히터 제어"
 83,bmk3037,todo,수소,액화수소충전소 제어시스템 특허 5건이 말해 주는 것,액화수소충전소 특허,https://donginensis.com/applications.html#hydrogen,2026 액화수소충전소 제어시스템 특허 5건 등록. 특허 세부 청구항은 추측하지 말 것
@@ -89,7 +89,7 @@ id,blog,status,category,title,keyword,landing_url,brief
 96,donginensis,todo,데이터센터,데이터센터 냉각설비를 DCIM·BMS와 연동하는 구조,DCIM 연동,https://donginensis.com/applications.html#datacenter,"냉동기·냉각수 펌프·냉각탑 팬·CDU 제어·감시, MQTT/TLS 표준 연동. 실적 없음 — 적용 방안으로만. aside 10/20 '데이터센터 냉각설비 예지보전'과 겹치지 않게 연동 구조 중심"
 97,donginensis,drafted,IT협업,IT기업이 첫 기술 미팅 전에 준비하면 좋은 것,기술 미팅 준비,https://donginensis.com/partner.html#inquiry,협업 문의 → 기술 미팅(필요 시 NDA) → 시연·테스트 → 공동 프로젝트. 플랫폼 구조·필요 데이터·연동 방식 정리
 98,donginensis3047,drafted,제조,"시운전·안정화 2~4주, 지능형 제어반이 자리 잡는 기간",제어반 시운전,https://donginensis.com/manufacturing.html#inquiry,"도입 절차 4단계 시운전·안정화(2~4주): 현장 시운전, 알람 기준 설정, 운영 교육"
-99,donginensis3047,todo,제조,"인터넷이 없는 공장, LTE로 연결하는 지능형 제어반",공장 LTE 연결,https://donginensis.com/manufacturing.html#inquiry,"인터넷 없는 현장은 LTE 장비. 클라우드형/온프레미스형, 통신 끊김 시 보관·재전송"
+99,donginensis3047,drafted,제조,"인터넷이 없는 공장, LTE로 연결하는 지능형 제어반",공장 LTE 연결,https://donginensis.com/manufacturing.html#inquiry,"인터넷 없는 현장은 LTE 장비. 클라우드형/온프레미스형, 통신 끊김 시 보관·재전송"
 100,donginensis3047,todo,제조,권선온도를 U·V·W 세 상으로 나눠 보는 이유,모터 권선온도,https://donginensis.com/manufacturing.html#inquiry,권선온도(U·V·W) 수집. 상별 차이로 보는 일반 원리(수치 기준 만들지 말 것). 003과 겹치지 않게
 101,donginensis3047,todo,제조,회전속도 데이터로 보는 설비 상태,모터 회전속도,https://donginensis.com/manufacturing.html#inquiry,"회전속도 수집, 인버터 설비, 진동·전류와 함께 보기. 일반 원리"
 102,donginensis3047,todo,제조,도입 첫 주 현장 분석에서 확인하는 것,제어반 현장 분석,https://donginensis.com/manufacturing.html#inquiry,"도입 절차 1단계 현장 분석(1주): 대상 설비, 기존 제어반, 수집 포인트 확인"

@@ -1,0 +1,31 @@
+{
+  "topic_id": "15",
+  "blog": "donginensis",
+  "format": "체크리스트형",
+  "title": "디지털트윈 OT 데이터, 착수 전에 확인할 6가지 체크리스트",
+  "tags": [
+    "동인엔시스",
+    "설비데이터",
+    "디지털트윈",
+    "디지털트윈OT데이터",
+    "OT데이터",
+    "RESTAPI",
+    "WebSocket",
+    "IT협업",
+    "지능형제어반"
+  ],
+  "keyword": "디지털트윈 OT 데이터",
+  "landing_url": "https://donginensis.com/partner.html?utm_source=naver_blog&utm_medium=blog&utm_campaign=post015&utm_content=donginensis#inquiry",
+  "fact_check": [
+    "site_id·equipment_id·센서별 값·단위·상태 동일 형식, 설비가 늘어도 연동 코드 새로 만들 필요 없음",
+    "타사 PLC 읽기: OPC UA → Modbus TCP → 전용 프로토콜(게이트웨이)",
+    "측정 시각·순번, 끊김 시 보관 후 오래된 순서 재전송",
+    "센서별 normal·warning·alarm, 하나라도 경고면 설비 경고 / 운전 상태신호",
+    "REST API(설비·센서 목록, 최신값, 기간 이력), WebSocket 실시간, CSV",
+    "솔루션 5단계(Energient Industrial DataHub, PWA Dashboard, AI·디지털트윈)",
+    "2026.04 고정밀 DAQ 기반 AI 예지보전 디지털트윈 고도화·실증 착수 — 실증 단계로만 씀",
+    "MQTT 토픽·메시지 형식·태그 규칙 버전 관리, NDA 후 문서 / 데이터 소유·이용·보관은 계약",
+    "설비 1~2대부터, 설비 그대로 제어반만 교체·신규"
+  ],
+  "created": "2026-11-02"
+}
