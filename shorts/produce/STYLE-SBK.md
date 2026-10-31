@@ -17,6 +17,7 @@
 | 확대 효과 | 클립에도 1.04→1.1 확대를 겹쳐 줌 | **클립 위 확대는 1.0→1.03 정도로 아주 약하게**(클립 자체의 카메라 움직임에 맡김) |
 | 화질 | 20MB 안쪽(휴대폰으로 받기 편하라고 둔 제한, 1600k) | **업로드용은 제한 없음**: CRF 18, 최대 8Mbps(60초에 약 40~60MB, GitHub 100MB 안쪽). 클립 원본은 720×1280이라 비트레이트를 올려도 해상도는 그대로(업스케일은 따로 검토) |
 | 앞뒤 클립 | 방향 무관 | **카메라·대상의 진행 방향을 앞뒤 클립끼리 맞춤**: 앞으로 가는 샷 뒤엔 앞으로 가는 샷, 왼쪽→오른쪽 뒤엔 왼쪽→오른쪽. 반대로 꺾는 컷은 일부러 놀랄 때만. 카드 장면 표에 "움직임 방향" 칸을 둠 |
+| 자막 | 위 큰 글자와 아래 자막이 같은 말을 겹쳐 보임 | **위아래 중복 금지**(10/31 대표이사): 위 큰 글자와 같은 낱말이 아래 자막에 나오면 아래 자막을 뺀다(합성 `dupSub`, 3글자 이상 겹치면 숨김). 위 큰 글자는 대사를 그대로 옮기지 말고 **핵심 낱말 1~2개**로 쓴다 |
 | 합성 | 60fps 보간, 2초마다 확대 컷 | **원본 24fps 그대로, 24fps로 렌더, 확대 컷 없음**, 클립 환경음을 −24dB쯤 목소리 밑에 깔기(`compose/mixv2.sh`) |
 
 **새 클립 공통 끝말 (이전 "Camera: one slow smooth move…" 대신, 10/30부터):**
@@ -32,7 +33,7 @@ One continuous shot, no cuts, no on-screen text. The subject moves clearly from 
 - 소리는 그대로 나온다(환경음 −11~−39dB, 조용한 장면은 작음).
 **프롬프트 틀:**
 ```
-Three shots with hard cuts, one continuous scene in <장소>. Shot 1 (0-2.6s): <넓은 장면, 카메라 움직임>. HARD CUT. Shot 2 (2.6-5.3s): <부품 클로즈업, 움직임>. HARD CUT. Shot 3 (5.3-8s): <다른 각도·추적·크레인>. In every shot the <물건> keeps the same shape and colors. No signs, no markings, no numbers or letters on walls, pillars, floors or vehicles; no brand logos. <클립 공통 끝말>
+Three shots with hard cuts, one continuous scene in <장소>. Shot 1 (0-2.6s): <넓은 장면, 카메라 움직임>. HARD CUT. Shot 2 (2.6-5.3s): <부품 클로즈업, 움직임>. HARD CUT. Shot 3 (5.3-8s): <다른 각도·추적·크레인>. In every shot the <물건> keeps the same shape and colors. No signs, no markings, no numbers or letters on walls, pillars, floors or vehicles; no brand logos. <멀티샷 끝말: "Same vivid explainer look, colors and light in every shot. Audio: natural ambient sound of the scene only (machine hum, air, footsteps), no music, no speech. No on-screen text. Absolutely no digits, numbers, letters, labels, percent signs, measurement lines, arrows or symbols ever appear; no logos." (위 "새 클립 공통 끝말"의 "One continuous shot, no cuts"는 멀티샷 클립에 쓰지 않는다)>
 ```
 이 방식이면 클립 12개로 샷 36개 → 1분 24~30샷을 크레딧 그대로 넘긴다. 문장마다 그림 2장(A·B)으로 가던 위 안은 **쓰지 않는다**(크레딧 2배). 시작 그림 1장 = 클립 1개 = 샷 3개.
 
