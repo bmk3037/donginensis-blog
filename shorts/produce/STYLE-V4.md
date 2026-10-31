@@ -1,0 +1,91 @@
+# 형식 B v4: 삼성역식 (2026-10-31 확정, 52편부터 모든 카드에 적용)
+
+**이 문서가 STYLE-2TAN.md보다 우선이다.** 대표이사 10/31: "이정도 퀄리티로 너무 만들고 싶다"(이탄생 삼성역 릴스 Dc2XtQIOD4y, 452만), "앞으로 사연을 넣어서 주제를 만들도록", "노트북에서도 바로 작업해도 똑같은 퀄리티". 측정 근거는 `ASIDE-HANDOFF-2026-10-31.md`. 카드 틀은 `TEMPLATE-V4.md`, Aside 제작 순서는 `ASIDE-MAKE.md` 0-3.
+
+## 1. 기준 숫자 (삼성역 편 직접 측정 → 우리 목표)
+
+| 항목 | 삼성역 | 우리 목표(합격선) |
+|---|---|---|
+| 길이 | 97초 | 75~90초 |
+| 컷 | 약 25컷, 평균 3.7초 | **22~28컷**, 평균 3~4초 |
+| 멈춘 듯 느린 구간 | 거의 없음 | **5초 넘게 느린 구간 0개**(0.5초 화면 차이 중앙값 15 미만이면 느림) |
+| 장소 | 한 곳 고정, 그 자리에서 변화 | 같은 공중 시점 3~4번 재등장 |
+| 장면 안 변화 | 땅이 열림, 밤낮 | 시작+종료 프레임 클립 **4개 이상** |
+| 숫자 | 모형 안의 빨간 3D 물체 | 빨간 3D 한글 숫자 표지판이 **10컷 이상** |
+| 화질 | 1440×2560 | 13개 모두 **1080p**(PRO 계정 업스케일) |
+
+## 2. 주제 고르기: 유명한 장소 + 사건 + 숨은 설비 (셋 다 있어야 통과)
+
+대표이사 10/31: "주제도 사건이 결합되어야 스토리가 풍부하니". **사건이 없는 주제는 카드로 쓰지 않는다.**
+
+| 요소 | 조건 | 예 |
+|---|---|---|
+| 유명한 장소·시설 | 누구나 이름을 아는 곳 | 국립중앙박물관, 광안대교, 삼성역 |
+| **사건** | 날짜가 있는 실제 일: 사고·재난·고장·논란·국정감사 지적·기록 경신·큰 결정(예산·공사·폐쇄)·반전 | "2026-10 국감: 유물 76% 한 번도 전시 안 됨", "2012 내부 조사에서 부식 우려 진단 → 2013 10억 원 제습 결정" |
+| 숨은 설비 | 그 사건의 원인이거나 해결책인 설비 | 수장고 공조·빙축열, 케이블 송기 시스템 |
+
+- 사건은 **언제·어디서·무슨 일·숫자(피해·돈·기간)·그 뒤 어떻게 됐나**까지 출처로 확인되어야 한다(국정감사 자료, 공식 보도자료, 신문 원문, 공공기관 누리집). 출처 문장을 그대로 인용해 카드의 사실 확인 표에 붙인다. 확인 안 된 결과(예: 설치 완료 여부)는 "~하기로 했다"까지만 말한다.
+- 사건 찾는 곳: 국정감사 보도(10월), 지자체·공단 보도자료, 조달청 입찰 공고(설비 교체·유지관리 = 사건의 후속), 언론 "N년 만에", "사상 처음", "중단", "침수", "정전", "화재", "누수" 검색.
+- 비슷한 영상 확인: 유튜브 검색 상위 10개에 같은 주제 쇼츠가 30만 회 넘게 있으면 버린다(청계천·인천공항 수하물·아이스링크는 탈락 사례).
+- 좋은 예: "국중박 유물 4점 중 3점은 한 번도 전시 안 됨(2026 국감) → 그 유물이 사는 방의 공기 + 수장고 누수 보도(JTBC 뉴스룸 "43만 유물 잠든 수장고에 '물 뚝뚝'", 원문 확인 필요) 같은 사건". 나쁜 예: 원리만 있는 주제(사건 없음).
+
+## 3. 나레이션 틀 (16~18문장, 문장당 30자 이하, 숫자는 한글로 읽게)
+
+| 순서 | 문장 수 | 내용 | 예 |
+|---|---|---|---|
+| ① 결론 훅 | 1~2 | 가장 놀라운 숫자를 결론부터. 6초 안 | "작년 육백오십만 명이 다녀간 국립중앙박물관. 그런데 유물 네 점 중 세 점은, 한 번도 전시된 적이 없습니다." |
+| ② 의문 | 1 | "왜?"를 대신 물음 | "대체 왜 그럴까요?" |
+| ③ 사건 | 4~5 | 그날 무슨 일이 있었나(날짜 → 무슨 일 → 숫자 → 누가 무엇을 결정). 시간순, 장면이 바뀌는 컷과 짝 | "이천십이 년, 속을 열어 보니 부식이 걱정된다는 진단이 나왔습니다. 그래서 이듬해, 십억 원을 들여 …하기로 했죠." |
+| ④ 원리 | 4~5 | 숨은 설비가 그 사건을 어떻게 일으켰나/막았나. **문장마다 화면이 변하는 장면과 짝** | |
+| ⑤ 지금 | 1~2 | 현재 숫자·상태(확인된 것만) | |
+| ⑥ 끝 | 2 | 제목 문장 + "몰랐다면 좋아요, ○○에게 보내 주세요." | |
+
+사실 규칙(50편 교훈): 계획 기사("~하기로 했다")는 **계획으로** 말한다. 원문에 없는 낱말(예: 센서)은 넣지 않는다. "지하"처럼 확인 안 된 위치는 쓰지 않는다. 숫자마다 사실 확인 표의 한 줄과 짝.
+**말만 하는 문장 금지:** 모든 문장은 컷 표의 한 컷(장면 변화 또는 빨간 숫자 표지판)과 짝이어야 한다.
+
+## 4. 컷 짜기 (클립 13개 = 시작 그림 13장 + 종료 그림 4장 이상)
+
+- **사건 컷 2개 이상**: 사건 순간을 모형 세상 안에서 재현(폭우·화재 연기·정전된 밤·물이 새는 천장·국감장 서류에 빨간 도장 등). 사건 날짜는 빨간 3D 표지판("2012", "10억")으로.
+
+- **고정 시점 A**(같은 공중 시점, 같은 참고 사진): 훅(c01), 열림(c02, 시작+종료), 날씨·밤낮 변화(시작+종료), 끝(c13, 시작+종료). 나머지 9개는 그 장소 안으로 들어간 장면.
+- **시작+종료 프레임 4개 이상**: 종료 그림은 반드시 **시작 그림을 Nano Banana 편집**으로 만든다("Keep exactly the same camera position, framing … Change only …"). 새로 그리면 시점이 달라져 클립이 어색해짐(51편 e08·e10 교훈).
+- **빨간 숫자 표지판 10컷 이상**, 한 컷에 숫자 하나, 8글자 이하("냉동기 21대", "±1℃ ±3%"). 표지판 없는 컷은 프롬프트에 "no red objects"(51편 s13에 엉뚱한 빨간 물체가 생김).
+- **밤·비·노을 중 하나 이상** 넣기(삼성역은 밤 장면 13초).
+
+## 5. 그림 프롬프트 틀 (Nano Banana 2.1, 9:16, 참고 사진 2장)
+
+장소 묘사(참고 사진의 특징을 구체적으로: 모양·층·지붕·재질·주변) + 장면 + 아래 끝말.
+```
+Hyper-detailed architectural scale model diorama of the real place, photographed like a tilt-shift miniature: the model world continues to every edge of the frame with no table, base, backdrop or wall visible; warm low golden-hour sunlight with long soft shadows, gentle natural muted colors (cream, beige, soft green trees, calm blue water), realistic model materials, shallow depth of field. Any people are tiny plain white unpainted figurines without faces. Bright red (#E53935) infographic elements are physical 3D props inside the model world.
+```
+- 숫자 표지판 컷: `… a large bright red 3D sign standing on the floor with bold white Korean text "냉동기 21대".` + `The only text in the whole image is the red 3D text "냉동기 21대"; no other letters, numbers or logos anywhere. Vertical 9:16.`
+- 표지판 없는 컷: `No red objects. Absolutely no letters, numbers, words or logos anywhere; labels and screens are blank. Vertical 9:16.`
+- 참고 사진: Wikimedia Commons에서 그 장소 사진 2장(정면, 대표 경관). 이름만으로는 실제와 다르게 나옴(광안대교 1차 실패).
+
+## 6. 클립 프롬프트 틀 (Veo 3.1 Lite, 9:16, 8초, 소리 켬)
+
+```
+One continuous drone shot, no cuts. Camera: <빠른 움직임 하나> and keeps moving steadily for the whole 8 seconds. 0-3s: <일 1>. 3-6s: <일 2>. 6-8s: <일 3>. The <장소> keeps exactly the same shape and colors for the whole shot. The red 3D sign keeps exactly the same Korean text; the camera passes the sign within the first 4 seconds and moves on. Same tilt-shift miniature scale model look, colors and light as the start frame<, changing smoothly into the end frame>. Audio: natural ambient sound of the scene only (…), no music, no speech. No on-screen text overlays. No new letters or numbers beyond the red sign in the frames; no logos.
+```
+- 카메라 말은 `fast`·`smooth`·`fly-through`·`orbit`·`crane up`·`tracking`. **`slow`는 쓰지 않는다**(51편 c08·c10이 느려짐, 화면 차이 중앙값 11~13).
+- 시작+종료 클립도 카메라가 함께 움직이게: `orbiting while the weather changes`.
+- **"the camera passes the sign within the first 4 seconds"**: Veo가 뒷부분에서 한글을 깨뜨림(51편 c06 끝 "황작 50%").
+
+## 7. 합성 (Claude Code)
+
+- 22~28컷. 클립 하나를 1~2번 끊어 쓰되 같은 클립이 연달아 나오면 0.3초 플래시 컷이나 다른 클립을 끼움.
+- 숫자 표지판 클립은 **앞 4초 안에서** 쓴다. 시작+종료 클립은 변하는 순간이 보이게 5~7초.
+- 숫자는 그림 속 표지판이 말하므로 화면 위 큰 숫자는 얹지 않음. 첫 화면만 장소 이름 큰 글자(1.5초), 이후 화면 가운데 작은 흰 자막 1~2단어, 왼쪽 위 작은 로고.
+- 소리: 클립 환경음 −24dB, 목소리 밑에 끊기지 않는 배경음 한 줄(이탄생은 무음 구간 없음). 최종 −14 LUFS.
+- 720p 클립이 섞이면 1080×1920으로 맞추고 NOTES에 적기.
+
+## 8. 올리기 전 검사 (Aside가 완성본을 받아 측정)
+
+| 항목 | 합격 |
+|---|---|
+| 컷 수(0.5초 화면 차이 45 넘는 곳) | 22~28 |
+| 5초 넘게 느린 구간 | 0 |
+| 빨간 한글이 깨진 프레임 | 0 |
+| 해상도 | 1080×1920 |
+| 첫 6초 | 결론 숫자가 말과 화면에 둘 다 나옴 |
+불합격이면 올리지 않고 Claude에 고칠 시각을 적어 돌려보낸다.
