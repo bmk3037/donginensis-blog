@@ -65,6 +65,7 @@ GitHub      목록 이슈 1개에 블로그별 초안이 모임 → 블로그에
 | `posts/날짜-블로그-번호/` | 만들어진 글. `preview.html`(붙여넣기용), `images/`(표지·설명 이미지), `post.json` | Claude |
 | `assets/` | 회사 로고, Pretendard 글꼴(OFL), 이미지 서식 `image.css` | 서식이 바뀌면 |
 | `blog/` | 프로그램 코드 | — |
+| `shorts/` | 유튜브 숏츠 대본 도구 (벤치마크 수집·분석, 대본 초안, 감수). 사용법은 [`shorts/README.md`](shorts/README.md) | Claude, 감수는 대표이사 |
 
 `blog/blogs.py`에 블로그별 이름·역할·표지 색·필수 태그가 있습니다.
 
