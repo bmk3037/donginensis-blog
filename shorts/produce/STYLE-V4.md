@@ -68,6 +68,7 @@ Hyper-detailed architectural scale model diorama of the real place, photographed
 One continuous drone shot, no cuts. Camera: <빠른 움직임 하나> and keeps moving steadily for the whole 8 seconds. 0-3s: <일 1>. 3-6s: <일 2>. 6-8s: <일 3>. The <장소> keeps exactly the same shape and colors for the whole shot. The red 3D sign keeps exactly the same Korean text; the camera passes the sign within the first 4 seconds and moves on. Same tilt-shift miniature scale model look, colors and light as the start frame<, changing smoothly into the end frame>. Audio: natural ambient sound of the scene only (…), no music, no speech. No on-screen text overlays. No new letters or numbers beyond the red sign in the frames; no logos.
 ```
 - 카메라 말은 `fast`·`smooth`·`fly-through`·`orbit`·`crane up`·`tracking`. **`slow`는 쓰지 않는다**(51편 c08·c10이 느려짐, 화면 차이 중앙값 11~13).
+- **카메라는 "돌기·밀기"가 아니라 "통과하는 비행"(10/31 대표이사)**: 프롬프트의 Camera에 8초 안에 **실제로 이동하는 경로**를 쓴다(예: `enters at the door and travels the whole length of the car`, `sweeps along the whole train, swings around its nose and climbs toward the tower`, `dives in under the train and sweeps along the shelves`). 한 자리에서 `orbit`·`push-in`만 하면 8초가 정지처럼 보인다. 시작+종료 클립은 종료 그림이 시작과 같은 구도라 카메라가 제자리로 돌아오므로, 합성에서 앞 4~5초만 쓰고 이동형 클립과 섞는다.
 - 시작+종료 클립도 카메라가 함께 움직이게: `orbiting while the weather changes`.
 - **"the camera passes the sign within the first 4 seconds"**: Veo가 뒷부분에서 한글을 깨뜨림(51편 c06 끝 "황작 50%").
 
