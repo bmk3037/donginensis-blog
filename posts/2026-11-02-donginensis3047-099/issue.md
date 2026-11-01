@@ -13,7 +13,6 @@
 ### 발행 전 확인
 - [ ] 수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)
 - [ ] 파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)
-- [ ] 사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 '연출 이미지' 표기)
 - [ ] 담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)
 - [ ] 붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인
 - [ ] 실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)
@@ -65,12 +64,7 @@
 
 데이터마다 측정 시각과 순번이 붙어 있어서, 나중에 받아 보는 쪽에서도 빠진 구간이나 두 번 들어온 값을 가려낼 수 있습니다. 물론 설비 운전은 통신과 상관없이 계속됩니다. 신호가 약한 위치라면 현장 분석 때 안테나 위치나 장비 설치 자리를 함께 살펴보는 것이 좋습니다.
 
-> 📷 **사진 넣을 자리:** 마을 외곽에 떨어져 있는 가압펌프장 (연출 이미지) — `04-photo-remote-pump.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo of a small remote booster pump station building on the outskirts of a Korean rural town, concrete block building with a metal door half open showing blue pumps and a light-grey control cabinet inside, green hills and a narrow road in the background, overcast daylight, no people, no brand logos, no readable text. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/04-photo-remote-pump.png`
 
 ## Q5. 데이터가 휴대전화망으로 나가면 보안은 괜찮을까요?
 
@@ -96,12 +90,7 @@
 
 비용 역시 통신 환경에 따라 달라지는 항목 가운데 하나입니다. 설비 수, 모터 용량, 수집 항목, 기존 제어반 교체 여부와 함께 현장 분석 뒤에 견적에 반영합니다. 처음에는 설비 1~2대로 연결해 보고, 효과를 확인한 뒤 넓혀 가는 방법도 있습니다.
 
-> 📷 **사진 넣을 자리:** 제어반 위에 따로 달린 통신용 안테나 (연출 이미지) — `05-photo-lte-cabinet.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo of a light-grey industrial control cabinet in a pump room with a small black external antenna mounted on its roof and a thin cable running into the cabinet through a cable gland, pipes and a motor in the soft-focus background, clean neutral lighting, generic unbranded equipment, no brand logos, no readable text. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/05-photo-lte-cabinet.png`
 
 ## 마치며: 선이 없어도 데이터는 모을 수 있습니다
 

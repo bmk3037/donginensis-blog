@@ -13,7 +13,6 @@
 ### 발행 전 확인
 - [ ] 수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)
 - [ ] 파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)
-- [ ] 사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 '연출 이미지' 표기)
 - [ ] 담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)
 - [ ] 붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인
 - [ ] 실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)
@@ -58,12 +57,7 @@
 
 지능형 제어반은 처음부터 설비를 제어하면서 운전 데이터를 함께 모으도록 만들어져, 이 문제를 제어반 단계에서 풉니다. 이미 다른 회사의 PLC가 설비를 돌리고 있다면 그 PLC의 값을 읽어 오는 방식을 씁니다. 이때는 OPC UA를 먼저 검토하고, 어려우면 Modbus TCP, 그것도 안 되면 제조사 전용 통신을 게이트웨이로 받는 순서로 현장에 맞는 길을 찾습니다.
 
-> 📷 **사진 넣을 자리:** 설비 데이터가 이어져야 움직이는 디지털트윈 화면 (연출 이미지) — `04-photo-twin-screen.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo of a Korean IT engineer at a desk in a modern office looking at a large monitor showing a generic 3D wireframe model of factory pumps and pipes with small green and amber status dots, a second monitor with simple line charts, evening light, no brand logos, no readable text. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/04-photo-twin-screen.png`
 
 ## 확인 3·4. 시각과 상태가 함께 오는가
 
@@ -93,12 +87,7 @@
 
 디지털트윈 자체도 함께 들여다보고 있습니다. 2026년 4월에는 kHz 단위로 전기 파형을 잡아내는 고정밀 DAQ와 비지도 학습 AI를 묶은 예지보전 디지털트윈 솔루션을 고도화해 실증하는 작업에 들어갔습니다. 아직 실증 단계인 만큼, IT기업과는 각자 잘하는 구간을 나눠 맡는 방식이 현실적입니다.
 
-> 📷 **사진 넣을 자리:** 현장 제어반이 운전 데이터를 정해진 형식으로 올려 보내는 구간 (연출 이미지) — `05-photo-panel-data.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo of an engineer in a work uniform standing beside an open light-grey industrial control cabinet in a factory, looking at a rugged tablet showing a simple equipment list with colored status tiles, motors and conveyors softly blurred behind, natural daylight, generic unbranded devices, no brand logos, no readable text. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/05-photo-panel-data.png`
 
 ## 자주 묻는 질문
 

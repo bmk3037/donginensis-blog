@@ -13,7 +13,6 @@
 ### 발행 전 확인
 - [ ] 수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)
 - [ ] 파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)
-- [ ] 사진 파일이 없는 자리는 프롬프트를 ChatGPT에 넣어 만든 뒤 넣기 (사진 아래 '연출 이미지' 표기)
 - [ ] 담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)
 - [ ] 붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인
 - [ ] 실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)
@@ -69,12 +68,7 @@ FGSS 안에서는 탱크에서 꺼낸 LNG를 열교환기에서 데워 기체로
 
 하이브리드 선박에서는 엔진을 바꾸는 순간이 가장 까다롭습니다. LNG 엔진으로 넘어가기 전에 가스가 준비되어 있어야 하고, 디젤로 돌아갈 때는 가스 공급을 안전하게 줄여야 합니다. 추진 쪽 제어와 FGSS 제어가 서로 신호를 주고받으며 같은 박자로 움직여야 하는 이유입니다.
 
-> 📷 **사진 넣을 자리:** 항구 안에서 부유 쓰레기를 거두는 작은 청소선 (연출 이미지) — `04-photo-harbor-vessel.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo of a small white and blue harbor cleaning vessel working inside a Korean port, a crew member using a net to collect floating debris near the bow, large container cranes and a city skyline in the hazy background, calm water, morning light, no brand logos, no readable text, no ship name visible. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/04-photo-harbor-vessel.png`
 
 ## 작은 배라서 더 어려운 점
 
@@ -92,12 +86,7 @@ FGSS 안에서는 탱크에서 꺼낸 LNG를 열교환기에서 데워 기체로
 
 동인엔시스가 2026년에 내놓은 지능형 제어반은 설비를 제어하면서 모터의 온도와 진동, 전류 같은 운전 데이터를 함께 모읍니다. 흔들리는 바다 위에서 쌓은 신뢰할 수 있는 제어 위에, 그 상태를 기록하고 보여 주는 기능을 더한 것입니다.
 
-> 📷 **사진 넣을 자리:** 좁은 기관실에 들어가는 선박용 제어반 (연출 이미지) — `05-photo-engine-room.png`
->
-> ChatGPT 프롬프트:
-> ```
-> Photorealistic photo of a compact ship engine room with insulated gas pipes, a small heat exchanger and pumps, a marine-grade light-grey control cabinet with a small touchscreen mounted on the bulkhead, an engineer in coveralls checking gauges, warm industrial lighting, generic unbranded equipment, no brand logos, no readable text. 3:2 landscape.
-> ```
+> 🖼 **사진 넣기 (연출 이미지):** `images/05-photo-engine-room.png`
 
 ## 자주 묻는 질문
 
