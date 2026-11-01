@@ -1,5 +1,11 @@
 # 노트북 Aside 설정 (이 파일 하나로 PC Aside와 똑같이 일하기)
 
+> **★ 11/1 대표이사: "컴퓨터가 꺼지면 노트북에서 계정으로 접속해서 바로 이어 할 수 있게 항상 해 놔."**
+> 노트북 Aside는 시작하면 **가장 먼저 `shorts/produce/ASIDE-RESUME.md`** 를 열어 "지금" 표와 "다음 할 일"을 읽고, 1번부터 이어서 한다. 회사 PC Aside는 단계가 끝날 때마다 그 파일을 갱신한다. 노트북도 작업 단계가 끝날 때마다 같은 파일을 갱신한다(마지막 갱신 줄에 "(노트북)").
+> 이어받을 때 먼저 할 것: ① Flow에서 해당 편 프로젝트("숨은 설비 이야기 NN 클립 …")를 찾아 "생성 중" 클립이 있는지 본다 ② GitHub `shorts/media/NN/in/clip/`과 NOTES.md에서 이미 받은 클립을 확인한다 ③ 겹치게 다시 만들지 않는다.
+> 링크: https://github.com/bmk3037/donginensis-blog/blob/claude/shorts-daily/shorts/produce/ASIDE-RESUME.md
+
+
 대표이사 10/31: "노트북에서도 바로 작업해도 똑같은 퀄리티". **규칙·카드·프롬프트는 전부 GitHub에 있고, 노트북 Aside는 그것을 읽고 그대로 따라 한다.** 노트북 안에 따로 저장한 규칙·프롬프트·예전 기억은 쓰지 않는다(PC와 달라지는 원인).
 
 - 저장소: `bmk3037/donginensis-blog`, 브랜치 **`claude/shorts-daily`** (다른 브랜치에 올리지 않는다)
