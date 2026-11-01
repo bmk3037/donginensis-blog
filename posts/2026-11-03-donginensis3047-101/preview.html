@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>모터 회전속도, 전류·진동과 함께 읽으면 보이는 설비 상태</title>
+<style>
+body{margin:0;word-break:keep-all;background:#f2f4f7;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#222}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+.panel{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:18px 20px;margin-bottom:16px}
+.panel h2{font-size:15px;margin:0 0 10px;color:#555}
+.row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.val{flex:1;min-width:0;font-size:16px;word-break:break-all}
+button{border:0;background:#03c75a;color:#fff;font-weight:700;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:14px}
+button.done{background:#555}
+ol.check{margin:0;padding-left:20px;line-height:1.8;font-size:14px}
+#post{background:#fff;border:1px solid #dde2ea;border-radius:10px;padding:28px 24px}
+</style></head><body><div class="wrap">
+<div class="panel" style="background:#1857A5;color:#fff;border-color:#1857A5"><div style="font-size:13px;opacity:.85">이 글을 올릴 블로그</div><div style="font-size:20px;font-weight:700;margin-top:2px">동인엔시스 지능형 제어반 · <a href="https://blog.naver.com/donginensis3047" target="_blank" style="color:#fff">blog.naver.com/donginensis3047</a></div><div style="font-size:13px;opacity:.85;margin-top:4px">다른 블로그에 올리지 마세요 (블로그마다 주제가 다릅니다)</div></div><div class="panel" style="border-color:#03c75a"><h2>자동 검수</h2><div style="font-size:14px;color:#0a7a3a">✓ 겹치는 글 없음 · 저품질 점검 통과</div></div><div class="panel"><h2>① 제목</h2><div class="row"><div class="val" id="title">모터 회전속도, 전류·진동과 함께 읽으면 보이는 설비 상태</div>
+<button data-copy="title">제목 복사</button></div></div>
+<div class="panel"><h2>② 본문 — [본문 복사] 후 스마트에디터에 붙여넣고, 파란 상자 자리에 images 폴더의 그림을 끌어다 놓으세요. 노란 상자가 있으면 [프롬프트 복사] → ChatGPT로 사진을 만들어 그 자리에 넣으세요</h2>
+<button data-copy="post">본문 복사</button></div>
+<div id="post"><div data-img="01-cover.png" style="margin:0 0 18px;text-align:center"><img src="images/01-cover.png" alt="01-cover.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/01-cover.png 넣기</div></div>
+
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">모터가 얼마나 빨리 도는지는 너무 당연해서 오히려 잘 들여다보지 않는 숫자입니다. 하지만 같은 숫자라도 전류, 진동과 나란히 놓으면 설비가 지금 편하게 일하는지, 억지로 버티는지를 알려 주는 단서가 됩니다. 양산과 기장 공장에서 펌프·송풍기·컨베이어용 제어반을 설계·제작해 온 동인엔시스는 지능형 제어반에서 회전속도를 온도, 진동, 전류와 함께 기록합니다. 이 글에서는 <strong style="font-weight:700;color:#111">모터 회전속도</strong> 데이터를 어떻게 읽으면 설비 상태를 더 잘 볼 수 있는지 풀어 봅니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">회전속도는 무엇을 따로 알려 줄까</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">온도는 열이 쌓인 결과이고, 진동은 기계적인 흔들림이며, 전류는 모터가 쓰는 힘의 크기입니다. 회전속도는 그 모든 것이 합쳐져 실제로 설비가 얼마나 일하고 있는지를 보여 주는 결과값에 가깝습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">예를 들어 펌프의 전류가 올랐다는 사실만으로는 일을 더 많이 해서인지, 어딘가 걸려서 힘이 더 드는 것인지 구분하기 어렵습니다. 이때 회전속도가 함께 있으면 해석이 달라집니다. 속도를 올려서 전류가 오른 것이라면 자연스러운 일이고, 속도는 그대로인데 전류만 올랐다면 설비 쪽 부담을 의심해 볼 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">그래서 회전속도는 혼자보다 다른 값과 짝을 지을 때 쓸모가 커집니다. 다른 값들을 해석하는 '기준선' 역할을 하는 셈입니다. 인버터로 속도를 수시로 바꿔 가며 운전하는 설비일수록 이 기준선이 중요합니다. 속도가 달라질 때마다 전류와 진동도 따라 바뀌기 때문에, 속도 정보 없이 평소와 비교하면 속도 차이 때문에 생긴 변화를 이상으로 착각하기 쉽습니다.</p>
+<div data-img="02-pairs.png" style="margin:0 0 18px;text-align:center"><img src="images/02-pairs.png" alt="02-pairs.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/02-pairs.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">지령 속도와 실제 속도의 차이</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">인버터로 돌리는 모터라면 '이 속도로 돌아라'라는 지령값이 있습니다. 평소에는 실제 회전속도가 지령을 잘 따라갑니다. 그런데 부하가 갑자기 무거워지거나 기계적인 저항이 커지면, 지령과 실제 속도 사이에 평소보다 큰 차이가 생길 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 차이 자체를 매일 들여다볼 필요는 없습니다. 중요한 것은 평소의 차이가 어느 정도인지 알아 두는 일입니다. 평소보다 벌어지는 날이 늘어난다면, 설비가 같은 일을 하기 위해 더 애를 쓰고 있다는 뜻일 수 있습니다. 기록이 쌓여 있어야 이런 '평소와 다름'을 알아챌 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">가속과 감속에 걸리는 시간도 함께 볼 만합니다. 기동할 때 목표 속도까지 올라가는 데 걸리는 시간이 예전보다 길어졌다면, 그 사이 설비가 더 무거워졌다는 신호일 수 있습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">회전속도와 전류를 함께 보면</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">펌프나 송풍기처럼 유체를 움직이는 설비는 대체로 속도가 오를수록 더 많은 힘이 듭니다. 그래서 같은 속도에서 전류가 어느 정도 나오는지가 설비마다 비교적 일정한 편입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 관계를 기록해 두면 비교가 쉬워집니다. 같은 속도로 돌 때 지난달보다 전류가 눈에 띄게 높다면, 배관이 막혀 가는지, 임펠러에 이물이 붙었는지, 베어링 쪽 저항이 커졌는지 같은 질문을 던져 볼 수 있습니다. 반대로 같은 속도에서 전류가 평소보다 낮다면 물이 제대로 올라오지 않거나 벨트가 미끄러지는 경우를 생각해 볼 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">물론 원인을 숫자 하나로 단정할 수는 없습니다. 다만 '어디부터 볼지'를 정하는 데에는 큰 도움이 됩니다. 현장 점검 시간을 아끼는 첫걸음입니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">회전속도와 진동을 함께 보면</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">진동은 회전속도에 따라 모양이 달라지는 경우가 많습니다. 평소에는 조용하다가 특정 속도 구간에서만 진동이 커지는 설비가 있습니다. 설비와 받침대, 배관이 그 속도에서 함께 흔들리기 쉬운 성질을 가졌기 때문인 경우가 흔합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">진동만 기록하면 '가끔 진동이 크다'는 사실만 남습니다. 회전속도가 같이 있으면 '이 속도 구간에서 진동이 커진다'는 패턴이 보입니다. 그러면 그 구간을 피해서 운전하거나, 받침과 고정 상태를 점검하는 식으로 대응 방향이 분명해집니다. 같은 속도에서 진동이 점점 커지고 있다면 그때는 정렬이나 베어링 쪽을 살펴볼 시점일 수 있습니다. 이런 판단은 진동 값의 크기만으로는 어렵고, 속도와 시간이 함께 남아 있어야 가능합니다.</p>
+<div data-img="04-photo-inverter-fan.png" style="margin:0 0 18px;text-align:center"><img src="images/04-photo-inverter-fan.png" alt="04-photo-inverter-fan.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/04-photo-inverter-fan.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">속도 기록이 보여 주는 운전 습관</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">회전속도를 24시간 기록하면 설비의 하루가 그대로 그려집니다. 언제 기동하고 언제 멈추는지, 하루에 몇 번 껐다 켜는지, 낮은 속도로 오래 도는 시간이 얼마나 되는지가 한눈에 보입니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">이 정보는 고장 징후와는 또 다른 쓸모가 있습니다. 기동과 정지가 지나치게 잦다면 모터와 기계에 반복적인 부담이 쌓일 수 있으니 운전 방식을 다시 볼 만합니다. 필요 이상으로 높은 속도로 오래 돈다면 운전 조건을 조정할 여지가 있는지 검토해 볼 수 있습니다. 운전 상태신호와 함께 보면 실제로 일한 시간과 멈춰 있던 시간을 나눠 보는 데에도 쓸 수 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">여러 대를 번갈아 돌리는 펌프라면, 대수별 운전 시간이 한쪽으로 쏠리지 않았는지도 속도 기록으로 확인할 수 있습니다. 한 대만 유독 오래 돌았다면 그 설비의 마모가 먼저 진행될 수 있으니 교대 순서를 다시 볼 만합니다.</p>
+<div data-img="03-patterns.png" style="margin:0 0 18px;text-align:center"><img src="images/03-patterns.png" alt="03-patterns.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/03-patterns.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">지능형 제어반은 회전속도를 이렇게 다룹니다</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">동인엔시스 지능형 제어반은 설비를 제어하는 PLC와 인버터가 이미 다루고 있는 운전 값을 그대로 기록에 활용합니다. 회전속도는 모터 권선온도와 베어링 온도, 진동, 전압·전류·전력량, 대기 온습도, 운전 상태신호와 함께 24시간 남습니다. 별도의 수집 장비를 덧붙이지 않고 제어반 한 면이 이 일을 맡습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">모인 값은 센서마다 정한 기준과 비교해 정상, 경고, 알람으로 나뉘고, 기간을 정해 이력을 꺼내 보거나 CSV로 내려받을 수도 있습니다. 회전속도와 다른 값을 같은 시간축 위에 겹쳐 보는 일이 그래서 어렵지 않습니다.</p>
+<div data-img="05-photo-dashboard-speed.png" style="margin:0 0 18px;text-align:center"><img src="images/05-photo-dashboard-speed.png" alt="05-photo-dashboard-speed.png" style="max-width:100%;border:1px solid #e3e8ef;border-radius:6px"><div style="font-size:13px;color:#7a5a00;margin-top:4px">⬆ 이 자리에 images/05-photo-dashboard-speed.png 넣기</div></div>
+
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">자주 묻는 질문</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 인버터 없이 직입으로 도는 모터도 회전속도를 볼 수 있나요?</strong>
+현장 조건에 따라 다릅니다. 직입 모터는 속도가 거의 일정하게 유지되는 편이라, 속도보다 전류·진동·온도 쪽 정보가 더 중요할 수 있습니다. 어떤 값을 모을지는 현장 분석 단계에서 설비별로 정합니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 모터 회전속도의 알람 기준은 어떻게 정하나요?</strong>
+설비마다 정상 운전 범위가 달라서, 시운전·안정화 기간에 실제 운전 데이터를 보고 정합니다. 운영하면서 기준을 조정할 수도 있습니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px"><strong style="font-weight:700;color:#111">Q. 기존 설비에도 적용할 수 있나요?</strong>
+모터와 펌프 같은 설비는 그대로 두고 제어반을 교체하거나 새로 설치하는 방식입니다. 설비 1~2대로 먼저 시작해 볼 수 있습니다.</p>
+<h2 style="word-break:keep-all;font-size:22px;font-weight:700;color:#111;margin:36px 0 14px;line-height:1.4">숫자 하나가 다른 숫자를 읽게 해 줍니다</h2>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">모터 회전속도는 단독으로는 평범한 숫자지만, 전류와 진동, 온도를 해석하는 기준선이 되어 줍니다. 지령과 실제 속도의 차이, 같은 속도에서의 전류, 특정 속도에서의 진동, 하루 운전 패턴까지 함께 보면 설비가 보내는 신호를 훨씬 일찍, 더 정확하게 읽을 수 있습니다. 비교할 '평소'는 오늘부터 기록을 쌓아야 생깁니다.</p>
+<p style="word-break:keep-all;font-size:16px;line-height:1.85;color:#333;margin:0 0 18px">펌프와 송풍기마다 어떤 운전 값을 함께 남기면 좋을지는 현장을 봐야 정확히 말씀드릴 수 있습니다. 동인엔시스의 <a style="color:#1857A5;text-decoration:underline" href="https://donginensis.com/manufacturing.html?utm_source=naver_blog&amp;utm_medium=blog&amp;utm_campaign=post101&amp;utm_content=donginensis3047#inquiry">적용 가능성 진단 신청</a> 페이지에 대상 설비를 적어 주시면 엔지니어가 확인 후 연락드립니다. 전화(051-862-3668)나 메일(dongin@donginmne.com)로 먼저 상담하셔도 됩니다.</p></div>
+<div class="panel" style="margin-top:16px;border-color:#1857A5"><h2>✍ 직접 한두 문장 덧붙이기 (권장)</h2><p style="font-size:14px;margin:0 0 8px;color:#444">아래 질문 중 하나에 실제 경험으로 답해 본문 적당한 곳에 넣어 주세요. 사람이 직접 쓴 문장이 들어가면 네이버에서 저품질 위험이 줄고 노출에 도움이 됩니다.</p><ol class="check"><li>회전속도 기록을 보고 설비 이상을 먼저 알아챈 경험이 있다면 한 줄로 적어 주세요.</li><li>특정 속도에서만 진동이 커져 운전 범위를 조정한 현장이 있었나요?</li></ol></div><div class="panel" style="margin-top:16px"><h2>③ 태그</h2><div class="row"><div class="val" id="tags">#동인엔시스 #지능형제어반 #모터회전속도 #회전속도 #인버터 #진동감시 #모터전류 #펌프관리 #설비데이터</div>
+<button data-copy="tags">태그 복사</button></div></div>
+<div class="panel"><h2>발행 전 확인</h2><ol class="check"><li>수치·고객사·인증 표기가 회사 자료와 같은지 확인 (아래 사실 확인 목록)</li><li>파란 상자 자리에 images 폴더의 그림 넣기 (01-cover.png가 대표 이미지)</li><li>담당자 한마디: 실제 경험 1~2문장 직접 덧붙이기 (미리보기 하단 질문 참고, 저품질 방지에 가장 효과적)</li><li>붙여넣은 뒤 모바일 미리보기로 줄바꿈·글자 크기 확인</li><li>실제 현장·제작 사진이 있으면 연출 이미지 대신 넣기 (노출에 가장 좋음)</li><li>고객사 이름·현장 사진 공개가 계약상 문제없는지 확인</li><li>본문 끝 홈페이지 링크가 눌리는지 확인</li><li>태그 입력 후 발행 (매일 비슷한 시간에, 예약 발행 활용)</li><li>사실 확인: 수집 항목에 회전속도 포함(권선온도 U·V·W, 베어링 온도, 진동, 전압·전류·전력량, 대기 온습도, 운전 상태신호), 24시간 기록, 제어반 1면</li><li>사실 확인: 센서별 기준 normal·warning·alarm, 기간 이력·CSV, 알람 기준은 시운전·안정화 때 정하고 운영 중 조정</li><li>사실 확인: 설비 그대로 제어반 교체·신규, 설비 1~2대부터</li><li>사실 확인: 지령-실제 속도 차이, 속도-전류 관계, 특정 속도 진동(공진), 가감속 시간, 교대 운전 쏠림은 일반 원리로 씀 (수치 없음)</li><li>사실 확인: 직입 모터 FAQ는 일반론 — &#x27;현장 분석에서 정함&#x27;으로 마무리</li><li>사실 확인: 주제 100(권선온도 U·V·W)은 발행된 &#x27;모터 온도 감시&#x27; 글과 겹쳐 건너뜀</li></ol></div>
+</div>
+<script>
+const TAGS = ["동인엔시스", "지능형제어반", "모터회전속도", "회전속도", "인버터", "진동감시", "모터전류", "펌프관리", "설비데이터"];
+async function copy(id, btn) {
+  let el = document.getElementById(id);
+  if (id === "post") {
+    el = el.cloneNode(true);
+    el.querySelectorAll("[data-photo]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #e0a100;background:#fff8e1;color:#7a5a00;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "📷 사진 넣기: " + box.dataset.photo;
+      box.replaceWith(p);
+    });
+    el.querySelectorAll("[data-img]").forEach(box => {
+      const p = document.createElement("p");
+      p.setAttribute("style", "border:2px dashed #1857A5;background:#EAF1FA;color:#1857A5;padding:16px;text-align:center;font-size:15px");
+      p.textContent = "🖼 이미지 넣기: " + box.dataset.img;
+      box.replaceWith(p);
+    });
+  }
+  const text = id === "tags" ? TAGS.map(t => "#" + t).join(" ") : el.innerText;
+  try {
+    if (id === "post" && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({
+        "text/html": new Blob([el.innerHTML], {type: "text/html"}),
+        "text/plain": new Blob([text], {type: "text/plain"})
+      })]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+  } catch (e) {
+    const src = id === "post" ? document.getElementById("post") : el;
+    const range = document.createRange(); range.selectNodeContents(src);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand("copy"); sel.removeAllRanges();
+  }
+  btn.textContent = "복사됨 ✓"; btn.classList.add("done");
+}
+document.querySelectorAll("button[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy, b));
+document.querySelectorAll("button[data-prompt]").forEach(b => b.onclick = async () => {
+  const text = b.parentElement.querySelector("pre.prompt").innerText;
+  try { await navigator.clipboard.writeText(text); } catch (e) {
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove();
+  }
+  b.textContent = "복사됨 ✓"; b.classList.add("done");
+});
+</script></body></html>
