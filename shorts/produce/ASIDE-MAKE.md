@@ -2,6 +2,8 @@
 
 편마다 제작 카드 `shorts/produce/NN.md`가 있다. 카드의 글을 **한 글자도 바꾸지 않고** 붙여 넣는다.
 
+> **11/1 음성은 Claude가 만든다(타입캐스트 유료 결제, API 연결 확인).** 카드의 "타입캐스트 대본"은 Claude가 `shorts/compose/tts_typecast.py`(문정 Moonjung, ssfm-v30, 속도 1.0)로 mp3를 만들어 `shorts/media/NN/in/voice.mp3`에 올린다. Aside는 그림과 클립만 만들고, 음성 단계는 건너뛴다(카드에 "음성: Claude" 표시가 있을 때).
+
 ## ★ 10/31 한 번에 만들기(기본) — 대표이사 "Aside가 전부 하고 Claude는 완성되면 편집만"
 
 카드(`shorts/produce/NN.md`) 하나로 **그림 → 음성 → 클립을 멈추지 않고 이어서** 만들고, 다 끝나면 완료 표시를 올린다. 대표이사가 사진을 먼저 보고 싶을 때만 "사진 먼저"(0단계 문구)를 따로 붙여 넣는다.
