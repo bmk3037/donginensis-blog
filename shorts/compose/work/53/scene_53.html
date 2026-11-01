@@ -908,6 +908,7 @@ function num3d(t, t0, t1, text, x, y, size) {
 function globalHud(t) {
   let g = badge();
   if (t < 1.6) g += flatS(t, -0.3, 540, 430, "부산 영도대교", 132);
+  g += num3d(t, 40.62, 43.0, "1,100억 원", 540, 560, 138);   // 9번 문장: 1,100억 원(c08 끝 → c09 이음매를 덮음)
   const tE = 81.3;
   if (t > tE) g += `<rect width="1080" height="1920" fill="#000" opacity="${0.35 * prog(t, tE, tE + 0.6)}"/>` + flatS(t, tE, 540, 760, "숨은 설비 이야기", 118);
   return g;
@@ -922,7 +923,10 @@ const Z11 = { from: 1.16, to: 1.19, cx: 1, cy: 1 };   // c11: 오른쪽 벽의 "
 const C = (id, a, b, c0, rate, zoom, hud, ov) => [id + "_" + Math.round(a * 100), a, b, Object.assign({ clip: { id, from: 1 + c0 * 24, rate, t0: a } }, zoom), ov || null, hud || null];
 // c11 무게추 상자에 클립이 "590t"를 잘못 붙여서(4~7초) 그 자리에 "1,800t" 표지판을 덮는다(이미지 좌표 720×1280)
 function tag1800(t) {
-  const t0 = 48.42, p = back(prog(t, t0, t0 + 0.3)), x = 245, y = 926;
+  const t0 = 48.4, p = 0.5 + 0.5 * back(prog(t, t0, t0 + 0.2)), ct = 3.9 + (t - t0);
+  const KY = [[3.9, 865], [4.55, 883], [5.2, 921], [6.0, 939], [8, 939]];
+  let y = 939; for (let k = 0; k < KY.length - 1; k++) if (ct >= KY[k][0] && ct <= KY[k + 1][0]) y = lerp(KY[k][1], KY[k + 1][1], (ct - KY[k][0]) / (KY[k + 1][0] - KY[k][0]));
+  const x = 231;
   return `<g transform="translate(${x},${y}) scale(${p}) translate(${-x},${-y})"><rect x="${x - 92}" y="${y - 40}" width="184" height="80" rx="10" fill="#3d0505" transform="translate(5,6)"/>
     <rect x="${x - 92}" y="${y - 40}" width="184" height="80" rx="10" fill="url(#redg2)" stroke="#fff" stroke-width="4"/>
     <text x="${x}" y="${y + 17}" text-anchor="middle" ${FONT} font-size="50" fill="#fff">1,800t</text></g>`;
@@ -940,7 +944,7 @@ function tag1800(t) {
   C("c06", 26.6, 30.772, 3.68, 1, Z7),                                      //   수도관 → 빨간 X
   C("c07", 30.772, 34.97, 0, 1, Z10),                                       // 7 47년(하늘 시점)
   C("c08", 34.97, 41.44, 0, 1.2133, Z10),                                   // 8~10 연속 장면: c08 끝까지 → c09(깨진 글자 0.5~2.5초만 건너뜀) 끝까지
-  C("c09", 41.44, 45.603, 2.8, 1.2131, { from: 1.12, to: 1.16, cx: 1, cy: 1 }, t => num3d(t, 40.62, 43.0, "1,100억 원", 540, 560, 138)),
+  C("c09", 41.44, 45.603, 2.8, 1.2131, { from: 1.12, to: 1.16, cx: 1, cy: 1 }),
   C("c11", 45.603, 48.4, 0, 1, Z11),                                        // 11 590t
   C("c11", 48.4, 52.354, 3.9, 1, Z11, null, tag1800),                       //   1,800t 무게추
   C("c12", 52.354, 55.2, 0, 1, Z10),                                        // 12 전동기 두 대
@@ -980,7 +984,7 @@ const alpha = (t, a, b) => Math.min(prog(t, a - FADE / 2, a + FADE / 2), 1 - pro
 // 자막은 건축사전처럼 짧게 끊는다: 쉼표에서 나누고, 15자를 넘으면 어절로 다시 나눈다
 const CHUNKS = [];
 for (const l of L) {
-  const parts = l.text.split(/,\s*/), edges = [l.start, ...l.commas, l.end];
+  const parts = l.text.split(/,(?!\d)\s*/), edges = [l.start, ...l.commas, l.end];
   parts.forEach((p, k) => {
     const words = p.split(" "), groups = [];
     for (const w of words) {
