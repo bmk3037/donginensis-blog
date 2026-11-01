@@ -16,14 +16,31 @@ PROMPT = """이 쇼츠 영상을 처음부터 끝까지 초 단위로 분석해�
 10. 숫자: 영상에 나온 숫자와 단위를 시각과 함께 전부.
 11. 화면 그림체(실사/AI 3D/미니어처 등)와 카메라 움직임의 특징을 3줄로."""
 
+def upload(path, key):
+    size = os.path.getsize(path)
+    req = urllib.request.Request("https://generativelanguage.googleapis.com/upload/v1beta/files", method="POST",
+        data=json.dumps({"file": {"display_name": os.path.basename(path)}}).encode(),
+        headers={"x-goog-api-key": key, "X-Goog-Upload-Protocol": "resumable", "X-Goog-Upload-Command": "start",
+                 "X-Goog-Upload-Header-Content-Length": str(size), "X-Goog-Upload-Header-Content-Type": "video/mp4", "Content-Type": "application/json"})
+    up = urllib.request.urlopen(req, timeout=60).headers["X-Goog-Upload-URL"]
+    req = urllib.request.Request(up, method="POST", data=open(path, "rb").read(),
+        headers={"X-Goog-Upload-Offset": "0", "X-Goog-Upload-Command": "upload, finalize", "Content-Length": str(size)})
+    f = json.load(urllib.request.urlopen(req, timeout=600))["file"]
+    while f.get("state") == "PROCESSING":
+        time.sleep(5); f = json.load(urllib.request.urlopen(urllib.request.Request(
+            "https://generativelanguage.googleapis.com/v1beta/" + f["name"], headers={"x-goog-api-key": key}), timeout=60))
+    return f["uri"]
+
 def main():
     src, out = sys.argv[1], sys.argv[2]
     model = sys.argv[3] if len(sys.argv) > 3 else "gemini-pro-latest"
     key = os.environ["GEMINI_API_KEY"]
     if src.startswith("http"):
         part = {"file_data": {"file_uri": src}}
-    else:
+    elif os.path.getsize(src) < 18_000_000:
         part = {"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(open(src, "rb").read()).decode()}}
+    else:   # 큰 파일은 File API로 올린 뒤 주소로 넘긴다
+        part = {"file_data": {"mime_type": "video/mp4", "file_uri": upload(src, key)}}
     body = {"contents": [{"parts": [part, {"text": PROMPT}]}],
             "generationConfig": {"temperature": 0.2, "mediaResolution": "MEDIA_RESOLUTION_HIGH"}}
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
