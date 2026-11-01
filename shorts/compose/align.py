@@ -10,7 +10,7 @@ spoken = [len(re.sub(r"[\s,.]", "", l.get("say", l["text"]))) + 2 * l["text"].co
 def commas(text, start, end, sil):
     # 쉼표 위치를 글자 비율로 어림하고, 가까운 문장 안 쉼이 있으면 그쪽에 붙인다
     out, pos = [], 0
-    for part in text.split(",")[:-1]:
+    for part in re.split(r",(?!\d)", text)[:-1]:   # 1,530 같은 숫자 속 쉼표는 문장 쉼표가 아님(54편 자막 끊김)
         pos += len(part.replace(" ", ""))
         guess = start + (end - start) * pos / max(1, len(text.replace(" ", "").replace(",", "")))
         near = [(abs((a + b) / 2 - guess), (a + b) / 2) for a, b in sil if start < a and b < end]
