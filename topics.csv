@@ -92,4 +92,4 @@ id,blog,status,category,title,keyword,landing_url,brief
 99,donginensis3047,drafted,제조,"인터넷이 없는 공장, LTE로 연결하는 지능형 제어반",공장 LTE 연결,https://donginensis.com/manufacturing.html#inquiry,"인터넷 없는 현장은 LTE 장비. 클라우드형/온프레미스형, 통신 끊김 시 보관·재전송"
 100,donginensis3047,todo,제조,권선온도를 U·V·W 세 상으로 나눠 보는 이유,모터 권선온도,https://donginensis.com/manufacturing.html#inquiry,권선온도(U·V·W) 수집. 상별 차이로 보는 일반 원리(수치 기준 만들지 말 것). 003과 겹치지 않게
 101,donginensis3047,drafted,제조,회전속도 데이터로 보는 설비 상태,모터 회전속도,https://donginensis.com/manufacturing.html#inquiry,"회전속도 수집, 인버터 설비, 진동·전류와 함께 보기. 일반 원리"
-102,donginensis3047,todo,제조,도입 첫 주 현장 분석에서 확인하는 것,제어반 현장 분석,https://donginensis.com/manufacturing.html#inquiry,"도입 절차 1단계 현장 분석(1주): 대상 설비, 기존 제어반, 수집 포인트 확인"
+102,donginensis3047,drafted,제조,도입 첫 주 현장 분석에서 확인하는 것,제어반 현장 분석,https://donginensis.com/manufacturing.html#inquiry,"도입 절차 1단계 현장 분석(1주): 대상 설비, 기존 제어반, 수집 포인트 확인"
