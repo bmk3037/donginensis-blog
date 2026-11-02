@@ -54,7 +54,7 @@ Claude에게 아래 한 줄만 보낸다.
 3. **움직임 규칙** 한 줄(영어, 모든 클립에): 대상의 움직이는 부분·축·고정된 것·사람 위치
 4. 컷표: 문장 → 클립 → 화면 → 얹을 그래픽(큰 글자·설명·출처)
 5. 그림 프롬프트 한 번에 복사(시작 그림 + 종료 그림은 "열어 편집"), 실제 대상이면 Wikimedia 참고 사진 2~3장
-6. 클립 프롬프트 한 번에 복사(1080p, Veo, 소리 켬, 연속 장면 이어 만들기 표시)
+6. 클립 프롬프트 한 번에 복사(1080p, Veo, 소리 켬, 연속 장면 이어 만들기 표시). **6절 클립 규칙을 모두 지킨 것만** 내놓는다
 7. 업로드 카드(제목 = 첫 문장 / 설명 저장 요약·출처 / 고정 댓글 = 답하기 쉬운 질문 + "이 일 하시는 분이 보신다면, 틀린 데를 알려 주세요")
 
 ## 5. 그림 끝말 (미니어처 단면 기본)
@@ -62,3 +62,35 @@ Claude에게 아래 한 줄만 보낸다.
 Hyper-detailed architectural scale model diorama of the real place with a clean cutaway showing what is underground or inside, photographed like a tilt-shift miniature from high above: the model world continues to every edge of the frame with no table, base or backdrop; warm golden-hour light, gentle natural colors, realistic model materials, shallow depth of field. Any people are tiny plain white unpainted figurines without faces. Bright red (#E53935) infographic props (dimension lines, gauges, stamps, pins, question marks) are physical 3D objects inside the model world. Absolutely no letters or numbers anywhere; all props are blank. Vertical 9:16.
 ```
 (숫자·글자는 전부 합성에서 얹음. 시네마틱 3D를 고르면 55편 끝말을 씀.)
+
+## 6. 클립 규칙 (55편 교훈, 11/2) — 클립 프롬프트를 쓸 때 반드시
+55편 클립 16개 중 쓸 수 있던 건 평균 앞 3~4초. 망가진 이유가 정해져 있어서 프롬프트 단계에서 막는다.
+1. **길이 6초(가능하면 4초)**, 합성에선 앞 4초만 쓴다고 Aside에게 적어 준다. 8초는 연속 장면 끝 클립만.
+2. **한 클립 = 한 동작.** "얼음이 바닥에서 떨어진다"까지만. 그다음 일(자갈이 튐)은 다음 클립. 문장 하나에 사건이 둘이면 클립도 둘.
+3. **깨짐·폭발·부서짐을 Veo에 시키지 않는다.** "깨지기 전" 그림과 "깨진 뒤" 그림(편집)을 따로 만들고, 금이 퍼지는 순간은 Claude가 합성 효과로 얹는다. 프롬프트에 `Nothing breaks, shatters, explodes or falls apart in this shot.`를 넣는다.
+4. **시작 그림 + 끝 그림 둘 다 주기**(변화가 있는 클립은 모두). 카메라는 한 방향으로만(다가가기·옆으로 따라가기·내려가기 중 하나).
+5. **그림체 하나로 고정**: 5절 끝말(미니어처) 또는 시네마틱 끝말 중 하나를 모든 그림에 똑같이. 한 편 안에서 섞지 않는다.
+6. 모든 클립 프롬프트 끝에 붙임:
+```
+Keep every object's shape, size and position stable for the whole shot; the train/structure must not morph, mirror, split or change design. One single continuous camera move, no cuts, no scene change, no new objects appearing. Nothing breaks, shatters, explodes or falls apart.
+```
+(3번 문장은 "깨진 뒤" 상태를 보여 주는 클립에서도 그대로 둔다: 이미 깨진 상태는 그림에 있고, 움직이는 동안 더 깨지지 않게.)
+7. **비싼 모델은 3~4개만**: 첫 장면(0~4초)·답 장면·연속 장면 시작은 Veo 3.1 정식 1080p, 나머지는 무료 계정 Lite 720p 가능.
+
+## 7. Aside 클립 검수 (만들자마자, 합성 전에)
+- 클립마다 **앞 4초**를 0.5초 간격으로 본다: 모양 바뀜·거울처럼 겹침·장면 바뀜·글자·얼굴·갑자기 깨짐.
+- 앞 4초 안에 하나라도 있으면 **그 자리에서 한 번 다시 만든다**(두 번째도 실패면 NOTES.md에 "n초까지 씀"으로 적고 넘어감).
+- NOTES.md 표: 클립 | 화질 | 쓸 구간 | 메모 (55편 형식 그대로).
+
+## 8. 결과물 점검 (Claude가 내놓기 전에 스스로)
+| 점검 | 기준 |
+|---|---|
+| 0초 큰 글자 | 있음(대상 이름 또는 결론 숫자) |
+| 결론 숫자 | 6초 안 |
+| 메인 질문 / 답 | 13초 안 / 45초 안 |
+| "그럼 ~하면 되지 않냐고요?" | 있음 |
+| 숫자 큰 글자 | 모두 설명·출처 줄 있음 |
+| 컷 | 22~30컷, 평균 3~4초, 4.5초 넘는 컷은 연속 장면만 |
+| 끝 | 처음 장면으로 돌아옴 + 이름 문장 + "이 일 하시는 분이 보신다면, 틀린 데를 알려 주세요" |
+| 클립 프롬프트 | 6절 1~6번 모두 |
+하나라도 안 되면 고쳐서 내놓는다.
