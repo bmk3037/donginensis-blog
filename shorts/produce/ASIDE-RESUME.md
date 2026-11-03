@@ -12,7 +12,7 @@
 | 카드 | `shorts/produce/58.md` (대본·사실 확인·그림 표·Aside 지시) |
 | 프롬프트 | `shorts/produce/58_prompts.txt` [01.jpg]~[23.jpg], 18 = 17 편집, 20 = 19 편집 |
 | 그림 | **할 일** → `~/Downloads/숨은설비/58/01.jpg` …, GitHub `shorts/media/58/in/img/` |
-| 음성 | 아직(타입캐스트 키 있는 PC에서 Claude Code가 만듦) |
+| 음성 | 완료 103.5초 `shorts/media/58/in/voice.mp3` (필재 1.06, 문장별) |
 
 ### 58 다음 할 일
 1. `58.md`의 "Aside 지시(그림)" 그대로: Flow 새 프로젝트 "숨은 설비 이야기 58 통신구 이탄생", 이미지 · Nano Banana · 9:16 · x1, 참고 그림 없음, 프롬프트 한 글자도 바꾸지 말 것.
