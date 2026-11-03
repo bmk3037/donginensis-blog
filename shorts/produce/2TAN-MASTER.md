@@ -1,96 +1,131 @@
-# 이탄생식 한 편 만들기: 주제만 넣으면 되는 마스터 프롬프트 (2026-11-01)
+# 이탄생식 한 편 만들기 — 새 세션용 마스터 (v2, 2026-11-03)
 
-근거: 이탄생 삼성역(452만)·김포골드라인 Gemini 분석(`shorts/benchmark-gemini/2tan_*.md`), 직접 잰 값(`shorts/benchmark-2tan-samsung.md`), 건축사전 한강 651만·돈의 구조물 삼척 47.8만(`shorts/benchmark-gemini/`), 우리 53~55편 교훈(STYLE-V4 14·16절, STYLE-V5).
-**베끼는 것은 구조·화면 짜임·리듬뿐.** 이탄생의 문장·주제·끝말("이렇게 탄생한 겁니다")은 쓰지 않는다. 우리 끝말은 "…이런 이야기가 숨어 있었습니다".
+새 세션에서 이 파일 하나만 읽으면 주제 → 대본 → 음성 → 그림 → 클립 → 합성 → 업로드까지 만든다.
+근거: 이탄생 릴스 조회수 상위 3편 실측(`shorts/benchmark-2tan-top3.md`), 김포골드라인 직접 분석(`shorts/benchmark-2tan_saeng.md`), Gemini 분석(`shorts/benchmark-gemini/2tan_*.md`), 57편 실제 제작(`shorts/produce/57.md`). 예전 판은 `2TAN-MASTER-v1.md`.
+**베끼는 것은 구조·화면 짜임·리듬뿐.** 이탄생의 문장·주제·끝말("이렇게 탄생한 겁니다")은 쓰지 않는다. 우리 끝말은 "…이런 설비가 숨어 있었습니다".
 
-## 0. 쓰는 법
-Claude에게 아래 한 줄만 보낸다.
+## 0. 쓰는 법 (대표이사 → Claude)
 ```
-2TAN-MASTER로 [주제] 만들어줘. (그림체: 미니어처 단면 / 시네마틱 3D)
+2TAN-MASTER로 [주제] 만들어줘.            ← 대본 초안이 있으면 같이 붙여 넣기
+2TAN-MASTER 2절로 다음 주제 5개 추천해줘.
 ```
-주제를 모르면:
-```
-2TAN-MASTER 1절로 다음 주제 5개 추천해줘.
-```
+Claude 순서: ① **편 번호 확인**(`ls shorts/produce shorts/media`, 다른 세션이 쓰는 번호면 다음 번호) ② 사실 확인 ③ 대본 ④ 음성 ⑤ 그림 프롬프트 + Aside 지시 ⑥ 그림 오면 검수 → 그림판 초안 ⑦ 클립 프롬프트 + Aside 지시 ⑧ 클립 오면 검수 → 완성본 ⑨ 업로드 카드. **묻지 말고 끝까지 한다**(대표이사 11/3 "몇번말해"). 정할 것만 끝에 한 줄로.
 
-## 1. 주제 추천 (Claude가 하는 일)
-1. 후보 10~15개를 아래 세 바구니에서 뽑는다.
-   - **매일 쓰거나 지나치는 이름 있는 것**(노선·역·다리·터널·공항·아파트 설비) + **최근 2주 뉴스나 계절**
-   - **돈·안전 숫자**가 있는 것(공사비, 요금, 사고 건수)
-   - **"왜 ~일까?"가 짐작 안 되는 것**(김포 "왜 두 칸일까" → 돈·승강장 길이)
-2. `python3 shorts/compose/topic_check.py "검색어1|검색어2" …`로 국내 쇼츠 최고 조회수를 잰다.
-   - **수요**: 관련 영상(뉴스 포함) 최고 30만 이상
-   - **빈자리**: 같은 각도의 설명형 쇼츠 최고 30만 미만(뉴스·정치 영상은 빼고 봄)
-3. 원문(기사·공공자료)에서 **숫자 5개 이상 + 질문의 답**을 찾을 수 있는 것만 남긴다.
-4. 표로 추천: [주제 | 첫 문장(안) | 메인 질문 → 답 | 수요 근거 | 경쟁 | 시기 | 회사 전문성 연관]. 5개.
-
-## 2. 대본 틀 (약 30문장, 90~96초, 문정 1.0)
-| 시각 | 할 일 | 이탄생 예(구조만) | 우리 문장 틀 |
-|---|---|---|---|
-| 0~2초 | 이름 + 보는 사람 경험 | "○○ 지나갈 때마다 보이는 그 공사장", "아침에 타 보신 분은 아실 거예요" | "[이름], [매일 겪는 장면]이죠." 또는 "여기 [익숙한 곳]에는 [상식과 모순되는 사실]이 있습니다." |
-| 2~6초 | **결론 숫자 먼저** | "결론부터 말하면 60%", "정원 172명인데 300명이 타죠" | "결론부터 말하면, [숫자]입니다." |
-| 6~9초 | **메인 질문**(짐작 안 되는 것) | "근데 이 열차, 왜 두 칸일까요?" | "근데 [대상], 왜 [이상한 점]일까요?" |
-| 9~30초 | 규모 숫자 3~4개(길이·깊이·층·인원) | 1km, 지하 5층, 50m | 숫자마다 화면 큰 글자 |
-| 30~45초 | **답**(돈·구조·법·자연) + 가장 센 그림 | 교통부담금 1.2조 + 시 3천억 → 계획 축소 | 답 문장 + 단면이 열리는 장면 |
-| 45~60초 | **두 번째 질문** "그럼 ~하면 되지 않냐고요?" → 막히는 이유 | "칸을 붙이면 되지 않냐고요? 승강장이 두 칸 길이라" | 같은 틀 |
-| 60~85초 | 사연·사건·지금(날짜 핀) | 2015 → 유찰 → +600억 → 점검 → 2028 | 연도 핀 2~3개 |
-| 85~96초 | 끝: 보는 사람 경험으로 돌아옴 + 이름 문장 | "여러분이 밟던 그 철판 아래…" | "[처음 장면]을 지날 때, [숨은 것]을 떠올려 보세요." + "[이름] 밑에는, 이런 이야기가 숨어 있었습니다." |
-- 던진 질문은 반드시 답한다. 숫자는 원문 인용 표로 확인(단위까지).
-- 문장 길이는 3초 안팎이 기본, 질문이 살아 있으면 5초까지 괜찮음(한강 651만).
-
-## 3. 화면 틀 (이탄생 실측)
-- **그림체**: AI 3D 미니어처 디오라마 + 단면(cutaway). 하늘 부감에서 **땅·건물 속으로 파고드는 카메라**(컷 대신 카메라가 공간을 뚫음).
-- **첫 4초 = 한 장면**: 하늘 부감 → 대상으로 내려꽂힘. 0초부터 **위 가운데 큰 글자 = 대상 이름**(3초).
-- **빨간 그래픽 10종 이상, 빨강 하나**: 치수선, 게이지(정원·공정률), 도장(유찰·X), 핀(연도), 물음표, 금지 표시, 돈 더미 딱지, 노선 선. **같은 자리에서 하나씩 쌓임**(느린 구간에도 2개 이상).
-- **숫자 큰 글자 밑 작은 설명·출처 한 줄**(돈의 구조물·건축사전 방식).
-- **사람·물건 더미로 숫자 보여 주기**(하얀 인형 군중 = 정원 초과).
-- 시간 변화(낮 → 노을 → 밤) 한 번.
-- 자막: 1~3어절, 흰 글씨 + 검은 테두리. 위치는 대표이사 결정(아래 가운데 권장).
-- 큰 장면 전환 13~17번(평균 5~7초) + 장면 안 카메라 이동. 연속 장면 20초 이상 1개.
-
-## 4. Claude가 만들 결과물 (카드 `shorts/produce/NN.md` 한 장에)
-1. 사실 확인표(문장 | 말 | 원문 인용 | 출처 | 상태)
-2. 대본 30문장(2절 틀) → 타입캐스트 음성까지 Claude가 만듦
-3. **움직임 규칙** 한 줄(영어, 모든 클립에): 대상의 움직이는 부분·축·고정된 것·사람 위치
-4. 컷표: 문장 → 클립 → 화면 → 얹을 그래픽(큰 글자·설명·출처)
-5. 그림 프롬프트 한 번에 복사(시작 그림 + 종료 그림은 "열어 편집"), 실제 대상이면 Wikimedia 참고 사진 2~3장. **그림 이름은 영상 순서대로 `01.jpg`, `02.jpg` …**(편집 그림도 자기 번호, 머리줄에 "05.jpg = 04 편집, c04 끝"처럼). 받는 곳 `~/Downloads/숨은설비/NN/`(ASIDE-MAKE 0-00). 클립 프롬프트의 시작·끝 그림도 이 번호로 적는다
-6. 클립 프롬프트 한 번에 복사(1080p, Veo, 소리 켬, 연속 장면 이어 만들기 표시). **6절 클립 규칙을 모두 지킨 것만** 내놓는다
-7. 업로드 카드(제목 = 첫 문장 / 설명 저장 요약·출처 / 고정 댓글 = 답하기 쉬운 질문 + "이 일 하시는 분이 보신다면, 틀린 데를 알려 주세요")
-
-## 5. 그림 끝말 (미니어처 단면 기본)
-```
-Hyper-detailed architectural scale model diorama of the real place with a clean cutaway showing what is underground or inside, photographed like a tilt-shift miniature from high above: the model world continues to every edge of the frame with no table, base or backdrop; warm golden-hour light, gentle natural colors, realistic model materials, shallow depth of field. Any people are tiny plain white unpainted figurines without faces. Bright red (#E53935) infographic props (dimension lines, gauges, stamps, pins, question marks) are physical 3D objects inside the model world. Absolutely no letters or numbers anywhere; all props are blank. Vertical 9:16.
-```
-(숫자·글자는 전부 합성에서 얹음. 시네마틱 3D를 고르면 55편 끝말을 씀.)
-
-## 6. 클립 규칙 (55편 교훈, 11/2) — 클립 프롬프트를 쓸 때 반드시
-55편 클립 16개 중 쓸 수 있던 건 평균 앞 3~4초. 망가진 이유가 정해져 있어서 프롬프트 단계에서 막는다.
-1. **길이 6초(가능하면 4초)**, 합성에선 앞 4초만 쓴다고 Aside에게 적어 준다. 8초는 연속 장면 끝 클립만.
-2. **한 클립 = 한 동작.** "얼음이 바닥에서 떨어진다"까지만. 그다음 일(자갈이 튐)은 다음 클립. 문장 하나에 사건이 둘이면 클립도 둘.
-3. **깨짐·폭발·부서짐을 Veo에 시키지 않는다.** "깨지기 전" 그림과 "깨진 뒤" 그림(편집)을 따로 만들고, 금이 퍼지는 순간은 Claude가 합성 효과로 얹는다. 프롬프트에 `Nothing breaks, shatters, explodes or falls apart in this shot.`를 넣는다.
-4. **시작 그림 + 끝 그림 둘 다 주기**(변화가 있는 클립은 모두). 카메라는 한 방향으로만(다가가기·옆으로 따라가기·내려가기 중 하나).
-5. **그림체 하나로 고정**: 5절 끝말(미니어처) 또는 시네마틱 끝말 중 하나를 모든 그림에 똑같이. 한 편 안에서 섞지 않는다.
-6. 모든 클립 프롬프트 끝에 붙임:
-```
-Keep every object's shape, size and position stable for the whole shot; the train/structure must not morph, mirror, split or change design. One single continuous camera move, no cuts, no scene change, no new objects appearing. Nothing breaks, shatters, explodes or falls apart.
-```
-(3번 문장은 "깨진 뒤" 상태를 보여 주는 클립에서도 그대로 둔다: 이미 깨진 상태는 그림에 있고, 움직이는 동안 더 깨지지 않게.)
-7. **비싼 모델은 3~4개만**: 첫 장면(0~4초)·답 장면·연속 장면 시작은 Veo 3.1 정식 1080p, 나머지는 무료 계정 Lite 720p 가능.
-
-## 7. Aside 클립 검수 (만들자마자, 합성 전에)
-- 클립마다 **앞 4초**를 0.5초 간격으로 본다: 모양 바뀜·거울처럼 겹침·장면 바뀜·글자·얼굴·갑자기 깨짐.
-- 앞 4초 안에 하나라도 있으면 **그 자리에서 한 번 다시 만든다**(두 번째도 실패면 NOTES.md에 "n초까지 씀"으로 적고 넘어감).
-- NOTES.md 표: 클립 | 화질 | 쓸 구간 | 메모 (55편 형식 그대로).
-
-## 8. 결과물 점검 (Claude가 내놓기 전에 스스로)
-| 점검 | 기준 |
+## 1. 이탄생 실측 (상위 3편: 삼성역 461만 · 롯데타워 320만 · 인천공항 238만)
+| 항목 | 값 |
 |---|---|
-| 0초 큰 글자 | 있음(대상 이름 또는 결론 숫자) |
-| 결론 숫자 | 6초 안 |
-| 메인 질문 / 답 | 13초 안 / 45초 안 |
-| "그럼 ~하면 되지 않냐고요?" | 있음 |
-| 숫자 큰 글자 | 모두 설명·출처 줄 있음 |
-| 컷 | 22~30컷, 평균 3~4초, 4.5초 넘는 컷은 연속 장면만 |
-| 끝 | 처음 장면으로 돌아옴 + 이름 문장 + "이 일 하시는 분이 보신다면, 틀린 데를 알려 주세요" |
-| 클립 프롬프트 | 6절 1~6번 모두 |
-하나라도 안 되면 고쳐서 내놓는다.
+| 길이 | 88~105초 (우리 목표 96초 안팎) |
+| 장면 | 14~18개, **평균 5.4~6.6초**. 컷을 자주 자르지 않고 한 장면을 5~10초 끈다 |
+| 장면 안 변화 | 4~13번: 땅이 잘려 단면, 층이 차오름, 건물이 솟음, 낮→밤, 물이 참 |
+| 끊김 없는 전환 | 2~4번: **카메라가 틈·지도 속으로 뚫고 들어감**, 또는 흐릿하게 확 도는 궤도 |
+| 카메라 | 밀기(앞·아래), 정지(수직 부감·단면), **위로 솟기(뒤로 빠짐)**, 훑기, 궤도. 한 장면에 한두 동작 |
+| 그림체 | **베이지·흰색 건축 모형 같은 3D 세계, 따뜻한 햇빛, 처음부터 끝까지 한 세계, 빨강 하나** |
+| 제목 | 0초 **위 가운데 지명 크게 2~4초**, 카메라가 움직이면 밀려남 |
+| 숫자 | 전부 **빨간 도장·태그·핀·치수선**, 장면 속 물체 옆에 1~4초. 큰 글자 상자 없음 |
+| 자막 | **화면 정가운데(세로 45~55%)**, 흰 굵은 글씨 + 검은 테두리, 1~2어절, 0.3~0.5초마다, 처음부터 끝까지 |
+| 로고 | 왼쪽 위 작은 원형(1.5초부터 끝까지) |
+| 소리 | 0.1~0.3초 만에 말 시작(음악 도입 없음), 배경음 아주 작게, **컷 직전 0.1~0.5초 거의 무음**, 빨간 그래픽 뜰 때 효과음 |
+| 첫 문장 | **지명 + 다들 아는 장면**: "삼성역 코엑스 사거리 지날 때마다 보이는 그 공사장." |
+
+## 2. 주제 고르기
+1. 바구니 셋: 매일 쓰거나 지나치는 **이름 있는 것**(노선·역·다리·공항·아파트 설비) + 최근 뉴스·계절 / **돈·안전 숫자** / **"왜 ~일까?"가 짐작 안 되는 것**.
+2. `python3 shorts/compose/topic_check.py "검색어1|검색어2"` (환경 변수 YOUTUBE_API_KEY): 관련 영상 최고 30만 이상 = 수요, 같은 각도 설명형 쇼츠 최고 30만 미만 = 빈자리.
+3. 원문(기사·공공자료)에서 숫자 5개 이상 + 질문의 답을 찾을 수 있는 것만.
+4. 표로 5개: 주제 | 첫 문장(안) | 메인 질문 → 답 | 수요 | 경쟁 | 시기.
+
+## 3. 대본 (24~27문장, 짧게, 원본 약 100초 → 1.06배 96초)
+| 문장 | 할 일 | 57편 예 |
+|---|---|---|
+| 1 | **지명 + 다들 아는 장면** | "아파트 지하주차장, 차 댈 때마다 보이는 천장의 그 빨간 배관." |
+| 2 | **결론부터** | "결론부터 말하면, 이 배관은 불이 나기 전까지 텅 비어 있습니다." |
+| 3 | **결론 숫자**(사건·돈·사람) | "이 배관에 물이 끝내 오지 않아, 차 팔백칠십 대가 피해를 본 화재도 있었습니다." |
+| 4 | **메인 질문**(13초 안) | "그런데 왜, 스프링클러 배관을 비워 둘까요?" |
+| 5~10 | 답(원리), 한 문장 = 한 가지 | 찬바람 → 얼어 터짐 → 밸브 아래 물 → 감지기 두 개 → 물이 차오름 |
+| 11~14 | **"그럼 ~하면 되지 않냐고요?"** → 막히는 이유 | "그럼 감지기만 울리면, 무조건 열리면 되지 않냐고요?" |
+| 15~22 | 사연: **연도·장소·사람**, 날짜순 | 2024년 8월 청라 → 버튼 → 5분 → 87대·783대 → 두 달 뒤 전주 |
+| 23~24 | 지금 | "그래서 올해 3월부터 … 습식이 원칙이 됐습니다." |
+| 25 | 이름 밝히기 | "불이 나야 비로소 물이 차는 길, 준비작동식 스프링클러입니다." |
+| 26 | 끝말 | "우리 아파트 땅 밑에는, 이런 설비가 숨어 있었습니다." |
+- 나레이션에 구독·공유 유도 없음. 문장은 한 호흡(2~5초), 긴 문장은 둘로 나눈다.
+- **사실 확인표 필수**: 말 | 원문 인용 | 출처(매체·날짜) | 상태. 원문에서 확인 안 된 말(동기·범위 등)은 빼거나 확인된 표현으로("오작동일까 봐" → "현장 확인 없이", "새로 짓는" → 뺌).
+- say.txt(읽을 문장, 숫자는 한글) + disp.txt(자막, 숫자는 아라비아) 두 파일.
+
+## 4. 음성 (타입캐스트 필재)
+```
+mkdir -p shorts/compose/work/NN && cd shorts/compose/work/NN   # say.txt, disp.txt 넣기
+TYPECAST_API_KEY=… python3 ../../template-2tan/tts_lines.py say.txt piljae 1.06
+```
+- 문장마다 따로 만들어 0.3초 쉼으로 잇고 경계를 고정한다(한 파일로 만들면 문장 경계가 틀어짐, 57편에서 확인). 결과 timeline.js·narration.wav.
+- 문장 하나 고치면 `lines/NN.mp3`만 지우고 다시 돌린다. 원본은 `shorts/media/NN/in/voice.mp3`로 올린다.
+- 키는 환경 변수에서만. 채팅·저장소에 적지 않는다.
+
+## 5. 그림 (20~24장, Nano Banana, 9:16, x1)
+- 문장 1~2개에 그림 1장. **지명이 나오면 3D 지도 그림**(빨간 핀 + 땅이 잘려 지하가 보이게, 나중에 "뚫고 들어가기" 시작 그림). 끝 그림 = 하늘에서 본 전체 + 땅 아래 단면(위로 솟기).
+- 장면 안 변화가 필요한 곳은 **편집 그림**(예: 07 = 05를 열어 편집, 물이 차오름).
+- 프롬프트 = 장면 묘사(영어) + 아래 끝말 그대로. 빨간 소품은 장면 속 물체 옆에(고리·윤곽·화살표·핀·X·물음표). 글자·숫자는 그림에 넣지 않고 합성에서 얹는다.
+```
+Style: a hyper-detailed white and beige architectural scale model world, like a clean presentation model: concrete, cars, walls and floors in matte white, cream and beige model materials, warm soft sunlight-like key light with gentle shadows, the model world continues to every edge of the frame with no table, base or backdrop, cinematic 3D render with shallow depth of field, slight tilt-shift feel. The [주인공 설비] is the only strongly colored object, in red (#E53935), together with a few bright red 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks). Cars are generic model cars with no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
+```
+- 이름: `~/Downloads/숨은설비/NN/01.jpg` …, GitHub `shorts/media/NN/in/img/` (ASIDE-MAKE 0-00). 카드 `shorts/produce/NN.md`, 한 번에 복사 `shorts/produce/NN_prompts.txt`.
+- **회색 바탕 단면 블록 그림체(56편 00_기준)는 쓰지 않는다**(벤치마크 근거 없음, 11/3).
+
+**Aside 지시(그림) 틀**
+```
+NN편 그림 MM장 만들어 줘(이탄생 그림체).
+0. git pull. 프롬프트 shorts/produce/NN_prompts.txt ([01.jpg]~)
+1. Flow 새 프로젝트 "숨은 설비 이야기 NN [주제] 이탄생", 이미지 · Nano Banana · 9:16 · x1, 참고 그림 없음
+2. 01부터 순서대로, 프롬프트 한 글자도 바꾸지 말 것. 편집 그림(예 07)은 지정된 번호를 열어 편집(편집 전 큰 그림 번호 확인)
+3. "1K 원본 크기"로 받자마자 ~/Downloads/숨은설비/NN/01.jpg … 로 이름 바꿈
+4. 한 장마다 검사, 실패면 그 번호만 다시(최대 3번): 베이지·흰 건축 모형 + 따뜻한 빛 / 빨강은 주인공 설비와 소품만 / 받침대·테이블 없음 / 사람은 얼굴 없는 흰 인형 / 글자·숫자 없음 / 차 상표·번호판 없음
+5. GitHub shorts/media/NN/in/img/ 에 올리고 NOTES.md(번호 | 다시 뽑은 횟수 | 이유 | 메모). 이메일·이름·계정 아이디 적지 말 것
+6. 클립은 만들지 말 것. "NN: 그림 MM장 완료" 커밋하고 보고
+```
+
+## 6. 그림판 초안 (클립 없이 먼저)
+```
+cd shorts/compose
+cp template-2tan/scene_2tan.html template-2tan/sfx_2tan.py work/NN/   # sfx_2tan.py → work/NN/sfx.py 로 이름 바꿈
+# scene_2tan.html에서 "편마다 고칠 곳" 아래만 고침: globalHud(제목·도장·태그·핀), SCENES(P = 그림, Q = 클립)
+bash template-2tan/finish_2tan.sh NN draft      # → shorts/media/NN/out/NN_draft.mp4
+```
+- 장면 20~23개(평균 4~6초). 문장 2~3개를 한 장면으로 묶는다. 같은 그림을 두 번 쓰면 배율·기준점을 달리한다.
+- `P(그림, 시작, 끝, from, to, cx, cy, xin, dive)`: xin = 앞 장면과 겹쳐 바뀌는 초(장면 안 변화), dive = 끝 1.1초에 확 다가가 다음 장면으로 뚫고 들어감(지도 장면에). 끝 장면은 from > to(뒤로 빠짐).
+- 숫자: `stamp`(도장), `tag`(꼬리 딱지), `pin`(핀). 0초 제목은 위 가운데(2.6초부터 밀려남). 자막은 가운데 흰 글자(자동).
+- 정지 화면 먼저 확인: `SCENE=scene_2tan.html node ../../render.mjs stills 0.5,10,30,…` (work/NN에서).
+- 대표이사에게 보내고 그림체·구성 확인받은 뒤 클립.
+
+## 7. 클립 (13개 안팎, Veo 3.1, 8초, 앞 6~7초 사용)
+고르는 기준(이탄생 실측):
+1. **첫 장면**: 하늘 → 땅속(대상)으로 뚫고 들어감 — 시작 = 지도·전체 그림, 끝 = 대상 그림(시작+끝 두 칸).
+2. **지명 장면**: 지도 그림 → 땅속 사건 장면으로 뚫고 들어감(시작+끝).
+3. **장면 안 변화**: 물이 차오름, 불이 커지거나 꺼짐, 층이 차오름(시작 그림 + 편집 그림).
+4. **사람 행동** 하나(버튼 누르기 등), **끝 장면** 위로 솟기.
+5. 나머지는 천천히 한 방향(밀기·훑기). **깨짐·폭발은 시키지 않는다.**
+- 프롬프트 = "One continuous shot … (동작 하나, 카메라 하나)" + 아래 끝말 그대로:
+```
+Keep the same white and beige architectural model world, light and colors as the start and end images. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. One single continuous camera move, no cuts, no scene change, no new objects appearing, no text appearing. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
+```
+- 카드 `shorts/produce/NN_clips.txt` ([cNN.mp4] 시작 NN.jpg / 끝 NN.jpg · 쓰임).
+
+**Aside 지시(클립) 틀**
+```
+NN편 클립 KK개 만들어 줘(이탄생 판). 계정 하나당 5개까지(A/B/C로만 적기).
+0. git pull. 프롬프트 shorts/produce/NN_clips.txt (한 글자도 바꾸지 말 것), 그림 shorts/media/NN/in/img/
+1. 동영상 · 프레임 · Veo 3.1 · 9:16 · x1, 소리 켬, 8초. 시작·끝이 있는 클립은 두 칸 다. 넣기 전 그림 번호 확인
+2. 다른 계정은 새 프로젝트를 만들고 필요한 그림을 GitHub img에서 받아 올려 씀
+3. 1080p로 받을 수 있으면 1080p. ~/Downloads/숨은설비/NN/clip/cNN.mp4
+4. 검수: 앞 6초를 0.5초 간격으로, 모양 바뀜·거울 겹침·장면 바뀜·글자·얼굴·갑자기 깨짐이면 한 번 다시
+5. GitHub shorts/media/NN/in/clip/ + NOTES.md(클립 | 계정 | 화질 | 쓸 구간 | 메모). 끝나면 커밋하고 보고
+```
+
+## 8. 완성본
+- 클립을 0.5초 모아보기로 검수(`ffmpeg -vf "fps=2,scale=180:-1,tile=8x2"`) → 쓸 구간을 정해 SCENES의 해당 P를 `Q("cNN", 시작, 끝, 클립시작초, 클립끝초)`로 바꿈.
+- 커버: 인스타 프로필 격자(3:4)에서 안 잘리게 글자는 세로 300~1500px 안. 그림 + "궁금증 문구"(55M "바닥의 이 얼음"). `work/NN/cover.jpg`가 있으면 끝에 1초 붙음.
+- `bash template-2tan/finish_2tan.sh NN final` → 길이·소리(−14 LUFS, 최고 −1.5 dB 아래)·컷 수 확인 → 대표이사에게 보냄. 100MB 넘으면 다시 인코딩(GitHub 한도).
+- 업로드는 대표이사 "올려" 뒤. 카드 `shorts/upload/NN.md`(TEMPLATE.md), 시험은 인스타 시험용 릴스(웹에 없음 → 앱).
+
+## 9. 주의 (실수 기록)
+- **편 번호 겹침**: 57편 만들 때 다른 세션의 56편 음성을 덮어씀(11/2). 시작 전에 번호가 비었는지 확인.
+- `pkill`/`pgrep -f`는 자기 셸 명령과도 맞아 자기를 죽이거나 끝없이 기다림 → 쓰지 말고 로그 파일 끝 문구로 기다린다.
+- 회사 이름·슬로건 넣지 않기. 남의 대본 전문은 저장소에 올리지 않기. 모델 이름은 저장소에 적지 않기.
+- 영상 출력 폴더(out/)는 .gitignore — 올릴 때 `git add -f`.
