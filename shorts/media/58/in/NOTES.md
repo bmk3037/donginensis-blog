@@ -33,3 +33,16 @@
 | 23 | 0 | - | 해 질 녘 도시 + 땅 밑 통로망 |
 
 공통: 차가 나오는 장면(01·05·07·08·09·10·17·21·22)은 먼 차에 흐린 번호판 모양이 남은 것이 있음. 읽히는 글자는 없음.
+
+## 11/4 02·03 고리 고침 (같은 Flow 프로젝트에서 그림 열어 편집, 한 번에 통과)
+
+| 번호 | 다시 뽑은 횟수 | 이유 | 메모 |
+|---|---|---|---|
+| 02 | 0 | 빨간 고리가 벽·케이블에 끼어 반만 보임 | 02 열어 편집: 고리를 통로 공중에 뜬 완전한 원으로. 카메라·통로·케이블·불·빛 그대로. 고리는 불 바로 왼쪽 앞 공중 |
+| 03 | 0 | 빨간 고리가 벽에 끼어 반원 | 03 열어 편집: 소화기 앞 공중에 뜬 완전한 원으로. 카메라·통로·소화기 그대로 |
+
+편집 프롬프트(그대로 씀):
+- 02: Keep exactly the same camera position, framing, tunnel, cables, fire and light. Change only: the red 3D ring is now a complete, perfectly round circle floating in the open air of the tunnel in front of the fire, fully visible all the way around, not touching or passing into the wall or the cables. No letters or numbers anywhere.
+- 03: Keep exactly the same camera position, framing, tunnel and the single fire extinguisher. Change only: the red 3D ring is now a complete, perfectly round circle floating in the open air in front of the fire extinguisher, fully visible all the way around, not touching or passing into the wall. No letters or numbers anywhere.
+
+고치기 전 그림은 로컬 `58\버림\02_고리고치기전.jpg`, `03_고리고치기전.jpg`.
