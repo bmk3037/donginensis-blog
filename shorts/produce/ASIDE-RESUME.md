@@ -12,7 +12,7 @@
 | 음성 | 완료 102.4초 `shorts/media/57/in/voice.mp3` |
 | 그림(이탄생판) | **21장 완료** → `shorts/media/57/in/img/01~21.jpg` (768×1376). 07은 05를 Nano Banana로 편집한 판(물이 위로 찬 것) |
 | Flow 프로젝트 | 계정 C "숨은 설비 이야기 57 스프링클러 이탄생" (후보 36장, 고른 것 외 대안은 Flow에만) |
-| 회색 블록판 | `img_block` 아직 없음 |
+| 회색 블록판 | 13장 → `shorts/media/57/in/img_block/01~13.jpg` (07은 05 편집판). **14~21은 Flow 계정 C "숨은 설비 이야기 57 스프링클러"에 아직 안 만듦** |
 
 ### 57 다음 할 일
 1. Claude Code: `bash shorts/compose/finish_57.sh 2tan` 로 이탄생판 초안.
