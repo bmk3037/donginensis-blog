@@ -19,7 +19,7 @@ Claude 순서: ① **편 번호 확인**(`ls shorts/produce shorts/media`, 다�
 | 장면 안 변화 | 4~13번: 땅이 잘려 단면, 층이 차오름, 건물이 솟음, 낮→밤, 물이 참 |
 | 끊김 없는 전환 | 2~4번: **카메라가 틈·지도 속으로 뚫고 들어감**, 또는 흐릿하게 확 도는 궤도 |
 | 카메라 | 밀기(앞·아래), 정지(수직 부감·단면), **위로 솟기(뒤로 빠짐)**, 훑기, 궤도. 한 장면에 한두 동작 |
-| 그림체 | **실제 색의 3D 미니어처 도시**(회색 도로·유리 빌딩·초록 나무·보통 색 차·흙 단면, 밤 장면도 있음), 틸트시프트, 따뜻한 햇빛, 처음부터 끝까지 한 세계, **빨강은 그래픽에만**. ※ 11/3 실제 화면(삼성역·김포) 비교: 베이지·흰색 단색 모형이 아님 |
+| 그림체 | 실내·통로도 밝고 따뜻하게(어둡고 거친 실사 아님), 앞뒤 흐린 틸트시프트. **실제 색의 3D 미니어처 도시**(회색 도로·유리 빌딩·초록 나무·보통 색 차·흙 단면, 밤 장면도 있음), 틸트시프트, 따뜻한 햇빛, 처음부터 끝까지 한 세계, **빨강은 그래픽에만**. ※ 11/3 실제 화면(삼성역·김포) 비교: 베이지·흰색 단색 모형이 아님 |
 | 제목 | 0초 **위 가운데 지명 크게 2~4초**, 카메라가 움직이면 밀려남 |
 | 숫자 | 전부 **빨간 도장·태그·핀·치수선**, 장면 속 물체 옆에 1~4초. 큰 글자 상자 없음 |
 | 자막 | **화면 정가운데(세로 45~55%)**, 흰 굵은 글씨 + 검은 테두리, 1~2어절, 0.3~0.5초마다, 처음부터 끝까지 |
@@ -64,7 +64,7 @@ TYPECAST_API_KEY=… python3 ../../template-2tan/tts_lines.py say.txt piljae 1.0
 - 장면 안 변화가 필요한 곳은 **편집 그림**(예: 07 = 05를 열어 편집, 물이 차오름).
 - 프롬프트 = 장면 묘사(영어) + 아래 끝말 그대로. 주인공 설비도 실제 색 그대로(빨갛게 칠하지 않음), 빨간 소품을 그 옆에(고리·윤곽·화살표·핀·X·물음표). 글자·숫자는 그림에 넣지 않고 합성에서 얹는다.
 ```
-Style: a hyper-detailed cinematic 3D render of the real place as a realistic miniature world, like a high-end architectural visualization seen through a tilt-shift lens: natural realistic colors and materials - grey asphalt and concrete, glass and stone buildings, green street trees, cars in ordinary everyday colors, brown soil and rock in the cut-away ground sections, black and grey cables - warm soft sunlight with gentle shadows unless the scene says otherwise, shallow depth of field, the world continues to every edge of the frame with no table, base or backdrop. Bright red (#E53935) is used only for a few 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks, dimension lines); apart from those props, only things that are red in real life (a fire extinguisher, fire trucks) are red. Cars have no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
+Style: a hyper-detailed cinematic 3D render of the real place as a realistic miniature world, like a high-end architectural visualization seen through a tilt-shift lens: natural realistic colors and materials - grey asphalt and concrete, glass and stone buildings, green street trees, cars in ordinary everyday colors, brown soil and rock in the cut-away ground sections, black and grey cables - warm soft sunlight with gentle shadows unless the scene says otherwise, interiors and tunnels are lit just as brightly and warmly as a presentation model under soft studio light - clean, tidy and inviting, never dark, grimy or gritty; strong tilt-shift miniature look with the near foreground and far background softly blurred, shallow depth of field, the world continues to every edge of the frame with no table, base or backdrop. Bright red (#E53935) is used only for a few 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks, dimension lines); apart from those props, only things that are red in real life (a fire extinguisher, fire trucks) are red. Cars have no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
 ```
 - 이름: `~/Downloads/숨은설비/NN/01.jpg` …, GitHub `shorts/media/NN/in/img/` (ASIDE-MAKE 0-00). 카드 `shorts/produce/NN.md`, 한 번에 복사 `shorts/produce/NN_prompts.txt`.
 - **회색 바탕 단면 블록 그림체(56편 00_기준)는 쓰지 않는다**(벤치마크 근거 없음, 11/3).
@@ -96,7 +96,7 @@ bash template-2tan/finish_2tan.sh NN draft      # → shorts/media/NN/out/NN_dra
 
 ## 7. 클립 (13개 안팎, Veo 3.1, 8초, 앞 6~7초 사용)
 고르는 기준(이탄생 실측):
-1. **첫 장면**: 하늘 → 땅속(대상)으로 뚫고 들어감 — 시작 = 지도·전체 그림, 끝 = 대상 그림(시작+끝 두 칸).
+1. **첫 장면**: 하늘 → 땅속(대상)으로 뚫고 들어감 — 시작 = 지도·전체 그림, 끝 = 대상 그림(시작+끝 두 칸). 프롬프트는 "fast FPV drone … swoops down low and flies quickly forward along the avenue … without slowing down dives through the opening … keeps flying"(11/3 이탄생 첫 6초 비교: 낮고 빠르게 날다 틈으로 통과, 천천히 다가가기만 하면 다름).
 2. **지명 장면**: 지도 그림 → 땅속 사건 장면으로 뚫고 들어감(시작+끝).
 3. **장면 안 변화**: 물이 차오름, 불이 커지거나 꺼짐, 층이 차오름(시작 그림 + 편집 그림).
 4. **사람 행동** 하나(버튼 누르기 등), **끝 장면** 위로 솟기.
