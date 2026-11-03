@@ -129,3 +129,20 @@ NN편 클립 KK개 만들어 줘(이탄생 판). 계정 하나당 5개까지(A/B
 - `pkill`/`pgrep -f`는 자기 셸 명령과도 맞아 자기를 죽이거나 끝없이 기다림 → 쓰지 말고 로그 파일 끝 문구로 기다린다.
 - 회사 이름·슬로건 넣지 않기. 남의 대본 전문은 저장소에 올리지 않기. 모델 이름은 저장소에 적지 않기.
 - 영상 출력 폴더(out/)는 .gitignore — 올릴 때 `git add -f`.
+
+## 10. 로컬(대표이사 컴퓨터)에서 쓰기
+처음 한 번:
+```
+git clone https://github.com/bmk3037/donginensis-blog.git && cd donginensis-blog && git checkout claude/shorts-daily
+brew install ffmpeg node python        # 맥(이미 있으면 건너뜀)
+bash shorts/compose/setup.sh           # numpy·Pillow, playwright+크로미움(shorts/compose/node_modules), 프리텐다드 글꼴
+```
+키는 터미널 환경 변수로만(채팅·파일에 적지 않음):
+```
+export TYPECAST_API_KEY=…   # 음성
+export YOUTUBE_API_KEY=…    # 주제 조사(topic_check.py)
+export GEMINI_API_KEY=…     # 영상 분석(gemini_video.py, 선택)
+```
+매번: `git pull` → 로컬 Claude에게 "shorts/produce/2TAN-MASTER.md 읽고 [주제] 만들어줘". 경로는 모두 저장소 기준 상대 경로라 그대로 돈다.
+- 그림·클립은 Aside가 GitHub에 올림 → 로컬에서 `git pull` 후 합성. 렌더는 맥에서 96초 기준 10~20분.
+- 결과 `shorts/media/NN/out/`(git에 안 올라감). Aside가 올려야 하면 `git add -f`.
