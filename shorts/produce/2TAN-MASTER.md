@@ -19,7 +19,7 @@ Claude 순서: ① **편 번호 확인**(`ls shorts/produce shorts/media`, 다�
 | 장면 안 변화 | 4~13번: 땅이 잘려 단면, 층이 차오름, 건물이 솟음, 낮→밤, 물이 참 |
 | 끊김 없는 전환 | 2~4번: **카메라가 틈·지도 속으로 뚫고 들어감**, 또는 흐릿하게 확 도는 궤도 |
 | 카메라 | 밀기(앞·아래), 정지(수직 부감·단면), **위로 솟기(뒤로 빠짐)**, 훑기, 궤도. 한 장면에 한두 동작 |
-| 그림체 | **베이지·흰색 건축 모형 같은 3D 세계, 따뜻한 햇빛, 처음부터 끝까지 한 세계, 빨강 하나** |
+| 그림체 | **실제 색의 3D 미니어처 도시**(회색 도로·유리 빌딩·초록 나무·보통 색 차·흙 단면, 밤 장면도 있음), 틸트시프트, 따뜻한 햇빛, 처음부터 끝까지 한 세계, **빨강은 그래픽에만**. ※ 11/3 실제 화면(삼성역·김포) 비교: 베이지·흰색 단색 모형이 아님 |
 | 제목 | 0초 **위 가운데 지명 크게 2~4초**, 카메라가 움직이면 밀려남 |
 | 숫자 | 전부 **빨간 도장·태그·핀·치수선**, 장면 속 물체 옆에 1~4초. 큰 글자 상자 없음 |
 | 자막 | **화면 정가운데(세로 45~55%)**, 흰 굵은 글씨 + 검은 테두리, 1~2어절, 0.3~0.5초마다, 처음부터 끝까지 |
@@ -62,9 +62,9 @@ TYPECAST_API_KEY=… python3 ../../template-2tan/tts_lines.py say.txt piljae 1.0
 ## 5. 그림 (20~24장, Nano Banana, 9:16, x1)
 - 문장 1~2개에 그림 1장. **지명이 나오면 3D 지도 그림**(빨간 핀 + 땅이 잘려 지하가 보이게, 나중에 "뚫고 들어가기" 시작 그림). 끝 그림 = 하늘에서 본 전체 + 땅 아래 단면(위로 솟기).
 - 장면 안 변화가 필요한 곳은 **편집 그림**(예: 07 = 05를 열어 편집, 물이 차오름).
-- 프롬프트 = 장면 묘사(영어) + 아래 끝말 그대로. 빨간 소품은 장면 속 물체 옆에(고리·윤곽·화살표·핀·X·물음표). 글자·숫자는 그림에 넣지 않고 합성에서 얹는다.
+- 프롬프트 = 장면 묘사(영어) + 아래 끝말 그대로. 주인공 설비도 실제 색 그대로(빨갛게 칠하지 않음), 빨간 소품을 그 옆에(고리·윤곽·화살표·핀·X·물음표). 글자·숫자는 그림에 넣지 않고 합성에서 얹는다.
 ```
-Style: a hyper-detailed white and beige architectural scale model world, like a clean presentation model: concrete, cars, walls and floors in matte white, cream and beige model materials, warm soft sunlight-like key light with gentle shadows, the model world continues to every edge of the frame with no table, base or backdrop, cinematic 3D render with shallow depth of field, slight tilt-shift feel. The [주인공 설비] is the only strongly colored object, in red (#E53935), together with a few bright red 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks). Cars are generic model cars with no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
+Style: a hyper-detailed cinematic 3D render of the real place as a realistic miniature world, like a high-end architectural visualization seen through a tilt-shift lens: natural realistic colors and materials - grey asphalt and concrete, glass and stone buildings, green street trees, cars in ordinary everyday colors, brown soil and rock in the cut-away ground sections, black and grey cables - warm soft sunlight with gentle shadows unless the scene says otherwise, shallow depth of field, the world continues to every edge of the frame with no table, base or backdrop. Bright red (#E53935) is used only for a few 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks, dimension lines); apart from those props, only things that are red in real life (a fire extinguisher, fire trucks) are red. Cars have no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
 ```
 - 이름: `~/Downloads/숨은설비/NN/01.jpg` …, GitHub `shorts/media/NN/in/img/` (ASIDE-MAKE 0-00). 카드 `shorts/produce/NN.md`, 한 번에 복사 `shorts/produce/NN_prompts.txt`.
 - **회색 바탕 단면 블록 그림체(56편 00_기준)는 쓰지 않는다**(벤치마크 근거 없음, 11/3).
@@ -76,7 +76,7 @@ NN편 그림 MM장 만들어 줘(이탄생 그림체).
 1. Flow 새 프로젝트 "숨은 설비 이야기 NN [주제] 이탄생", 이미지 · Nano Banana · 9:16 · x1, 참고 그림 없음
 2. 01부터 순서대로, 프롬프트 한 글자도 바꾸지 말 것. 편집 그림(예 07)은 지정된 번호를 열어 편집(편집 전 큰 그림 번호 확인)
 3. "1K 원본 크기"로 받자마자 ~/Downloads/숨은설비/NN/01.jpg … 로 이름 바꿈
-4. 한 장마다 검사, 실패면 그 번호만 다시(최대 3번): 베이지·흰 건축 모형 + 따뜻한 빛 / 빨강은 주인공 설비와 소품만 / 받침대·테이블 없음 / 사람은 얼굴 없는 흰 인형 / 글자·숫자 없음 / 차 상표·번호판 없음
+4. 한 장마다 검사, 실패면 그 번호만 다시(최대 3번): 실제 색의 미니어처 도시 + 따뜻한 빛(온통 베이지·흰색이면 실패) / 빨강은 소품과 원래 빨간 것만 / 받침대·테이블 없음 / 사람은 얼굴 없는 흰 인형 / 글자·숫자 없음 / 차 상표·번호판 없음
 5. GitHub shorts/media/NN/in/img/ 에 올리고 NOTES.md(번호 | 다시 뽑은 횟수 | 이유 | 메모). 이메일·이름·계정 아이디 적지 말 것
 6. 클립은 만들지 말 것. "NN: 그림 MM장 완료" 커밋하고 보고
 ```
@@ -103,7 +103,7 @@ bash template-2tan/finish_2tan.sh NN draft      # → shorts/media/NN/out/NN_dra
 5. 나머지는 천천히 한 방향(밀기·훑기). **깨짐·폭발은 시키지 않는다.**
 - 프롬프트 = "One continuous shot … (동작 하나, 카메라 하나)" + 아래 끝말 그대로:
 ```
-Keep the same white and beige architectural model world, light and colors as the start and end images. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. One single continuous camera move, no cuts, no scene change, no new objects appearing, no text appearing. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
+Keep the same realistic miniature world, light and colors as the start and end images. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. One single continuous camera move, no cuts, no scene change, no new objects appearing, no text appearing. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
 ```
 - 카드 `shorts/produce/NN_clips.txt` ([cNN.mp4] 시작 NN.jpg / 끝 NN.jpg · 쓰임).
 
