@@ -46,3 +46,22 @@
 - 03: Keep exactly the same camera position, framing, tunnel and the single fire extinguisher. Change only: the red 3D ring is now a complete, perfectly round circle floating in the open air in front of the fire extinguisher, fully visible all the way around, not touching or passing into the wall. No letters or numbers anywhere.
 
 고치기 전 그림은 로컬 `58\버림\02_고리고치기전.jpg`, `03_고리고치기전.jpg`.
+
+## 11/4 통로 그림 9장 밝은 판 (02 03 04 06 11 12 14 19 20)
+
+프롬프트: `shorts/produce/58_prompts_bright.txt` (96e376f) 그대로. 같은 Flow 프로젝트, Nano Banana 2.1, 9:16, x1, 참고 그림 없음. 20은 새 19를 열어 편집(편집 전 큰 그림이 새 19인지 확인).
+예전 판(어두운 통로)은 로컬 `58\어두운판\`에만 둠. 버린 후보는 로컬 `58\버림\*_밝은판_*.jpg`.
+
+| 번호 | 다시 뽑은 횟수 | 이유 | 메모 |
+|---|---|---|---|
+| 02 | 0 | - | 크림색 밝은 통로, 불 둘레 완전한 빨간 원(공중에 뜸) |
+| 03 | 3 | 소화기 라벨 글자 무늬(1·2차), 고리가 벽에 끼어 끊김(3·4차) | 2차(완전한 원, 통로가 멀리 이어짐)를 골라 "라벨만 빈 흰 사각형" 편집 1번 더 함 |
+| 04 | 0 | - | 소화기 라벨 글자 무늬가 있어 "라벨만 빈 흰 사각형" 편집 1번 더 함. 물음표·소화기 구도 그대로 |
+| 06 | 0 | - | 케이블 단면 + 빨간 테두리, 안쪽 가는 선은 실제 색 |
+| 11 | 0 | - | 빈 받침대 옆 빨간 X |
+| 12 | 0 | - | 연기 찬 통로 입구, 손전등 인형 2 |
+| 14 | 1 | 빨간 고리+느낌표가 "O!" 글자처럼 보임 | 2차 씀(케이블 불 + 천장 검은 연기, 작은 빨간 고리) |
+| 19 | 0 | - | 그을린 자리 + 물음표 + 인형 2, 통로는 밝음 |
+| 20 | 1 | 불탄 케이블 뭉치가 양쪽에 그대로 남음 | 새 19를 다시 열어 같은 편집 프롬프트로 2차. 감지기·노즐 줄, 인형·물음표 없음 |
+
+라벨 편집 프롬프트(03·04): Keep everything exactly the same: camera, framing, tunnel, cables, light, the red ring (04: the red question mark) and the single fire extinguisher. Change only: the label on the fire extinguisher is a plain blank white rectangle with no marks, letters or numbers.
