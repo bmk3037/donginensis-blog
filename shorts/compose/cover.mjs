@@ -9,8 +9,9 @@
 import { createRequire } from "module";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath, pathToFileURL } from "url";
 
-const here = path.dirname(new URL(import.meta.url).pathname);
+const here = path.dirname(fileURLToPath(import.meta.url));
 let chromium;
 try { ({ chromium } = createRequire(here + "/")("playwright")); }
 catch { ({ chromium } = createRequire((process.env.PLAYWRIGHT_DIR || "/opt/node-tools/node_modules") + "/")("playwright")); }
@@ -47,7 +48,7 @@ fs.writeFileSync(path.join(dir, "cover.html"), html);
 
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
-await page.goto("file://" + path.join(dir, "cover.html"));
+await page.goto(pathToFileURL(path.join(dir, "cover.html")).href);
 await page.evaluate(() => document.fonts.ready);
 await page.waitForTimeout(200);
 await page.screenshot({ path: path.join(dir, "cover.png") });

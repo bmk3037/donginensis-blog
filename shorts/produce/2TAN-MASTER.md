@@ -145,4 +145,5 @@ export GEMINI_API_KEY=…     # 영상 분석(gemini_video.py, 선택)
 ```
 매번: `git pull` → 로컬 Claude에게 "shorts/produce/2TAN-MASTER.md 읽고 [주제] 만들어줘". 경로는 모두 저장소 기준 상대 경로라 그대로 돈다.
 - 그림·클립은 Aside가 GitHub에 올림 → 로컬에서 `git pull` 후 합성. 렌더는 맥에서 96초 기준 10~20분.
+- **윈도우 PC**(11/3 58편에서 확인): `python3`가 스토어 바로가기라 안 돎 → `python`으로, `PYTHONUTF8=1`(안 하면 lines.json 글자가 깨짐). 새로 받은 크로미움은 실행이 막힘 → `export CHROMIUM_PATH="C:/Program Files/Google/Chrome/Application/chrome.exe"`. 바로가기(심볼릭 링크)는 권한 문제로 실패 → `fonts`는 복사(`cp -r ../../fonts .`). 키는 사용자 환경 변수에서 `powershell -c '[Environment]::GetEnvironmentVariable("TYPECAST_API_KEY","User")'`로 읽음.
 - 결과 `shorts/media/NN/out/`(git에 안 올라감). Aside가 올려야 하면 `git add -f`.

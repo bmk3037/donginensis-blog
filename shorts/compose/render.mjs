@@ -4,9 +4,10 @@
 import { createRequire } from "module";
 import { spawn } from "child_process";
 import path from "path";
+import { fileURLToPath, pathToFileURL } from "url";
 
 // playwright는 이 폴더의 node_modules(setup.sh가 설치)에서 찾고, 없으면 PLAYWRIGHT_DIR에서 찾는다
-const here = path.dirname(new URL(import.meta.url).pathname);
+const here = path.dirname(fileURLToPath(import.meta.url));
 let chromium;
 try { ({ chromium } = createRequire(here + "/")("playwright")); }
 catch { ({ chromium } = createRequire((process.env.PLAYWRIGHT_DIR || "/opt/node-tools/node_modules") + "/")("playwright")); }
@@ -16,7 +17,7 @@ const [mode, arg, fpsArg] = process.argv.slice(2);
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
 page.setDefaultTimeout(0);   // 클립 프레임 수천 장을 읽는 동안 여러 렌더가 겹치면 30초를 넘김
-await page.goto("file://" + dir + "/" + (process.env.SCENE || "scene.html"), { waitUntil: "domcontentloaded", timeout: 0 });
+await page.goto(pathToFileURL(path.join(dir, process.env.SCENE || "scene.html")).href, { waitUntil: "domcontentloaded", timeout: 0 });
 await page.evaluate(() => document.fonts.ready);
 await page.evaluate(() => window.READY);
 if (mode === "stills") {
