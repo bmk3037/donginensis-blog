@@ -96,7 +96,7 @@ function photo(name, t, a, b, cam, overlay = "") {
   const clip = cam.clip;
   const [w, h] = clip ? [720, 1280] : SIZE[name];
   const K = Math.max(1080 / w, 1920 / h), ox = (1080 - w * K) / 2, oy = (1920 - h * K) / 2;
-  const p = ease(prog(t, a, b));
+  const p = cam.lin ? prog(t, a, b) : ease(prog(t, a, b));
   // 건축사전처럼 2~3초마다 컷: 같은 그림을 넓게 → 가까이 → 다른 쪽으로 잘라 쓴다
   const n = cam.cuts || 1, len = (b - a) / n;
   const k = clamp(Math.floor((t - a) / len), 0, n - 1), t0 = a + k * len;
@@ -119,7 +119,9 @@ function photo(name, t, a, b, cam, overlay = "") {
     return `<g transform="translate(${dx + shake[0]},${dy + shake[1]}) translate(${cx},${cy}) rotate(${rot}) scale(${s}) translate(${-cx},${-cy})">
     <g transform="translate(${ox},${oy}) scale(${K})">${inner}${overlay}</g></g>`;
   }
-  const img = clip ? `<image href="clipn/${clip.id}/${String(fi).padStart(3, "0")}.jpg" width="720" height="1280"/>` : MISSING.has(name)
+  const fr = clip ? (clip.from || 1) + (t - (clip.t0 ?? a)) * CFPS * (clip.rate || 1) : 0, fw = clip && fi < CLIPS[clip.id] ? clamp(fr - fi) : 0;
+  const nxt = fw > 0.04 ? `<image href="clipn/${clip.id}/${String(fi + 1).padStart(3, "0")}.jpg" width="720" height="1280" opacity="${fw.toFixed(3)}"/>` : "";
+  const img = clip ? `<image href="clipn/${clip.id}/${String(fi).padStart(3, "0")}.jpg" width="720" height="1280"/>` + nxt : MISSING.has(name)
     ? `<rect width="${w}" height="${h}" fill="#3a3f45"/><text x="${w / 2}" y="${h / 2}" text-anchor="middle" ${FONT} font-size="80" fill="#9aa">${name} 이미지 대기</text>`
     : `<image href="img/${name}.webp" width="${w}" height="${h}"/>`;
   return `<g${blur} transform="translate(${dx + shake[0]},${dy + shake[1]}) translate(${cx},${cy}) rotate(${rot}) scale(${sD}) translate(${-cx},${-cy})">
@@ -977,11 +979,11 @@ function globalHud(t) {
 const SIGNS = [];
 const SCENES = [];
 // P(그림, 시작, 끝, 배율 from→to, 기준점 x,y, 겹쳐 바뀌는 초, 끝에 뚫고 들어가기)
-const P = (img, a, b, f, to, cx, cy, xin, dive) => [img + "@" + Math.round(a * 100), a, b, { img, from: f, to, cx, cy, cuts: 1, xin, dive }, null, null];
+const P = (img, a, b, f, to, cx, cy, xin, dive) => [img + "@" + Math.round(a * 100), a, b, { img, from: f, to, cx, cy, cuts: 1, xin, dive, lin: true }, null, null];
 const D = TL.duration, DV = 0.7;
 // 클립 장면: Q(클립, 화면 시작, 끝, 클립 시작초, 클립 끝초) — 쓸 구간을 장면 길이에 맞춰 배속을 정함. Veo 표시는 1.08배 위쪽 기준 확대로 가림
 const SLOW = []; // 0.8배보다 느린 클립(다시 만들 후보): 정지 화면 만들 때 콘솔에 찍힘
-const Q = (id, a, b, c0, c1, xin) => (((c1 - c0) / (b - a) < 0.8 && SLOW.push(id) && console.warn("느린 클립", id, ((c1 - c0) / (b - a)).toFixed(2))), [id + "_" + Math.round(a * 100), a, b, { clip: { id, from: 1 + c0 * 24, rate: (c1 - c0) / (b - a), t0: a }, from: 1.08, to: 1.12, cx: 540, cy: 1, xin }, null, null]);
+const Q = (id, a, b, c0, c1, xin) => (((c1 - c0) / (b - a) < 0.8 && SLOW.push(id) && console.warn("느린 클립", id, ((c1 - c0) / (b - a)).toFixed(2))), [id + "_" + Math.round(a * 100), a, b, { clip: { id, from: 1 + Math.round(c0 * 24), rate: (c1 - c0) / (b - a), t0: a }, from: 1.08, to: 1.12, cx: 540, cy: 1, xin }, null, null]);
 [
   P("01", 0, a_(3), 1.0, 1.25, 540, 1150),                              // 1~2 빈 배관(나중에 c01: 하늘→땅속)
   P("02", a_(3), a_(4), 1.03, 1.15, 540, 1000),                          // 3 불탄 주차장 870대
