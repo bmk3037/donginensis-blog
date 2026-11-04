@@ -62,6 +62,7 @@ TYPECAST_API_KEY=… python3 ../../template-2tan/tts_lines.py say.txt piljae 1.0
 ## 5. 그림 (20~24장, Nano Banana, 9:16, x1)
 - 문장 1~2개에 그림 1장. **지명이 나오면 3D 지도 그림**(빨간 핀 + 땅이 잘려 지하가 보이게, 나중에 "뚫고 들어가기" 시작 그림). 끝 그림 = 하늘에서 본 전체 + 땅 아래 단면(위로 솟기).
 - 장면 안 변화가 필요한 곳은 **편집 그림**(예: 07 = 05를 열어 편집, 물이 차오름).
+- **클립 끝 그림도 그림 단계에서 같이 만든다**(7-1의 1번): 같은 장면 다가가기는 `NNe.jpg`(NN을 열어 카메라만 가까이), 변화 장면은 결과 편집 그림. 그림 수는 약 1.6배가 되지만 크레딧 0.
 - 프롬프트 = 장면 묘사(영어) + 아래 끝말 그대로. 주인공 설비도 실제 색 그대로(빨갛게 칠하지 않음), 빨간 소품을 그 옆에(고리·윤곽·화살표·핀·X·물음표). 글자·숫자는 그림에 넣지 않고 합성에서 얹는다.
 ```
 Style: a hyper-detailed cinematic 3D render of the real place as a realistic miniature world, like a high-end architectural visualization seen through a tilt-shift lens: natural realistic colors and materials - grey asphalt and concrete, glass and stone buildings, green street trees, cars in ordinary everyday colors, brown soil and rock in the cut-away ground sections, black and grey cables - warm soft sunlight with gentle shadows unless the scene says otherwise, interiors and tunnels are lit just as brightly and warmly as a presentation model under soft studio light - clean, tidy and inviting, never dark, grimy or gritty; strong tilt-shift miniature look with the near foreground and far background softly blurred, shallow depth of field, the world continues to every edge of the frame with no table, base or backdrop. Bright red (#E53935) is used only for a few 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks, dimension lines); apart from those props, only things that are red in real life (a fire extinguisher, fire trucks) are red. Cars have no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
@@ -94,28 +95,52 @@ bash template-2tan/finish_2tan.sh NN draft      # → shorts/media/NN/out/NN_dra
 - 정지 화면 먼저 확인: `SCENE=scene_2tan.html node ../../render.mjs stills 0.5,10,30,…` (work/NN에서).
 - 대표이사에게 보내고 그림체·구성 확인받은 뒤 클립.
 
-## 7. 클립 (13개 안팎, Veo 3.1, 8초, 앞 6~7초 사용)
-고르는 기준(이탄생 실측):
-1. **첫 장면**: 하늘 → 땅속(대상)으로 뚫고 들어감 — 시작 = 지도·전체 그림, 끝 = 대상 그림(시작+끝 두 칸). 프롬프트는 "fast FPV drone … swoops down low and flies quickly forward along the avenue … without slowing down dives through the opening … keeps flying"(11/3 이탄생 첫 6초 비교: 낮고 빠르게 날다 틈으로 통과, 천천히 다가가기만 하면 다름).
-2. **지명 장면**: 지도 그림 → 땅속 사건 장면으로 뚫고 들어감(시작+끝).
-3. **장면 안 변화**: 물이 차오름, 불이 커지거나 꺼짐, 층이 차오름(시작 그림 + 편집 그림).
-4. **사람 행동** 하나(버튼 누르기 등), **끝 장면** 위로 솟기.
-5. 나머지는 천천히 한 방향(밀기·훑기). **깨짐·폭발은 시키지 않는다.**
-- 프롬프트 = "One continuous shot … (동작 하나, 카메라 하나)" + 아래 끝말 그대로:
+## 7. 클립 — "전부 아주 좋음"을 목표로 (11/4 개정, 57·58편 클립 25개 검수 결과)
+
+### 7-0. 57·58편에서 배운 것
+| 결과 | 클립 | 공통점 |
+|---|---|---|
+| **아주 좋음** | 57 c16(지도→땅속→스프링클러), 58 c13(지도→맨홀→불난 통로), 58 c19(불탄 통로→새 통로), 58 c10(맨홀 속으로), 57 c01(배관 속으로) | **시작 + 끝 그림을 둘 다 줌**(또는 한 방향으로 계속 내려가는 길), 카메라 길이 처음부터 끝까지 정해져 있음 |
+| 망가짐 | 58 c01 드론 기체가 화면에 나옴 | 프롬프트에 "**drone**"이라는 낱말 → Veo가 드론을 그려 넣음 |
+| 망가짐 | 58 c03 소화기에 "FIRE", 57 c13 판에 "CCCC" | 원래 글자가 있는 물건(소화기·제어반)에 **다가가면** 글자를 만들어 냄 |
+| 망가짐 | 58 c03·c07·c09·c21, 57 c11 — 3~4초 뒤 장면이 다른 곳으로 바뀜 | **시작 그림 하나만** 주고 카메라를 멀리 보냄 → 끝을 Veo가 지어냄 |
+| 망가짐 | 57 c17 불이 꺼져야 하는데 커짐 | 결과(꺼짐)를 **끝 그림으로 안 줌** |
+| 망가짐 | 58 c09 화살표가 새로 생김, 고리가 둘 | 빨간 소품이 "그대로 있어야 한다"는 말이 없음 |
+
+### 7-1. 규칙 (모든 클립)
+1. **모든 클립에 시작 + 끝 그림.** 끝 그림이 없으면 만든다(그림 단계에서 같이):
+   - 다른 장면으로 뚫고 들어가는 클립: 끝 = 다음 장면 그림(예 01 → 02).
+   - 같은 장면 안에서 다가가기·훑기: 끝 = **시작 그림을 열어 편집**한 "카메라가 더 다가간/옆으로 간" 그림(이름 `NNe.jpg`, 예 03 → 03e). 편집 문장: `Keep exactly the same place, objects, props and light. Change only the camera: it is now closer to [대상], [대상] fills the middle third of the frame. No letters or numbers anywhere.`
+   - 변화가 있는 클립(불이 꺼짐·불이 켜짐·물이 참·낮→밤): 끝 = **결과가 그려진 편집 그림**.
+2. **"drone", "FPV", "camera", "aircraft"라는 낱말을 쓰지 않는다.** 대신 "The view flies low and fast …", "The view glides …".
+3. **글자가 있을 법한 물건(소화기·제어반·간판·버스)에는 다가가지 않는다.** 꼭 필요하면 그 물건은 화면의 1/4보다 작게 두고, 그림 단계에서 라벨을 빈 흰 사각형으로 편집해 둔다.
+4. **카메라 이동은 시작 그림과 끝 그림 사이 거리만큼만.** "keeps flying along the tunnel"처럼 끝 없는 이동을 쓰지 않는다.
+5. 동작은 하나, 변화도 하나. 사람 인형 동작은 "steps forward and stops" 정도로 작게.
+6. **모델:** 뚫고 들어가기·첫 장면·변화 장면은 **Veo 3.1 정식**, 천천히 밀기는 Lite도 가능.
+7. 끝말(아래)을 모든 클립에 그대로 붙인다:
 ```
-Keep the same realistic miniature world, light and colors as the start and end images. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. One single continuous camera move, no cuts, no scene change, no new objects appearing, no text appearing. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
+Keep the same realistic miniature world, light and colors as the start and end images, and end exactly on the end image. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. The red props stay exactly as in the start image; no new arrows, rings, pins or marks appear. No drone, aircraft, camera device or extra people appear. All labels and signs stay blank; no text, letters or numbers appear on anything. One single continuous move, no cuts, no scene change. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
 ```
-- 카드 `shorts/produce/NN_clips.txt` ([cNN.mp4] 시작 NN.jpg / 끝 NN.jpg · 쓰임).
+
+### 7-2. 클립 종류 (이탄생 실측 카메라)
+| 종류 | 시작 → 끝 | 프롬프트 예 |
+|---|---|---|
+| 첫 장면 통과 | 지도·거리 → 땅속 대상 | "The view flies low and fast along the avenue toward the building with the red pin, dives through the cut-away opening in the street and arrives at [대상], exactly matching the end image." |
+| 지명 통과 | 지도 → 사건 장면 | 위와 같은 꼴 |
+| 다가가기 | NN → NNe | "The view glides slowly forward toward [대상] and stops close to it, exactly matching the end image." |
+| 장면 안 변화 | NN → 결과 편집 그림 | "[변화 하나] happens steadily while the view stays almost still." |
+| 위로 솟기(끝) | 땅속 → 하늘에서 본 전체 | "The view rises smoothly straight up out of the tunnel to above the city, exactly matching the end image." |
+- 카드 `shorts/produce/NN_clips.txt` ([cNN.mp4] 시작 NN.jpg / 끝 NNe.jpg · 쓰임).
 
 **Aside 지시(클립) 틀**
 ```
-NN편 클립 KK개 만들어 줘(이탄생 판). 계정 하나당 5개까지(A/B/C로만 적기).
-0. git pull. 프롬프트 shorts/produce/NN_clips.txt (한 글자도 바꾸지 말 것), 그림 shorts/media/NN/in/img/
-1. 동영상 · 프레임 · Veo 3.1 · 9:16 · x1, 소리 켬, 8초. 시작·끝이 있는 클립은 두 칸 다. 넣기 전 그림 번호 확인
+NN편 클립 KK개 만들어 줘(이탄생 판). 계정 하나당 5개까지(A/B/C/D로만 적기).
+0. git pull. 프롬프트 shorts/produce/NN_clips.txt (한 글자도 바꾸지 말 것), 그림 shorts/media/NN/in/img/ (끝 그림 NNe.jpg 포함)
+1. 동영상 · 프레임 · Veo 3.1(카드에 "정식"이라 적힌 클립은 정식) · 9:16 · x1, 소리 켬, 8초. **모든 클립 시작·끝 두 칸 다.** 넣기 전 그림 번호 확인
 2. 다른 계정은 새 프로젝트를 만들고 필요한 그림을 GitHub img에서 받아 올려 씀
-3. 1080p로 받을 수 있으면 1080p. ~/Downloads/숨은설비/NN/clip/cNN.mp4
-4. 검수: 앞 6초를 0.5초 간격으로, 모양 바뀜·거울 겹침·장면 바뀜·글자·얼굴·갑자기 깨짐이면 한 번 다시
-5. 클립 하나 끝나면 바로 GitHub shorts/media/NN/in/clip/ 에 올리고 커밋·푸시(모아서 올리지 말 것) + NOTES.md(클립 | 계정 | 화질 | 쓸 구간 | 메모). 다 되면 보고
+3. 1080p. ~/Downloads/숨은설비/NN/clip/cNN.mp4
+4. 검수: **8초 전부**를 0.5초 간격으로. 아래면 한 번 다시(최대 2번): 모양 바뀜·거울 겹침·장면 바뀜 / 글자·얼굴 / 새로 생긴 물체(드론·사람·화살표·고리) / 끝이 끝 그림과 다름 / 프롬프트와 반대
+5. 클립 하나 끝나면 바로 GitHub shorts/media/NN/in/clip/ 에 올리고 커밋·푸시(모아서 올리지 말 것) + NOTES.md(클립 | 계정 | 모델 | 화질 | 쓸 구간 | 메모). 다 되면 보고
 ```
 
 ## 8. 완성본
