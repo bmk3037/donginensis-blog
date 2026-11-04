@@ -147,3 +147,11 @@ export GEMINI_API_KEY=…     # 영상 분석(gemini_video.py, 선택)
 - 그림·클립은 Aside가 GitHub에 올림 → 로컬에서 `git pull` 후 합성. 렌더는 맥에서 96초 기준 10~20분.
 - **윈도우 PC**(11/3 58편에서 확인): `python3`가 스토어 바로가기라 안 돎 → `python`으로, `PYTHONUTF8=1`(안 하면 lines.json 글자가 깨짐). 새로 받은 크로미움은 실행이 막힘 → `export CHROMIUM_PATH="C:/Program Files/Google/Chrome/Application/chrome.exe"`. 바로가기(심볼릭 링크)는 권한 문제로 실패 → `fonts`는 복사(`cp -r ../../fonts .`). 키는 사용자 환경 변수에서 `powershell -c '[Environment]::GetEnvironmentVariable("TYPECAST_API_KEY","User")'`로 읽음.
 - 결과 `shorts/media/NN/out/`(git에 안 올라감). Aside가 올려야 하면 `git add -f`.
+
+## 11. 커버(섬네일) 채널 통일 (11/4)
+```
+python3 shorts/compose/template-2tan/cover_2tan.py NN 그림.jpg "위 작은 줄(장소·대상)" "가운데 노란 큰 줄(훅)" "아래 줄(궁금증)" shorts/compose/work/NN/cover.jpg [x% y% 확대%]
+```
+- 모든 편 같은 틀: 흰 줄(장소) → **노란 큰 줄(훅, 한 줄)** → 흰 줄(궁금증), 아래 왼쪽 빨간 도장 **"숨은 설비 #NN"**(영상 속 도장과 같은 모양).
+- 글자는 인스타 프로필 격자(3:4) 안(세로 300~1500px). 그림은 그 편에서 가장 센 장면(불·물·사람 행동).
+- 예: 57 "아파트 지하주차장 천장 / 불나기 전엔 텅 빈 배관 / 차 870대 피해 화재의 이유", 58 "충정로 KT 아현지사 땅 밑 / 소화기 1대뿐이던 통로 / 서울 5개 구 통신이 멈춘 이유".
