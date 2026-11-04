@@ -117,6 +117,9 @@ bash template-2tan/finish_2tan.sh NN draft      # → shorts/media/NN/out/NN_dra
 4. **카메라 이동은 시작 그림과 끝 그림 사이 거리만큼만.** "keeps flying along the tunnel"처럼 끝 없는 이동을 쓰지 않는다.
 5. 동작은 하나, 변화도 하나. 사람 인형 동작은 "steps forward and stops" 정도로 작게.
 6. **모델:** 뚫고 들어가기·첫 장면·변화 장면은 **Veo 3.1 정식**, 천천히 밀기는 Lite도 가능.
+8. **첫 장면 클립(c01)은 가장 먼저, 정식 모델로, 2개 뽑아 더 나은 것.** 58편 c01은 드론 기체가 나와 앞 2초를 사진으로 대신함 → 첫 2초가 멈춰 보임. 첫 장면에 새 물체·글자가 하나라도 나오면 다른 클립보다 먼저 다시 만든다(최대 3번).
+9. **클립 하나가 맡는 장면은 6초 이하로 기획.** 문장 묶음이 6초를 넘으면 클립을 둘로 나눈다(시작·끝 그림 쌍도 둘). 58편 c05·c16은 쓸 구간이 2~4초뿐이라 4~5초 장면에 0.5배로 느리게 깔려 어색했음.
+10. **느리게 쓰기 한도 0.8배.** 합성에서 쓸 구간 ÷ 장면 길이가 0.8보다 작으면(더 느려지면) 그 클립은 다시 만들거나, 장면을 둘로 나눠 남는 시간에 다른 클립을 넣는다. 사진으로 메우지 않는다.
 7. 끝말(아래)을 모든 클립에 그대로 붙인다:
 ```
 Keep the same realistic miniature world, light and colors as the start and end images, and end exactly on the end image. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. The red props stay exactly as in the start image; no new arrows, rings, pins or marks appear. No drone, aircraft, camera device or extra people appear. All labels and signs stay blank; no text, letters or numbers appear on anything. One single continuous move, no cuts, no scene change. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
@@ -144,6 +147,7 @@ NN편 클립 KK개 만들어 줘(이탄생 판). 계정 하나당 5개까지(A/B
 ```
 
 ## 8. 완성본
+- **완성 전 확인(11/4):** 장면표의 클립 배속이 모두 0.8 이상인지, 사진(P)으로 남은 장면이 첫 장면이 아닌지 본다. 0.8 아래거나 첫 장면이 사진이면 해당 클립을 다시 주문하고 그다음에 완성본을 만든다.
 - 클립을 0.5초 모아보기로 검수(`ffmpeg -vf "fps=2,scale=180:-1,tile=8x2"`) → 쓸 구간을 정해 SCENES의 해당 P를 `Q("cNN", 시작, 끝, 클립시작초, 클립끝초)`로 바꿈.
 - 커버: 인스타 프로필 격자(3:4)에서 안 잘리게 글자는 세로 300~1500px 안. 그림 + "궁금증 문구"(55M "바닥의 이 얼음"). `work/NN/cover.jpg`가 있으면 끝에 1초 붙음.
 - `bash template-2tan/finish_2tan.sh NN final` → 길이·소리(−14 LUFS, 최고 −1.5 dB 아래)·컷 수 확인 → 대표이사에게 보냄. 100MB 넘으면 다시 인코딩(GitHub 한도).
