@@ -29,10 +29,10 @@
   #stage { position: absolute; inset: 0; }
   /* 10/28 건축사전 비교: 자막은 화면 가운데(약 62%), 크게, 테두리 대신 옅은 그림자 */
   #sub {
-    position: absolute; left: 90px; right: 90px; top: 905px;
-    font-family: "Pretendard", sans-serif; font-weight: 800; font-size: 50px; line-height: 1.2;
+    position: absolute; left: 90px; right: 90px; top: 1070px;
+    font-family: "Pretendard", sans-serif; font-weight: 800; font-size: 74px; line-height: 1.2;
     color: #fff; text-align: center; word-break: keep-all; letter-spacing: -1px;
-    -webkit-text-stroke: 7px #000; paint-order: stroke fill;
+    -webkit-text-stroke: 6px #000; paint-order: stroke fill;
     text-shadow: 0 2px 8px rgba(0,0,0,.6);
   }
 </style>
@@ -912,13 +912,35 @@ function num3d(t, t0, t1, text, x, y, size) {
 // ---- 57편 v2 (이탄생 상위 3편 실측 반영, 11/3): 장면 20개(평균 약 4.9초), 숫자는 빨간 도장·태그·핀, 제목은 0초 위 가운데, 자막 가운데 1~2어절 ----
 const a_ = n => n === 1 ? 0 : L[n - 1].a, b_ = n => L[n - 1].b, cm_ = (n, k = 0) => L[n - 1].commas[k] ?? L[n - 1].start;
 const span = (t, t0, t1, f) => (t >= t0 && t <= t1 + 0.2) ? f() : "";
+// 빨간 3D 막대그래프 — 이탄생 9호선 "37만·31만·24만"(11/4 실측). vals = [[값, "글자"], ...], 바닥 가운데 (x, y)
+function bars(t, t0, t1, vals, x, y, w = 130, gap = 46, hMax = 460) {
+  if (t < t0 || t > t1 + 0.15) return "";
+  const o = Math.min(prog(t, t0, t0 + 0.1), 1 - prog(t, t1, t1 + 0.15)), mx = Math.max(...vals.map(v => v[0]));
+  const x0 = x - (vals.length * w + (vals.length - 1) * gap) / 2, d = 26;
+  let g = "";
+  vals.forEach(([v, lb], i) => {
+    lab(lb);
+    const h = hMax * v / mx * out(prog(t, t0 + i * 0.12, t0 + i * 0.12 + 0.5)), bx = x0 + i * (w + gap), by = y - h;
+    g += `<polygon points="${bx + w},${by} ${bx + w + d},${by - d} ${bx + w + d},${y - d} ${bx + w},${y}" fill="#8f0d08"/>` +
+      `<polygon points="${bx},${by} ${bx + d},${by - d} ${bx + w + d},${by - d} ${bx + w},${by}" fill="#ff6a5a"/>` +
+      `<rect x="${bx}" y="${by}" width="${w}" height="${h}" fill="url(#redg2)"/>` +
+      `<text x="${bx + w / 2}" y="${by - d - 18}" text-anchor="middle" ${FONT} font-size="58" fill="#E53935" stroke="#fff" stroke-width="9" paint-order="stroke">${lb}</text>`;
+  });
+  return `<g opacity="${o}" filter="url(#sh3)">${g}</g>`;
+}
+// 0초 제목 — 이탄생 최신 편(11/4 실측): 흰 굵은 글씨, 테두리 없이 옅은 그림자, 크게, 위 가운데, 0~1.5초 한 컷만
+function title(t, text, size = 200) {
+  if (t > 1.7) return "";
+  lab(text);
+  return `<g opacity="${1 - prog(t, 1.4, 1.65)}" filter="url(#sh3)"><text x="540" y="375" text-anchor="middle" ${FONT} font-size="${size}" fill="#fff" letter-spacing="-4">${text}</text></g>`;
+}
 // 빨간 도장(테두리 + 빨간 글자, 살짝 기울어짐) — 이탄생 "2015" "123층" 도장
 function stamp(t, t0, t1, text, x, y, size = 72, rot = -6) {
   if (t < t0 || t > t1 + 0.15) return "";
   lab(text);
   const p = back(prog(t, t0, t0 + 0.3)), o = Math.min(prog(t, t0, t0 + 0.08), 1 - prog(t, t1, t1 + 0.15));
   const w = text.length * size * 0.82 + 56, h = size * 1.45;
-  return `<g opacity="${o}" transform="translate(${x},${y}) rotate(${rot}) scale(${1.6 - 0.6 * p}) translate(${-x},${-y})"><rect x="${x - w / 2}" y="${y - h * 0.72}" width="${w}" height="${h}" rx="12" fill="rgba(255,255,255,0.88)" stroke="#E53935" stroke-width="9"/><text x="${x}" y="${y}" text-anchor="middle" ${FONT} font-size="${size}" fill="#E53935">${text}</text></g>`;
+  return `<g opacity="${o}" transform="translate(${x},${y}) rotate(${rot}) scale(${1.6 - 0.6 * p}) translate(${-x},${-y})"><rect x="${x - w / 2}" y="${y - h * 0.72}" width="${w}" height="${h}" rx="12" fill="none" stroke="#E53935" stroke-width="9"/><text x="${x}" y="${y}" text-anchor="middle" ${FONT} font-size="${size}" fill="#E53935">${text}</text></g>`;
 }
 // 빨간 태그(꼬리 달린 딱지) — 이탄생 "+600억" "1,000억"
 function tag(t, t0, t1, text, x, y, size = 64) {
@@ -936,9 +958,9 @@ function pin(t, t0, t1, text, x, y, size = 64) {
   return `<g opacity="${o}" transform="translate(${x},${y}) scale(${p}) translate(${-x},${-y})" filter="url(#sh3)"><path d="M${x},${y + 70} c-40,-50 -48,-70 -48,-92 a48,48 0 1 1 96,0 c0,22 -8,42 -48,92 z" fill="#E53935"/><circle cx="${x}" cy="${y - 22}" r="17" fill="#fff"/><text x="${x}" y="${y - 90}" text-anchor="middle" ${FONT} font-size="${size}" fill="#E53935" stroke="#fff" stroke-width="10" paint-order="stroke">${text}</text></g>`;
 }
 function globalHud(t) {
-  let g = t > 1.5 ? `<g opacity="${prog(t, 1.5, 1.9)}">${badge()}</g>` : "";
-  // 0초 제목: 위 가운데, 카메라가 움직이면 위로 밀려남
-  if (t < 3.2) g += `<g transform="translate(0,${-120 * prog(t, 2.4, 3.2)})" opacity="${1 - prog(t, 2.6, 3.2)}">${flatS(t, -0.3, 540, 330, "아파트 지하주차장", 120)}</g>`;
+  let g = badge();
+  // 0초 제목: title() — 0~1.5초 흰 글씨(11/4)
+  g += title(t, "아파트 지하주차장");
   g += tag(t, cm_(3) + 0.1, b_(3) - 0.2, "870대", 560, 700);
   g += stamp(t, a_(8) + 0.4, b_(8) - 0.2, "감지기 2개", 540, 640);
   g += stamp(t, a_(14) + 0.7, b_(14) - 0.2, "정지", 640, 700, 96, 6);
@@ -1028,7 +1050,6 @@ for (const l of L) {
 }
 const KEYS = [];
 function subtitle(t) {
-  if (t < 1.7) return "";
   for (const [a0, b0] of NUMW) if (t >= a0 && t <= b0) return "";
   for (const [a, b, s] of CHUNKS) if (t >= a - 0.05 && t < b + 0.05) {
     let h = s.replace(/[.,]$/, "");
