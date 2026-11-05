@@ -62,7 +62,7 @@ GitHub      목록 이슈 1개에 블로그별 초안이 모임 → 블로그에
 | `knowledge/style.md` | 말투, 네이버 검색 노출 규칙, 금지 사항 | 원하는 글 스타일이 바뀌면 |
 | `topics.csv` | 주제 목록 (43개, 사업 기여도 순). `status`: todo → drafted → published | 엑셀로 열어 주제 추가 |
 | `existing/` | 세 블로그에 이미 발행된 글 (겹침 검사용, `python -m blog.existing sync`로 갱신) | Claude |
-| `posts/날짜-블로그-번호/` | 만들어진 글. `preview.html`(붙여넣기용), `images/`(표지·설명 이미지), `post.json` | Claude |
+| `posts/날짜-블로그-번호/` | 만들어진 글. `preview.html`(붙여넣기용), `images/`(표지·설명 이미지), `post.json`. 그림은 14일 뒤 `python -m blog.cleanup`으로 지움(zip으로 이미 전달, git 기록에는 남음). 생성 사진 원본 `photos-src/`는 올리지 않음 | Claude |
 | `assets/` | 회사 로고, Pretendard 글꼴(OFL), 이미지 서식 `image.css` | 서식이 바뀌면 |
 | `blog/` | 프로그램 코드 | — |
 
