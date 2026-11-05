@@ -7,7 +7,7 @@ import json, os, re, subprocess, sys, urllib.request
 VOICES = {"piljae": ("tc_68257f68bc6e3c161ab5078d", "ssfm-v30"), "moonjung": ("tc_68f9c6a72f0f04a417bb136f", "ssfm-v31")}
 src = sys.argv[1]; voice = sys.argv[2] if len(sys.argv) > 2 else "piljae"; rate = sys.argv[3] if len(sys.argv) > 3 else "1.06"
 VID, MODEL = VOICES[voice]; key = os.environ.get("TYPECAST_API_KEY") or sys.exit("TYPECAST_API_KEY 없음")
-T = os.path.dirname(os.path.abspath(__file__)); GAP = 0.30
+T = os.path.dirname(os.path.abspath(__file__)); GAP = 0.15  # 11/5 이탄생 비교: 말 빠르기 6.5~7.4자/초, 59편 5.9 → 쉼 줄임
 say = [l.strip() for l in open(src, encoding="utf-8") if l.strip()]
 os.makedirs("lines", exist_ok=True)
 for i, t in enumerate(say, 1):

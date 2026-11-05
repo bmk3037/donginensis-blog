@@ -12,7 +12,8 @@ DUR=$(python3 -c "import json;print(json.loads(open('timeline.js').read().split(
 [ -f sfx.wav ] || python3 sfx.py
 # 고친 곳만 다시(11/4 "앞에만 하는데 왜 오래 걸려"): PARTS="0 7" → 0~10초·70~80초 조각만 지우고 나머지는 이어 씀. PARTS 없으면 전부
 if [ -n "${PARTS:-}" ]; then for k in $PARTS; do rm -f chunks_video_only_v2/part_$(printf %03d $k).mp4; done; else rm -rf chunks_video_only_v2; fi; node "$T/render.mjs" video video_only_v2.mp4 24 > render.log 2>&1
-bash "$T/mixv2.sh" video_only_v2.mp4 body.mp4 > /dev/null
+# 11/5 색 보정(이탄생 실측에 맞춤, 59편 밝기 157→133·대비 46→57). 끄려면 VF=null
+VF=${VF:-eq=contrast=1.18:brightness=-0.06:saturation=1.0:gamma=0.85} bash "$T/mixv2.sh" video_only_v2.mp4 body.mp4 > /dev/null
 O=$R/shorts/media/$NN/out; mkdir -p "$O"
 if [ -f cover.jpg ]; then W=1440 H=2560 FPS=24 RATE=7500k CRF=19 bash "$T/append_cover.sh" body.mp4 cover.jpg "$O/${NN}_$NAME.mp4" > /dev/null; else cp body.mp4 "$O/${NN}_$NAME.mp4"; fi
 echo "$NN $NAME ok"
