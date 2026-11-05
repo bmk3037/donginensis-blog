@@ -58,6 +58,7 @@ python -m blog.generate --id <id> --from-json posts/<dir>/post.json --date <발�
 
 ## 5. 저장·전달
 - `python -m blog.tracker --mark > <scratchpad>/tracker.md` — 발행된 초안을 찾아 topics.csv에 '발행됨'으로 기록하고, 목록 이슈 본문을 만듭니다
+- `python -m blog.cleanup` — 14일이 지난 초안의 그림(images/*.png)을 지워 저장소 용량을 관리합니다(글과 그림 원본 html은 남음)
 - `git add posts topics.csv existing && git commit && git push` (main)
 - GitHub: 초안마다 이슈를 새로 만들지 않습니다. **목록 이슈 1개**(라벨 `blog-tracker`, 본문 첫 줄 `<!-- blog-tracker -->`)의 본문을 `tracker.md` 내용으로 바꿉니다
   - 발행 전 확인 사항은 각 폴더의 `issue.md`에 그대로 있습니다

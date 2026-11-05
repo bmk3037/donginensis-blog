@@ -2,3 +2,6 @@ __pycache__/
 .venv/
 .env
 .last_drafts
+
+# 생성 사진 원본: images/에 '연출 이미지' 표기본이 따로 저장되므로 올리지 않는다(저장소 용량)
+posts/*/photos-src/
