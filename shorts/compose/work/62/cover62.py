@@ -21,6 +21,9 @@ V = {
 <div class="shade" style="top:230px;height:720px"></div>
 <div class="t y" style="top:290px;font-size:330px;-webkit-text-stroke:34px #000">117억</div>
 <div class="t w" style="top:660px;font-size:170px;-webkit-text-stroke:24px #000">세금괴물?</div>""",
+ # G: 이탄생 100만+ 13편 틀 — 장소 이름만 가운데 크게(흰 글씨, 얇은 테두리·그림자)
+ "G": """<div class="bg" style="left:0;right:0;background-image:url(img/01.webp)"></div>
+<div class="t w" style="top:780px;font-size:190px;-webkit-text-stroke:6px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.45);letter-spacing:-4px;line-height:1.05">반포대교<br>무지개분수</div>""",
  # F: 영상 속 빨간 도장 그대로
  "F": """<div class="bg" style="left:0;right:0;background-image:url(img/09.webp)"></div>
 <div class="shade" style="top:230px;height:740px"></div>
@@ -37,6 +40,9 @@ await b.close();"""
 for k, body in V.items():
     open(f"_c_{k}.html", "w", encoding="utf-8").write(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{body}</body></html>')
 open("_c.mjs", "w", encoding="utf-8").write(JS)
-subprocess.run(["node", "_c.mjs", *V], check=True)
-for k in V: os.remove(f"_c_{k}.html")
+import sys
+K = sys.argv[1:] or list(V)
+subprocess.run(["node", "_c.mjs", *K], check=True)
+for k in V:
+    if os.path.exists(f"_c_{k}.html"): os.remove(f"_c_{k}.html")
 os.remove("_c.mjs"); print("ok")
