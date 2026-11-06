@@ -78,6 +78,9 @@ V = {
  "S": """<div class="bg" style="left:0;right:0;background-image:url(img/01_night.jpg)"></div>
 <div class="t w" style="top:640px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
 <div class="t y" style="top:1160px;font-size:120px;-webkit-text-stroke:17px #000;line-height:1.15">이 불꽃 20억 누가 낼까?</div>""",
+ "T": """<div class="bg" style="left:0;right:0;background-image:url(img/01_night2.jpg)"></div>
+<div class="t w" style="top:640px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
+<div class="t y" style="top:1160px;font-size:120px;-webkit-text-stroke:17px #000;line-height:1.15">이 불꽃 20억 누가 낼까?</div>""",
  # C: 해변 관객 그림 + 장소 이름
  "C": """<div class="bg" style="left:0;right:0;background-image:url(img/01b.webp)"></div>
 <div class="t w" style="top:520px;font-size:200px;-webkit-text-stroke:6px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-4px;line-height:1.05">광안리<br>불꽃축제</div>""",
