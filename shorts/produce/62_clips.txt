@@ -1,0 +1,26 @@
+62편 클립 6개(우선순위 순). 동영상 · 프레임 · 9:16 · x1 · 8초 · 전부 Veo 3.1 - Fast(20) = 120 크레딧. 각 프롬프트 뒤에 [공통 끝말]. 쓰는 구간은 1.5~6.6초.
+근거: 2TAN-MASTER §1-4(11/6 인스타 인기 5편 모두 0~4.5초가 먼 항공 → 장소까지 날아 내려가는 클립 하나) · §7-2 클립 종류.
+빨간 소품: 시작·끝 그림 모두 소품 없음이거나 같은 소품. 숫자·이름은 합성에서 얹는다.
+
+[공통 끝말]
+Keep the same realistic miniature world, light and colors as the start and end images, and end exactly on the end image. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. The red props stay exactly as in the start image; no new arrows, rings, pins or marks appear. No drone, aircraft, camera device or extra people appear. All labels and signs stay blank; no text, letters or numbers appear on anything. One single continuous move, no cuts, no scene change. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
+
+[c01a.mp4] 1순위 · 시작 01.jpg / 끝 01b.jpg · Fast · 0~4.5초(첫 장면, 2개 뽑아 둘 다 씀)
+From the very first frame the view is already rushing forward at high speed, with no slow start and no pause. It flies in from far above the wide river, descends steadily toward the long bridge with its falling water curtain and arrives just above the river surface beside the bridge, next to the water curtain and the crowd of figurines on the riverbank, exactly matching the end image. The water keeps falling the whole time.
+
+[c01b.mp4] 1순위 · c01a와 같은 프롬프트로 한 번 더(다른 판)
+
+[c04.mp4] 2순위 · 시작 01b.jpg / 끝 04.jpg · Fast · 11.9~16.1초(다리 밑 한강물)
+From the very first frame the view is already moving. The view sinks smoothly straight down through the river surface beside the bridge pier while the riverbed below opens into the clean cut-away section, revealing the grey submersible pumps on the riverbed and their pipes climbing the pier to the nozzles, exactly matching the end image. The water curtain keeps falling the whole time.
+
+[c10.mp4] 3순위 · 시작 09.jpg / 끝 10.jpg · Fast · 38.3~42.8초(기네스, 물러나며 드러내기)
+From the very first frame the view is already moving. The view pulls back and rises steadily away from the falling water arc, revealing the whole length of the bridge with the water curtain falling on both sides from bank to bank and the city around it, exactly matching the end image.
+
+[c08.mp4] 4순위 · 시작 08.jpg / 끝 08o.jpg · Fast · 31.3~35.3초(노즐 380개, 궤도)
+From the very first frame the view is already moving. The view orbits smoothly to the right around the long row of nozzles along the bridge edge, keeping the row in the centre, until it looks back along the bridge from slightly over the river, exactly matching the end image. The water arcs keep shooting the whole time.
+
+[c17.mp4] 5순위 · 시작 04.jpg / 끝 17.jpg · Fast · 69.3~72.4초(끝, 위로 솟아 물러나기 → 첫 장면으로 이어짐)
+From the very first frame the view is already moving. The view rises smoothly up out of the river and pulls back high above the city, revealing the whole river, the bridge with its water curtain and the long row of pumps in the cut-away riverbed, exactly matching the end image.
+
+[c09.mp4] 6순위 · 시작 08o.jpg / 끝 09.jpg · Fast · 35.3~38.3초(20m 떨어짐)
+From the very first frame the view is already moving. The view follows one water arc down from the bridge edge, gliding down and out over the river until it sees the full height of the falling water from the side, exactly matching the end image.
