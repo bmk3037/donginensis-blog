@@ -959,14 +959,14 @@ function pin(t, t0, t1, text, x, y, size = 64) {
   const p = back(prog(t, t0, t0 + 0.35)), o = Math.min(prog(t, t0, t0 + 0.08), 1 - prog(t, t1, t1 + 0.15));
   return `<g opacity="${o}" transform="translate(${x},${y}) scale(${p}) translate(${-x},${-y})" filter="url(#sh3)"><path d="M${x},${y + 70} c-40,-50 -48,-70 -48,-92 a48,48 0 1 1 96,0 c0,22 -8,42 -48,92 z" fill="#E53935"/><circle cx="${x}" cy="${y - 22}" r="17" fill="#fff"/><text x="${x}" y="${y - 90}" text-anchor="middle" ${FONT} font-size="${size}" fill="#E53935" stroke="#fff" stroke-width="10" paint-order="stroke">${text}</text></g>`;
 }
-// 0초부터 끝까지 위쪽 궁금증 제목(11/6 첫 3초 규칙): 0~2.5초 크게, 그 뒤 띠로
+// 0초 위쪽 궁금증 제목: 0~2.5초만 크게(이탄생처럼 처음에만)
 function hook(t) {
   const big = 1 - prog(t, 2.3, 2.7), Y = "#FFD43B";
   const w = (y, sz, parts) => `<text x="540" y="${y}" text-anchor="middle" ${FONT} font-size="${sz}" fill="#fff" stroke="rgba(0,0,0,0.75)" stroke-width="${sz / 7}" paint-order="stroke" stroke-linejoin="round" letter-spacing="-2">${parts}</text>`;
   const y0 = `<tspan fill="${Y}">0원</tspan>`;
   let g = "";
   if (big > 0) g += `<g opacity="${big}">${w(330, 128, "청계천만 물값")}${w(480, 128, y0 + "인 이유")}</g>`;
-  if (big < 1) g += `<g opacity="${1 - big}"><rect x="150" y="205" width="780" height="92" rx="18" fill="rgba(10,20,40,0.72)"/>${w(270, 60, "청계천만 물값 " + y0 + "인 이유")}</g>`;
+  // 11/6 대표이사 "이탄생은 안 그렇잖아": 끝까지 띠로 두지 않고 2.5초 뒤 사라짐
   return g;
 }
 function globalHud(t) {
@@ -1008,8 +1008,9 @@ const Q = (id, a, b, c0, c1, xin) => [id + "_" + Math.round(a * 100), a, b, { cl
   P("10", a_(2), 6.0, 1.0, 1.25, 700, 1150),      // 2 한강 취수장
   P("21", 6.0, a_(3), 1.0, 1.25, 600, 900),       // 2 대청댐 방류
   P("22", a_(3), a_(4), 1.12, 1.18, 540, 960),    // 3 왜 청계천만?
-  P("01", a_(4), a_(5), 1.0, 1.45, 540, 1150),    // 4 청계천으로 확 다가감
-  P("02", a_(5), 13.4, 1.0, 1.2, 540, 900),       // 5 폭포
+  Q("c01a", a_(4), a_(5), 1.0, 2.4),             // 4 청계천으로 내리꽂힘(클립 앞부분만, 핀 작을 때)
+  Q("c01b", a_(5), 12.1, 2.4, 2.85),              // 5 폭포 쪽으로(핀이 커지기 전까지만)
+  P("02", 12.1, 13.4, 1.05, 1.2, 540, 900),       // 5 폭포
   P("03", 13.4, a_(6), 1.0, 1.2, 600, 1100),      // 5 폭포 밑 관
   P("04", a_(6), 16.9, 1.0, 1.15, 540, 1000),     // 6 마른 개천
   P("04b", 16.9, a_(7), 1.05, 1.2, 540, 1000),    // 6 비 오면 참
