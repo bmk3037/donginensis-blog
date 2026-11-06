@@ -74,6 +74,28 @@ Claude 순서: ① **편 번호 확인**(`ls shorts/produce shorts/media`, 다�
 - 사진 밀기는 처음부터 같은 빠르기(템플릿 P = lin). 컷 첫 순간에 멈칫하지 않게.
 - 검사: 초안이 나오면 `cutan.py`로 위 표 비율을 다시 재서 이탄생과 나란히 적는다.
 
+### 1-4. 인기 5편 카메라 실측 (11/6, 대표이사 "잘나가는 거 5개 비교해서 사진·클립 카메라 무빙에 반영") — **카메라는 §1-3보다 이 표가 우선**
+대상: 인스타 상위 3편(삼성역 461만 · 롯데타워 320만 · 인천공항 238만, 유튜브 사본으로 측정) + 유튜브 상위 2편(잠실야구장 2.1만 · 통영해저터널 7,500). `cutan.py`, mv = 화면 움직임(화면 폭 %/초). 비교 대상은 사진으로만 만든 우리 61편(인스타 3.2만, 유튜브는 그대로).
+- 참고: 이탄생도 **유튜브는 쇼츠 90편 평균 약 2,500회**(삼성역 인스타 461만 = 유튜브 2,600). 유튜브가 안 크는 건 우리만의 문제가 아니다 → 인스타를 주 무대로 본다.
+
+| 항목 | 인기 5편 | 우리 61편(사진판) | 다음 편부터 |
+|---|---|---|---|
+| 움직임 가운데값(mv) | **9.0~12.7** | 4.1 | **10 안팎** (사진 밀기도 지금의 2.5배 빠르게, §6) |
+| 거의 멈춤(mv 3↓) | **0~3컷(0~9%)** | 11/28(39%) | **2컷 이하.** 도장·질문 컷도 천천히는 움직인다(§1-3의 19~26%는 최신 5편 기준, 인기작은 안 멈춤) |
+| 크게(mv 15↑) | 2~15컷(17~42%) | 1 | 컷의 30% |
+| 뒤로 물러나기 | **4~14컷(25~41%)** | 2 | 컷의 30% |
+| 옆으로 흐르기·궤도 | **6~21컷(약 50%)** | 2 | 컷의 절반(사진은 `P(..., cx2, cy2)`, 클립은 궤도·옆 이동) |
+| 끊지 않고 날아가 다음 장소로 | **9~20번**(통영만 1) | 0 | 6번 이상: 클립이 다음 그림까지 날아가 이어짐 |
+| 0~7초 | 삼성역 mv 21·25·23·22·16, 인천 15·33·29 | 6·6·8·6 | 첫 7초 mv 15↑ 3컷 이상(§7-2-1) |
+
+**눈으로 본 카메라(0.5초 화면)**
+1. **삼성역 0~4.5초 = 클립 하나**: 넓은 거리 항공 → 대로를 따라 낮게 날며 내려감 → 도로를 덮은 철판 틈으로 뚫고 들어가 → 불 켜진 지하 공사장(큰 홀). 그다음 뒤로 솟아 넓은 항공 + 빨간 60% 게이지.
+2. **인천공항 0~4초**: 바다 위에서 섬 공항으로 천천히 내려가며 다가감(제목 0~4초 위에) → 4.5초 터미널로 확 다이브(흐림) → 김포 항공으로 넘어감 → 낮은 각도에서 아파트 위로 뜨는 비행기.
+3. **통영해저터널 2~4초**: 항구 거리 → 카메라가 물 밑으로 가라앉아 **바다·땅 단면**(터널이 보임), 그 뒤 장면은 그대로 두고 물이 빠지는 장면 안 변화.
+4. **삼성역 28~42초**: 위에서 내려다본 교차로(빨간 X) → 낮은 각도로 도로를 따라 밀기 → 철판이 도로를 덮는 장면 안 변화 → 뒤로 빠져 전체 → 철판 사이 틈으로 들어가 지하 큰 홀.
+5. **그림 짜임**: 첫 그림은 **높은 비스듬한 항공(약 50~150 m, 30~45° 아래)**, 길·강이 지평선까지 뻗고 **하늘·지평선이 위 1/5**(제목 자리). 실사에 가까운 CG(흐림은 아주 먼 곳만, 미니어처 느낌 약하게). 지하·실내는 **위에서 내려다본 큰 홀**(작은 인형 여럿, 따뜻한 작업등), 기계 하나를 가까이 찍지 않는다. 같은 그림이 여러 번 나오되 카메라가 매번 다르게 움직임.
+- 우리 61편과 다른 점: 미니어처 흐림이 강하고 가까운 그림(펌프 하나 + 큰 고리)이 4번 반복, 사진이 거의 제자리.
+
 ## 2. 주제 고르기
 1. 바구니 셋: 매일 쓰거나 지나치는 **이름 있는 것**(노선·역·다리·공항·아파트 설비) + 최근 뉴스·계절 / **돈·안전 숫자** / **"왜 ~일까?"가 짐작 안 되는 것**.
 2. `python3 shorts/compose/topic_check.py "검색어1|검색어2"` (환경 변수 YOUTUBE_API_KEY): 관련 영상 최고 30만 이상 = 수요, 같은 각도 설명형 쇼츠 최고 30만 미만 = 빈자리.
@@ -117,9 +139,14 @@ TYPECAST_API_KEY=… python3 ../../template-2tan/tts_lines.py say.txt piljae 1.0
 - 장면 안 변화가 필요한 곳은 **편집 그림**(예: 07 = 05를 열어 편집, 물이 차오름).
 - **클립 끝 그림도 그림 단계에서 같이 만든다**(7-1의 1번): 같은 장면 다가가기는 `NNe.jpg`(NN을 열어 카메라만 가까이), 변화 장면은 결과 편집 그림. 그림 수는 약 1.6배가 되지만 크레딧 0.
 - **빨간 소품은 작고 가늘게(11/6 대표이사 "이해를 돕는 건 좋은데 너무 크면 영상에 방해")**: 가리키는 물체보다 작게, 물체를 가리지 않게. 클립 시작·끝 그림의 소품은 같은 종류·같은 자리(시작 핀 → 끝 고리처럼 다르면 Veo가 핀을 고리로 바꿔 버림, 61 c01a 1차).
+- **그림 짜임(11/6 인기 5편, §1-4)**:
+  - 장소 그림은 장면 묘사 첫머리를 `A high oblique aerial view from about 100 m up, looking 35 degrees down along [길·강] that runs straight toward the horizon; the sky and horizon fill the top fifth.`로 시작한다.
+  - **장소 그림마다 "들어갈 문"을 하나 둔다**: 도로 철판 틈, 맨홀, 물 표면, 잘린 땅 단면, 건물 유리창. 그 문 너머 그림(지하 큰 홀·단면)을 짝으로 만든다(클립 시작 → 끝).
+  - 지하·실내는 `seen from high above at a 45-degree angle, a large hall with many tiny figurines and warm work lights`처럼 넓게. 기계 하나를 가까이 찍은 그림은 한 편에 2장까지.
+  - 같은 장소를 각도만 바꾼 그림(높은 항공 / 낮은 거리 높이 / 바로 위)을 2~3장 만들어 컷마다 돌려 쓴다.
 - 프롬프트 = 장면 묘사(영어) + 아래 끝말 그대로. 주인공 설비도 실제 색 그대로(빨갛게 칠하지 않음), 빨간 소품을 그 옆에(고리·윤곽·화살표·핀·X·물음표). 글자·숫자는 그림에 넣지 않고 합성에서 얹는다.
 ```
-Style: a hyper-detailed cinematic 3D render of the real place as a realistic miniature world, like a high-end architectural visualization seen through a tilt-shift lens: natural realistic colors and materials - grey asphalt and concrete, glass and stone buildings, green street trees, cars in ordinary everyday colors, brown soil and rock in the cut-away ground sections, black and grey cables - warm soft sunlight with gentle shadows unless the scene says otherwise, interiors and tunnels are lit just as brightly and warmly as a presentation model under soft studio light - clean, tidy and inviting, never dark, grimy or gritty; strong tilt-shift miniature look with the near foreground and far background softly blurred, shallow depth of field, the world continues to every edge of the frame with no table, base or backdrop. Bright red (#E53935) is used only for a few small, thin 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks, dimension lines), each prop clearly smaller than the object it points to and never covering it; apart from those props, only things that are red in real life (a fire extinguisher, fire trucks) are red. Cars have no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
+Style: a hyper-detailed cinematic 3D render of the real place as a realistic miniature world, like a high-end architectural visualization seen through a tilt-shift lens: natural realistic colors and materials - grey asphalt and concrete, glass and stone buildings, green street trees, cars in ordinary everyday colors, brown soil and rock in the cut-away ground sections, black and grey cables - warm soft sunlight with gentle shadows unless the scene says otherwise, interiors and tunnels are lit just as brightly and warmly as a presentation model under soft studio light - clean, tidy and inviting, never dark, grimy or gritty; a near-photoreal look with only a gentle tilt-shift feel - the middle ground is sharp and only the very near foreground and the far horizon are slightly soft, the world continues to every edge of the frame with no table, base or backdrop. Bright red (#E53935) is used only for a few small, thin 3D infographic props placed next to objects (rings, outlines, arrows, pins, crosses, question marks, dimension lines), each prop clearly smaller than the object it points to and never covering it; apart from those props, only things that are red in real life (a fire extinguisher, fire trucks) are red. Cars have no logos and no license plates. Any people are tiny plain white figurines without faces. Absolutely no letters or numbers anywhere; all signs, panels, screens and props are blank. Main subject in the lower two-thirds, upper third calmer for overlay text. Vertical 9:16.
 ```
 - 이름: `~/Downloads/숨은설비/NN/01.jpg` …, GitHub `shorts/media/NN/in/img/` (ASIDE-MAKE 0-00). 카드 `shorts/produce/NN.md`, 한 번에 복사 `shorts/produce/NN_prompts.txt`.
 - **회색 바탕 단면 블록 그림체(56편 00_기준)는 쓰지 않는다**(벤치마크 근거 없음, 11/3).
@@ -144,7 +171,8 @@ cp template-2tan/scene_2tan.html template-2tan/sfx_2tan.py work/NN/   # sfx_2tan
 bash template-2tan/finish_2tan.sh NN draft      # → shorts/media/NN/out/NN_draft.mp4
 ```
 - 장면 20~23개(평균 4~6초). 문장 2~3개를 한 장면으로 묶는다. 같은 그림을 두 번 쓰면 배율·기준점을 달리한다.
-- `P(그림, 시작, 끝, from, to, cx, cy, xin, dive)`: xin = 앞 장면과 겹쳐 바뀌는 초(장면 안 변화), dive = 끝 1.1초에 확 다가가 다음 장면으로 뚫고 들어감(지도 장면에). 끝 장면은 from > to(뒤로 빠짐).
+- `P(그림, 시작, 끝, from, to, cx, cy, xin, dive, cx2, cy2)`: xin = 앞 장면과 겹쳐 바뀌는 초(장면 안 변화), dive = 끝 1.1초에 확 다가가 다음 장면으로 뚫고 들어감(지도 장면에). 끝 장면은 from > to(뒤로 빠짐). **cx2·cy2 = 끝 기준점(11/6 새로): 주면 사진이 옆·위아래로 흐른다.**
+- **사진 움직임 비율(11/6 인기 5편, §1-4)**: 2초 컷 기준 배율 차이 **0.3 이상**(예 1.0→1.3, 61편은 0.15~0.2라 mv 4). 컷 셋 중 하나는 뒤로 물러나기(1.35→1.05), 둘 중 하나는 옆 흐르기(움직이는 양 = (cx2 − cx) × (배율 − 1). 배율 1.3에서 cx 240 → 840이면 180px ≈ 화면 폭 17%. 기준점이 화면 안이고 배율 ≥ 1이면 가장자리는 안 보임). 제자리(from = to, cx2 없음)는 2컷 이하.
 - 숫자: `stamp`(도장), `tag`(꼬리 딱지), `pin`(핀). 0초 제목은 위 가운데(2.6초부터 밀려남). 자막은 가운데 흰 글자(자동).
 - 정지 화면 먼저 확인: `SCENE=scene_2tan.html node ../../render.mjs stills 0.5,10,30,…` (work/NN에서).
 - 대표이사에게 보내고 그림체·구성 확인받은 뒤 클립.
@@ -187,6 +215,12 @@ Keep the same realistic miniature world, light and colors as the start and end i
 | 다가가기 | NN → NNe | "The view glides slowly forward toward [대상] and stops close to it, exactly matching the end image." |
 | 장면 안 변화 | NN → 결과 편집 그림 | "[변화 하나] happens steadily while the view stays almost still." |
 | 위로 솟기(끝) | 땅속 → 하늘에서 본 전체 | "The view rises smoothly straight up out of the tunnel to above the city, exactly matching the end image." |
+| **거리 따라 날다 틈으로 다이브(11/6, 삼성역 0~4.5초)** | 높은 항공 → 지하 큰 홀 | "From the very first frame the view is already rushing forward. It flies low and fast along [길], descending toward [틈·맨홀·철판 사이], drops straight through it and arrives in [지하 큰 홀], exactly matching the end image." |
+| **물·땅 밑으로 가라앉기(11/6, 통영)** | 물가·거리 → 단면 | "The view sinks smoothly down through the water surface / the ground, revealing the cut-away section with [대상], exactly matching the end image." |
+| **궤도(11/6, 인기작 컷 절반이 옆 이동)** | NN → NNo(옆으로 30° 돈 그림) | "The view orbits slowly to the right around [대상], keeping it in the centre, exactly matching the end image." 끝 그림 편집 문장: `Keep exactly the same place, objects, props and light. Change only the camera: it has moved 30 degrees to the right around [대상], still looking at it. No letters or numbers anywhere.` |
+| **물러나며 드러내기(11/6, 컷의 30%)** | NNe(가까이) → NN(넓게) | "The view pulls back and rises steadily, revealing the whole [장소], exactly matching the end image." |
+| **휙 넘어가기(11/6, 인천 4.5초)** | 장소 A → 장소 B 항공 | "The view swings fast to the side with motion blur and settles above [장소 B], exactly matching the end image." 정식 모델 |
+- **클립 고르기(11/6, §1-4)**: 클립 크레딧은 ① 0~7초 다이브 ② 장소가 바뀌는 곳(끊지 않고 날아가 이어짐, 6곳 이상) ③ 궤도·물러나기 순. 거의 멈춤 컷은 클립 없이 사진(그래도 배율 0.1 이상 움직임).
 - 카드 `shorts/produce/NN_clips.txt` ([cNN.mp4] 시작 NN.jpg / 끝 NNe.jpg · 쓰임).
 
 ### 7-2-1. 첫 7초 = 큰 움직임 (대표이사 11/4 "초반에 무조건 움직임이 확실히 있어야 몰입감", 실측)

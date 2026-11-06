@@ -107,7 +107,7 @@ function photo(name, t, a, b, cam, overlay = "") {
   const sD = cam.dive ? s * (1 + 2.2 * Math.pow(prog(t, b - 1.1, b), 2.2)) : s;
   const dx = DX, dy = DY;
   const blur = "";
-  const cx = cam.cx || 540, cy = cam.cy || 900, rot = 0;
+  const cx = lerp(cam.cx || 540, cam.cx2 ?? (cam.cx || 540), p), cy = lerp(cam.cy || 900, cam.cy2 ?? (cam.cy || 900), p), rot = 0;  // cx2·cy2: 사진 옆으로 흐르기(11/6 인기 5편 실측, 컷 절반이 옆 이동)
   const shake = cam.shake ? cam.shake(t) : [0, 0];
   const fi = clip ? Math.max(1, Math.min(CLIPS[clip.id], Math.floor((clip.from || 1) + (t - (clip.t0 ?? a)) * CFPS * (clip.rate || 1)))) : 0;
   const rv = cam.reveal;
@@ -979,7 +979,7 @@ function globalHud(t) {
 const SIGNS = [];
 const SCENES = [];
 // P(그림, 시작, 끝, 배율 from→to, 기준점 x,y, 겹쳐 바뀌는 초, 끝에 뚫고 들어가기)
-const P = (img, a, b, f, to, cx, cy, xin, dive) => [img + "@" + Math.round(a * 100), a, b, { img, from: f, to, cx, cy, cuts: 1, xin, dive, lin: true }, null, null];
+const P = (img, a, b, f, to, cx, cy, xin, dive, cx2, cy2) => [img + "@" + Math.round(a * 100), a, b, { img, from: f, to, cx, cy, cx2, cy2, cuts: 1, xin, dive, lin: true }, null, null];
 const D = TL.duration, DV = 0.7;
 // 클립 장면: Q(클립, 화면 시작, 끝, 클립 시작초, 클립 끝초) — 쓸 구간을 장면 길이에 맞춰 배속을 정함. Veo 표시는 1.08배 위쪽 기준 확대로 가림
 const SLOW = []; // 0.8배보다 느린 클립(다시 만들 후보): 정지 화면 만들 때 콘솔에 찍힘
