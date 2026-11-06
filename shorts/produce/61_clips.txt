@@ -1,28 +1,48 @@
-61편 v2 클립 8개(우선순위 순) (동영상 · 프레임 · 9:16 · x1 · 8초). 각 프롬프트 뒤에 [공통 끝말]을 붙인다. 쓰는 구간은 1.5~6.6초.
+61편 v3 클립: 이미 만든 c01a·c01b(앞부분만 씀) + 남은 7개(우선순위 순). 동영상 · 프레임 · 9:16 · x1 · 8초. 각 프롬프트 뒤에 [공통 끝말]. 쓰는 구간은 1.5~6.6초.
+규칙(11/6 대표이사 '너무 크면 방해'): 빨간 소품은 작게. 시작·끝 그림의 소품이 다르면 Veo가 바꿔 버리므로(c01a 1차 핀→고리) 소품을 지운 편집 그림(n)이나 작게 줄인 편집 그림(s)으로 만든다. 숫자·이름은 합성에서 얹는다.
+
+[이미 만든 것] c01a·c01b (계정 D, Fast): 각각 1.0~2.5초만 씀(핀이 3초부터 커지고 7초에 고리로 바뀜). 첫 장면 1.5~4.3초를 c01a → c01b 앞으로만 이어 붙임. 10.4초 폭포 도착은 02n 사진
+
+[공통 끝말]을 붙인다. 쓰는 구간은 1.5~6.6초.
 
 [공통 끝말]
 Keep the same realistic miniature world, light and colors as the start and end images, and end exactly on the end image. Keep every object's shape, size and position stable for the whole shot; buildings, pipes, cars and figurines must not morph, mirror, split or change design. The red props stay exactly as in the start image; no new arrows, rings, pins or marks appear. No drone, aircraft, camera device or extra people appear. All labels and signs stay blank; no text, letters or numbers appear on anything. One single continuous move, no cuts, no scene change. Nothing breaks, shatters, explodes or falls apart. Audio: natural ambient sound only, no music, no voice.
 
-[c22.mp4] 시작 22.jpg / 끝 22.jpg · Veo 3.1 - Fast · 0~1.5초(첫 화면)
+[그림 편집 8장] 이미지 · Nano Banana · 9:16 · x1 · 0 크레딧. 지정 그림을 열어 편집, 받기 NNn.jpg / NNs.jpg
+[02n.jpg] (02.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Remove the red ring completely; nothing red remains in the picture. No letters or numbers anywhere.
+[03n.jpg] (03.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Remove the red arrows and the red question mark completely; nothing red remains in the picture. No letters or numbers anywhere.
+[10n.jpg] (10.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Remove the red map pin completely; nothing red remains in the picture. No letters or numbers anywhere.
+[11n.jpg] (11.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Remove the red arrows completely; nothing red remains in the picture. No letters or numbers anywhere.
+[17s.jpg] (17.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Make the red ring around the middle motor much smaller and thinner, a slim ring just around the motor that does not cover it. No letters or numbers anywhere.
+[17es.jpg] (17e.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Make the red ring around the middle motor much smaller and thinner, a slim ring just around the motor that does not cover it. No letters or numbers anywhere.
+[18n.jpg] (18.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Remove the red arrows completely; nothing red remains in the picture. No letters or numbers anywhere.
+[19n.jpg] (19.jpg를 열어 편집)
+Keep exactly the same place, objects and light. Remove the red arrows completely; nothing red remains in the picture. No letters or numbers anywhere.
+
+[c22.mp4] 1순위 · 시작 22.jpg / 끝 22.jpg · Veo 3.1 - Fast · 0~1.5초(첫 화면)
 From the very first frame the view is already moving fast, with no pause at the start. The view pushes quickly forward toward the thin red line in the middle of the split view and keeps both halves in frame. The red line, the waterfall and the stream on both sides keep exactly the same shape.
 
-[c01a.mp4] 시작 01.jpg / 끝 02.jpg · Veo 3.1 - Fast · 1.5~4.3초 · 10.4~11.7초
-From the very first frame the view is already moving fast, with no pause at the start. The view flies low and fast down along the stream toward the waterfall under the red pin, descends into the granite plaza below street level and slows to a stop in front of the two-tier curtain waterfall with the red ring, exactly matching the end image.
+[c03.mp4] 2순위 · 시작 02n.jpg / 끝 03n.jpg · Veo 3.1 - Fast · 13.4~15.6초
+The view sinks smoothly down and back in front of the waterfall while the ground beside it opens into the clean cut-away section, and the view settles above the plaza looking at the large pipe that feeds the waterfall, exactly matching the end image. The water keeps pouring the whole time. Nothing red appears at any time.
 
-[c03.mp4] 시작 02.jpg / 끝 03.jpg · Veo 3.1 - Fast · 13.4~15.6초
-The view sinks smoothly down and back in front of the waterfall while the ground beside it opens into the clean cut-away section, and the view settles above the plaza looking at the large pipe that feeds the waterfall, exactly matching the end image. The water keeps pouring the whole time.
+[c11.mp4] 3순위 · 시작 10n.jpg / 끝 11n.jpg · Veo 3.1 - Fast · 18.6~20.6초
+From the very first frame the view is already moving fast. The view flies low and fast over the river toward the intake station, dives down through the cut-away riverbank and arrives inside the cut-away pump house with the row of blue pumps, exactly matching the end image. Nothing red appears at any time.
 
-[c11.mp4] 시작 10.jpg / 끝 11.jpg · Veo 3.1 - Fast · 18.6~20.6초
-From the very first frame the view is already moving fast. The view flies low and fast over the river toward the intake station under the red pin, dives down through the cut-away riverbank and arrives inside the cut-away pump house with the row of blue pumps, exactly matching the end image.
+[c18.mp4] 4순위 · 시작 18n.jpg / 끝 19n.jpg · Veo 3.1 - Fast · 65.0~68.4초(끝, 물러나기)
+The view rises smoothly straight up and pulls back high above the city, revealing the whole river, the intake station, the long cut-away pipe and the stream, exactly matching the end image. Nothing red appears at any time.
 
-[c18.mp4] 시작 18.jpg / 끝 19.jpg · Veo 3.1 - Fast · 65.0~68.4초(끝, 물러나기)
-The view rises smoothly straight up and pulls back high above the city, revealing the whole river, the intake station, the long cut-away pipe and the stream with the red arrows forming one loop, exactly matching the end image.
-
-[c04.mp4] 시작 04.jpg / 끝 04b.jpg · Veo 3.1 - Lite · 16.8~18.6초
+[c04.mp4] 5순위 · 시작 04.jpg / 끝 04b.jpg · Veo 3.1 - Lite · 16.8~18.6초
 The view stays almost still. Rain starts to fall, the sky darkens to grey, and muddy brown water steadily rises and fills the dry streambed up to just below the shacks, exactly matching the end image. The shacks and figurines do not move.
 
-[c21.mp4] 시작 21.jpg / 끝 21.jpg · Veo 3.1 - Lite · 6.0~7.9초 · 40.9~42.9초
-The view glides slowly forward toward the foot of the dam. The released water keeps pouring steadily from the gate into the river and flows away toward the city. The dam, the lake and the red arrow keep exactly the same shape.
+[c21.mp4] 6순위 · 시작 21.jpg / 끝 21.jpg · Veo 3.1 - Lite · 6.0~7.9초 · 40.9~42.9초
+The view glides slowly forward toward the foot of the dam. The released water keeps pouring steadily from the gate into the river and flows away toward the city. The dam, the lake and the red arrow keep exactly the same shape and size.
 
-[c17.mp4] 시작 17.jpg / 끝 17e.jpg · Veo 3.1 - Lite · 56.7~59.5초
-The view glides slowly forward toward the middle pump and its motor with the red ring and stops close to it, exactly matching the end image. The pumps run quietly; nothing else moves.
+[c17.mp4] 7순위 · 시작 17s.jpg / 끝 17es.jpg · Veo 3.1 - Lite · 56.7~59.5초
+The view glides slowly forward toward the middle pump and its motor with the slim red ring and stops close to it, exactly matching the end image. The red ring keeps the same small size around the motor. The pumps run quietly; nothing else moves.
