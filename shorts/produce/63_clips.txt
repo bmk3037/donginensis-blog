@@ -1,0 +1,16 @@
+63편 클립 4개(우선순위 순). 동영상 · 프레임 · 9:16 · x1 · 8초 · 전부 Veo 3.1 - Fast(20) = 80 크레딧. 각 프롬프트 뒤에 [공통 끝말]. 쓰는 구간은 1.5~6.6초.
+근거: 63편 사진판 시험 렌더 움직임 가운데값 약 6(인기작 10 안팎) → 움직임이 가장 중요한 곳만 클립. 시작·끝 그림 모두 빨간 소품 없음.
+
+[공통 끝말]
+Keep the same realistic miniature world, light and colors as the start and end images, and end exactly on the end image. Keep every object's shape, size and position stable for the whole shot; the bridge, its white arched towers, truss deck, cables, buildings, boats and figurines must not morph, mirror, split or change design. No new arrows, rings, pins or marks appear. No drone, aircraft, camera device or extra people appear. All labels and signs stay blank; no text, letters or numbers appear on anything. One single continuous move, no cuts, no scene change. Nothing breaks or falls apart; the fireworks and the golden spark curtain keep falling steadily. Audio: natural ambient sound only, no music, no voice.
+
+[c01a.mp4] 1순위 · 시작 01.jpg / 끝 02.jpg · Fast · 0~5.3초(첫 장면, 2개 뽑아 번갈아 씀)
+From the very first frame the view is already rushing forward at high speed, with no slow start and no pause. It dives down from high above the bay toward the white suspension bridge and its golden spark curtain, descends to just above the sea surface beside the bridge and arrives close to the curtain of sparks pouring from the lower deck, exactly matching the end image.
+
+[c01b.mp4] 1순위 · c01a와 같은 프롬프트로 한 번 더(다른 판)
+
+[c09.mp4] 2순위 · 시작 09.jpg / 끝 14.jpg · Fast · 72.4~78.7초(끝, 물러나며 부산 해안 전체 → 첫 장면으로 이어짐)
+From the very first frame the view is already moving. The view pulls back and rises steadily away from the giant golden firework above the bridge, revealing the whole Busan coast, the beach, the barges and the long bridge with its spark curtain, exactly matching the end image.
+
+[c10.mp4] 3순위 · 시작 10.jpg / 끝 01b.jpg · Fast · 44.4~53.5초("100만 인파")
+From the very first frame the view is already moving. The view descends smoothly from high above the crowded beach toward the sand and turns to look out across the bay at the bridge, arriving at person height among the crowd of figurines, exactly matching the end image. The figurines stay still.
