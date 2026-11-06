@@ -1,16 +1,18 @@
-"""63편 광안리 불꽃축제 그림 프롬프트 → 63_prompts.txt (python 63_prompts.py). 스타일은 2TAN-MASTER §5(11/6판, 고리·동그라미 금지)."""
+"""63편 (11/6 실사 확인: 50편 Wikimedia 공개 사진 ref2·ref3 기준으로 다리 묘사 교체, 나이아가라는 아래층 — 부산시 2024 통제 안내)
+63편 광안리 불꽃축제 그림 프롬프트 → 63_prompts.txt (python 63_prompts.py). 스타일은 2TAN-MASTER §5(11/6판, 고리·동그라미 금지)."""
 S = next(l.strip() for l in open("2TAN-MASTER.md", encoding="utf-8") if l.startswith("Style: a hyper-detailed"))
 E = "Keep exactly the same place, objects, red props and light."
 HI = "A high oblique aerial view from about 150 m up, looking 35 degrees down"
-BR = ("Gwangan Bridge in Busan: a long double-deck suspension bridge with a steel truss deck (an upper road deck and a lower road deck), "
-      "two tall white towers with rounded arch tops and long main cables, crossing the bay in front of the wide crescent sandy beach of Gwangalli "
-      "with a dense row of hotels and apartment towers behind the beach")
+BR = ("Busan's Gwangan Bridge matching the reference photos: a white double-deck steel truss suspension bridge (two road decks stacked inside a white triangular-truss girder), "
+      "two tall slender white towers each made of two legs joined at the top by a rounded arch, two thick white main cables sagging between the towers with many thin vertical hangers, "
+      "large white concrete anchor blocks where the cables end, and long straight approach viaducts on white piers, crossing the bay in front of the curved sandy Gwangalli beach "
+      "with a dense row of hotels and apartment towers and two very tall twin glass towers further along the shore")
 DUSK = "Blue hour just after sunset: the sky is still bright deep blue with a soft orange glow on the horizon, city lights on, the scene bright and inviting, not a dark night."
-FW = "golden fireworks bursting high above the bridge and a long glittering curtain of golden sparks pouring straight down from the edge of the upper deck into the sea like a waterfall"
+FW = "golden fireworks bursting high above the bridge and a long glittering curtain of golden sparks pouring straight down from the outer edge of the lower deck of the truss girder into the sea like a waterfall"
 P = [
  ("01", None, f"{HI} from over the sea toward {BR}; the bridge runs across the lower half of the frame and the beach behind it, the sky and horizon fill the top fifth. {FW}. {DUSK} No red props."),
  ("01b", None, f"Seen from the sandy beach of Gwangalli at the height of a person: the beach is packed with a big crowd of tiny white figurines all facing the sea; across the bay {BR}, with {FW}. {DUSK} No red props."),
- ("02", None, f"Seen from just above the sea surface close to the side of the bridge: a long glittering curtain of golden sparks pours straight down from the edge of the upper deck of the double-deck steel truss suspension bridge into the sea and reflects on the water. {DUSK} No red props."),
+ ("02", None, f"Seen from just above the sea surface close to the side of the bridge: a long glittering curtain of golden sparks pours straight down from the outer edge of the lower deck of the white double-deck steel truss suspension bridge into the sea and reflects on the water. {DUSK} No red props."),
  ("03", None, "Seen from above at an angle on a clear sunny afternoon: the upper deck of a long double-deck steel truss suspension bridge over the sea; the outer lane is closed with orange traffic cones and barriers, a small work truck is parked in the closed lane, and tiny white figurine workers in plain white helmets fix long rows of small grey tubes and black cables along the outer railing of the deck; cars still drive in the other lanes. No red props."),
  ("04", "03", "Change only the camera: it is now close to the outer railing of the upper deck, where a long row of small grey tubes on a metal rack and bundled black cables are clamped to the railing; one figurine worker checks a cable; the sea far below. One thin red 3D arrow points at the row of tubes, smaller than the rack."),
  ("05", None, "A large 3D map of the Busan coast in miniature seen from high above at an angle: the crescent sandy beach of Gwangalli with its row of hotels, the long double-deck suspension bridge across the bay in front of it, a rocky green headland with cliffs to the south and a small wooded island-like cape with a lighthouse to the north-east, the city and mountains behind; three small thin red 3D map pins stand on the beach, the rocky headland and the wooded cape. Bright daylight."),
