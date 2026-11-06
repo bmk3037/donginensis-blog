@@ -51,6 +51,19 @@ V = {
  "L": """<div class="bg" style="left:0;right:0;background-image:url(img/01.webp)"></div>
 <div class="t w" style="top:430px;font-size:120px;-webkit-text-stroke:5px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-3px">광안리 불꽃축제</div>
 <div class="t y" style="top:640px;font-size:150px;-webkit-text-stroke:20px #000;line-height:1.15">다리에 뭘 달길래<br>닷새 전부터 막을까?</div>""",
+
+ # M~O: 추가 제안(11/6)
+ "M": """<div class="bg" style="left:0;right:0;background-image:url(img/02.webp)"></div>
+<div class="t w" style="top:430px;font-size:120px;-webkit-text-stroke:5px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-3px">광안리 불꽃축제</div>
+<div class="t y" style="top:640px;font-size:170px;-webkit-text-stroke:22px #000;line-height:1.15">광안대교가<br>발사대?</div>""",
+ "N": """<div class="bg" style="left:0;right:0;background-image:url(img/01.webp)"></div>
+<div class="t w" style="top:430px;font-size:120px;-webkit-text-stroke:5px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-3px">광안리 불꽃축제</div>
+<div class="t y" style="top:640px;font-size:170px;-webkit-text-stroke:22px #000;line-height:1.15">이 불꽃 20억<br>누가 낼까?</div>""",
+ "O": """<div class="bg" style="left:0;right:0;background-image:url(img/01.webp)"></div>
+<div class="t w" style="top:430px;font-size:120px;-webkit-text-stroke:5px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-3px">광안리 불꽃축제</div>
+<div class="t y" style="top:600px;font-size:210px;-webkit-text-stroke:26px #000">130억</div>
+<div class="t w" style="top:820px;font-size:110px;-webkit-text-stroke:16px #000">vs</div>
+<div class="t y" style="top:940px;font-size:210px;-webkit-text-stroke:26px #000">20억</div>""",
  # C: 해변 관객 그림 + 장소 이름
  "C": """<div class="bg" style="left:0;right:0;background-image:url(img/01b.webp)"></div>
 <div class="t w" style="top:520px;font-size:200px;-webkit-text-stroke:6px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-4px;line-height:1.05">광안리<br>불꽃축제</div>""",
