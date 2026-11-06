@@ -3,7 +3,7 @@
 S = next(l.strip() for l in open("2TAN-MASTER.md", encoding="utf-8") if l.startswith("Style: a hyper-detailed"))
 E = "Keep exactly the same place, objects, red props and light."
 HI = "A high oblique aerial view from about 150 m up, looking 35 degrees down"
-BR = ("Busan's Gwangan Bridge matching the reference photos: a white double-deck steel truss suspension bridge (two road decks stacked inside a white triangular-truss girder), "
+BR = ("Busan's Gwangan Bridge matching the reference photos in shape only (copy only the bridge's structure, not the photos' hazy weather, pale sky or colors): a white double-deck steel truss suspension bridge (two road decks stacked inside a white triangular-truss girder), "
       "two tall slender white towers each made of two legs joined at the top by a rounded arch, two thick white main cables sagging between the towers with many thin vertical hangers, "
       "large white concrete anchor blocks where the cables end, and long straight approach viaducts on white piers, crossing the bay in front of the curved sandy Gwangalli beach "
       "with a dense row of hotels and apartment towers and two very tall twin glass towers further along the shore")
