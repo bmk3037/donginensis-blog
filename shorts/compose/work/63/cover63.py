@@ -64,6 +64,20 @@ V = {
 <div class="t y" style="top:600px;font-size:210px;-webkit-text-stroke:26px #000">130억</div>
 <div class="t w" style="top:820px;font-size:110px;-webkit-text-stroke:16px #000">vs</div>
 <div class="t y" style="top:940px;font-size:210px;-webkit-text-stroke:26px #000">20억</div>""",
+
+ # P~R: 밤 배경 + 장소 이름 크게(11/7 "광안리 불꽃이 너무 약해, 완전 밤 사진으로")
+ "P": """<div class="bg" style="left:0;right:0;background-image:url(img/01_night.jpg)"></div>
+<div class="t w" style="top:300px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
+<div class="t y" style="top:820px;font-size:130px;-webkit-text-stroke:18px #000;line-height:1.15">이 불꽃 20억<br>누가 낼까?</div>""",
+ "Q": """<div class="bg" style="left:0;right:0;background-image:url(img/09_night.jpg)"></div>
+<div class="t w" style="top:300px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
+<div class="t y" style="top:820px;font-size:130px;-webkit-text-stroke:18px #000;line-height:1.15">이 불꽃 20억<br>누가 낼까?</div>""",
+ "R": """<div class="bg" style="left:0;right:0;background-image:url(img/14_night.jpg)"></div>
+<div class="t w" style="top:300px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
+<div class="t y" style="top:820px;font-size:130px;-webkit-text-stroke:18px #000;line-height:1.15">이 불꽃 20억<br>누가 낼까?</div>""",
+ "S": """<div class="bg" style="left:0;right:0;background-image:url(img/01_night.jpg)"></div>
+<div class="t w" style="top:640px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
+<div class="t y" style="top:1160px;font-size:120px;-webkit-text-stroke:17px #000;line-height:1.15">이 불꽃 20억 누가 낼까?</div>""",
  # C: 해변 관객 그림 + 장소 이름
  "C": """<div class="bg" style="left:0;right:0;background-image:url(img/01b.webp)"></div>
 <div class="t w" style="top:520px;font-size:200px;-webkit-text-stroke:6px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-4px;line-height:1.05">광안리<br>불꽃축제</div>""",
