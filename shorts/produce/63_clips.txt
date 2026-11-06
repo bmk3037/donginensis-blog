@@ -14,3 +14,14 @@ From the very first frame the view is already moving. The view pulls back and ri
 
 [c10.mp4] 3순위 · 시작 10.jpg / 끝 01b.jpg · Fast · 44.4~53.5초("100만 인파")
 From the very first frame the view is already moving. The view descends smoothly from high above the crowded beach toward the sand and turns to look out across the bay at the bridge, arriving at person height among the crowd of figurines, exactly matching the end image. The figurines stay still.
+
+===== 추가 3개(11/7 00시, 편집 v1 움직임 가운데값 5.4 → 가운데 18~70초 사진 구간 보강) Fast 60 크레딧 =====
+
+[c02.mp4] 4순위 · 시작 02.jpg / 끝 09.jpg · Fast · 35.1~40.5초("가장 큰 불꽃은 얼마나 클까요?")
+From the very first frame the view is already moving. The view rises steadily up from just above the sea beside the golden spark curtain and pulls back high over the bay, while one gigantic golden chrysanthemum firework bursts above the bridge, exactly matching the end image.
+
+[c06.mp4] 5순위 · 시작 06.jpg / 끝 07.jpg · Fast · 54.9~60.3초("연출 용역 계약")
+The view glides slowly toward the barge while the afternoon turns into blue hour and the rows of mortar tubes on the barge start firing golden fireworks that shoot up and burst high above, exactly matching the end image. The barge, tugboat and racks keep exactly the same shape.
+
+[c13.mp4] 6순위 · 시작 13.jpg / 끝 03.jpg · Fast · 31.7~35.1초("닷새 전부터 다리 일부 차로를 막았어요")
+From the very first frame the view is already moving. The view flies low along the upper deck of the bridge past the orange barriers and cones toward the tower, and descends beside the outer lane where tiny white figurine workers fix rows of grey tubes along the railing, exactly matching the end image.
