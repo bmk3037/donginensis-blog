@@ -87,8 +87,18 @@ V = {
  # C: 해변 관객 그림 + 장소 이름
  "C": """<div class="bg" style="left:0;right:0;background-image:url(img/01b.webp)"></div>
 <div class="t w" style="top:520px;font-size:200px;-webkit-text-stroke:6px rgba(40,40,40,.85);text-shadow:0 6px 18px rgba(0,0,0,.5);letter-spacing:-4px;line-height:1.05">광안리<br>불꽃축제</div>""",
+ # v6(11/7 오후 재편집, 줄기 = 다리가 발사대): 밤 불꽃 배경 + 장소 크게 + 노란 궁금증 한 줄
+ "V": """<div class="bg" style="left:0;right:0;background-image:url(img/01_night3.jpg)"></div>
+<div class="t w" style="top:640px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
+<div class="t y" style="top:1160px;font-size:120px;-webkit-text-stroke:17px #000;line-height:1.15">다리가 발사대라고?</div>""",
+ "W": """<div class="bg" style="left:0;right:0;background-image:url(img/01_night3.jpg)"></div>
+<div class="t w" style="top:640px;font-size:230px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안리<br>불꽃축제</div>
+<div class="t y" style="top:1160px;font-size:112px;-webkit-text-stroke:17px #000;line-height:1.15">불꽃 1시간, 다리는 닷새</div>""",
+ "X": """<div class="bg" style="left:0;right:0;background-image:url(img/01_night3.jpg)"></div>
+<div class="t w" style="top:700px;font-size:250px;-webkit-text-stroke:24px #000;letter-spacing:-6px;line-height:1.02">광안대교</div>
+<div class="t y" style="top:1000px;font-size:120px;-webkit-text-stroke:17px #000;line-height:1.15">불꽃 발사대 된다?</div>""",
 }
-JS = """import { createRequire } from "module"; import { pathToFileURL } from "url";
+JS ="""import { createRequire } from "module"; import { pathToFileURL } from "url";
 const pw = createRequire("C:/Users/bmk30/donginensis-blog/shorts/compose/")("playwright");
 const b = await pw.chromium.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe" });
 const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
