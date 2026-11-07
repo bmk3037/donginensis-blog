@@ -23,11 +23,16 @@ def plan():
     chk(start <= 14, f'"처음부터 보죠" 약 {start:.0f}초', '14초 안(인기작 가운데값 12초)')
     t = '\n'.join(L)
     nums = len(re.findall(r'\d[\d,.]*', t)) + len(re.findall(r'닷새|사흘|열흘|세 곳|두 곳', t))
-    chk(nums >= 18, f'숫자 {nums}개', '18개 이상')
+    chk(12 <= nums <= 20, f'숫자 {nums}개', '줄기에 붙는 것만 12~20개(늘어놓기 금지)')
     long = [i + 1 for i, c in enumerate(chars) if c / 6.3 > 8]
     chk(not long, '한 문장 8초 이하', f'긴 문장: {long}' if long else '')
     card = P('produce', f'{NN}.md')
-    chk(os.path.exists(card) and 'Codex' in open(card, encoding='utf-8').read(), 'Codex 검수 기록', f'{NN}.md에 Codex 검수 결과')
+    ct = open(card, encoding='utf-8').read() if os.path.exists(card) else ''
+    chk('Codex' in ct, 'Codex 검수 기록', f'{NN}.md에 Codex 검수 결과')
+    # 11/7 "저장하고 공유할 수 있게": 줄기 하나 + 저장·공유 줄을 대본 전에 정한다
+    for key in ('줄기 질문:', '저장 줄:', '공유 줄:'):
+        chk(key in ct, f'카드에 "{key}"', 'SKILL C — 대본 쓰기 전에 적고 대표이사 확인')
+    chk('화면' in ct and '카메라' in ct, '대본 표에 화면·카메라 칸', '문장마다 무엇이 보이나·카메라')
 
 def render():
     img = P('media', NN, 'in', 'img')
