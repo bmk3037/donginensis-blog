@@ -19,7 +19,13 @@ def plan():
     chars = [len(l.replace(' ', '')) for l in L]
     est = sum(chars) / 6.3
     at = [sum(chars[:i]) / 6.3 for i in range(len(L))]             # 문장 시작 초
-    chk(35 <= est <= 75, f'예상 길이 {est:.0f}초', '채널 개선안: 생활 설비 35~50초, 큰 시설 60~75초')
+    dur = [c / 6.3 for c in chars]; how = '예상'
+    tl = P('compose', 'work', NN, 'timeline.js')                     # 11/8 64편: 예상 74초 → 실제 78.8초. 녹음 뒤엔 실제 시각으로
+    if os.path.exists(tl):
+        s = open(tl, encoding='utf-8').read(); d = json.loads(s[s.index('{'):s.rindex('}') + 1])
+        if len(d['lines']) == len(L):
+            at = [l['start'] for l in d['lines']]; dur = [l['end'] - l['start'] for l in d['lines']]; est = d['duration']; how = '녹음'
+    chk(35 <= est <= 75, f'{how} 길이 {est:.1f}초', '채널 개선안: 생활 설비 35~50초, 큰 시설 60~75초')
     chk(not re.match(r'\s*(\d|지난|어제|오늘|그제)', L[0]), '첫 문장이 날짜·시각으로 시작 안 함', 'RULES-OPENING 4')
     q = next((i for i, l in enumerate(L) if '?' in l), None)
     chk(q is not None and at[q] <= 8, f'첫 질문 {at[q]:.1f}초' if q is not None else '첫 질문 없음', '8초 안(100만+ 4.6~7.7초)')
@@ -37,7 +43,7 @@ def plan():
     t = '\n'.join(L)
     nums = len(re.findall(r'\d[\d,.]*', t)) + len(re.findall(r'닷새|사흘|열흘|세 곳|두 곳', t))
     chk(12 <= nums <= 20, f'숫자 {nums}개', '줄기에 붙는 것만 12~20개(늘어놓기 금지)')
-    long = [i + 1 for i, c in enumerate(chars) if c / 6.3 > 5]
+    long = [i + 1 for i, c in enumerate(dur) if c > 5]
     chk(not long, '한 문장 5초 이하(한 호흡)', f'긴 문장: {long}' if long else '')
     cm = [i + 1 for i, l in enumerate(L) if len(re.findall(r'(?<!\d),|,(?!\d)', l)) > 1]
     chk(not cm, '쉼표 문장당 1개 이하', f'{cm}' if cm else 'Typecast가 쉼표마다 쉼')
