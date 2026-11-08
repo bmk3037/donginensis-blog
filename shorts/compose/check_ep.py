@@ -15,17 +15,34 @@ def plan():
     disp = P('produce', f'{NN}_disp.txt')
     if not os.path.exists(disp): return chk(False, '대본 파일', disp)
     L = [l for l in open(disp, encoding='utf-8').read().splitlines() if l.strip()]
+    # 11/8 대표이사 "100만 이상 터진 릴스 공통점을 대본에 적용시키려면 통과 기준이 있을 거 아냐" → 실측 기준을 기계로(MASTER §3, 스킬 §C 표)
     chars = [len(l.replace(' ', '')) for l in L]
     est = sum(chars) / 6.3
-    chk(60 <= est <= 90, f'예상 길이 {est:.0f}초', '60~90초')
+    at = [sum(chars[:i]) / 6.3 for i in range(len(L))]             # 문장 시작 초
+    chk(35 <= est <= 75, f'예상 길이 {est:.0f}초', '채널 개선안: 생활 설비 35~50초, 큰 시설 60~75초')
+    chk(not re.match(r'\s*(\d|지난|어제|오늘|그제)', L[0]), '첫 문장이 날짜·시각으로 시작 안 함', 'RULES-OPENING 4')
+    q = next((i for i, l in enumerate(L) if '?' in l), None)
+    chk(q is not None and at[q] <= 8, f'첫 질문 {at[q]:.1f}초' if q is not None else '첫 질문 없음', '8초 안(100만+ 4.6~7.7초)')
     k = next((i for i, l in enumerate(L) if '처음부터' in l), None)
-    start = sum(chars[:k]) / 6.3 if k is not None else 99
-    chk(start <= 14, f'"처음부터 보죠" 약 {start:.0f}초', '14초 안(인기작 가운데값 12초)')
+    start = at[k] if k is not None else 99
+    chk(start <= 14, f'"처음부터 보죠" 약 {start:.1f}초', '14초 안(100만+ 7.7~14.5초)')
+    ans = k is not None and any(re.search(r'아니에요|아니라|거든요', l) for l in L[:k])
+    chk(ans, '"처음부터" 앞에 답 한 줄', '"~가 아니에요/아니라 … ~거든요"')
+    body = '\n'.join(L[k + 1:]) if k is not None else ''
+    yrs = sorted(set(re.findall(r'(?:19|20)\d\d', body)))
+    chk(len(yrs) >= 4, f'본문 연도 {len(yrs)}개 {yrs}', '연도순 사연: 4개 이상(100만+는 원리보다 누가 언제 왜)')
+    tw = [i for i in range(k + 1, len(L)) if '?' in L[i]] if k is not None else []
+    mid = [i for i in tw if 0.40 <= at[i] / est <= 0.60 or (i + 1 < len(L) and 0.40 <= at[i + 1] / est <= 0.60)]
+    chk(bool(mid), '두 번째 반전 질문 40~60%', f'본문 질문 위치: {[round(100 * at[i] / est) for i in tw]}%')
     t = '\n'.join(L)
     nums = len(re.findall(r'\d[\d,.]*', t)) + len(re.findall(r'닷새|사흘|열흘|세 곳|두 곳', t))
     chk(12 <= nums <= 20, f'숫자 {nums}개', '줄기에 붙는 것만 12~20개(늘어놓기 금지)')
-    long = [i + 1 for i, c in enumerate(chars) if c / 6.3 > 8]
-    chk(not long, '한 문장 8초 이하', f'긴 문장: {long}' if long else '')
+    long = [i + 1 for i, c in enumerate(chars) if c / 6.3 > 5]
+    chk(not long, '한 문장 5초 이하(한 호흡)', f'긴 문장: {long}' if long else '')
+    cm = [i + 1 for i, l in enumerate(L) if len(re.findall(r'(?<!\d),|,(?!\d)', l)) > 1]
+    chk(not cm, '쉼표 문장당 1개 이하', f'{cm}' if cm else 'Typecast가 쉼표마다 쉼')
+    ad = [i + 1 for i, l in enumerate(L) if re.search(r'구독|좋아요 눌|공유해|알림 설정', l)]
+    chk(not ad, '나레이션에 구독·공유 유도 없음', f'{ad}' if ad else '')
     card = P('produce', f'{NN}.md')
     ct = open(card, encoding='utf-8').read() if os.path.exists(card) else ''
     chk('Codex' in ct, 'Codex 검수 기록', f'{NN}.md에 Codex 검수 결과')
