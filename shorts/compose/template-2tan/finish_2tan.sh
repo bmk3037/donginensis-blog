@@ -11,7 +11,7 @@ DUR=$(python3 -c "import json;print(json.loads(open('timeline.js').read().split(
 [ -f ambient.wav ] || ffmpeg -y -loglevel error -f lavfi -t "$DUR" -i anullsrc=r=44100:cl=stereo ambient.wav
 [ -f sfx.wav ] || python3 sfx.py
 # 고친 곳만 다시(11/4 "앞에만 하는데 왜 오래 걸려"): PARTS="0 7" → 0~10초·70~80초 조각만 지우고 나머지는 이어 씀. PARTS 없으면 전부
-if [ -n "${PARTS:-}" ]; then for k in $PARTS; do rm -f chunks_video_only_v2/part_$(printf %03d $k).mp4; done; else rm -rf chunks_video_only_v2; fi; node "$T/render.mjs" video video_only_v2.mp4 24 > render.log 2>&1
+if [ -n "${PARTS:-}" ]; then for k in $PARTS; do rm -f chunks_video_only_v2/part_$(printf %03d $k).mp4; done; else rm -rf chunks_video_only_v2; fi; node "$T/render.mjs" video video_only_v2.mp4 24 > render.log 2>&1 || { echo "렌더 실패(11/8 64편 v4: 그림판 오류인데 예전 화면으로 ok가 났음) — render.log:"; tail -5 render.log; exit 1; }
 # 11/7 배경음악·환경음 기본 0(대표이사 "백그라운드 음악은 빼야"), 넣으려면 BGMV=0.22 AMB=1
 # 11/5 색 보정(이탄생 실측에 맞춤, 59편 밝기 157→133·대비 46→57). 끄려면 VF=null
 AMB=${AMB:-0} BGMV=${BGMV:-0} VF=${VF:-eq=contrast=1.18:brightness=-0.06:saturation=1.0:gamma=0.85} bash "$T/mixv2.sh" video_only_v2.mp4 body.mp4 > /dev/null
