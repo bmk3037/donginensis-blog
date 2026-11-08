@@ -1,0 +1,26 @@
+64편 클립 8컷 (11/8 대표이사 확정: 움직임 계획 + Fast 3 · Lite 5). 시작 프레임 = 해당 그림, 9:16, 8초, 1.5~6.6초만 잘라 씀.
+공통 끝 문장: Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c01] g01 · Fast · 0~3초 "보일러 있으세요?" (첫 1초 후킹)
+A fast drone dive from high above down toward the white flower-shaped greenhouse by the lake at blue hour; as the camera descends, apartment windows across the district switch on one after another in warm orange. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c02] g02 · Lite · 3~6초 "378만 호"
+The camera glides smoothly forward past the empty white wall where a boiler would hang and tilts down to the two insulated pipes coming up out of the floor into the brass manifold. The small red question mark stays still. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c03] g01n · Fast · 9~13초 "9천 세대가 꺼졌어요"
+Static high aerial view at blue hour; the warm windows of the large block of apartment towers in the middle go dark block by block in quick succession, while the surrounding buildings stay lit; the camera slowly pulls back. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c04] g07 · Fast · 41~45초 "관이 터져요"
+A thick column of white steam suddenly bursts up from the round manhole cover in the middle of the boulevard and billows high; the camera pushes in toward it. Cars far away slow down. No people near the steam. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c05] g06 · Lite · 37~41초 "단지로 가요"
+A warm orange glow travels along the two black insulated pipes under the road from left to right and up into the apartment basement machine room, where it lights up; the camera tracks slowly sideways with it. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c06] g05 · Lite · 33~37초 "부천 열을 사 와요"
+Thin white steam rises gently from the two tall stacks; the camera moves slowly forward and down into the cut-away ground, following the two black insulated pipes as they leave the plant toward the distance. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c07] g08 · Lite · 48~52초 "밤 11시부터 끊었어요"
+The two tiny white figurine workers slowly turn the big round handwheels of the grey gate valves; the work lights flicker softly; the camera pushes in slowly. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
+
+[c08] g09 · Lite · 62~66초 "먼저 녹는 눈"
+The camera glides low and slowly along the straight strip of melted wet pavement through the snow, and a little white steam rises from a round manhole cover on the strip. Keep the same miniature tilt-shift 3D look, colors and layout as the start frame. No text, no letters, no logos. Smooth, steady cinematic motion.
