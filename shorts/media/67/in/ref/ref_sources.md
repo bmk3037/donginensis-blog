@@ -1,0 +1,8 @@
+# 67편 참고 사진 출처 (위키미디어 Commons, 참고용·영상에 직접 쓰지 않음)
+- r1_floor: Constructingheatedfloor.jpg (Public domain)
+- r2_pipes: Armado del piso radiante.jpg (CC BY-SA 4.0)
+- r3_meter: Wärmezähler elektronisch.JPG (CC BY-SA 3.0)
+- r4_substation: District heating substation.jpg (CC BY-SA 4.0)
+- r5_ufh: Dornbirn-Ebnit-underfloor heating-system-01ASD.jpg (CC BY-SA 4.0)
+- r6_apt_kr: 20171118 Pohang Daedong apartment house-1.jpg (CC BY-SA 4.0)
+- r7_apt_seoul: 20150209방배래미안69.jpg (CC BY-SA 4.0)
