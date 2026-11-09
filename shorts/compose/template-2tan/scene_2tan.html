@@ -973,7 +973,7 @@ function globalHud(t) {
   g += pin(t, a_(21) + 0.1, b_(21) - 0.1, "2개월 뒤", 540, 760);
   g += stamp(t, a_(23) + 0.2, b_(23) - 0.2, "2026.3", 540, 640, 96, -5);
   const tE = TL.duration - 2.2;
-  if (t > tE) g += `<rect width="1080" height="1920" fill="#000" opacity="${0.35 * prog(t, tE, tE + 0.6)}"/>` + flatS(t, tE, 540, 760, "숨은 설비 이야기", 112);
+  if (t > tE) g += `<rect width="1080" height="1920" fill="#000" opacity="${0.35 * prog(t, tE, tE + 0.6)}"/>` + flatS(t, tE, 540, 760, "알고보니", 150);
   return g;
 }
 const SIGNS = [];
@@ -1063,8 +1063,9 @@ function subtitle(t) {
 }
 // 시리즈 로고(왼쪽 위): 숨은 설비 이야기(11/1 채널 이름 바꿈)
 function badge() {
-  return `<g transform="translate(96,96)" opacity="0.94"><circle r="62" fill="#0A2A55" stroke="#fff" stroke-width="5"/><circle r="50" fill="none" stroke="#E5392B" stroke-width="3" stroke-dasharray="6 5"/>
-    <text y="-6" text-anchor="middle" ${FONT} font-size="23" fill="#fff">숨은 설비</text><text y="26" text-anchor="middle" ${FONT} font-size="26" fill="#FFD43B">이야기</text></g>`;
+  // 채널 워터마크(11/9 알고보니): 왼쪽 위 남색 알약 + 흰 테두리, 업로드 화면에서도 읽히게 크고 진하게
+  return `<g transform="translate(60,110)" opacity="0.96"><rect x="0" y="-44" width="236" height="88" rx="44" fill="#0A2A55" stroke="#fff" stroke-width="5"/>
+    <text x="118" y="14" text-anchor="middle" ${FONT} font-size="44" fill="#fff">알고<tspan fill="#FFD43B">보니</tspan></text></g>`;
 }
 window.setTime = function (t) {
   LABELS.length = 0;
