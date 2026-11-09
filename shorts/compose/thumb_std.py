@@ -1,6 +1,7 @@
-"""알고보니 표준 섬네일 (11/9 대표이사: 섬네일도 통일 기준, 업로드시 잘 보이게).
+"""알고보니 표준 섬네일 (11/9 갱신: 장소 이름 + 가장 센 훅 한 줄, 훅은 노란색으로 크게)
+알고보니 표준 섬네일 (11/9 대표이사: 섬네일도 통일 기준, 업로드시 잘 보이게).
 사용: python thumb_std.py 그림.jpg "장소 이름" 결과.jpg [두번째 줄]
-규칙: 장소 이름만 크게 흰색, 가운데(세로 약 50%), 1~2줄, 노란 글씨·숫자·물음표 없음.
+규칙(11/9 갱신): 1줄 장소 이름(흰색 크게) + 2줄 가장 센 훅(노란색 크게, 12자 안팎), 가운데(세로 약 50%). 훅은 대본의 첫 반전/왜-이유 문장에서 뽑는다.
 잘 보이게: 글자 뒤 어두운 띠(그림이 밝을수록 진함), 두꺼운 어두운 테두리와 그림자, 인스타 프로필 격자(3:4 가운데 1080x1440) 안에 글자 전부, 왼쪽 위 알고보니 워터마크 알약."""
 import sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageStat
@@ -17,7 +18,7 @@ probe = ImageDraw.Draw(im)
 lines = [name] + ([sub] if sub else [])
 fonts = []
 for i, t in enumerate(lines):
-    size = 270 if i == 0 else 130
+    size = 230 if i == 0 else 150
     while True:
         f = ImageFont.truetype(FB, size)
         bb = probe.textbbox((0, 0), t, font=f, stroke_width=10)
@@ -43,7 +44,7 @@ for t, f, w, h in fonts:
     ImageDraw.Draw(sh).text((x + 5, y + 10), t, font=f, fill=(0, 0, 0, 170), stroke_width=10, stroke_fill=(0, 0, 0, 170))
     sh = sh.filter(ImageFilter.GaussianBlur(10))
     im.paste(sh, (0, 0), sh)
-    ImageDraw.Draw(im).text((x, y), t, font=f, fill=(255, 255, 255), stroke_width=10, stroke_fill=(15, 25, 50))
+    ImageDraw.Draw(im).text((x, y), t, font=f, fill=((255, 255, 255) if t == name else (255, 212, 59)), stroke_width=10, stroke_fill=(15, 25, 50))
     y += h + gap
 
 d = ImageDraw.Draw(im)
